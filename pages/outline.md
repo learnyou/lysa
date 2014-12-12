@@ -1,3 +1,5 @@
+# Outline
+
 Here's my (pharpend) basic outline for the book. It's extremely rough at this
 point and will probably be gutted and slaughtered in its entirety.
 
