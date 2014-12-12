@@ -48,6 +48,7 @@ import       Data.ByteString.Lazy.Char8 (unpack)
 import       Data.Monoid (mappend)
 import       Hakyll
 import       System.Posix.Resource
+import       Text.Pandoc
 
 sass = getResourceLBS
   >>= withItemBody (unixFilterLBS "sass" ["--stdin", "--style", "expanded"])
@@ -79,5 +80,8 @@ main = hakyll $ do
 
   match "templates/*" $ compile templateCompiler
 
-defaultCompile = compile $ pandocCompiler >>= loadAndApplyTemplate "templates/default.html"
-                                                defaultContext >>= relativizeUrls
+defaultCompile = compile $ pandocCompilerWith def
+                             (def { writerHTMLMathMethod = MathJax
+                                                             "https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"
+                                  }) >>= loadAndApplyTemplate "templates/default.html"
+                                           defaultContext >>= relativizeUrls

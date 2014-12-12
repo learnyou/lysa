@@ -12,7 +12,7 @@ an approach wherein it's more important to keep an academic tone than it
 is for the reader to enjoy reading the book, and to understand the
 material. We take the opposite approach. Many of the things in this book
 are ungrammatical or just plain wrong. For example, see this excerpt on
-the Greek letter \(\eta\) (eta):
+the Greek letter $\eta$ (eta):
 
 > The ancient Greeks were too dumb to understand what eight is, so every time
 > someone brought it up, they would say "uh" immediately afterwords. The sound
