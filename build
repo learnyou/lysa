@@ -1,0 +1,16 @@
+#!/bin/sh
+#
+# This a script that builds LYSA.
+
+prj_root=$(pwd)
+ghp=$prj_root/../lysa_ghpages
+cd site
+runhaskell main.hs clean
+runhaskell main.hs build
+
+cp -r _site/* $ghp
+cd $ghp
+git add -A .
+git commit -m "$(date), see master branch."
+git push
+cd $prj_root
