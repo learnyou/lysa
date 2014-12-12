@@ -55,11 +55,14 @@ Nothing is set in stone, but here's the basic idea
 
 Wow, so intuitive. Here's some more stuff
 
-* We'll probably use
+* ~~We'll probably use
   [Pandoc's Markdown](http://johnmacfarlane.net/pandoc/README.html#pandocs-markdown)
   as the primary markup language. It's like
   [normal markdown](http://daringfireball.net/projects/markdown/), but it has
-  things like citations and mathml stuff.
+  things like citations and mathml stuff.~~
+* We'll probably use TeX, compiled into HTML with Pandoc. This makes
+  math formatting a bit easier. Things that don't have much math in them
+  (such as this document) should be written in Markdown.
 * We'll use [MathJax](http://www.mathjax.org/) (or some other JS-based TeX
   engine) to do math formatting
 * We'll have graphs generated with [Sage](http://www.sagemath.org/) (and maybe
@@ -75,3 +78,31 @@ We'll take a very informal tone, and won't pay too much attention to conventions
 or notation. (Well, duh, that's the entire point of the book).
 
 You can see a [preliminary outline](outline.html) if you want.
+
+# Great! How can I contribute?
+
+Here are some ideas:
+
+* Come see us in `#learnmath` on FreeNode, see how you can help. We don't have
+  any formal rules in the channel yet, so please just use common sense.
+*   Pick an issue in the [issue tracker](https://github.com/pharpend/lysa/issues),
+    fix it. 
+
+    There's a chance that I won't like your fix. If that happens, you may have
+    done a substantial quantity of work only for it to be rejected. For that
+    reason, I would recommend discussing any non-trivial fixes with us in the
+    IRC channel (or in the comments on the issue). 
+
+    "Non-trivial" is a bit of a subjective term, but I think you're smart enough
+    to figure out what it means in your case. If you're not smart enough to
+    figure that out, you probably shouldn't be writing a math textbook =P.
+
+* Pick a section in the [outline](/outline.html), and try to write it up. Again,
+  don't do too much work without making sure that I won't reject it. You don't
+  have to write each section consecutively. For instance, if Chapter 1 is
+  complete, and we appear to be working on chapter 2, you are free to do work on
+  chapter 15 or 17 or 53. Just make sure I won't reject your change.
+
+    + Also, please consider that the outline, as it stands (12 December 2014),
+      is very volatile, so your work may end up being completely rewritten, or
+      even deleted.
