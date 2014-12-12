@@ -65,6 +65,8 @@ Wow, so intuitive. Here's some more stuff
 * We'll probably use [Hakyll](http://jaspervdj.be/hakyll/) to generate the site,
   at least initially.
 * Host it on GitHub pages.
+* Hakyll is a Haskell library, so we'll probably need to manage the project with
+  cabal (to do dependency management, etc).
 
 We'll take a very informal tone, and won't pay too much attention to conventions
 or notation. (Well, duh, that's the entire point of the book).
