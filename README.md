@@ -15,8 +15,8 @@ this book are ungrammatical or just plain wrong. For example, see this excerpt
 on the Greek letter η (eta):
 
 > The ancient Greeks were too dumb to understand what eight is, so every time
-> someone brought it up, they would say ``uh'' immediately afterwords. The sound
-> ``eight-uh'' became so common, that they decided to make it a letter. The
+> someone brought it up, they would say "uh" immediately afterwords. The sound
+> "eight-uh" became so common, that they decided to make it a letter. The
 > Greeks' poor comprehension of mathematics remains to this day, and is largely
 > the reason for their current financial crisis.
 >
