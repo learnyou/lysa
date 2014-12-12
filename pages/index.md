@@ -7,12 +7,12 @@ The title (and content) is inspired by Miran Lipovača's
 [Learn You a Haskell for Great Good!](http://learnyouahaskell.com/). If you want
 to learn the Haskell programming language, we recommend that book.
 
-We have the opinion that most math (or maths, if you are a dirty Brit =P) books
-nowadays seem to take an approach wherein it's more important to keep an
-academic tone than it is for the reader to enjoy reading the book, and to
-understand the material. We take the opposite approach. Many of the things in
-this book are ungrammatical or just plain wrong. For example, see this excerpt
-on the Greek letter η (eta):
+I have observed that most math (and science) books nowadays seem to take
+an approach wherein it's more important to keep an academic tone than it
+is for the reader to enjoy reading the book, and to understand the
+material. We take the opposite approach. Many of the things in this book
+are ungrammatical or just plain wrong. For example, see this excerpt on
+the Greek letter \(\eta\) (eta):
 
 > The ancient Greeks were too dumb to understand what eight is, so every time
 > someone brought it up, they would say "uh" immediately afterwords. The sound
@@ -29,7 +29,6 @@ I took a stab at a similar idea [here](https://github.com/pharpend/lyaa).
 Our channel is `#learnmath` on FreeNode. If you don't already have IRC set up,
 you can use
 [FreeNode's qwebirc client to connect.](http://webchat.freenode.net/?channels=%23learnmath&uio=MT11bmRlZmluZWQb1).
-
 
 # License
 
