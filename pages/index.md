@@ -93,10 +93,6 @@ Here are some ideas:
     reason, I would recommend discussing any non-trivial fixes with us in the
     IRC channel (or in the comments on the issue). 
 
-    "Non-trivial" is a bit of a subjective term, but I think you're smart enough
-    to figure out what it means in your case. If you're not smart enough to
-    figure that out, you probably shouldn't be writing a math textbook =P.
-
 * Pick a section in the [outline](/outline.html), and try to write it up. Again,
   don't do too much work without making sure that I won't reject it. You don't
   have to write each section consecutively. For instance, if Chapter 1 is
@@ -106,3 +102,13 @@ Here are some ideas:
     + Also, please consider that the outline, as it stands (12 December 2014),
       is very volatile, so your work may end up being completely rewritten, or
       even deleted.
+* If you notice any errors, don't be shy to report then in the
+  [issue tracker](//github.com/pharpend/lysa/issues). If you have any
+  suggestions for improving LYSA, also post them in the issue tracker (or bring
+  them up in the IRC channel). 
+
+* If you have any questions about LYSA (or math), feel free to ask in the
+  channel, or in the issue tracker.
+
+Thanks! I hope you have a wonderful time reading the book! (Assuming I
+eventually get around to writing it =P).
