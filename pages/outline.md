@@ -19,7 +19,7 @@ exercises, graphs, examples, applications, etc.
 
 * Chapter 2, Groups, Rings, and Fields
     + Introduction to Groups, Rings, and Fields
-    + **N** is a group, **Z** is a ring, **R** is a field.
+    + $\mathbb{N}$ is a group, $\mathbb{Z}$ is a ring, $\mathbb{R}$ is a field.
     + How this applies to everyday life (Boring!)
 
 * Chapter 3, Proofs
@@ -57,12 +57,13 @@ This is a good segue to talk about Complex numbers
 * Chapter 13, Complex algorithms
 
 Good segue to talk about the concept of dimensions
+
 * Chapter 14, Dimensions
 * Chapter 15, Parametric functions
 * Chapter 16, Complex parametric functions
-* Chapter 17, functions that go from **F**^n to **F**, where **F** is a field.
-* Chapter 18, functions that go from **F** to **F**^n, where **F** is a field.
-* Chapter 19, functions that go from **F**^n to **F**^m, where **F** is a field.
+* Chapter 17, functions that go from $\mathbb{F}^n$ to $\mathbb{F}$, where $\mathbb{F}$ is a field.
+* Chapter 18, functions that go from $\mathbb{F}$ to $\mathbb{F}^n$, where $\mathbb{F}$ is a field.
+* Chapter 19, functions that go from $\mathbb{F}^n$ to $\mathbb{F}^m$, where $\mathbb{F}$ is a field.
 
 We'll next want to approach *systems* of equations. first, matrices
 
