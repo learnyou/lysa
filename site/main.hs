@@ -1,6 +1,7 @@
 {-# LANGUAGE OverloadedStrings #-}
 
--- |This file builds the site
+-- |This file builds and/or serves the site. To see the available
+-- options run the command "runhaskell main.hs help".
 -- 
 -- You need to install Hakyll before running this. "cabal install
 -- hakyll" will do the trick. If that doesn't work, please see
@@ -19,7 +20,7 @@
 -- resulting binary will be marginally faster, but the compilation
 -- will create a plethora of stupid files in the working
 -- directory. For that reason, I recommend simply running the script
--- with "runhaskell main.hs".
+-- with "runhaskell main.hs serve".
 -- 
 -- Copyright (C) 2014, Various Contributors.
 -- 
