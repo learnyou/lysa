@@ -55,6 +55,10 @@ sass = getResourceLBS
 
 main :: IO ()
 main = hakyll $ do
+  match "LICENSE" $ do
+    route idRoute
+    compile copyFileCompiler
+
   match "images/*" $ do
     route idRoute
     compile copyFileCompiler
