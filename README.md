@@ -43,6 +43,10 @@ changes unless we can then implement those changes into our work.  You are
 however, unlike most books, free to download, change, redistribute, print, sell,
 what-have-you, as long as you give us credit.
 
+**Edit**: For the time being, we will use the Creative Commons
+ShareAlike 4.0 License, I've decided. You can see the license in the
+LICENSE file.
+
 # Content and development
 
 Nothing is set in stone, but here's the basic idea
