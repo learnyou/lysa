@@ -4,7 +4,7 @@ This is a math book. We aim to take a logically rigorous, yet informal approach
 to math.
 
 The title (and content) is inspired by Miran Lipovača's
-[Learn You a Haskell for Great Good!](http://learnyouahaskell.com/). If you want
+[Learn You a Haskell for Great Good!](http://learnyouahaskell.com/) If you want
 to learn the Haskell programming language, we recommend that book.
 
 I have observed that most math (and science) books nowadays seem to take
@@ -28,7 +28,7 @@ I took a stab at a similar idea [here](https://github.com/pharpend/lyaa).
 
 Our channel is `#learnmath` on FreeNode. If you don't already have IRC set up,
 you can use
-[FreeNode's qwebirc client to connect.](http://webchat.freenode.net/?channels=%23learnmath&uio=MT11bmRlZmluZWQb1).
+[FreeNode's qwebirc client to connect.](http://webchat.freenode.net/?channels=%23learnmath&uio=MT11bmRlZmluZWQb1)
 
 # License
 
