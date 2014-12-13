@@ -24,7 +24,7 @@ advanced concepts in math.
 * A [preliminary outline][outline].
 * The [source for this site][src].
 * The [issue tracker][issues].
-* [Contributing guide](https://github.com/pharpend/lysa#content)
+* [Contributing guide](https://github.com/learnmath/lysa#content)
 
 [outline]: /outline.html
 [src]: https://github.com/learnmath/lysa
