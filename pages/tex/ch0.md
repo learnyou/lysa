@@ -49,14 +49,13 @@ going to put here.” And you are! Just look at how far you’ve gotten all
 on your own!
 
 My Calculus teacher in high school was rather emphatic that mathematical
-notation is all about being lazy. That idea stuck with me. I think
-you’ll learn very quickly is that mathematicians are lazy. Really lazy.
-We are so lazy that we can’t even bear to type the word “integer.” So,
-instead, we use letters to express these words. We use a large fancy Z,
-instead of writing “integers.” We really are that pretentious. So,
-whenever you see ${\mathbb{Z}}$, you can think “oh, he’s just a lazy
-jackass who can’t be bothered to type the word ‘integers’.” And you’ll
-probably be right.
+notation is all about being lazy. That idea stuck with me. I think you’ll learn
+very quickly is that mathematicians are lazy. Really lazy.  We are so lazy that
+we can’t even bear to type the word “integer.” So, instead, we use letters to
+express these words. We use a large fancy Z, instead of writing “integers.” We
+really are that pretentious. So, whenever you see ${\mathbb{Z}}$, you can think
+“oh, he’s just a lazy jerk who can’t be bothered to type the word ‘integers’.”
+And you’ll probably be right.
 
 #### Alright, back to the boring stuff
 
