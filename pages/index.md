@@ -101,8 +101,7 @@ previous attempt.
 
 * Come see us in `#learnmath` IRC channel on FreeNode. We don't have any formal
   rules in the channel yet, so please just use common sense.  If you don't know
-  how to use IRC, you can use
-  [FreeNode's qwebirc client to connect](http://webchat.freenode.net/?channels=%23learnmath&uio=MT11bmRlZmluZWQb1).
+  how to use IRC, you can use [FreeNode's qwebirc client to connect][webchat].
 * I previously took a stab at a similar idea [here](https://github.com/pharpend/lyaa).
 * A [preliminary outline][outline].
 * The [source for this site][src].
@@ -113,6 +112,7 @@ previous attempt.
 [outline]: /outline.html
 [src]: https://github.com/learnmath/lysa
 [issues]: https://github.com/learnmath/lysa/issues
+[webchat]: http://webchat.freenode.net/?channels=%23learnmath&uio=MT11bmRlZmluZWQb1
 
 # License
 

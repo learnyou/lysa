@@ -82,31 +82,17 @@ well enough, and most people are familiar with it.
 
 ![A graph illustrating gitflow](http://nvie.com/img/git-model@2x.png)
 
-We don't use the standard branch prefixes. With that in mind, please add this to
-the `.git/config` file in the repository.
-
-```conf
-[gitflow "branch"]
-	master = master
-	develop = develop
-[gitflow "prefix"]
-	feature = f/pharpend/
-	release = r/
-	hotfix = h/pharpend/
-	support = s/
-	versiontag = 
-```
-
-Replace `pharpend` with your GitHub username (or IRC nick, or something unique
-to you), so we don't have namespace conflicts on feature branches. Also, don't
-run `git flow init`, as it will override those settings. Just add those settings
-to your `.git/config` (or replace them), and it should work out of the
-box. (Provided you have gitflow installed).
-
 The [central repository][centrepo] is merge-only. Every developer should
 maintain their own fork of the repo, and then submit a pull request when they
 want their changes to be merged. Note that the central repository does not have
 feature branches. Your pull request should target the `develop` branch.
+You don't have to use gitflow yourself, (that is, your branch names
+don't have to follow the gitflow prefixes), but you do need to follow
+the basic scheme. That is, you do all work based on the `develop`
+branch.
+
+If you are making changes to the site, you should also push to your
+local gh-pages branch, so you can show us the changes that you made.
 
 [centrepo]: https://github.com/learnmath/lysa
 
