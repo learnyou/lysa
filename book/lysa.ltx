@@ -3,10 +3,10 @@
 % Append yourself to this list. Aliases are fine (e.g. darkf), but please do
 % include an email where people can email you.
 \author{
-  Peter Harpending <pharpend2@gmail.com> \\
-  % Anton Golov <jesyspa@gmail.com> \\
+  \anauthor{Peter Harpending}{pharpend2@gmail.com}
+  \anauthor{Anton Golov}{jesyspa@gmail.com}
+  \anauthor{Wei En Ng}{wei2912.supp0rt@gmail.com}
   % Randy Brown \\
-  % Wei En Ng \\
 }
 
 \usepackage{amsmath}
@@ -35,7 +35,8 @@
 \setlength{\parskip}{2ex}
 
 % Print-friendly links
-\renewcommand{\href}[2]{#2 (\url{#1})}
+\newcommand{\anauthor}[2]{#1 {\href{mailto:{#2}}{<{#2}>}} \\ }
+\newcommand{\link}[2]{#2 (\url{#1})}
 
 % Section & Chapter he
 \newcommand{\ch}[1]{\chapter{#1}\label{ch: #1}}
