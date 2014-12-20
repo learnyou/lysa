@@ -37,9 +37,6 @@ don't have to follow the gitflow prefixes), but you do need to follow
 the basic scheme. That is, you do all work based on the `develop`
 branch.
 
-If you are making changes to the site, you should also push to your
-local gh-pages branch, so you can show us the changes that you made.
-
 [centrepo]: https://github.com/learnmath/lysa
 [gitflow]: http://nvie.com/posts/a-successful-git-branching-model/
 
