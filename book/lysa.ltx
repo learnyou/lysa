@@ -11,12 +11,15 @@
 
 \usepackage{amsmath}
 \usepackage{amsfonts}
+\usepackage[backend=bibtex]{biblatex}
 \usepackage{fontspec}
 \usepackage[margin=0.75in]{geometry}
 \usepackage{mathtools}
 \usepackage{url}
 \usepackage{hyperref}
 \usepackage{cleveref}
+
+\addbibresource{1-introduction.bib}
 
 \setlength{\parskip}{2ex}
 
@@ -36,4 +39,6 @@
 \tableofcontents
 \input{1-introduction.ltx}
 \input{2-peano-axioms.ltx}
+\newpage
+\printbibliography
 \end{document}
