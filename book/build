@@ -3,7 +3,8 @@
 mkdir tmp
 cp -rv lysa.ltx chapters/* bibliographies/* images/* tmp/
 cd tmp
-xelatex lysa.ltx && bibtex lysa
+xelatex lysa.ltx || exit
+bibtex lysa
 xelatex lysa.ltx && xelatex lysa.ltx
 cp lysa.pdf ..
 cd ..
