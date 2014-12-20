@@ -20,7 +20,15 @@
 
 \setlength{\parskip}{2ex}
 
+% Print-friendly links
 \renewcommand{\href}[2]{#2 (\url{#1})}
+
+% Section & Chapter he
+\newcommand{\ch}[1]{\chapter{#1}\label{ch: #1}}
+\newcommand{\s}[1]{\section{#1}\label{s: #1}}
+\renewcommand{\ss}[1]{\subsection{#1}\label{ss: #1}}
+\newcommand{\sss}[1]{\subsubsection{#1}\label{sss: #1}}
+\newcommand{\pg}[2]{\paragraph{#1}\label{pg: #1}}
 
 \title{Learn You Some Algebras for Glorious Good!}
 \begin{document}
