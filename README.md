@@ -1,22 +1,32 @@
 # Learn You Some Algebras for Glorious Good!
 
 This is a math book. We aim to take a logically rigorous, yet informal approach
-to math.
+to math. You can see the source for the book in the `book/` directory. To build
+the project from source, you'll need most of the TeXLive packages (sorry, I
+don't have a list yet).
 
-You can see the preliminary project page at https://learnmath.github.io/lysa/
-. We haven't actually written any content yet, so don't get your hopes up. You
-are welcome to add content, but please see the
-[contributing guide][contrib-guide] first. 
+```
+git clone https://github.com/learnmath/lysa.git -b develop
+cd lysa/book
+./build
+```
+
+The build script is not dangerous, you can look at it if you want. It builds the
+book, and generates it into a file called `lysa.pdf` in the `book/`
+directory. If you have a slow computer, it might take about 30 seconds or so to
+build. On a fast computer, it will take less than a second. We don't include the
+PDF file in the git tree because it's a binary file, and thus causes merge
+conflicts if we try to track it.
+
+# Contributing
+
+You are welcome to add content, but please see the
+[contributing guide][contrib-guide] first.
 
 If you like chatting on IRC, come see us in `#learnmath` on FreeNode. If you
 don't know what IRC is, or you don't have a client set up, you can connect
 through [FreeNode's webchat][webchat].
 
-We hope you have a wonderful time reading the book! (Assuming we eventually get
-around to writing it =P).
-
-You can email me (pharpend) at `pharpend2@gmail.com`. I don't check that email
-very often, so IRC is better. I'm `pharpend` in the channel.
 
 If you notice any errors, don't be shy to report then in the
 [issue tracker](//github.com/pharpend/lysa/issues). If you have any suggestions
