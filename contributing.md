@@ -40,6 +40,14 @@ branch.
 [centrepo]: https://github.com/learnmath/lysa
 [gitflow]: http://nvie.com/posts/a-successful-git-branching-model/
 
+#### Magit
+
+If you use Emacs, as suggested above, you may be interested in
+[Magit][magit]. Magit is an Emacs interface to git, which, unsurprisingly, is
+much more pleasant than the git command line interface.
+
+[magit]: https://magit.github.io/
+
 ## Graphs and Code
 
 * For the time being, you can generate a graph with anything you want, as long
