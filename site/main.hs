@@ -1,3 +1,5 @@
+#!/usr/bin/env runhaskell
+
 {-# LANGUAGE OverloadedStrings #-}
 
 -- |This file builds and/or serves the site. To see the available
