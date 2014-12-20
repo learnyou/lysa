@@ -1,0 +1,10 @@
+#!/bin/sh
+
+mkdir tmp
+cp -rv lysa.ltx chapters/* bibliographies/* images/* tmp/
+cd tmp
+xelatex lysa.ltx && bibtex lysa
+xelatex lysa.ltx && xelatex lysa.ltx
+cp lysa.pdf ..
+cd ..
+rm -r tmp

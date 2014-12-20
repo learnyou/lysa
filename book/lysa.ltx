@@ -1,0 +1,31 @@
+\documentclass[12pt]{book}
+
+% Append yourself to this list. Aliases are fine (e.g. darkf), but please do
+% include an email where people can email you.
+\author{
+  Peter Harpending <pharpend2@gmail.com> \\
+  % Anton Golov <jesyspa@gmail.com> \\
+  % Randy Brown \\
+  % Wei En Ng \\
+}
+
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{fontspec}
+\usepackage[margin=0.75in]{geometry}
+\usepackage{mathtools}
+\usepackage{url}
+\usepackage{hyperref}
+\usepackage{cleveref}
+
+\setlength{\parskip}{2ex}
+
+\renewcommand{\href}[2]{#2 (\url{#1})}
+
+\title{Learn You Some Algebras for Glorious Good!}
+\begin{document}
+\maketitle
+\tableofcontents
+\input{1-introduction.ltx}
+\input{2-peano-axioms.ltx}
+\end{document}
