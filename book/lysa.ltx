@@ -1,0 +1,56 @@
+\documentclass[12pt]{book}
+
+% Append yourself to this list. Aliases are fine (e.g. darkf), but please do
+% include an email where people can email you.
+\author{
+  \anauthor{Peter Harpending}{pharpend2@gmail.com}
+  \anauthor{Anton Golov}{jesyspa@gmail.com}
+  \anauthor{Wei En Ng}{wei2912.supp0rt@gmail.com}
+  % Randy Brown \\
+}
+
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage[backend=bibtex]{biblatex}
+\usepackage{fontspec}
+\usepackage[margin=0.75in]{geometry}
+\usepackage{mathtools}
+\usepackage{url}
+\usepackage{hyperref}
+\usepackage{cleveref}
+
+\crefname{chapter}{\S}{\S}
+\crefname{section}{\S}{\S}
+\crefname{subsection}{\S}{\S}
+\crefname{subsubsection}{\S}{\S}
+\crefname{paragraph}{\S}{\S}
+\Crefname{chapter}{\S}{\S}
+\Crefname{section}{\S}{\S}
+\Crefname{subsection}{\S}{\S}
+\Crefname{subsubsection}{\S}{\S}
+\Crefname{paragraph}{\S}{\S}
+
+\addbibresource{1-introduction.bib}
+
+\setlength{\parskip}{2ex}
+
+% Print-friendly links
+\newcommand{\anauthor}[2]{#1 {\href{mailto:{#2}}{<{#2}>}} \\ }
+\newcommand{\link}[2]{#2 (\url{#1})}
+
+% Section & Chapter he
+\newcommand{\ch}[1]{\chapter{#1}\label{ch: #1}}
+\newcommand{\s}[1]{\section{#1}\label{s: #1}}
+\renewcommand{\ss}[1]{\subsection{#1}\label{ss: #1}}
+\newcommand{\sss}[1]{\subsubsection{#1}\label{sss: #1}}
+\newcommand{\pg}[2]{\paragraph{#1}\label{pg: #1}}
+
+\title{Learn You Some Algebras for Glorious Good!}
+\begin{document}
+\maketitle
+\tableofcontents
+\input{1-introduction.ltx}
+\input{2-peano-axioms.ltx}
+\newpage
+\printbibliography
+\end{document}

@@ -1,7 +1,0 @@
-This directory just contains some excerpts from the previous attempt,
-converted to markdown. This may serve as an example for converting
-things to markdown.
-
-The pandoc command I used:
-
-    pandoc ch0.tex -f latex -t markdown --mathjax ch0.tex > ch0.md
