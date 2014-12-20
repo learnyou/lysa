@@ -64,6 +64,10 @@ main = hakyll $ do
     route idRoute
     compile copyFileCompiler
 
+  match "fonts/*" $ do
+    route idRoute
+    compile copyFileCompiler
+
   match "stylesheets/*" $ do
     route $ setExtension "css"
     compile sass
