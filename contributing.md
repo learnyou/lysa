@@ -8,7 +8,7 @@ Here is the required software you need to contribute:
   written. The target distribution is [TeXLive][texlive], but it probably works
   on other distributions.
 
-* [git][git-scm] - we use git for version control. If you've never used git
+* [git][gitscm] - we use git for version control. If you've never used git
   before, I suggest reading [Pro Git][progit] by Scott Chacon.
 
 * Some text editor. [Emacs][emacs] is particularly good for LaTeX, although it
@@ -41,6 +41,7 @@ If you are making changes to the site, you should also push to your
 local gh-pages branch, so you can show us the changes that you made.
 
 [centrepo]: https://github.com/learnmath/lysa
+[gitflow]: http://nvie.com/posts/a-successful-git-branching-model/
 
 ## Graphs and Code
 
