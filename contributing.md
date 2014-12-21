@@ -3,13 +3,17 @@
 ## Forking and Setting up a Local Copy
 
 1) Fork the copy to your github account
+
 2) Clone your copy of the repo
+
 3) Create a new remote that points to the lm:lysa repo
 
 ## Making Edits, Additions, and Deletions
 
 We follow a loose version of gitflow on the central repo, but this really only effects you in a few ways:
+
 1) Do not make commits to master or develop
+
 2) All merges need to be made using --no-ff
 
 In order to make changes, the first thing you need to do is branch from develop. You can name your branch whatever, so long as it is relevant to the changes you are making. Do not, for instance, create f-omnibus which changes all the things. If you want to change or add content to different and unrelated areas--for instance, functors and rings--make two different branches to accomplish this. They can be sequential.
@@ -19,13 +23,19 @@ In order to make changes, the first thing you need to do is branch from develop.
 Once you have made all your changes, you want to get them merged into the central repo. Here is the process:
 
 1) After your last commit on your branch, switch back to develop and sync with upstream
+
 2) Merge your branch with develop using --no-ff
+
 3) Resolve any merge conflicts
+
 4) Push to your github cloned repo
+
 5) Submit a pull request
 
 If we cannot look into the branch history, we may ask you to amend your commit to --no-ff and resubmit.
+
 If we cannot automatically merge your pull request because it contains merge conflicts, we will ask you to fix them and resubmit.
+
 Sometimes, writing content can take a while. If you have any questions about what you are doing, please check in with us on IRC.
 
 ## Required software
