@@ -13,7 +13,7 @@
 \usepackage{amsfonts}
 \usepackage[backend=bibtex]{biblatex}
 \usepackage{fontspec}
-% \usepackage[margin=1in]{geometry}
+% \usepackage[utf8]{inputenc}
 \usepackage{mathtools}
 \usepackage{url}
 \usepackage{hyperref}
@@ -31,7 +31,7 @@
 \Crefname{paragraph}{\S}{\S}
 
 \addbibresource{1-introduction.bib}
-\addbibresource{2-peano-axioms.bib}
+\addbibresource{2-sets-monoids.bib}
 
 \setlength{\parskip}{2ex}
 
@@ -46,14 +46,18 @@
 \newcommand{\sss}[1]{\subsubsection{#1}\label{sss: #1}}
 \newcommand{\pg}[2]{\paragraph{#1}\label{pg: #1}}
 
+% Math shortcuts
 \newcommand{\suc}{\mathrm{suc}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
 
 \title{Learn You Some Algebras for Glorious Good!}
 \begin{document}
 \maketitle
 \tableofcontents
 \input{1-introduction.ltx}
-\input{2-peano-axioms.ltx}
+\input{2-sets-monoids.ltx}
 \newpage
 \printbibliography
 \end{document}
