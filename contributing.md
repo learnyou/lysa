@@ -10,7 +10,7 @@
 
 ## Making Edits, Additions, and Deletions
 
-We follow a loose version of gitflow on the central repo, but this really only effects you in a few ways:
+We follow a loose version of gitflow on the [central repository][centrepo], but this really only effects you in a few ways:
 
 1) Do not make commits to master or develop
 
@@ -38,6 +38,8 @@ If we cannot automatically merge your pull request because it contains merge con
 
 Sometimes, writing content can take a while. If you have any questions about what you are doing, please check in with us on IRC.
 
+[centrepo]: https://github.com/learnmath/lysa
+
 ## Required software
 
 Here is the required software you need to contribute:
@@ -46,7 +48,7 @@ Here is the required software you need to contribute:
   written. The target distribution is [TeXLive][texlive], but it probably works
   on other distributions.
 
-* [git][gitscm] - we use git for version control. If you've never used git
+* [git][gitscm] - we use git for version control. If you have never used git
   before, I suggest reading [Pro Git][progit] by Scott Chacon.
 
 * Some text editor. [Emacs][emacs] is particularly good for LaTeX, although it
@@ -56,27 +58,6 @@ Here is the required software you need to contribute:
 [gitscm]: http://git-scm.com/
 [progit]: http://git-scm.com/book/en/v2
 [texlive]: https://www.tug.org/texlive/
-
-### Recommended software
-
-#### Git flow
-
-We use [gitflow][gitflow]for our branch model. The model isn't perfect, but it
-works well enough, and most people are familiar with it.
-
-![A graph illustrating gitflow](http://nvie.com/img/git-model@2x.png)
-
-The [central repository][centrepo] is merge-only. Every developer should
-maintain their own fork of the repo, and then submit a pull request when they
-want their changes to be merged. Note that the central repository does not have
-feature branches. Your pull request should target the `develop` branch.
-You don't have to use gitflow yourself, (that is, your branch names
-don't have to follow the gitflow prefixes), but you do need to follow
-the basic scheme. That is, you do all work based on the `develop`
-branch.
-
-[centrepo]: https://github.com/learnmath/lysa
-[gitflow]: http://nvie.com/posts/a-successful-git-branching-model/
 
 #### Magit
 
