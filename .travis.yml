@@ -9,6 +9,6 @@ deploy:
   file: book/lysa.pdf
   skip_cleanup: true
   on:
-    tags: false
+    tags: true 
     repo: learnmath/lysa
-    branch: develop
+    all_branches: true
