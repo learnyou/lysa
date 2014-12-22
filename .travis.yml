@@ -1,6 +1,6 @@
 language: c
 compiler: gcc
-install: sudo apt-get install biblatex texlive texlive-latex-extra texlive-bibtex-extra texlive-xetex
+install: sudo apt-get install biblatex texlive texlive-latex-extra texlive-bibtex-extra texlive-xetex texlive-math-extra
 script: ./book/build
 deploy:
   provider: releases
