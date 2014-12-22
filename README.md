@@ -1,4 +1,6 @@
-# Learn You Some Algebras for Glorious Good!  ![Build status](https://travis-ci.org/learnmath/lysa.svg)
+![Build status](https://travis-ci.org/learnmath/lysa.svg)
+
+# Learn You Some Algebras for Glorious Good!
 
 This is a math book. We aim to take a logically rigorous, yet informal approach
 to math. You can see the source for the book in the `book/` directory. To build
