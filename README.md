@@ -1,5 +1,4 @@
 ![Build status](https://travis-ci.org/learnmath/lysa.svg)
-
 # Learn You Some Algebras for Glorious Good!
 
 This is a math book. We aim to take a logically rigorous, yet informal approach
