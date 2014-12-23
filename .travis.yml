@@ -19,5 +19,4 @@ after_success:
 - openssl aes-256-cbc -K $encrypted_6d2a7d4982c7_key -iv $encrypted_6d2a7d4982c7_iv
   -in deploy_rsa.enc -out deploy_rsa -d
 - chmod 600 deploy_rsa
-- ssh -o "StrictHostKeyChecking no" $USER@$HOST
-- scp -i deploy_rsa book/lysa.pdf $USER@$HOST:html/lysa-build$TRAVIS_JOB_ID.pdf
+- scp -i deploy_rsa book/lysa.pdf -o "StrictHostKeyChecking no" $USER@$HOST:html/lysa-build$TRAVIS_JOB_ID.pdf
