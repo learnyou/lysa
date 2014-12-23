@@ -27,7 +27,6 @@ If you like chatting on IRC, come see us in `#learnmath` on FreeNode. If you
 don't know what IRC is, or you don't have a client set up, you can connect
 through [FreeNode's webchat][webchat].
 
-
 If you notice any errors, don't be shy to report then in the
 [issue tracker](//github.com/pharpend/lysa/issues). If you have any suggestions
 for improving LYSA, also post them in the issue tracker (or bring them up in the
@@ -35,6 +34,36 @@ IRC channel).
 
 If you have any questions about LYSA (or math), feel free to ask in the channel,
 or in the issue tracker.
+
+# Roles
+
+The following people are the main contributors to LYSA:
+
+* Randy Brown -- project leader
+  * GitHub: [beingbrown](https://github.com/beingbrown/)
+  * IRC: beingbrown
+  * Website: [http://www.beingbrown.net/](http://www.beingbrown.net/)
+* Anton Golov -- author
+  * Email: [Anton Golov](mailto:jesyspa@gmail.com)
+  * GitHub: [jesyspa](https://github.com/jesyspa/)
+  * IRC: jesyspa
+* Peter Harpending -- author
+  * Email: [pharpend2@gmail.com](mailto:pharpend2@gmail.com)
+  * GitHub: [pharpend](https://github.com/pharpend/)
+  * IRC: pharpend
+  * Website: [https://pharpend.github.io/](https://pharpend.github.io/)
+* Ng Wei En -- build system manager & quality control
+  * Email: [wei2912.supp0rt@gmail.com](mailto:wei2912.supp0rt@gmail.com)
+  * GitHub: [wei2912](https://github.com/wei2912/)
+  * IRC: wei2912
+  * Twitter: [@wei2912](https://twitter.com/wei2912)
+  * Website: [https://wei2912.github.io/](https://wei2912.github.io/)
+* Nick Chambers -- site maintainer
+  * Email: [DTSCode@gmail.com](mailto:DTSCode@gmail.com)
+  * GitHub: [DTScode](https://github.com/DTScode)
+  * IRC: dts|pokeball
+
+They are also operators on our IRC channel. You may contact them if you need any help, but we encourage you to speak in the IRC channel rather than in PM.
 
 # License
 
