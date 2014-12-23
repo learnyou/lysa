@@ -74,7 +74,7 @@ Sometimes, writing content can take a while. If you have any questions about wha
 [centrepo]: https://github.com/learnmath/lysa
 [nviegitflow]: http://nvie.com/posts/a-successful-git-branching-model/
 
-## Required software
+## Software
 
 Here is the required software you need to contribute:
 
