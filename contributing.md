@@ -18,6 +18,12 @@ We follow a loose version of [gitflow][nviegitflow] on the [central repository][
 
 2) All merges need to be made using --no-ff
 
+We recommend that, in order to protect yourself from forgetfulness, configuring git to not use fast forward:
+
+```
+git config merge.ff false
+```
+
 In order to make changes, the first thing you need to do is branch from develop. You can name your branch whatever, so long as it is relevant to the changes you are making. Do not, for instance, create f-omnibus which changes all the things. If you want to change or add content to different and unrelated areas--for instance, functors and rings--make two different branches to accomplish this. They can be sequential.
 
 A sample command for creating a branch is shown below:
