@@ -7,6 +7,8 @@ deploy:
   api_key:
     secure: GD0c+hmACjBZHAXDAwBokIx0+VVEmNxFoX9cM1wG8TIA8DDpMn9Zjz02/8pZWylRQfwwrH7bY3L5XLdZ5lUTOvO7iKY3AKXT5OFFMhrKo8/U9KdFDOj7P1SEe3Bq5hZvVv2XR9ntmVudOfJGL798FTcdoNWUVmJx3R35Vbd+U/Y=
   file: book/lysa.pdf
+  skip_cleanup: true
   on:
+    tags: true 
     repo: learnmath/lysa
-    branch: develop
+    all_branches: true
