@@ -16,8 +16,6 @@ deploy:
 addons:
   ssh_known_hosts: 184.164.72.39
 after_success:
-- export USER="lysa"
-- export HOST="184.164.72.39"
 - openssl aes-256-cbc -K $encrypted_6d2a7d4982c7_key -iv $encrypted_6d2a7d4982c7_iv
   -in deploy_rsa.enc -out deploy_rsa -d
 - chmod 600 deploy_rsa
