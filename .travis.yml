@@ -1,6 +1,7 @@
 language: c
 compiler: gcc
-install: sudo apt-get install biblatex texlive texlive-latex-extra texlive-bibtex-extra texlive-xetex texlive-math-extra texlive-latex3
+install: sudo apt-get install biblatex texlive texlive-latex-extra texlive-bibtex-extra
+  texlive-xetex texlive-math-extra texlive-latex3
 script: cd book && ./build && cd ..
 deploy:
   provider: releases
@@ -9,6 +10,14 @@ deploy:
   file: book/lysa.pdf
   skip_cleanup: true
   on:
-    tags: true 
+    tags: true
     repo: learnmath/lysa
     all_branches: true
+after_success:
+- export USER="lysa"
+- export HOST="184.164.72.39"
+- openssl aes-256-cbc -K $encrypted_6d2a7d4982c7_key -iv $encrypted_6d2a7d4982c7_iv
+  -in deploy_rsa.enc -out deploy_rsa -d
+- chmod 600 deploy_rsa
+- echo "184.164.72.39 ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBOtPcDaB6JUwXuHrPjo7ITvFZ+wludLYxs8mqpIFpeqPsAbjBjhQ9zgjUO6ZqtVG5Z8Wn7nTY8fzuCkxavNvCuE=" > ~/.ssh/known_hosts
+- scp -i deploy_rsa book/lysa.pdf $USER@$HOST:html/lysa-build$TRAVIS_JOB_ID.pdf
