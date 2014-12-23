@@ -63,6 +63,8 @@ The following people are the main contributors to LYSA:
   * GitHub: [DTScode](https://github.com/DTScode)
   * IRC: dts|pokeball
 
+They are also operators on our IRC channel. You may contact them if you need any help, but we encourage you to speak in the IRC channel rather than in PM.
+
 # License
 
 LYSA is licensed under the
