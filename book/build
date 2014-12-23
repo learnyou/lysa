@@ -1,9 +1,9 @@
 #!/bin/sh
 
-clean_and_die () {
+clean_and_die() {
   cd $orig_dir
   rm -rf tmp
-  exit
+  exit $1
 }
 
 orig_dir=$(pwd)
@@ -12,9 +12,9 @@ mkdir tmp
 cp -rvf lysa.ltx chapters/* bibliographies/* images/* tmp/
 cd tmp
 
-xelatex lysa.ltx || clean_and_die
+xelatex lysa.ltx || clean_and_die 1
 bibtex lysa
 xelatex lysa.ltx && xelatex lysa.ltx
 
 cp lysa.pdf ..
-clean_and_die
+clean_and_die 0
