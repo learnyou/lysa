@@ -27,7 +27,6 @@ If you like chatting on IRC, come see us in `#learnmath` on FreeNode. If you
 don't know what IRC is, or you don't have a client set up, you can connect
 through [FreeNode's webchat][webchat].
 
-
 If you notice any errors, don't be shy to report then in the
 [issue tracker](//github.com/pharpend/lysa/issues). If you have any suggestions
 for improving LYSA, also post them in the issue tracker (or bring them up in the
@@ -35,6 +34,16 @@ IRC channel).
 
 If you have any questions about LYSA (or math), feel free to ask in the channel,
 or in the issue tracker.
+
+# Roles
+
+The following people are the main contributors to LYSA:
+
+* [beingbrown](https://github.com/beingbrown/) -- project leader
+* [pharpend](https://github.com/pharpend/) -- author
+* [jesyspa](https://github.com/jesyspa) -- author
+* [wei2912](https://github.com/wei2912) -- build system manager & quality control
+* [DTScode](https://github.com/DTScode) -- site maintainer
 
 # License
 
