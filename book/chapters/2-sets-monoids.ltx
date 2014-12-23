@@ -1,6 +1,109 @@
-\ch{Sets}
+\ch{Sets, unary operators, and binary operators.}
 
-This is a chapter on sets.
+This is a chapter on sets. What is a set, you ask? A set is a bunch of
+things. Well, duh, right? With math, when we use a colloquial term, like ``set''
+or ``group,'' we {\it usually} mean that the math term is similar in {\it
+  concept} to the colloquial term, but we usually attach some strings.
+
+The intuition for sets should hopefully be reasonably obvious. But, in the
+interest of establishing a convention, I'll first cover the {\it intuition} (or
+motivation) behind set theory in \cref{s: Intuition of a Set}, and then go over
+the fine-print stuff in \cref{s: Definition of a Set}.
+
+\s{Intuition of a Set}
+
+This is what math people call ``intuitive set theory.'' Or rather, that's the
+phrase we use when describing it to other people. As you will come to learn,
+mathematicians are, on average, very pompous and pretentious. For that reason,
+when us mathematicians talk about this version of set theory among ourselves, we
+use the term ``naïve set theory.''\cite{w-naive-set-theory}
+
+This is a quote from the Wikipedia article on naïve set theory:
+
+\begin{quote}
+  A set is a well defined collection of distinct objects. The objects that make
+  up a set (also known as the elements or members of a set) can be anything:
+  numbers, people, letters of the alphabet, other sets, and so on.
+\end{quote}
+
+That's a pretty good definition, right there. You might be asking what exactly
+the term {\it well-defined} means. And if so, congratulations! That said, the
+term {\it well-defined} isn't really well-defined.
+
+Now it turns out that this notion of a set doesn't exactly work out, which is
+why we have actual set theory, which I'll go over in \cref{ch: Definition of a
+  Set}. But, for the time being, let's roll with this. 
+
+\pg{Notation}
+
+Here's how I'm going to distinguish ``set'' vs ``not a set:''
+
+\begin{enumerate}
+\item $0$ is not a set, it is instead the number $0$.
+\item $468$ is not a set, it is instead the number $468$.
+\item $\{0\}$ is a set, containing only the number $0$.
+\item $\{468\}$ is a set, containing only the number $468$.
+\item $\{0,1,2,3,4,5,6,7,8,9\}$ is a set, containing the numbers from $0$ to $9$.
+\item $\{299,300,301,302,303,304,305,306\}$ is a set, containing the numbers
+  from $299$ to $306$.
+\end{enumerate}
+
+You can also have sets of sets, and even combine those sets together to get new
+sets.
+
+\newcommand{\sfse}{\{468\}}     %sfse = set four six eight
+\newcommand{\sztn}{\{0,1,2,3,4,5,6,7,8,9\}} %sztn = set zero through nine
+
+\begin{enumerate}
+\item
+  $\{ \{468\}, \{0,1,2,3,4,5,6,7,8,9\}, \{299,300,301,302,303,304,305,306\} \}$
+  is a meta-set (a set of sets), containing the three aforementioned sets, in
+  order.
+% Someone put a Civil war joke here, I can't think of one. Maybe something
+% about marriage being a magma?
+\item $\{468\} \cup \{0,1,2,3,4,5,6,7,8,9\}$ is the ``union'' of $\sfse$ and
+  $\sztn$. You can think of the union as ``smushing the two sets together to get
+  a new set.'' This union comes out to be $\{468, 0,1,2,3,4,5,6,7,8,9\}$.
+\item $\nil$ is a set, but doesn't have anything in it.
+\end{enumerate}
+
+\newpage
+\sss{Exercises}
+
+The solutions are on the next page.
+
+\pg{Unions}
+
+\begin{enumerate}
+\item Make up some arbitrary set, and we'll call it $A$. $A$ can be any
+  set. Explain why $A \cup \nil$ always turns out to be $A$, no matter what
+  $A$ actually is.
+\item Do the same thing as in the previous problem --- but --- this time,
+  explain why $\nil \cup A$ always turns out to be $A$, no matter what $A$
+  is. Note the difference between $\nil \cup A$ and $A \cup \nil$.
+\item Examine your reasoning from the last two problems. Does your reasoning
+  that $A \cup A$ is always $A$? Why or why not?
+\item Does this mean that $A \cup A$ is always $A$? Why or why not?
+\item Does this mean that $\nil \cup \nil$ is always $A$? Why or why not?
+\end{enumerate}
+
+\newpage
+\sss{Solutions}
+
+\begin{enumerate}
+\item Make up some arbitrary set, and we'll call it $A$. $A$ can be any
+  set. Explain why $A \cup \nil$ always turns out to be $A$, no matter what
+  $A$ actually is.
+\item Do the same thing as in the previous problem --- but --- this time,
+  explain why $\nil \cup A$ always turns out to be $A$, no matter what $A$
+  is. Note the difference between $A$
+\end{enumerate}
+
+\newpage
+
+\s{Definition of a Set}
+
+\ch{Special kinds of sets}
 
 \s{Magmas}
 \s{Semigroups}
