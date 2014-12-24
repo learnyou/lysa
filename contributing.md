@@ -84,28 +84,43 @@ Sometimes, writing content can take a while. If you have any questions about wha
 
 Here is the required software you need to contribute:
 
-* Some sort of LaTeX distribution. LaTeX is the markup language in which LYSA is
-  written. The target distribution is [TeXLive][texlive], but it probably works
-  on other distributions.
-
 * [git][gitscm] - we use git for version control. If you have never used git
   before, I suggest reading [Pro Git][progit] by Scott Chacon.
 
 * Some text editor. [Emacs][emacs] is particularly good for LaTeX, although it
   does have quite a bit of a learning curve.
+    + If you use Emacs, you may be interested in [Magit][magit]. Magit is an
+    Emacs interface to git, which, unsurprisingly, is much more pleasant than
+    the git command line interface.
 
 [emacs]: https://www.gnu.org/software/emacs/
 [gitscm]: http://git-scm.com/
-[progit]: http://git-scm.com/book/en/v2
-[texlive]: https://www.tug.org/texlive/
-
-#### Magit
-
-If you use Emacs, as suggested above, you may be interested in
-[Magit][magit]. Magit is an Emacs interface to git, which, unsurprisingly, is
-much more pleasant than the git command line interface.
-
 [magit]: https://magit.github.io/
+[progit]: http://git-scm.com/book/en/v2
+
+### TeXLive
+
+TeX is the markup language in which LYSA is written, so you need a TeX
+distribution to compile it. Note that if you are only interested in the PDF
+file, we publish regular builds [here](http://184.164.72.39/lysa/). The target
+TeX distribution is [TeXLive][texlive], but it probably works on other TeX
+distributions. Below you can find installation instructions for select operating
+systems. If you don't see your operating system there, but know what software is
+needed, please add it and send a pull request.
+
+#### Gentoo
+
+**Warning**: this will spawn a ton of processes, but will make the build a lot
+faster (from several hours to a few minutes). If your memory is precious, use
+`-av` instead of `-jav`.
+
+    # emerge -jav dev-tex/biblatex dev-texlive/texlive-latexrecommended dev-texlive/texlive-xetex
+
+#### Ubuntu 12.04
+
+    # apt-get install biblatex texlive texlive-latex-extra texlive-bibtex-extra texlive-xetex texlive-math-extra texlive-latex3
+
+[texlive]: https://www.tug.org/texlive/
 
 ## Graphs and Code
 
