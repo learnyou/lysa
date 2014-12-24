@@ -18,7 +18,7 @@ after_success:
     -in deploy_rsa.enc -out deploy_rsa -d
   - chmod 600 deploy_rsa
   - ssh-keyscan -t rsa,dsa -H $HOST 2>&1 | tee -a $HOME/.ssh/known_hosts
-  - scp -i deploy_rsa book/lysa.pdf $USER@$HOST:html/lysa-$TRAVIS_COMMIT.pdf
+  - scp -i deploy_rsa book/lysa.pdf $USER@$HOST:html/lysa-$TRAVIS_BUILD_ID.pdf
 notifications:
   irc: 
     channels:
