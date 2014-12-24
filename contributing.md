@@ -1,5 +1,7 @@
 # Contributing Guide
 
+# Git Stuff
+
 ## Forking and Setting up a Local Copy
 
 1) Fork the copy to your github account
@@ -96,7 +98,7 @@ Sometimes, writing content can take a while. If you have any questions about wha
 [centrepo]: https://github.com/learnmath/lysa
 [nviegitflow]: http://nvie.com/posts/a-successful-git-branching-model/
 
-## Software
+# Software
 
 Here is the required software you need to contribute:
 
@@ -137,6 +139,8 @@ faster (from several hours to a few minutes). If your memory is precious, use
     # apt-get install biblatex texlive texlive-latex-extra texlive-bibtex-extra texlive-xetex texlive-math-extra texlive-latex3
 
 [texlive]: https://www.tug.org/texlive/
+
+# Content
 
 ## Graphs and Code
 
