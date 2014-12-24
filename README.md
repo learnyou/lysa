@@ -18,6 +18,13 @@ build. On a fast computer, it will take less than a second. We don't include the
 PDF file in the git tree because it's a binary file, and thus causes merge
 conflicts if we try to track it.
 
+# Builds
+
+Nightly builds are available at [develop/](http://dtscode.io/~lysa/develop/) and
+master builds at [master/](http://dtscode.io/~lysa/master/).
+
+For more details on the build system, refer to the [contributing guide][contrib-guide].
+
 # Contributing
 
 You are welcome to add content, but please see the
@@ -63,7 +70,8 @@ The following people are the main contributors to LYSA:
   * GitHub: [DTScode](https://github.com/DTScode)
   * IRC: dts|pokeball
 
-They are also operators on our IRC channel. You may contact them if you need any help, but we encourage you to speak in the IRC channel rather than in PM.
+They are also operators on our IRC channel. You may contact them if you need
+any help, but we encourage you to speak in the IRC channel rather than in PM.
 
 # License
 
