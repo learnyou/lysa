@@ -10,8 +10,10 @@
 
 3) Create a new remote that points to the lm:lysa repo
 
-[Github][forkarepo] has written a very helpful guide to completing this series
+[GitHub][forkarepo] has written a very helpful guide to completing this series
 of steps.
+
+[forkarepo]: https://help.github.com/articles/fork-a-repo/
 
 ## Making Edits, Additions, and Deletions
 
@@ -41,6 +43,9 @@ A sample command for creating a branch is shown below:
 ```
 git checkout -b c-someContent develop
 ```
+
+[centrepo]: https://github.com/learnmath/lysa
+[nviegitflow]: http://nvie.com/posts/a-successful-git-branching-model/
 
 ## Committing
 
@@ -97,9 +102,6 @@ If we cannot automatically merge your pull request because it contains merge con
 
 Sometimes, writing content can take a while. If you have any questions about what you are doing, please check in with us on IRC. We encourage frequent submission in order to get feedback on your work. If we do not merge a pull request, you will get feedback on how to fix it and get it merged.
 
-[forkarepo]: https://help.github.com/articles/fork-a-repo/
-[centrepo]: https://github.com/learnmath/lysa
-[nviegitflow]: http://nvie.com/posts/a-successful-git-branching-model/
 
 # Software
 
@@ -143,6 +145,7 @@ faster (from several hours to a few minutes). If your memory is precious, use
 
 [texlive]: https://www.tug.org/texlive/
 
+
 # Content
 
 If you add new *content* to the book, such as a new chapter, or a substantial
@@ -175,3 +178,37 @@ changes, too bad. There's
 [idris]: http://www.idris-lang.org/
 [learnhs]: https://github.com/bitemyapp/learnhaskell
 [sage]: http://www.sagemath.org/
+
+
+# Build System
+
+[Travis CI][travis] is used for automatic builds on commits to the branch.
+
+The repository's [status page][travis-status] shows information about the current build. When a commit is made to the repository, it will show up on the status page.
+
+[travis]: https://travis-ci.org/
+[travis-status]: https://travis-ci.org/learnmath/lysa
+
+## Build Process
+
+Travis clones the repository and installs a list of dependencies. Afterwards, it builds the PDF file. If any error occurs, the build will terminate and marked as "Errored". If the build succeeds, the build process proceeds to deployment.
+
+There are 2 ways Travis may deploy the build:
+
+1) [DTSCode's VPS][dtscode-vps]
+2) [transfer.sh][transfer-sh]
+
+If a commit is made to the `master` branch, Travis pushes the build to `master/` on [DTSCode's VPS][dtscode-vps], where the released builds are stored. The PDF files are named according to the tag of the commit made to the `master` branch. If there is no tag, Travis will give an error.
+
+If a commit is made to any other branches, Travis pushes the build to `$TRAVIS_BRANCH/` on [DTSCode's VPS][dtscode-vps]. The PDF files are marked by the Build IDs used internally by Travis.
+
+All other builds (such as PRs) are uploaded onto [transfer.sh][transfer-sh]. The PDF files are named by the Build IDs mentioned in the previous paragraph.
+
+Links to the builds are available at the bottom of every build.
+
+[dtscode-vps][http://dtscode.io/~lysa/]
+[transfer-sh][https://transfer.sh/]
+
+## Skipping a build
+
+Sometimes, building a PDF file may be unnecessary when your commit does not cause any part of the book to be changed. In these cases, you may ask Travis to skip building your commit by appending "[ci skip]" or "[skip ci]" to your commit message. This helps to reduce load on Travis and saves space on servers.
