@@ -1,5 +1,7 @@
 # Contributing Guide
 
+# Git Stuff
+
 ## Forking and Setting up a Local Copy
 
 1) Fork the copy to your github account
@@ -46,6 +48,9 @@ Make sure that each commit only contains one change. It's a lot less annoying to
 have to sift through 20 commits each with 1 different change than 1 commit with
 20 different changes. If the change is difficult to summarize in one line, then
 you should probably split up the commit with `git add -p`.
+
+When in doubt, follow the
+[Erlang OTP Git Commit Guide](https://github.com/erlang/otp/wiki/Writing-good-commit-messages).
 
 ## Preparing for and Making a Pull Request
 
@@ -96,7 +101,7 @@ Sometimes, writing content can take a while. If you have any questions about wha
 [centrepo]: https://github.com/learnmath/lysa
 [nviegitflow]: http://nvie.com/posts/a-successful-git-branching-model/
 
-## Software
+# Software
 
 Here is the required software you need to contribute:
 
@@ -137,6 +142,15 @@ faster (from several hours to a few minutes). If your memory is precious, use
     # apt-get install biblatex texlive texlive-latex-extra texlive-bibtex-extra texlive-xetex texlive-math-extra texlive-latex3
 
 [texlive]: https://www.tug.org/texlive/
+
+# Content
+
+If you add new *content* to the book, such as a new chapter, or a substantial
+portion of text, please add yourself to the `\author` field in
+`book/lysa.ltx`. If you merely suggested changes, or made a number of trivial
+changes, too bad. There's
+[some discussion](https://github.com/learnmath/lysa/issues/40) of adding an
+"Editors" field, but nothing's come of it yet.
 
 ## Graphs and Code
 
