@@ -49,6 +49,9 @@ have to sift through 20 commits each with 1 different change than 1 commit with
 20 different changes. If the change is difficult to summarize in one line, then
 you should probably split up the commit with `git add -p`.
 
+When in doubt, follow the
+[Erlang OTP Git Commit Guide](https://github.com/erlang/otp/wiki/Writing-good-commit-messages).
+
 ## Preparing for and Making a Pull Request
 
 Once you have made all your changes, you want to get them merged into the
