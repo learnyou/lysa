@@ -131,8 +131,13 @@ faster (from several hours to a few minutes). If your memory is precious, use
 * We might use [Idris][idris] as an interactive proof assistant. The other
   candidates are [Coq][coq] and [Agda][agda].
 
-* Turing-complete code examples should be written in [Haskell][hs]. If you don't
-  know Haskell, please see [bitemyapp's guide][learnhs].
+* Turing-complete code examples should be written in [Haskell][hs]. 
+    + If you want to learn Haskell, please see [bitemyapp's guide][learnhs]. 
+    + If you don't want to add code examples, you don't need to learn Haskell.
+    + If you do want to add code examples, but don't want to learn Haskell, you
+      can write your code in something else, and ask someone in the channel to
+      translate it for you. That said, there is no guarantee someone will be
+      willing to do so, though.
 
 [agda]: http://wiki.portal.chalmers.se/agda/pmwiki.php
 [coq]: https://coq.inria.fr/
