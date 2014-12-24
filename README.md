@@ -1,4 +1,7 @@
+### Nightly builds - http://dtscode.io/lysa/
+
 # Learn You Some Algebras for Glorious Good! [![Build status](https://travis-ci.org/learnmath/lysa.svg)](https://travis-ci.org/learnmath/lysa)
+
 
 This is a math book. We aim to take a logically rigorous, yet informal approach
 to math. You can see the source for the book in the `book/` directory.
@@ -77,22 +80,8 @@ any help, but we encourage you to speak in the IRC channel rather than in PM.
 
 # License
 
-LYSA is licensed under the [GNU Free Documentation License][gfdl]. This means
-many things, but here's the gist of it:
-
-* You are free to read this book, redistribute it, change it, sell it,
-what-have-you. There are a minimum of strings attached.
-
-* The first string - you have to give us credit. You can't claim that you wrote
-this book all on your own.
-
-* The second thing - you are welcome to make changes, but, if you publish your
-  changes, you must publish your changes under the same license. This ensures
-  that we can then integrate your changes back into the main work. Moreover, if
-  you *print* your changes in any substantial quantity, you must publish the
-  source.
-
-The license can be found in the LICENSE file in the project root.
+LYSA is licensed under the [GNU Free Documentation License][gfdl]. The license
+can be found in the LICENSE file in the project root.
 
 [gfdl]: https://gnu.org/licenses/fdl.html
 [contrib-guide]: contributing.md
