@@ -41,7 +41,7 @@ Once you have made all your changes, you want to get them merged into the centra
 ```
 git checkout develop
 git fetch upstream
-git merge upstream/develop --no-ff
+git merge upstream/develop
 ```
 
 2) Merge your branch with develop using --no-ff
