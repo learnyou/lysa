@@ -38,7 +38,7 @@
 \setlength{\parskip}{2ex}
 
 % Print-friendly links
-\newcommand{\anauthor}[2]{#1 {\href{mailto:{#2}}{<{#2}>}} \\ }
+\newcommand{\anauthor}[2]{#1 {\href{mailto:#2}{<{#2}>}} \\ }
 \newcommand{\link}[2]{#2 (\url{#1})}
 
 % Section & Chapter he
@@ -58,7 +58,6 @@
 \title{Learn You Some Algebras for Glorious Good!}
 \begin{document}
 \maketitle
-\tableofcontents
 
 \newpage
 \topskip0pt
@@ -81,6 +80,8 @@
 
 \vspace*{\fill}
 \newpage
+
+\tableofcontents
 
 \input{1-introduction.ltx}
 \input{2-sets-monoids.ltx}
