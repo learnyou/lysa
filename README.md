@@ -44,7 +44,7 @@ The following people are the main contributors to LYSA:
   * IRC: beingbrown
   * Website: [http://www.beingbrown.net/](http://www.beingbrown.net/)
 * Anton Golov -- author
-  * Email: [Anton Golov](mailto:jesyspa@gmail.com)
+  * Email: [jesyspa@gmail.com](mailto:jesyspa@gmail.com)
   * GitHub: [jesyspa](https://github.com/jesyspa/)
   * IRC: jesyspa
 * Peter Harpending -- author
