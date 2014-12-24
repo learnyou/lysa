@@ -4,16 +4,17 @@
 % include an email where people can email you.
 \author{
   \anauthor{Peter Harpending}{pharpend2@gmail.com}
-  \anauthor{Anton Golov}{jesyspa@gmail.com}
-  \anauthor{Ng Wei En}{wei2912.supp0rt@gmail.com}
+  % \anauthor{Anton Golov}{jesyspa@gmail.com}
+  % \anauthor{Ng Wei En}{wei2912.supp0rt@gmail.com}
   % Randy Brown \\
 }
 
 \usepackage{amsmath}
 \usepackage{amsfonts}
+\usepackage{amssymb}
 \usepackage[backend=bibtex]{biblatex}
 \usepackage{fontspec}
-\usepackage[margin=0.75in]{geometry}
+% \usepackage[utf8]{inputenc}
 \usepackage{mathtools}
 \usepackage{url}
 \usepackage{hyperref}
@@ -31,11 +32,13 @@
 \Crefname{paragraph}{\S}{\S}
 
 \addbibresource{1-introduction.bib}
+\addbibresource{2-sets-monoids.bib}
+\addbibresource{3-special-sets.bib}
 
 \setlength{\parskip}{2ex}
 
 % Print-friendly links
-\newcommand{\anauthor}[2]{#1 {\href{mailto:{#2}}{<{#2}>}} \\ }
+\newcommand{\anauthor}[2]{#1 {\href{mailto:#2}{<{#2}>}} \\ }
 \newcommand{\link}[2]{#2 (\url{#1})}
 
 % Section & Chapter he
@@ -45,12 +48,45 @@
 \newcommand{\sss}[1]{\subsubsection{#1}\label{sss: #1}}
 \newcommand{\pg}[2]{\paragraph{#1}\label{pg: #1}}
 
+% Math shortcuts
+\newcommand{\suc}{\mathrm{suc}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\nil}{\varnothing}
+
 \title{Learn You Some Algebras for Glorious Good!}
 \begin{document}
 \maketitle
+
+\newpage
+\topskip0pt
+\vspace*{\fill}
+
+{\footnotesize
+% \noindent
+  \begin{center}
+    Copyright © 2014 \anauthor{Peter Harpending.}{pharpend2@gmail.com}
+  \end{center}
+% \noindent
+  \begin{center}
+    Permission is granted to copy, distribute and/or modify this document under
+    the terms of the GNU Free Documentation License, Version 1.3 or any later
+    version published by the Free Software Foundation; with no Invariant
+    Sections, no Front-Cover Texts, and no Back-Cover Texts. A copy of the
+    license is included in \cref{gfdl}.
+  \end{center}
+}
+
+\vspace*{\fill}
+\newpage
+
 \tableofcontents
+
 \input{1-introduction.ltx}
-\input{2-peano-axioms.ltx}
+\input{2-sets-monoids.ltx}
+\input{3-special-sets.ltx}
+\input{fdl.ltx}
 \newpage
 \printbibliography
 \end{document}

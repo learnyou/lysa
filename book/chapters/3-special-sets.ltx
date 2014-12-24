@@ -1,0 +1,155 @@
+\ch{Special kinds of sets}
+
+\s{Magmas}
+\s{Semigroups}
+\s{Monoids}
+\s{Peano Axioms}
+
+This section covers the Peano axioms. As I said in \cref{s: Motivation}, these
+are a way for mathematicians to understand arithmetic.
+
+Arithmetic (hopefully) seems simple enough, and easy to understand. Maybe an
+expression like
+
+\[ (2048282 \times 33221) + (3254 \times 11) \]
+
+seems difficult to calculate, but you hopefully understand what each of the
+operators mean in concept. If you don't, well. In theory, reading this chapter
+alone will teach you arithmetic. However, I wrote this chapter assuming you
+already know arithmetic.
+
+So, why is it important that you read this chapter?
+
+Arithmetic is pretty simple and easy to understand. However, later on in this
+book, we're going to approach concepts that aren't so simple and easy to
+understand. Mathematicians have a systemic approach to these problems. This
+approach is called ``mathematical proof.'' We prove things
+mathematically. Instead of approaching new concepts with proofs, I'm instead
+going to use proofs to illustrate some (hopefully) familiar concepts.
+
+Alright, with all that out of the way, let's get started.
+
+The basic idea of proofs is, you take a small set of obvious facts, called {\it
+  axioms}, chain them together to make {\it theorems}. The following obvious
+facts, or axioms, are called the ``Peano Axioms.'' They describe what we call
+``natural numbers.'' Natural numbers are the numbers
+$\{0, 1, 2, 3, 4, 5, 6, \ldots\}$.
+
+%  I got these from Landau's book, but there's nowhere where it isn't awkward to
+%  cite him. So, instead, I'll use \nocite
+
+\nocite{landau-analysis}
+
+\begin{description}
+\item[Axiom 1] $0$ is a natural number. Again, obvious.
+
+  I'm going to use letters in the place of numbers right here. So, if I say
+  ``$x$ is a natural number,'' that means that $x$ is a placeholder for one of
+  the numbers in $\{0,1,2,3,4,5,6,\ldots\}$. I could use any letter, such as
+  $a$, $b$, $q$, $r$, $\theta$, $\Gamma$, or $\aleph$. If I use a letter instead
+  of a number, it usually means either
+
+  \begin{enumerate}
+  \item it doesn't matter which number I choose, or
+  \item it does matter which number I choose, but I don't know which number it
+    is yet.
+  \end{enumerate}
+
+\item[Axiom 2] If $x$ is a natural number, it is true that $x \equiv x$.
+
+  You can read that $\equiv$ sign as $=$, for the time being. There are some
+  subtle differences between the two, which I will get to in \cref{ch:
+    Functions}. You are supposed to read $a \equiv b$ as one of these:
+
+  \begin{enumerate}
+  \item ``$a$ is equivalent to $b$,''
+  \item ``$a$ is identically equivalent to $b$,''
+  \item ``$a$ is congruent to $b$.''
+  \end{enumerate}
+
+  $=$ should be read as ``$a$ is equal to $b$,'' or ``$a$ equals $b$.'' Again
+  the difference between $\equiv$ and $=$ isn't really important until \cref{ch:
+    Functions}.
+
+  If you don't know what either of those signs are, $a \equiv b$ or $a = b$
+  means ``$a$ is the same thing as $b$.'' The difference can be summarized as
+  $= = \equiv \not \equiv = $.
+  
+  So, in essence, this axiom says that each number is the same thing as
+  itself. This is hopefully very obvious.
+
+  A math person would state this axiom as ``congruence is reflexive.''
+  
+\item[Axiom 3] If $x$ and $y$ are both natural numbers, and $x \equiv y$, then
+  it's true that $y \equiv x$. You can phrase this axiom as ``if two numbers are
+  the same number, then they are the same number.'' A math person would state
+  this axiom as ``congruence is symmetric.''
+
+\item[Axiom 4] If $x$, $y$, and $z$ are all natural numbers, and $x \equiv y$,
+  and $y \equiv z$ then it's true that $x \equiv z$. You can phrase this axiom
+  as ``if three numbers are all the same number, then they are the same
+  number.'' A math person would state this axiom as ``congruence is
+  transitive.''
+  
+  These last three axioms mean that we can be lazy, and write things like
+  $a \equiv b \equiv c \equiv a$.
+  
+\item[Axiom 5] If $x$ is a natural number, and we know $x \equiv y$, then it's
+  also true that $y$ is a natural number. A math person would say ``congruence
+  forms a closure.''
+  
+\item[Axiom 6] If $x$ is a natural number, then there is another number,
+  $\suc(x)$, which is also a natural number. $\suc$ is short for ``successor.''
+  You should read $\suc(x)$ as ``the successor of $x$.''  You can think of the
+  successor as ``the next number.'' So, $\suc(0) \equiv 1$, $\suc(1) \equiv 2$,
+  and so on.
+  
+\item[Axiom 7] There isn't a number whose successor is $0$. Basically this means
+  ``$0$ is the lowest natural number.''
+  
+\item[Axiom 8] If $x$ and $y$ are both natural numbers, and we know
+  $\suc(x) \equiv \suc(y)$, then it's true that $x \equiv y$. This is what we
+  would call the ``converse'' of Axiom 6. That is, Axiom 6 tells us that we can
+  always go ``up'' a number. This axiom (almost) tells us that we can go
+  ``down'' a number. Axiom 7 defines the limit of this, meaning that $0$ is the
+  only number where you can't go down any further.
+  
+  Now, the previous 8 axioms have basically said ``these numbers are all natural
+  numbers.'' This next, and final axiom states ``these numbers are all {\it of}
+  the natural numbers.''
+  
+\item[Axiom 9] Let's say $K$ is a set of numbers (a bunch of numbers). If we
+  know that
+  \begin{enumerate}
+  \item if $0$ is in $K$, and
+  \item if some number $x$ is in $K$, then $\suc(x)$ is in $K$,
+  \item then $K$ contains every single natural number.
+  \end{enumerate}
+
+\end{description}
+
+\pg{Continue with...}
+
+\begin{enumerate}
+\item $\N$ is a Monoid
+\item Quasigroups
+\item Loops
+\item Groups
+\item Abelian Groups
+  \begin{enumerate}
+   \item $\Z$
+    \begin{enumerate}
+    \item $\Z$ is an Abelian Group
+    \item $\Z$ is a ring
+    \end{enumerate}
+  \end{enumerate}
+\item Fields
+  \begin{enumerate}
+  \item $\R$
+    \begin{enumerate}
+    \item $\R$ is a field
+    \end{enumerate}
+  \end{enumerate}
+\item Categories
+\item Groupoids
+\end{enumerate}

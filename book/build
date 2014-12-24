@@ -9,7 +9,7 @@ clean_and_die() {
 orig_dir=$(pwd)
 mkdir tmp
 
-cp -rvf lysa.ltx chapters/* bibliographies/* images/* tmp/
+cp -rvf fdl.ltx lysa.ltx chapters/* bibliographies/* images/* tmp/
 cd tmp
 
 xelatex lysa.ltx || clean_and_die 1
