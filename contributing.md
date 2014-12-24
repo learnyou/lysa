@@ -8,23 +8,31 @@
 
 3) Create a new remote that points to the lm:lysa repo
 
-[Github][forkarepo] has written a very helpful guide to completing this series of steps.
+[Github][forkarepo] has written a very helpful guide to completing this series
+of steps.
 
 ## Making Edits, Additions, and Deletions
 
-We follow a loose version of [gitflow][nviegitflow] on the [central repository][centrepo], but this really only effects you in a few ways:
+We follow a loose version of [gitflow][nviegitflow] on the
+[central repository][centrepo], but this really only effects you in a few ways:
 
 1) Do not make commits to master or develop
 
 2) All merges need to be made using --no-ff
 
-We recommend that, in order to protect yourself from forgetfulness, configuring git to not use fast forward:
+We recommend that, in order to protect yourself from forgetfulness, configuring
+git to not use fast forward:
 
 ```
 git config merge.ff false
 ```
 
-In order to make changes, the first thing you need to do is branch from develop. You can name your branch whatever, so long as it is relevant to the changes you are making. Do not, for instance, create f-omnibus which changes all the things. If you want to change or add content to different and unrelated areas--for instance, functors and rings--make two different branches to accomplish this. They can be sequential.
+In order to make changes, the first thing you need to do is branch from
+develop. You can name your branch whatever, so long as it is relevant to the
+changes you are making. Do not, for instance, create f-omnibus which changes all
+the things. If you want to change or add content to different and unrelated
+areas--for instance, functors and rings--make two different branches to
+accomplish this. They can be sequential.
 
 A sample command for creating a branch is shown below:
 
@@ -32,9 +40,17 @@ A sample command for creating a branch is shown below:
 git checkout -b c-someContent develop
 ```
 
+## Committing
+
+Make sure that each commit only contains one change. It's a lot less annoying to
+have to sift through 20 commits each with 1 different change than 1 commit with
+20 different changes. If the change is difficult to summarize in one line, then
+you should probably split up the commit with `git add -p`.
+
 ## Preparing for and Making a Pull Request
 
-Once you have made all your changes, you want to get them merged into the central repo. Here is the process:
+Once you have made all your changes, you want to get them merged into the
+central repo. Here is the process:
 
 1) After your last commit on your branch, switch back to develop and sync with upstream
 
