@@ -206,8 +206,8 @@ All other builds (such as PRs) are uploaded onto [transfer.sh][transfer-sh]. The
 
 Links to the builds are available at the bottom of every build.
 
-[dtscode-vps][http://dtscode.io/~lysa/]
-[transfer-sh][https://transfer.sh/]
+[dtscode-vps]: http://dtscode.io/~lysa/
+[transfer-sh]: https://transfer.sh/
 
 ## Skipping a build
 
