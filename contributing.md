@@ -145,6 +145,13 @@ faster (from several hours to a few minutes). If your memory is precious, use
 
 # Content
 
+If you add new *content* to the book, such as a new chapter, or a substantial
+portion of text, please add yourself to the `\author` field in
+`book/lysa.ltx`. If you merely suggested changes, or made a number of trivial
+changes, too bad. There's
+[some discussion](https://github.com/learnmath/lysa/issues/40) of adding an
+"Editors" field, but nothing's come of it yet.
+
 ## Graphs and Code
 
 * For the time being, you can generate a graph with anything you want, as long
