@@ -101,6 +101,7 @@ Sometimes, writing content can take a while. If you have any questions about wha
 [centrepo]: https://github.com/learnmath/lysa
 [nviegitflow]: http://nvie.com/posts/a-successful-git-branching-model/
 
+
 # Software
 
 Here is the required software you need to contribute:
@@ -143,6 +144,7 @@ faster (from several hours to a few minutes). If your memory is precious, use
 
 [texlive]: https://www.tug.org/texlive/
 
+
 # Content
 
 If you add new *content* to the book, such as a new chapter, or a substantial
@@ -175,3 +177,33 @@ changes, too bad. There's
 [idris]: http://www.idris-lang.org/
 [learnhs]: https://github.com/bitemyapp/learnhaskell
 [sage]: http://www.sagemath.org/
+
+
+# Build System
+
+[Travis CI][travis] is used for automatic builds on commits to the branch.
+
+The repository's [status page][travis-status] shows information about the current build. When a commit is made to the repository, it will show up on the status page.
+
+[travis]: https://travis-ci.org/
+[travis-status]: https://travis-ci.org/learnmath/lysa
+
+## Build Process
+
+Travis clones the repository and installs a list of dependencies. Afterwards, it builds the PDF file. If any error occurs, the build will terminate and marked as "Errored". If the build succeeds, the build process proceeds to deployment.
+
+There are 2 ways Travis may deploy the build:
+
+1) [DTSCode's VPS][dtscode-vps]
+2) [transfer.sh][transfer-sh]
+
+If a commit is made to the `master` branch, Travis pushes the build to `master/` on DTSCode's VPS, where the released builds are stored. The PDF files are named according to the tag of the commit made to the `master` branch. If there is no tag, Travis will give an error.
+
+If a commit is made to any other branches, Travis pushes the build to `$TRAVIS_BRANCH/`. The PDF files are marked by the Build IDs used internally by Travis.
+
+All other builds (such as PRs) are uploaded onto `transfer.sh`. The PDF files are named by the Build IDs mentioned in the previous paragraph.
+
+Links to the builds are available at the bottom of every build.
+
+[dtscode-vps][http://dtscode.io/~lysa/]
+[transfer-sh][https://transfer.sh/]
