@@ -39,26 +39,26 @@ or in the issue tracker.
 
 The following people are the main contributors to LYSA:
 
-* Randy Brown -- project leader
+* Randy Brown (project leader)
   * GitHub: [beingbrown](https://github.com/beingbrown/)
   * IRC: beingbrown
   * Website: [http://www.beingbrown.net/](http://www.beingbrown.net/)
-* Anton Golov -- author
+* Anton Golov (author)
   * Email: [Anton Golov](mailto:jesyspa@gmail.com)
   * GitHub: [jesyspa](https://github.com/jesyspa/)
   * IRC: jesyspa
-* Peter Harpending -- author
+* Peter Harpending (author)
   * Email: [pharpend2@gmail.com](mailto:pharpend2@gmail.com)
   * GitHub: [pharpend](https://github.com/pharpend/)
   * IRC: pharpend
   * Website: [https://pharpend.github.io/](https://pharpend.github.io/)
-* Ng Wei En -- build system manager & quality control
+* Ng Wei En (build system manager & quality control)
   * Email: [wei2912.supp0rt@gmail.com](mailto:wei2912.supp0rt@gmail.com)
   * GitHub: [wei2912](https://github.com/wei2912/)
   * IRC: wei2912
   * Twitter: [@wei2912](https://twitter.com/wei2912)
   * Website: [https://wei2912.github.io/](https://wei2912.github.io/)
-* Nick Chambers -- site maintainer
+* Nick Chambers (site maintainer)
   * Email: [DTSCode@gmail.com](mailto:DTSCode@gmail.com)
   * GitHub: [DTScode](https://github.com/DTScode)
   * IRC: dts|pokeball
