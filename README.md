@@ -1,4 +1,4 @@
-#### Nightly builds
+### Nightly builds
 
 http://dtscode.io/lysa/
 
