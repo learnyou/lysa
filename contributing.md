@@ -207,3 +207,8 @@ Links to the builds are available at the bottom of every build.
 
 [dtscode-vps][http://dtscode.io/~lysa/]
 [transfer-sh][https://transfer.sh/]
+
+## Skipping a build
+
+Sometimes, building a PDF file may be unnecessary when your commit does not cause any part of the book to be changed. In these cases, you may ask Travis to skip building your commit by appending "[ci skip]" or "[skip ci]" to your commit message. This helps to reduce load on Travis and saves space on servers.
+
