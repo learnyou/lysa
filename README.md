@@ -67,9 +67,8 @@ They are also operators on our IRC channel. You may contact them if you need any
 
 # License
 
-LYSA is licensed under the
-[Creative Commons Attribution-ShareAlike 4.0 International License][ccsa]. This
-means many things, but here's the gist of it:
+LYSA is licensed under the [GNU Free Documentation License][gfdl]. This means
+many things, but here's the gist of it:
 
 * You are free to read this book, redistribute it, change it, sell it,
 what-have-you. There are a minimum of strings attached.
@@ -79,10 +78,12 @@ this book all on your own.
 
 * The second thing - you are welcome to make changes, but, if you publish your
   changes, you must publish your changes under the same license. This ensures
-  that we can then integrate your changes back into the main work.
+  that we can then integrate your changes back into the main work. Moreover, if
+  you *print* your changes in any substantial quantity, you must publish the
+  source.
 
-If you want to know the details, read the [legal code][ccsa].
+The license can be found in the LICENSE file in the project root.
 
-[ccsa]: http://creativecommons.org/licenses/by-sa/4.0/
+[gfdl]: https://gnu.org/licenses/fdl.html
 [contrib-guide]: contributing.md
 [webchat]: http://webchat.freenode.net/?channels=%23learnmath&uio=MT11bmRlZmluZWQb1
