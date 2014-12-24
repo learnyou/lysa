@@ -1,4 +1,6 @@
-[**Nightly builds**](http://dtscode.io/lysa/)
+#### Nightly builds
+
+http://dtscode.io/lysa/
 
 # Learn You Some Algebras for Glorious Good! [![Build status](https://travis-ci.org/learnmath/lysa.svg)](https://travis-ci.org/learnmath/lysa)
 
