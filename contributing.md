@@ -74,7 +74,7 @@ If we cannot look into the branch history, we may ask you to amend your commit t
 
 If we cannot automatically merge your pull request because it contains merge conflicts, we will ask you to fix them and resubmit.
 
-Sometimes, writing content can take a while. If you have any questions about what you are doing, please check in with us on IRC.
+Sometimes, writing content can take a while. If you have any questions about what you are doing, please check in with us on IRC. We encourage frequent submission in order to get feedback on your work. If we do not merge a pull request, you will get feedback on how to fix it and get it merged.
 
 [forkarepo]: https://help.github.com/articles/fork-a-repo/
 [centrepo]: https://github.com/learnmath/lysa
