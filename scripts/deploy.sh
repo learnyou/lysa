@@ -8,6 +8,7 @@ deploy_server() {
   ssh-keyscan -t rsa,dsa -H $HOST 2>&1 | tee -a $HOME/.ssh/known_hosts
   ssh -i lysa_rsa $USER@$HOST "mkdir -p $1" || exit 1
   scp -i lysa_rsa book/lysa.pdf $USER@$HOST:$1/$2 || exit 1
+  echo "http://dtscode.io/~lysa/$1/$2"
 }
 
 if [[ $TRAVIS_PULL_REQUEST == "false" ]]; then
@@ -25,5 +26,6 @@ if [[ $TRAVIS_PULL_REQUEST == "false" ]]; then
     deploy_server $DIRNAME $FILENAME
   fi
 else
-  curl --upload-file book/lysa.pdf https://transfer.sh/lysa-$TRAVIS_BUILD_ID.pdf || exit 1
+  FILENAME=lysa-$TRAVIS_BUILD_ID.pdf
+  curl --upload-file book/lysa.pdf https://transfer.sh/$FILENAME || exit 1
 fi
