@@ -1,7 +1,16 @@
 # Learn You Some Algebras for Glorious Good! [![Build status](https://travis-ci.org/learnmath/lysa.svg)](https://travis-ci.org/learnmath/lysa)
 
 This is a math book. We aim to take a logically rigorous, yet informal approach
-to math. You can see the source for the book in the `book/` directory. To build
+to math. You can see the source for the book in the `book/` directory.
+
+# Builds
+
+Nightly builds are available at [develop/](http://dtscode.io/~lysa/develop/) and
+master builds at [master/](http://dtscode.io/~lysa/master/).
+
+For more details on the build system, refer to the [contributing guide][contrib-guide].
+
+To build
 the project from source, you'll need most of the TeXLive packages (sorry, I
 don't have a list yet).
 
@@ -39,31 +48,32 @@ or in the issue tracker.
 
 The following people are the main contributors to LYSA:
 
-* Randy Brown -- project leader
+* Randy Brown (project leader)
   * GitHub: [beingbrown](https://github.com/beingbrown/)
   * IRC: beingbrown
   * Website: [http://www.beingbrown.net/](http://www.beingbrown.net/)
-* Anton Golov -- author
-  * Email: [Anton Golov](mailto:jesyspa@gmail.com)
+* Anton Golov (author)
+  * Email: [jesyspa@gmail.com](mailto:jesyspa@gmail.com)
   * GitHub: [jesyspa](https://github.com/jesyspa/)
   * IRC: jesyspa
-* Peter Harpending -- author
+* Peter Harpending (author)
   * Email: [pharpend2@gmail.com](mailto:pharpend2@gmail.com)
   * GitHub: [pharpend](https://github.com/pharpend/)
   * IRC: pharpend
   * Website: [https://pharpend.github.io/](https://pharpend.github.io/)
-* Ng Wei En -- build system manager & quality control
+* Ng Wei En (build system manager & quality control)
   * Email: [wei2912.supp0rt@gmail.com](mailto:wei2912.supp0rt@gmail.com)
   * GitHub: [wei2912](https://github.com/wei2912/)
   * IRC: wei2912
   * Twitter: [@wei2912](https://twitter.com/wei2912)
   * Website: [https://wei2912.github.io/](https://wei2912.github.io/)
-* Nick Chambers -- site maintainer
+* Nick Chambers (site maintainer)
   * Email: [DTSCode@gmail.com](mailto:DTSCode@gmail.com)
   * GitHub: [DTScode](https://github.com/DTScode)
   * IRC: dts|pokeball
 
-They are also operators on our IRC channel. You may contact them if you need any help, but we encourage you to speak in the IRC channel rather than in PM.
+They are also operators on our IRC channel. You may contact them if you need
+any help, but we encourage you to speak in the IRC channel rather than in PM.
 
 # License
 
