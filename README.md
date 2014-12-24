@@ -1,7 +1,16 @@
 # Learn You Some Algebras for Glorious Good! [![Build status](https://travis-ci.org/learnmath/lysa.svg)](https://travis-ci.org/learnmath/lysa)
 
 This is a math book. We aim to take a logically rigorous, yet informal approach
-to math. You can see the source for the book in the `book/` directory. To build
+to math. You can see the source for the book in the `book/` directory.
+
+# Builds
+
+Nightly builds are available at [develop/](http://dtscode.io/~lysa/develop/) and
+master builds at [master/](http://dtscode.io/~lysa/master/).
+
+For more details on the build system, refer to the [contributing guide][contrib-guide].
+
+To build
 the project from source, you'll need most of the TeXLive packages (sorry, I
 don't have a list yet).
 
@@ -17,13 +26,6 @@ directory. If you have a slow computer, it might take about 30 seconds or so to
 build. On a fast computer, it will take less than a second. We don't include the
 PDF file in the git tree because it's a binary file, and thus causes merge
 conflicts if we try to track it.
-
-# Builds
-
-Nightly builds are available at [develop/](http://dtscode.io/~lysa/develop/) and
-master builds at [master/](http://dtscode.io/~lysa/master/).
-
-For more details on the build system, refer to the [contributing guide][contrib-guide].
 
 # Contributing
 
