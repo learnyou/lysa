@@ -1,12 +1,19 @@
 \documentclass[12pt]{book}
 
 % Append yourself to this list. Aliases are fine (e.g. darkf), but please do
-% include an email where people can email you.
+% include an email where people can email you. If applicable, also include your
+% middle initial, as is the convention in academia.
 \author{
-  \anauthor{Peter Harpending}{pharpend2@gmail.com}
-  % \anauthor{Anton Golov}{jesyspa@gmail.com}
-  % \anauthor{Ng Wei En}{wei2912.supp0rt@gmail.com}
-  % Randy Brown \\
+  \pharpend
+}
+
+% 
+\newcommand{\editors}{
+  \aneditor{Randy L. Brown}{randy@beingbrown.net}
+  \aneditor{Nicholas T. Chambers}{DTSCode@gmail.com}
+  \aneditor{Anton Golov}{jesyspa@gmail.com}
+  \aneditor{Ng Wei En}{wei2912.supp0rt@gmail.com}
+  \aneditor{Michal J. Wallace}{michal.wallace@gmail.com}
 }
 
 \usepackage{amsmath}
@@ -16,6 +23,8 @@
 \usepackage{fontspec}
 % \usepackage[utf8]{inputenc}
 \usepackage{mathtools}
+\usepackage{scrextend}
+\usepackage{tabu}
 \usepackage{url}
 \usepackage{hyperref}
 \usepackage{cleveref}
@@ -39,6 +48,7 @@
 
 % Print-friendly links
 \newcommand{\anauthor}[2]{#1 {\href{mailto:#2}{<{#2}>}} \\ }
+\newcommand{\aneditor}[2]{#1 & {\href{mailto:#2}{<{#2}>}} \\ }
 \newcommand{\link}[2]{#2 (\url{#1})}
 
 % Section & Chapter he
@@ -55,6 +65,9 @@
 \newcommand{\Z}{\mathbb{Z}}
 \newcommand{\nil}{\varnothing}
 
+% Miscellaneous
+\newcommand{\pharpend}{\anauthor{Peter R. Harpending}{pharpend2@gmail.com}}
+
 \title{Learn You Some Algebras for Glorious Good!}
 \begin{document}
 \maketitle
@@ -63,10 +76,9 @@
 \topskip0pt
 \vspace*{\fill}
 
-{\footnotesize
-% \noindent
+{\small
   \begin{center}
-    Copyright © 2014 \anauthor{Peter Harpending.}{pharpend2@gmail.com}
+    Copyright © 2014 \pharpend
   \end{center}
 % \noindent
   \begin{center}
@@ -77,11 +89,18 @@
     license is included in \cref{gfdl}.
   \end{center}
 }
-
 \vspace*{\fill}
+\newpage
+\section*{Editors \& Noted Contributors}
+\begin{addmargin}[4em]{2em}
+  \begin{tabular}{l l}
+    \editors
+  \end{tabular}
+\end{addmargin}
 \newpage
 
 \tableofcontents
+\newpage
 
 \input{1-introduction.ltx}
 \input{2-sets-monoids.ltx}
