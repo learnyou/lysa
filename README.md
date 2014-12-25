@@ -8,14 +8,18 @@ to math. You can see the source for the book in the `book/` directory.
 
 # Builds
 
-Nightly builds are available at [develop/](http://dtscode.io/~lysa/develop/) and
-master builds at [master/](http://dtscode.io/~lysa/master/).
+Nightly builds are available at [develop/](http://dtscode.io/~lysa/develop/).
+Releases are available at [master/](http://dtscode.io/~lysa/master/). As of
+now, there are no releases.
 
-For more details on the build system, refer to the [contributing guide][contrib-guide].
+For more details on the build system, refer to the [guide to
+contributing][contrib-build-sys].
 
 To build
-the project from source, you'll need most of the TeXLive packages (sorry, I
-don't have a list yet).
+the project from source, you'll need most of the TeXLive packages.
+
+For a list of dependencies, refer to our [guide to contributing on
+software][contrib-software].
 
 ```
 git clone https://github.com/learnmath/lysa.git -b develop
@@ -29,6 +33,11 @@ directory. If you have a slow computer, it might take about 30 seconds or so to
 build. On a fast computer, it will take less than a second. We don't include the
 PDF file in the git tree because it's a binary file, and thus causes merge
 conflicts if we try to track it.
+
+[contrib-build-sys]: contributing.md#build-system
+[contrib-software]: contributing.md#software
+[travis-yml]: .travis.yml
+
 
 # Contributing
 
@@ -78,11 +87,13 @@ The following people are the main contributors to LYSA:
 They are also operators on our IRC channel. You may contact them if you need
 any help, but we encourage you to speak in the IRC channel rather than in PM.
 
+[contrib-guide]: contributing.md
+[webchat]: http://webchat.freenode.net/?channels=%23learnmath&uio=MT11bmRlZmluZWQb1
+
+
 # License
 
 LYSA is licensed under the [GNU Free Documentation License][gfdl]. The license
 can be found in the LICENSE file in the project root.
 
 [gfdl]: https://gnu.org/licenses/fdl.html
-[contrib-guide]: contributing.md
-[webchat]: http://webchat.freenode.net/?channels=%23learnmath&uio=MT11bmRlZmluZWQb1
