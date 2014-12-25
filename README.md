@@ -8,14 +8,18 @@ to math. You can see the source for the book in the `book/` directory.
 
 # Builds
 
-Nightly builds are available at [develop/](http://dtscode.io/~lysa/develop/). Releases are available at [master/](http://dtscode.io/~lysa/master/). As of now, there are no releases.
+Nightly builds are available at [develop/](http://dtscode.io/~lysa/develop/).
+Releases are available at [master/](http://dtscode.io/~lysa/master/). As of
+now, there are no releases.
 
-For more details on the build system, refer to the [guide to contributing][contrib-build-sys].
+For more details on the build system, refer to the [guide to
+contributing][contrib-build-sys].
 
 To build
 the project from source, you'll need most of the TeXLive packages.
 
-Currently, there are no official lists of dependencies. A list of dependencies for Ubuntu can be found in [our build system's configuration file][travis-yml] which runs on Ubuntu 12.04 LTS.
+For a list of dependencies, refer to our [guide to contributing on
+software][contrib-software].
 
 ```
 git clone https://github.com/learnmath/lysa.git -b develop
@@ -31,6 +35,7 @@ PDF file in the git tree because it's a binary file, and thus causes merge
 conflicts if we try to track it.
 
 [contrib-build-sys]: contributing.md#build-system
+[contrib-software]: contributing.md#software
 [travis-yml]: .travis.yml
 
 
