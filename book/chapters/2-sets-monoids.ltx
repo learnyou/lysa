@@ -52,7 +52,7 @@ You can also have sets of sets, and even combine those sets together to get new
 sets.
 
 \newcommand{\sfse}{\{468\}}     %sfse = set four six eight
-\newcommand{\sztn}{\{0,1,2,3,4,5,6,7,8,9\}} %sztn = set zero through nine
+\newcommand{\sztn}{\{0,1,2,3,4,5,6,7,8,9\}} %sotn = set zero through nine
 
 \begin{enumerate}
 \item
@@ -67,12 +67,20 @@ sets.
 \item $\nil$ is a set, but doesn't have anything in it.
 \end{enumerate}
 
+We can also find out which elements are present in both sets.
+
+\newcommand{\sotn}{\{1,2,3,4,5,6,7,8,9\}} %sotn = set one through nine
+
+\begin{enumerate}
+\item $\sotn \cap \sztn$ is the ``intersect'' of $\sotn$ and $\sztn$ and can be thought of as finding the common elements. This intersect comes out to be $\sotn$.
+\end{enumerate}
+
 \newpage
 \sss{Exercises}
 
 The solutions are on the next page.
 
-\pg{Unions}
+\pg{Unions and Intersects}
 
 \begin{enumerate}
 \item Make up some arbitrary set, and we'll call it $A$. $A$ can be any
@@ -83,20 +91,22 @@ The solutions are on the next page.
   is. Note the difference between $\nil \cup A$ and $A \cup \nil$.
 \item Examine your reasoning from the last two problems. Does your reasoning
   that $A \cup A$ is always $A$? Why or why not?
-\item Does this mean that $A \cup A$ is always $A$? Why or why not?
 \item Does this mean that $\nil \cup \nil$ is always $A$? Why or why not?
+\item What does $A \cap \nil$ turn out to be? What about $\nil \cap A$? Why is this the case?
+\item Does $A \cap A$ always give you $A$?
 \end{enumerate}
 
 \newpage
 \sss{Solutions}
 
 \begin{enumerate}
-\item Make up some arbitrary set, and we'll call it $A$. $A$ can be any
-  set. Explain why $A \cup \nil$ always turns out to be $A$, no matter what
-  $A$ actually is.
-\item Do the same thing as in the previous problem --- but --- this time,
-  explain why $\nil \cup A$ always turns out to be $A$, no matter what $A$
-  is. Note the difference between $A$
+\item $\nil$ contains no elements. Hence, the union of both sets turns out to be $A$.
+\item $\nil$ contains no elements. Hence, as previously shown,
+  the union of both sets turns out to be $A$. The order of the sets does not matter.
+\item Yes. Both sets contain the same elements. Hence, the union of both sets turns out to be $A$.
+\item No. Both sets contain no elements. Hence, the union of both sets turns out to be $\nil$.
+\item Both turn out to be $\nil$. $\nil$ contains no elements. Hence, $A$ and $\nil$ share no elements.
+\item Yes. Both sets contain the same elements and must share all of their elements.
 \end{enumerate}
 
 \newpage
