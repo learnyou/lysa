@@ -6,12 +6,13 @@ These should be simple enough that we can grasp them intuitively, but not so
 simple that all the patterns we find are trivial.  We would also like to
 introduce something that will make future patterns easier to talk about.
 
-The first kind of objects we will be looking at are sets.  Sets were first
+The first kind of objects we will be looking at are {\it sets}.  Sets were first
 studied by Georg Cantor, a German mathematician, in the second half of the
 nineteenth century.  In mathematics, a set is a collection of objects with no
 order and no duplicate elements.  Effectively, given a set $S$ and some other
 object $x$, the only thing we can ask is ``does $S$ contain $x$?''  We write $x
-\in S$ if the answer is `yes', and $x \not \in S$ if the answer is `no.'
+\in S$ if the answer is `yes', and $x \not \in S$ if the answer is `no.'  If $x
+\in S$, we say that "$x$ is an element of $S$", or simply "$x$ is in $S$".
 
 There are several ways of writing down sets.  If we already have some objects,
 we can make a set that contains all of them.  For example, if we assume that the
@@ -49,7 +50,7 @@ mathematics---including this one.
 
 To give you a taste of the results, let's take a look at some of them.
 Intuitively, sets can be of different sizes: it's clear that the empty set is
-the smallest possible sets, and that $\{2, 4\}$ is smaller than $\{1, 2, 3\}$.
+the smallest possible set, and that $\{2, 4\}$ is smaller than $\{1, 2, 3\}$.
 When we get to infinite sets, however, the intuition fails.  Cantor formalised
 this intuition, and the formal version also worked for infinite sets.  However,
 the resulting inequalities he got were very surprising: for example, he found
@@ -103,6 +104,8 @@ continue this line of thought after some exercises.
   \item Suppose $X$ is a set.  Prove that there exists at least one function
     from $X$ to $X$.  How can this function be defined?  Why does this work if
     $X$ is the empty set?
+  \item Suppose $X$, $Y$, and $Z$ are sets, and you are given functions $f : X
+  \to Y$ and $g : Y \to Z$.  Can you make a function from $X$ to $Z$?  How?
   \item Suppose $X$ and $Y$ are sets, $f : X \to Y$, and $x, y \in X$.  Do you
     think $x = y$ implies $f(x) = f(y)$?  Why, or why not?
 \end{enumerate}
@@ -122,7 +125,50 @@ that $x = y$, then necessarily $f(x) = f(y)$.  A function $f$ is said to be
 injective if the converse is also true: if $x, y \in X$ and $x \neq y$, then
 $f(x) \neq f(y)$.
 
-% Pidgeonhole principle, comparison of sets using injective functions.
+% Explore some properties of injective functions.  Argument (informally) that we
+% should expect |X| = |f(X)| if f is injective, and so that the existence of an
+% injective f : X -> Y implies |X| <= |Y|.
 
-% Further sections: operations on sets (union, intersection), operations on
-% functions (composition), category of sets.
+\s{Subsets}
+
+When people first hear that there are as many integers as natural numbers, their
+reaction is often ``Surely that can't be right?  Every natural number is an
+integer, and there are some others, too!''
+
+To make this argument formal we should introduce the notion of a subset.  We say
+that $X$ is a subset of $Y$ if every element of $X$ is also an element of $Y$.
+We denote this by $X \subseteq Y$.  We have, then $\emptyset \subseteq \mathbb{N}
+\subseteq \mathbb{Z} \subseteq \mathbb{Q} \subseteq \mathbb{R}$.  We will use $X
+\subset Y$ when $X$ is a subset of $Y$, but $X$ and $Y$ are not equal.
+
+% Unfinished.  Show that if we assume X subset Y implies |X| < |Y|, that if f is
+% injective then |X| = |f(X)|, and that not |X| < |X|, then we can derive a
+% contradiction.
+
+% Exercises: unions, intersections, complements
+
+\s{Cardinalities}
+
+% Recall that injective functions allow us to conclude |X| <= |Y|.  Introduce
+% surjections and bijections and argue that if f : X -> Y bijective, then f
+% injective, thus |X| = |f(X)|, but also f(X) = Y, thus |X| = |Y|.  State,
+% without proof, the Cantor-Shroder-Bernstein theorem, and define properly what
+% |X| <= |Y| and |X| = |Y| mean.
+
+% Exercises: show |N| = |Z| = |Q+| (introduce products).  Show |Q+| = |Q|.
+
+\s{The Power Set}
+
+% Define the power set.  Prove that the power set of X is strictly greater than
+% X.
+
+% Exercises: Continuum hypothesis.
+
+\s{The Category of Sets}
+
+% Point out the structure of "objects and arrows between objects".  Mention that
+% this is called a category, and point out some properties of functions
+% (composition (+associativity), existence of identities).  Express bijectivity
+% as a categorical notion.
+
+% Exercises: Express injectivity and surjectivity as categorical notions.
