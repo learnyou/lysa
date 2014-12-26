@@ -81,6 +81,10 @@ We'll next want to approach *systems* of equations. first\ matrices
 
 ... Go through calculus and differential equations
 
+<!-- This fixes #1 -->
+
+* Chapter 52, Statistics
+
 * Appendix B - boring stuff
     + Introduction of the primary authors (Peter Harpending, Randy Brown).
     + Book license
