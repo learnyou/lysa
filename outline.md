@@ -14,23 +14,39 @@ point and will probably be gutted and slaughtered in its entirety.
 All of the chapters beyond this point will be assumed to have a multitude of
 exercises, graphs, examples, applications, etc.
 
-* Chapter 2, Groups, Rings, and Fields
-    + Introduction to Groups, Rings, and Fields
-    + $\mathbb{N}$ is a group, $\mathbb{Z}$ is a ring, $\mathbb{R}$ is a
-      field.
-    + How this applies to everyday life (Boring!)
+* Chapter 2, Sets
+    + Intuitive set theory
+        - Sets
+        - Unions
+        - Intersects
+        - Null set
+    + Axiomatic set theory
+        - What are functions?
+        - Unary functions
+        - Binary functions
 
 * Chapter 3, Proofs
     + What are proofs?
     + Proof-based approach to groups, rings, fields.
+    * Peano axioms
+        + Basically go through Landau's Foundations of Analysis
 
-* Chapter 4, Functions
-    + What are functions?
-    + Some examples
+* Chapter 4, Special sets
+    + Magmas
+    + Semigroups
+    + Categories
+    + Monoids
+    + Groups
+    + Rings
+    + Fields
 
-* Chapter 5, Algorithms
-    + What are algorithms?
-    + Examples
+* Chapter 5, fancy functions
+    + Homomorphisms
+    + Isomorphisms
+    + Endomorphisms
+    + Injective functions
+    + Surjective functions
+    + Bijective functions
 
 * Chapter 6, monomials
     + Examples
