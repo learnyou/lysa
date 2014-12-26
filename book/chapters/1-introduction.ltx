@@ -3,95 +3,82 @@
 
 \ch{Introduction}
 
-This is a math book. We aim to take a logically rigorous, yet informal approach
-to math. In theory, you shouldn't need any math beyond basic elementary school
-math to understand this book. However, all of the authors have somewhat advanced
-education in math, so we might forget that stuff is difficult.
+This book aims to take a logically rigorous yet informal approach to the basics
+of higher math. In theory, you shouldn't need to know anything more than basic
+arithmetic to understand this book. However, most of the authors have been
+doing this for a while, so we might forget how hard it is at first. If anything
+seems too difficult, please let us know so that we can fix it!
 
 \s{Motivation}
 
-The title (and content) is inspired by Miran Lipovača's
-\link{http://learnyouahaskell.com/}{{\it Learn You a Haskell for Great
-    Good!}}. If you are interested in a paper copy, see \cite{lyah}. That number
-between the square brackets is for a citation. You can go to the bibliography at
-the end of the book, and see the sources we used assembling this book. \Cref{s:
-  Conventions used in this book} explains all of the various conventions we use
-in this book.
+We observed that most math (and science) books nowadays seem to value keeping
+an academic tone over ensuring that the reader understands the material, and,
+more importantly, enjoys reading the book. We take the opposite approach. We
+want to create a book that is fun to read and easy to understand while still
+addressing the more advanced concepts in math.
 
-I observed that most math (and science) books nowadays seem to take an approach
-wherein it's more important to keep an academic tone than it is for the reader
-to understand the material, and, more importantly, enjoy reading the book. We
-take the opposite approach. We want to create a book that is fun to read, easy
-to understand, while still addressing the more advanced concepts in math.
+% something here about how we love math and
+% want to make it more accessible, maybe?
 
-We start with what are called the Peano Axioms, which will give you a good
-introduction to the utter pretentiousness found in your average
-mathematician. In all seriousness, most people think that math is all about
-pumping out formulas and crunching numbers. That's not what math is about. Math
-is about qualitatively and precisely analyzing things, and to understand the
-very nature of reality. The whole numbers thing is just a side gig, as you will
-see.
+% below: misfiled info that needs to be relocated
 
-The Peano axioms are a very mathematical way of understanding basic arithmetic
-(addition, subtraction, division, etc). I know ``a mathematical way of
-understanding arithmetic'' sounds weird, and even redundant, but you'll see. If
-you are dying to see what I am talking about, you can go ahead and skip to
-\cref{ch: Peano Axioms}.
+% We start with what are called the Peano Axioms, which will give you a good
+% introduction to the utter pretentiousness found in your average field of math.
+% In all seriousness, most people think that math is all about pumping out
+% formulas and crunching numbers. That's about as far from the truth as you can
+% get. Math is about qualitatively and precisely analyzing things and understanding
+% the very nature of reality. The whole numbers thing is just a side gig, as you
+% will see.
+% 
+% The Peano axioms are a very mathematical way of understanding basic arithmetic
+% (addition, subtraction, division, etc). ``A mathematical way of understanding
+% arithmetic'' may sound weird and even redundant, but you'll see. If you are
+% dying to see what we're talking about, you can go ahead and skip to \cref{ch:
+% Peano Axioms}.
 
 \s{Boring stuff}
 
 This section is for people who want to get involved in our community. (Bleh,
 right?)
 
-If you like chatting on IRC, come see us in {\tt \#learnmath} on FreeNode. If
+If you like chatting on IRC, come see us in {\tt \#learnmath} on Freenode. If
 you don't know what IRC is, or you don't have a client set up, you can connect
 through
-\link{http://webchat.freenode.net/?channels=\%23learnmath\&uio=MT11bmRlZmluZWQb1}{FreeNode's
+\link{http://webchat.freenode.net/?channels=\%23learnmath\&uio=MT11bmRlZmluZWQb1}{Freenode's
   webchat}.
 
 \ss{Contributing to this Book}
 
 This book is open-source. You can go to
-\link{https://github.com/learnmath/lysa}{our GitHub page} and see the source
-code for this book. Part of being open-source means you can freely distribute
-the book, sell it, or even change it. There are some caveats, though (see
-\cref{ss: Licensing} for details).
+\link{https://github.com/learnmath/lysa}{our GitHub page} and see for yourself.
+Part of being open-source means you can freely distribute the book, sell it, or
+even change it. There are some restrictions, though (see \cref{ss: Licensing} for
+details).
 
-Nonetheless, if, for instance, you are a schoolteacher and want to use this for
-your students, but it's not quite right, you are free to edit it to your liking,
-and then use your modified copy for your students. The only real caveat is, you
-must publish your source so others can use it. This may be a problem if, for
-instance, you want to include more exercises, but don't want to publish
-solutions. If that is the case, open an issue on the
-\link{https://github.com/learnmath/lysa/issues}{issue tracker}, and we'll talk
+Most of them are fairly minor; if, for instance, you are a schoolteacher and
+want to use this for your class, you are free to edit it to your liking and
+give the modified copy to your students. The only real caveat is that you must
+publish your source so others can use it. This may be a problem if you want to
+do something such as include more exercises without publishing solutions. If
+that is the case, open an issue on the
+\link{https://github.com/learnmath/lysa/issues}{issue tracker} and we'll talk
 about granting you an exception to the license.
 
 You are more than welcome to contribute, but please read the
 \link{https://github.com/learnmath/lysa/blob/master/contributing.md}{contributing guide}
 first. (Sorry, we know how annoying those are.)
 
-If you notice any errors, don't be shy to report then in the
+If you notice any errors, don't be shy! Report them in the
 \link{https://github.com/learnmath/lysa/issues}{issue tracker}. If you have any
-suggestions for improving LYSA, also post them in the issue tracker (or bring
+suggestions for improving LYSA, post them in the issue tracker too (or bring
 them up in the IRC channel).
 
-If you have any questions about LYSA (or math), feel free to ask in the channel,
-or in the issue tracker.
+If you have any questions about LYSA (or math), feel free to ask in the channel.
 
 \ss{Licensing}
 
-LYSA is licensed under the GNU Free Documentation License (see \cref{GNU Free
-  Documentation License}). This means many things, but here's the gist of it:
-
-\begin{itemize}
-\item You are free to read this book, redistribute it, change it, sell it,
-  what-have-you. There are a minimum of strings attached.
-\item The first string - you have to give us credit. You can't claim that you
-  wrote this book all on your own.
-\item The second thing - you are welcome to make changes, but, if you publish
-  your changes, you must publish your changes under the same license. This
-  ensures that we can then integrate your changes back into the main work.
-\end{itemize}
+LYSA is licensed under the GNU Free Documentation License. \Cref{fdl} contains
+the license. Please read the license; it's actually pretty comprehensible.
 
 \s{Conventions used in this book}
 \s{How to read this book}
