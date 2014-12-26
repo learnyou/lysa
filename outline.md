@@ -42,7 +42,8 @@ exercises, graphs, examples, applications, etc.
     + How to manipulate them algebraically
     + Graphs of lines
     + Quadratic formula
-    + Proof that there is no quintic formula?
+
+Let us make this our goal for now, then we will move on.
 
 * Chapter 8, exponential functions
 * Chapter 9, logarithms
