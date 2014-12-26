@@ -20,6 +20,7 @@
 \usepackage{amsmath}
 \usepackage{amsfonts}
 \usepackage{amssymb}
+\usepackage[toc,page]{appendix}
 \usepackage[backend=bibtex]{biblatex}
 \usepackage{fontspec}
 % \usepackage[utf8]{inputenc}
@@ -114,7 +115,10 @@
 \input{1-introduction.ltx}
 \input{2-sets-monoids.ltx}
 \input{3-special-sets.ltx}
+\begin{appendices}
 \input{fdl.ltx}
+\end{appendices}
+
 \newpage
 \printbibliography
 \end{document}
