@@ -91,25 +91,41 @@ The solutions are on the next page.
 \item Do the same thing as in the previous problem --- but --- this time,
   explain why $\nil \cup A$ always turns out to be $A$, no matter what $A$
   is. Note the difference between $\nil \cup A$ and $A \cup \nil$.
-\item Examine your reasoning from the last two problems. Does your reasoning
-  that $A \cup A$ is always $A$? Why or why not?
-\item Does this mean that $\nil \cup \nil$ is always $A$? Why or why not?
-\item What does $A \cap \nil$ turn out to be? What about $\nil \cap A$? Why is
-  this the case?
-\item Does $A \cap A$ always give you $A$?
+\item Examine your reasoning from the last 2 problems. Does your reasoning imply
+  that $A \cup A$ is always $A$, no matter what $A$ actually is? Why or why not?
+\item Does this mean that $\nil \cup \nil$ is always $A$, no matter what $A$ is?
+  Why or why not?
 \end{enumerate}
 
 \newpage
 \sss{Solutions}
 
 \begin{enumerate}
-\item $\nil$ contains no elements. Hence, the union of both sets turns out to be $A$.
-\item $\nil$ contains no elements. Hence, as previously shown,
-  the union of both sets turns out to be $A$. The order of the sets does not matter.
-\item Yes. Both sets contain the same elements. Hence, the union of both sets turns out to be $A$.
-\item No. Both sets contain no elements. Hence, the union of both sets turns out to be $\nil$.
-\item Both turn out to be $\nil$. $\nil$ contains no elements. Hence, $A$ and $\nil$ share no elements.
-\item Yes. Both sets contain the same elements and must share all of their elements.
+% \item $\nil$ contains no elements. Hence, the union of both sets turns out to be $A$.
+% \item $\nil$ contains no elements. Hence, as previously shown,
+%   the union of both sets turns out to be $A$. The order of the sets does not matter.
+% \item Yes. Both sets contain the same elements. Hence, the union of both sets turns out to be $A$.
+% \item No. Both sets contain no elements. Hence, the union of both sets turns out to be $\nil$.
+% \item Both turn out to be $\nil$. $\nil$ contains no elements. Hence, $A$ and $\nil$ share no elements.
+% \item Yes. Both sets contain the same elements and must share all of their elements.
+\item $A \cup \nil$ is all of the items that are in either $A$ or
+  $\nil$. Because there are no items in $\nil$, this would just be the items in
+  $A$. The set of items in $A$ is just $A$. Thus, $A \cup \nil$ will always be
+  $A$, no matter what $A$ is.
+\item $\nil \cup A$ is all of the items that are in either $\nil$ or
+  $A$. Because there are no items in $\nil$, this would just be the items in
+  $A$. The set of items in $A$ is just $A$. Thus, $\nil \cup A$ will always be
+  $A$, no matter what $A$ is.
+\item $A \cup A$ is all of the elements in $A$ and $A$. Because those two sets
+  are the same set, they therefore have the same elements. Thus, the set of
+  elements in $A$ and $A$ is just the set of elements in $A$. The set of
+  elements in $A$ is just $A$. Therefore, for any $A$, $A \cup A$ is always $A$.
+\item In the previous examples, we showed that $A \cup A$ is always $A$ for any
+  $A$. We could then say that $B \cup B$ is always $B$ for any $B$. If you
+  decide that $B$ is $\nil$, then you can say $\nil \cup \nil$ is $\nil$. So,
+  the assertion above --- $\nil \cup \nil$ is always $A$, no matter what $A$ is
+  --- is false, because $\nil \cup \nil$ is always $\nil$, which means that the
+  assertion fails if $A$ is not $\nil$.
 \end{enumerate}
 
 \newpage
