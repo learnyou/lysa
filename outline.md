@@ -5,9 +5,6 @@ point and will probably be gutted and slaughtered in its entirety.
 
 * Chapter 1, Introduction
     + Motivation
-    + Introduction of the primary authors (Peter Harpending, Randy Brown).
-    + Book license
-    + How to contribute 
     + Potential scope of the book
     + What background knowledge you need.
         - ideally this would just be fluency in english, and elementary school math.
@@ -83,3 +80,8 @@ We'll next want to approach *systems* of equations. first\ matrices
 * Chapter 35, calculus
 
 ... Go through calculus and differential equations
+
+* Appendix B - boring stuff
+    + Introduction of the primary authors (Peter Harpending, Randy Brown).
+    + Book license
+    + How to contribute 
