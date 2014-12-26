@@ -62,9 +62,9 @@ Good segue to talk about the concept of dimensions
 * Chapter 14, Dimensions
 * Chapter 15, Parametric functions
 * Chapter 16, Complex parametric functions
-* Chapter 17, functions that go from $\mathbb{F}^n$ to $\mathbb{F}$, where $\mathbb{F}$ is a field.
-* Chapter 18, functions that go from $\mathbb{F}$ to $\mathbb{F}^n$, where $\mathbb{F}$ is a field.
-* Chapter 19, functions that go from $\mathbb{F}^n$ to $\mathbb{F}^m$, where $\mathbb{F}$ is a field.
+* Chapter 17, functions that go from F^n to F, where F is a field.
+* Chapter 18, functions that go from F to F^n, where F is a field.
+* Chapter 19, functions that go from F^n to F^m, where F is a field.
                                                          
 We'll next want to approach *systems* of equations. first\ matrices
 
