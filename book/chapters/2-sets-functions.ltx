@@ -192,9 +192,77 @@ that $x = y$, then necessarily $f(x) = f(y)$.  A function $f$ is said to be
 injective if the converse is also true: if $x, y \in X$ and $x \neq y$, then
 $f(x) \neq f(y)$.
 
-% Explore some properties of injective functions.  Argument (informally) that we
-% should expect |X| = |f(X)| if f is injective, and so that the existence of an
-% injective f : X -> Y implies |X| <= |Y|.
+Let's consider some examples.  Let $f : \mathbb{N} \to \mathbb{Z}$ be defined by
+$f(x) = x$.  Is this definition correct?  Well, we need to check that for any $n
+\in \mathbb{N}$, we have $f(n) \in \mathbb{Z}$.  But by definition, $f(n) = n$,
+so we need to check that if $n \in \mathbb{N}$, then also $n \in \mathbb{Z}$.
+Every non-negative integer is certainly an integer, so yes, the definition is
+correct.
+
+Now, is this function injective?  For that, let $n, k \in \mathbb{N}$ so that
+$f(n) = f(k)$.  We need to prove that $n = k$.  Again, this is easy: $f(n) = n$
+and $f(k) = k$, so by putting the three equalities together, we have $n = k$.
+
+We can construct the set $\{f(0), f(1), f(2)\ldots\}$.  If we want to be
+precise, we can use the {\it set comprehension} notation:
+
+\[
+  \{ f(x) \, | \, x \in \mathbb{N} \}
+\]
+
+You should read this as ``the set that contains $f(x)$ for each $x \in
+\mathbb{N}.$''  That's rather a mouthful, so we'll abbreviate this by
+$f(\mathbb{N})$.  Just imagine that instead of applying $f$ to one value in
+$\mathbb{N}$, you're applying it to all the values and looking at the results as
+a set.
+
+We can now ask ourselves: how big is $f(\mathbb{N})$?  In this case, we can see
+that $\mathbb{N} = f(\mathbb{N})$, so of course they're exactly the same size.
+However, what if instead of the $f$ we chose, we had chosen $f(x) = -x$, or $g :
+\mathbb{N} \to \mathbb{Q}$ defined by $g(x) = \frac{1}{1+x}$?  Prove that both
+of these are injective functions, and imagine $f(\mathbb{N})$ and
+$g(\mathbb{N})$.  How big are these sets?
+
+It should be clear that given any sets $X$ and $Y$ and any function $f : X \to
+Y$, $f(X)$ cannot possibly be bigger than $X$.  For every element $y \in f(X)$,
+there is some element $x \in X$ so that $f(x) = y$; that's how we defined $f(X)$
+in the first place.
+
+% TODO: rewrite this to require less proof.
+On the other hand, if $f$ is injective, $f(X)$ also shouldn't be any smaller
+than $X$.  Why?  Well, we can just define a function the other way.  Let $g :
+f(X) \to X$, and define $g(f(x)) = x$.  Now we know that $g(f(X))$ is no larger
+than $f(X)$.  But $g(f(X)) = \{ g(f(x)) \, | \, x \in X \} = \{ x \, | \, x \in
+X \} = X$!  That means, by the argument above, that $f(X)$ is no larger than
+$X$, just as we wanted.
+
+The careful reader might notice that the definition of $g$ is fishy.  Does a
+function defined this way really work?  The answer is that it does, but only
+because we were careful about $f$.  We know that if we have an element $y \in
+f(X)$, then there is an element $x \in X$ so that $y = f(x)$.  This means that
+$g$ really is defined for all $y \in f(X)$.  That's not all, though.
+Additionally, suppose there was also a $z \in X$ so that $y = f(z)$.  Then $g(y)
+= g(f(x)) = x$, but also $g(y) = g(f(z)) = z$.  For $g$ to be a function, we
+need to prove that $x = z$.  Here is where we need the injectivity of $f$: we
+know that since $f(x) = y = f(z)$, that $f(x) = f(z)$, and thus $x = z$.
+Therefore, $g$ really is a function, and so our argument holds.
+
+Our intuition thus tells us that however we define size, we should make sure
+that for any set $X$ and any injective function $f : X \to Y$, we should have
+$X$ and $f(X)$ be of equal size.  As $f(X)$ is just a part of $Y$, this means
+that $X$ should also be no bigger than $Y$.  By themselves, all these loose bits
+of intuition might not seem very useful, but in the next section we'll use them
+to show that a certain approach to define size {\it doesn't} work.  First,
+however, some exercises.
+
+\sss{Exercises}
+
+\begin{enumerate}
+  \item In an older exercise, you saw there were four functions from $\{0, 1\}$
+    to itself.  How many injective functions are there?  What about between
+    $\{0, 1, 2\}$ and itself?  What if you have even more elements?
+  % Something about seeing an injective function as an embedding.
+\end{enumerate}
 
 \s{Subsets}
 
@@ -208,11 +276,87 @@ We denote this by $X \subseteq Y$.  We have, then $\emptyset \subseteq \mathbb{N
 \subseteq \mathbb{Z} \subseteq \mathbb{Q} \subseteq \mathbb{R}$.  We will use $X
 \subset Y$ when $X$ is a subset of $Y$, but $X$ and $Y$ are not equal.
 
-% Unfinished.  Show that if we assume X subset Y implies |X| < |Y|, that if f is
-% injective then |X| = |f(X)|, and that not |X| < |X|, then we can derive a
-% contradiction.
+Now let's denote the size of $X$ by $|X|$.  Can we define this size in such a
+way that for finite sets, $|X|$ is the number of elements in $X$, that for any
+sets $X$ and $Y$ such that $X \subset Y$ we have $|X| < |Y|$, and that if there
+exists an injective function $f : X -> Y$ then $|X| = |f(X)|$?
 
-% Exercises: unions, intersections, complements
+We've already given away that this isn't possible.  The question becomes, how do
+we prove it?  It isn't enough to just try a few definitions of `size' and see
+that they don't work, as there'll always be a few that we haven't yet attempted.
+We need a way of showing that whatever definition we come up with, we'll be able
+to show it doesn't work.
+
+To do that, we'll assume that we were given some definition of `size' that
+satisfies the above requirements, but with no other assumptions.  You can
+imagine it as being given the definition by a friend, and now you have to show
+why it's wrong.  If the definition allows us to derive something that isn't
+true then there's certainly something wrong with it, so that's what we'll try to
+do.
+
+Assume that for every set $X$, we defined $|X|$.  Define $f : \mathbb{Z} \to
+\mathbb{Z}$ by $f(x) = 2x$.  We required that $|\mathbb{Z}| = |f(\mathbb{Z})|$.
+But because $1 \not \in f(\mathbb{Z})$, $f(\mathbb{Z}) \subset \mathbb{Z}$.
+This implies $|f(\mathbb{Z})| < |\mathbb{Z}|$, and so we conclude $|\mathbb{Z}|
+= |f(\mathbb{Z})| < |\mathbb{Z}|$.  Surely, though, a set can't be smaller than
+itself, so we've just derived a falsehood, and the definition of `size' that we
+started with can't work.
+
+If this proof doesn't feel quite right to you, don't worry: we'll look at
+arguments like this in-depth in the next chapter.  For now, the main result is
+that we are too strict in how we want to define size.  We need to relax one of
+the requirements, and in the next section we'll see that if we remove the
+requirement that $X \subset Y$ implies $|X| < |Y|$, we can find a good
+definition.
+
+\sss{Exercises}
+
+In these exercises we'll explore some more operations for constructing sets.
+The three most important ones are {\it union}, {\it intersection}, and {\it
+difference}.
+
+The union of $X$ and $Y$ is written as $X \cup Y$ and contains every element of
+$X$ and every element of $Y$.  We can write this using set comprehension
+notation:
+\[
+  X \cup Y = \{ x \, | \, x \in X \text{ or } x \in Y \}
+\]
+
+\begin{enumerate}
+  \item Write out the following sets:
+    \begin{enumerate}
+      \item $\{0, 1\} \cup \{2, 3\}$
+      \item $\{0, 1\} \cup \{1, 2\}$
+      \item $\{0, 1\} \cup \{0, 1\}$
+      \item $\{0, 1\} \cup \emptyset$
+    \end{enumerate}
+  \item We say that a set $A$ is the identity of $\cup$ if for every set $X$ we
+    have $X \cup A = X = A \cup X$.  Does $\cup$ have an identity?
+  \item Suppose $X$ and $Y$ are sets.  Convince yourself that $X \cup Y = Y \cup
+    X$.  This property of $\cup$ is called {\it commutativity}.
+  \item Suppose $X$, $Y$, and $Z$ are sets.  Convince yourself that $(X \cup Y) = Y \cup
+    X$.  This property is called {\it associativity}.
+\end{enumerate}
+
+The intersection of $X$ and $Y$ is written as $X \cap Y$ and contains all
+elements that are both in $X$ and $Y$.
+
+\begin{enumerate}
+  \item Do the first exercise on unions again, but replace $\cup$ with $\cap$.
+  \item Let $X$ and $Y$ be sets.  Write $X \cap Y$ as a set comprehension.
+  \item Does $\cap$ have an identity?
+  \item Is $\cap$ commutative and associative, just like $\cup$ is?
+\end{enumerate}
+
+The difference between $X$ and $Y$ is written as $X-Y$ (or, sometimes, $X \ Y$)
+and contains all elements that are in $X$ but are not in $Y$.
+
+\begin{enumerate}
+  \item Do the first exercise on unions a third time, but now taking the
+    difference.
+  \item Does set difference have an identity?
+  \item Is set difference commutative?  What about associative?
+\end{enumerate}
 
 \s{Cardinalities}
 

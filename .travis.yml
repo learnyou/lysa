@@ -11,3 +11,5 @@ notifications:
     template:
       - "[\x0313%{repository_name}\x03] Build #%{build_number}: %{message} %{build_url}"
       - "\x0313%{repository_name}\x03/\x036%{branch}\x03 \x0314%{commit}\x03 \x0315%{author}\x03: %{commit_message}"
+  on_success: change
+  on_failure: change
