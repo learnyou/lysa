@@ -2,58 +2,123 @@
 
 We'd like to start this book off finding some patterns.  In order to do that,
 though, we need to introduce some objects for use to find patterns {\it in}.
-These should be simple enough that we can grasp them intuitively, but not so
-simple that all the patterns we find are trivial.  We would also like to
-introduce something that will make future patterns easier to talk about.
+These objects should be simple enough that we can grasp them intuitively, but
+not so simple that the patterns which we find are trivial.  We would also like
+to introduce a concept that will make future patterns easier to talk about.
 
-The first kind of objects we will be looking at are {\it sets}.  Sets were first
-studied by Georg Cantor, a German mathematician, in the second half of the
-nineteenth century.  In mathematics, a set is a collection of objects with no
-order and no duplicate elements.  Effectively, given a set $S$ and some other
-object $x$, the only thing we can ask is ``does $S$ contain $x$?''  We write $x
-\in S$ if the answer is `yes', and $x \not \in S$ if the answer is `no.'  If $x
-\in S$, we say that "$x$ is an element of $S$", or simply "$x$ is in $S$".
+% My submission:
+% 
+% There are basically three notions you need to be familiar with in order to do
+% anything interesting in math. Those three things are {\it sets}, {\it
+% functions}, and {\it proofs}. Unfortunately, to become familiar with one, you
+% need to be familiar with the other two. Our strategy in this chapter is to
+% give you barely enough familiarity with each of them. This way, we can do in
+% depth on one of the three in each of the succeeding chapters.
 
-There are several ways of writing down sets.  If we already have some objects,
-we can make a set that contains all of them.  For example, if we assume that the
-numbers 3 and 5 are well-defined (trust us here!), we can make the set $\{3,
-5\}$.  In particular, if we take no objects, we can create the set that doesn't
-contain anything.  This is called the empty set, and is usually denoted
-$\emptyset$.  Note that even if we didn't have anything before, we do have an
-object now, namely the empty set we just made.  That means we can construct a
-set $\{\emptyset\}$ which contains the empty set and nothing else.  That's not
-the same thing as the empty set (because the empty set doesn't contain
-anything), so now we have two objects, and we can repeat this process.
+The first kind of objects we will be looking at are {\it sets}.\footnote{You
+  will learn in math, when we use a common term like {\it set}, {\it function},
+  {\it proof}, {\it group}, {\it continuous} or {\it closed}, we usually mean
+  something similar in concept to the colloquial term, but there are some
+  strings attached.} Sets were first studied by Georg Cantor, a German
+mathematician, in the second half of the nineteenth century.  In mathematics, a
+set is a collection of objects with no order and no duplicate elements.
 
-There are four important sets of numbers that we will for now assume the
-existence of.  First of all, there are the integers: these are just the whole
-numbers, like $-1, 0, 1, 2$.  Traditionally, this set is denoted $\mathbb{Z}$.
-The natural numbers, denoted $\mathbb{N}$, are all non-negative
-integers\footnote{Conventions differ as to what the natural numbers are.
-Everyone agrees that positive whole numbers (1, 2, 3\ldots) are natural.  Some
-people say $0$ is also a natural numbers, while others disagree.  In this book,
-0 {\it is} a natural number, so the natural numbers are 0, 1, 2, and so on.}.
-The set of rational numbers, denoted $\mathbb{Q}$ is the set of all numbers that
-can be written as a quotient (or fraction) $\frac{p}{q}$ of integers.  Finally,
-the real numbers, denoted $\mathbb{R}$, contain everything on the number line.
-Equivalently, a real number is just any number you can write down by writing
-down an integer, and then writing any sequence of digits after the decimal
-point, even an infinite sequence.
+
+Effectively, given a set $S$ and some other object $x$, the only thing we can
+ask is ``does $S$ contain $x$?''\footnote{Throughout the rest of the chapter,
+  we're going to use some notation that may be unfamiliar to you. Mostly, we are
+  going to be using letters in the place of actual values. The reason we do that
+  is, there are way too many possible values for us to write them all down, so
+  we use a letter to account for any possible value. Don't worry if you don't
+  understand this completely, you can always come back and read this again
+  later.}  We are going to use the notation $x \in S$ if the answer is `yes',
+and $x \not \in S$ if the answer is `no.'\footnote{In general, when we write
+  some expression like $x \not \equiv y$, it usually means that $x \equiv y$ is
+  not true.}  If $x \in S$, we say that "$x$ is an element of $S$", or simply
+"$x$ is in $S$".
+
+There are several ways of writing down sets.
+
+% Personally, I think lists are much easier to read than paragraphs
+\begin{enumerate}
+\item If we already have some objects, we can make a set that contains all of
+  them.  For example, if you assume that the numbers 3 and 5 are
+  well-defined\footnote{The term {\it well-defined} is an odd term in math, in
+    that everybody knows what it means, but very few people can state the
+    definition. You might even say that the term ``well-defined'' is not
+    well-defined.} (trust us here!), you can make the set $\{3, 5\}$.
+
+\item You can create the set that doesn't contain anything.  This is called the
+  {\it empty set}, and is usually denoted $\emptyset$. Note that even if we
+  didn't have anything before, we do have an object now, namely the empty set we
+  just made. This empty set may seem trivial, but it actually becomes very
+  important later, when you will have to combine sets together to make new sets.
+
+\item You can construct a set $\{\emptyset\}$ which contains the empty set and
+  nothing else.  That's not the same thing as the empty set (because the empty
+  set doesn't contain anything). So, now we have two objects.
+
+\item You can repeat this process. For instance, if you repeat the process in
+  the previous list item, you would get the set $\{\{\emptyset\}\}$, which is a
+  set, which contains a set, which contains $\emptyset$. This is how you
+  construct what are called {\it higher-order} sets.
+\end{enumerate}
+
+When dealing in the real world, there are four important sets of numbers of
+which we will --- for now --- assume the existence.
+
+% Again, a list is easier
+\begin{enumerate}
+\item First of all, there are the integers: these are just the whole numbers,
+  like $-3, -2, -1, 0, 1, 2$.  Traditionally, this set is denoted $\mathbb{Z}$.
+
+\item The natural numbers, denoted $\mathbb{N}$, are all non-negative
+  integers\footnote{Conventions differ as to what the natural numbers are.
+    Everyone agrees that positive whole numbers (1, 2, 3\ldots) are natural.
+    Some people say $0$ is also a natural numbers, while others disagree.  In
+    this book, 0 {\it is} a natural number, so the natural numbers are 0, 1, 2,
+    and so on. This might seem like a stupid fight, why can't we just choose a
+    side? However, it actually turns out to be really important.}.
+
+\item The set of ``rational'' numbers, denoted $\mathbb{Q}$ is the set of all
+  numbers that can be written as a quotient (or fraction) $\frac{p}{q}$, where
+  $p$ and $q$ are integers.
+
+  In mathematical notation, you would write this as
+  $\left\{ \frac{p}{q} \mid p,\,q \in \mathbb{Z} \right\}$.  You should read
+  that as ``the set of all numbers $p$ over $q$, such that $p$ and $q$ are
+  elements of $\Z$.''
+
+\item Finally, the real numbers, denoted $\mathbb{R}$, contain everything on the
+  number line.  Equivalently, a real number is just any number you can write
+  down by writing down an integer, a decimal point, and then writing any
+  sequence of digits after the decimal point (even an infinite sequence).
+
+  Let us show you an example. Let's write down an integer. $2$. There we
+  go. Now, let's just write down a bunch of digits all in a row. $215455211$. By
+  the definition in the previous paragraph, $2.215455211$ is a real number. You
+  should get in the habit of writing ``$2.215455211$ is a real number'' as
+  $2.215455211 \in \R$.
+\end{enumerate}
 
 Sets certainly look simple enough to understand intuitively, but are they also
 interesting enough to be worth studying?  The answer to that is a resounding
-`yes.'  Back in his own day, the patterns Cantor found by studying set theory
-were considered so thoroughly bizarre that many of his colleagues simply refused
-to believe that Cantor could be right.  In the end, Cantor turned out to be
-right all along, and his ideas can be found in any introductory text on
-mathematics---including this one.
+`yes.' Exciting, right?
+
+Back in his own day, the patterns Cantor found by studying set theory were
+considered so thoroughly bizarre that many of his colleagues simply refused to
+believe that Cantor could be right.  In the end, Cantor turned out to be right
+all along. His ideas can be found in any introductory text on
+mathematics---including this one. 
 
 To give you a taste of the results, let's take a look at some of them.
+
 Intuitively, sets can be of different sizes: it's clear that the empty set is
 the smallest possible set, and that $\{2, 4\}$ is smaller than $\{1, 2, 3\}$.
-When we get to infinite sets, however, the intuition fails.  Cantor formalised
-this intuition, and the formal version also worked for infinite sets.  However,
-the resulting inequalities he got were very surprising: for example, he found
+When we get to infinite sets, however, the intuition fails.
+
+Cantor formalised this intuition, and the formal version also worked for
+infinite sets.  The results he got were very surprising: for example, he found
 that there are as many natural numbers as rational numbers, but that there are
 strictly more real numbers.  Even worse, he proved that given any set, there is
 always a set larger than it.  If you've ever heard of people talking about
@@ -62,6 +127,8 @@ always a set larger than it.  If you've ever heard of people talking about
 Sets alone, however, are not enough to derive Cantor's results.  If we only have
 sets, given sets $X$ and $Y$, we can't say much about how $X$ and $Y$ relate to
 each other.  To fix this, we'll introduce a second kind of object: functions.
+
+% This is where I stopped editing. - pharpend
 
 A function from a set $X$ to a set $Y$ specifies for every element of $X$ a
 corresponding element of $Y$.  In other words, if $f$ is a function from $X$ to
