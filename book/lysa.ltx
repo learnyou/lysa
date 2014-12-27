@@ -5,6 +5,7 @@
 % middle initial, as is the convention in academia.
 \author{
   \pharpend
+  \agolov
 }
 
 % 
@@ -20,11 +21,13 @@
 \usepackage{amsmath}
 \usepackage{amsfonts}
 \usepackage{amssymb}
+\usepackage[toc,page]{appendix}
 \usepackage[backend=bibtex]{biblatex}
 \usepackage{fontspec}
 % \usepackage[utf8]{inputenc}
 \usepackage{mathtools}
 \usepackage{scrextend}
+\usepackage{setspace}
 % \usepackage{tabu}
 \usepackage{url}
 \usepackage{hyperref}
@@ -45,7 +48,6 @@
 \addbibresource{2-sets-monoids.bib}
 \addbibresource{3-special-sets.bib}
 
-\setlength{\parskip}{2ex}
 
 % Print-friendly links
 \newcommand{\anauthor}[2]{#1 {\href{mailto:#2}{<{#2}>}} \\ }
@@ -68,6 +70,9 @@
 
 % Miscellaneous
 \newcommand{\pharpend}{\anauthor{Peter Harpending}{pharpend2@gmail.com}}
+\newcommand{\agolov}{\anauthor{Anton Golov}{jesyspa@gmail.com}}
+% \setmainfont{}
+\setlength{\parskip}{2ex}
 
 \title{Learn You Some Algebras for Glorious Good!}
 \begin{document}
@@ -111,10 +116,15 @@
 \tableofcontents
 \newpage
 
+
 \input{1-introduction.ltx}
-\input{2-sets-monoids.ltx}
+\input{2-sets-functions.ltx}
 \input{3-special-sets.ltx}
+
+\begin{appendices}
 \input{fdl.ltx}
+\end{appendices}
+
 \newpage
 \printbibliography
 \end{document}
