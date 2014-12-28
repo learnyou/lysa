@@ -73,7 +73,7 @@ The following people are the main contributors to LYSA:
   * GitHub: [pharpend](https://github.com/pharpend/)
   * IRC: pharpend
   * Website: [https://pharpend.github.io/](https://pharpend.github.io/)
-* Ng Wei En (build system manager & quality control)
+* Ng Wei En (GitHub zen master)
   * Email: [wei2912.supp0rt@gmail.com](mailto:wei2912.supp0rt@gmail.com)
   * GitHub: [wei2912](https://github.com/wei2912/)
   * IRC: wei2912
