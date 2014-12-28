@@ -1,43 +1,46 @@
 \ch{Sets and Functions}
 
-We'd like to start this book off finding some patterns.  In order to do that,
-though, we need to introduce some objects for use to find patterns {\it in}.
-These objects should be simple enough that we can grasp them intuitively, but
-not so simple that the patterns which we find are trivial.  We would also like
-to introduce a concept that will make future patterns easier to talk about.
+There are basically three notions you need to be familiar with in order to do
+anything interesting in math. Those three things are {\it sets}, {\it
+  functions}, and {\it proofs}. 
 
-% My submission:
-% 
-% There are basically three notions you need to be familiar with in order to do
-% anything interesting in math. Those three things are {\it sets}, {\it
-% functions}, and {\it proofs}. Unfortunately, to become familiar with one, you
-% need to be familiar with the other two. Our strategy in this chapter is to
-% give you barely enough familiarity with each of them. This way, we can do in
-% depth on one of the three in each of the succeeding chapters.
+You will learn in math, when we use a common term like {\it set}, {\it
+  function}, {\it proof}, {\it group}, {\it continuous} or {\it closed}, we
+usually mean something similar in concept to the colloquial term, but there are
+some strings attached. This is usually the case in the sciences too.
 
-The first kind of objects we will be looking at are {\it sets}.\footnote{You
-  will learn in math, when we use a common term like {\it set}, {\it function},
-  {\it proof}, {\it group}, {\it continuous} or {\it closed}, we usually mean
-  something similar in concept to the colloquial term, but there are some
-  strings attached.} Sets were first studied by Georg Cantor, a German
-mathematician, in the second half of the nineteenth century.  In mathematics, a
-set is a collection of objects with no order and no duplicate elements.
+This chapter covers the first two --- sets and functions --- in some depth. \S 3
+will cover proofs. Yes, proofs are so important that they get their own chapter.
 
+Sets are much easier to understand than functions. Moreover, to understand
+functions, it's required that you know what sets are.
 
-Effectively, given a set $S$ and some other object $x$, the only thing we can
-ask is ``does $S$ contain $x$?''\footnote{Throughout the rest of the chapter,
-  we're going to use some notation that may be unfamiliar to you. Mostly, we are
-  going to be using letters in the place of actual values. The reason we do that
-  is, there are way too many possible values for us to write them all down, so
-  we use a letter to account for any possible value. Don't worry if you don't
-  understand this completely, you can always come back and read this again
-  later.}  We are going to use the notation $x \in S$ if the answer is `yes',
-and $x \not \in S$ if the answer is `no.'\footnote{In general, when we write
-  some expression like $x \not \equiv y$, it usually means that $x \equiv y$ is
-  not true.}  If $x \in S$, we say that "$x$ is an element of $S$", or simply
-"$x$ is in $S$".
+Sets were first studied by Georg Cantor, a German mathematician, in the second
+half of the nineteenth century.  Back in his own day, the patterns Cantor found
+by studying set theory were considered so thoroughly bizarre that many of his
+colleagues simply refused to believe that Cantor could be right.  In the end,
+Cantor turned out to be right all along. His ideas can be found in any
+introductory text on mathematics---including this one.
 
-There are several ways of writing down sets.
+Throughout the rest of the chapter, we're going to use some notation that may be
+unfamiliar to you. Namely, we are going to be using letters in the place of
+actual values. The reason we do that is, there are way too many possible values
+for us to write them all down, so we use a letter to account for any possible
+value. Don't worry if you don't understand this completely, you can always come
+back and read this again later.
+
+So, let's get started on sets! A set is a collection of objects with no order
+and no duplicate elements.  Given a set, we're going to call it $S$, and some
+other object, we'll call that object $x$, the only thing we can ask is `does $S$
+contain $x$?'
+
+We are going to use the notation $x \in S$ if the answer is `yes', and
+$x \not \in S$ if the answer is `no.'\footnote{In general, when we write some
+  expression like $x \not \equiv y$, it usually means that $x \equiv y$ is not
+  true.}  If $x \in S$, we say that "$x$ is an element of $S$", or simply "$x$
+is in $S$".
+
+There are several ways of writing down sets:
 
 % Personally, I think lists are much easier to read than paragraphs
 \begin{enumerate}
@@ -105,12 +108,6 @@ Sets certainly look simple enough to understand intuitively, but are they also
 interesting enough to be worth studying?  The answer to that is a resounding
 `yes.' Exciting, right?
 
-Back in his own day, the patterns Cantor found by studying set theory were
-considered so thoroughly bizarre that many of his colleagues simply refused to
-believe that Cantor could be right.  In the end, Cantor turned out to be right
-all along. His ideas can be found in any introductory text on
-mathematics---including this one. 
-
 To give you a taste of the results, let's take a look at some of them.
 
 Intuitively, sets can be of different sizes: it's clear that the empty set is
@@ -123,10 +120,6 @@ that there are as many natural numbers as rational numbers, but that there are
 strictly more real numbers.  Even worse, he proved that given any set, there is
 always a set larger than it.  If you've ever heard of people talking about
 ``different kinds of infinity'', this is probably what they meant.
-
-Sets alone, however, are not enough to derive Cantor's results.  If we only have
-sets, given sets $X$ and $Y$, we can't say much about how $X$ and $Y$ relate to
-each other.  To fix this, we'll introduce a second kind of object: functions.
 
 \sss{Exercises}
 
@@ -145,6 +138,8 @@ each other.  To fix this, we'll introduce a second kind of object: functions.
 \end{enumerate}
 
 \s{Functions}
+
+% So, we're sort of faced with a problem.
 
 % I'm going to try to explain functions in Layman's terms
 
