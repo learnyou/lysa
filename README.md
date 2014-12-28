@@ -14,8 +14,8 @@ but we have a service which periodically builds the source, and publishes a
 PDF. These PDF's are colloquially called "nightly builds."
 
 * Nightly builds are available at http://dtscode.io/~lysa/develop/ .
-* Releases will be available at http://dtscode.io/~lysa/master/ . As of now,
-there are no releases.
+* Releases will be available at http://dtscode.io/~lysa/master/ . As of 28
+December 2014, there are no releases.
 
 For more details on the build system, refer to the
 [guide to contributing][contrib-build-sys].
