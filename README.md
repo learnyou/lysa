@@ -82,7 +82,7 @@ The following people are the main contributors to LYSA:
 * Nick Chambers (site maintainer)
   * Email: [DTSCode@gmail.com](mailto:DTSCode@gmail.com)
   * GitHub: [DTScode](https://github.com/DTScode)
-  * IRC: dts|pokeball
+  * IRC: dts|pokeball, DTSCode
 
 They are also operators on our IRC channel. You may contact them if you need
 any help, but we encourage you to speak in the IRC channel rather than in PM.
