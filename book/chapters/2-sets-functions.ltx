@@ -1,14 +1,7 @@
-\ch{Sets and Functions}
+\ch{Sets}
 
-There are basically three notions you need to be familiar with in order to do
-anything interesting in math. Those three things are {\it sets}, {\it
-  functions}, and {\it proofs}. 
-
-This chapter covers the first two --- sets and functions --- in some depth. \S 3
-will cover proofs. Yes, proofs are so important that they get their own chapter.
-
-Sets are much easier to understand than functions. Moreover, to understand
-functions, it's required that you know what sets are.
+Anyway, now that that boring introduction is out of the way, we can get to some
+math! The first thing we are going to cover are \i{set}s.
 
 Sets were first studied by Georg Cantor, a German mathematician, in the second
 half of the nineteenth century.  Back in his own day, the patterns Cantor found
@@ -17,6 +10,61 @@ colleagues simply refused to believe that Cantor could be right.  In the end,
 Cantor turned out to be right all along. His ideas can be found in any
 introductory text on mathematics---including this one.
 
+Sets are basically like lists, except there's no duplication, and there's no
+order. Examples:
+
+\begin{enumerate}
+\item $\{0, 1, 2, 3\}$ is a set.
+\item $\{ 1, 2, 0, 3\}$ is the same set.
+\item $\{ 1, 1, 2, 0, 3\}$ is not a set, because there's duplication.
+\end{enumerate}
+
+To give you some more notation:
+
+\begin{enumerate}
+\item $0,1,2,3$ is not a set, it is instead the numbers $0$ through $3$, which
+  are to be considered separately.
+\item $\{0,1,2,3\}$ is indeed a set (notice the braces).
+\item If some object is in a set, the notation is
+  `$\mathrm{OBJECT} \in \mathrm{SET}$', which should be read ``OBJECT is an
+  element of SET''.
+\item If the object is not in the set, the notation is
+  `$\mathrm{OBJECT} \not \in \mathrm{SET}$', which should be read ``OBJECT is
+  not an element of SET''.
+\item $0 \in \{0,1,2,3\}$ should be read ``$0$ is an element of
+  $\{0,1,2,3\}$'', and indeed it is.
+\item $0,1 \in \{0,1,2,3\}$ should be read ``$0$ and $1$ are both elements of
+  $\{0,1,2,3\}$''. They are.
+\item $\{0,1\} \not \in \{0,1,2,3\}$ should be read ``$\{0, 1\}$ is not an
+  element of $\{0,1,2,3\}$''. $\{0,1\}$ is indeed not an element of
+  $\{0,1,2,3\}$.
+\end{enumerate}
+
+Now, here, we're faced with an interesting problem. $\{0,1,2,3\}$ encapsulates
+$\{0,1\}$, but $\{0,1\}$ is not an element of $\{0,1,2,3\}$. So, how do we
+express this notion of `encapsulation'? The answer is by using ``subset''
+notation.
+
+\newcommand{\zo}{\{0,1\}}
+\newcommand{\zf}{\{0,1,2,3\}}
+\newcommand{\zzf}{$\zo \subset \zf$}
+\newcommand{\zzef}{$\zo \subseteq \zf$}
+\newcommand{\subof}{$\subset$}
+\newcommand{\subeq}{$\subseteq$}
+\newcommand{\subofnm}{\subset}
+\newcommand{\subeqnm}{\subseteq}
+
+\begin{enumerate}
+\item \zzf is true. \zzf should be read as ``$\zo$ is a proper subset of $\zf$.''
+\item \zzef is true. \zzef should be read as ``$\zo$ is an improper subset of
+  $\zf$.''
+\end{enumerate}
+
+Alright, my apologies, that was a lot of crap to throw at you at once, and you
+probably remember absolutely none of it. However, you'll get used to that
+particular \i{set} of crap\footnote{I, for one, would never condone such
+  terrible puns.} as time goes along.
+
 Throughout the rest of the chapter, we're going to use some notation that may be
 unfamiliar to you. Namely, we are going to be using letters in the place of
 actual values. The reason we do that is, there are way too many possible values
@@ -24,10 +72,6 @@ for us to write them all down, so we use a letter to account for any possible
 value. Don't worry if you don't understand this completely, you can always come
 back and read this again later.
 
-So, let's get started on sets! A set is a collection of objects with no order
-and no duplicate elements.  Given a set, we're going to call it $S$, and some
-other object, we'll call that object $x$, the only thing we can ask is `does $S$
-contain $x$?'
 
 We are going to use the notation $x \in S$ if the answer is `yes', and
 $x \not \in S$ if the answer is `no.'\footnote{In general, when we write some
@@ -53,7 +97,7 @@ There are several ways of writing down sets:
   important later, when you will have to combine sets together to make new sets.
 
 \item You can construct a set $\{\emptyset\}$ which contains the empty set and
-  nothing else.  That's not the same thing as the empty set (because the empty
+   nothing else.  That's not the same thing as the empty set (because the empty
   set doesn't contain anything). So, now we have two objects.
 
 \item You can repeat this process. For instance, if you repeat the process in
