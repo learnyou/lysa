@@ -22,9 +22,9 @@ order. Examples:
 To give you some more notation:
 
 \begin{enumerate}
-\item $0,1,2,3$ is not a set, it is instead the numbers $0$ through $3$, which
+\item $0,1,2,3$ {\bf is not} a set, it is instead the numbers $0$ through $3$, which
   are to be considered separately.
-\item $\{0,1,2,3\}$ is indeed a set (notice the braces).
+\item $\{0,1,2,3\}$ {\bf is} indeed a set (notice the braces).
 \item If some object is in a set, the notation is
   `$\mathrm{OBJECT} \in \mathrm{SET}$', which should be read ``OBJECT is an
   element of SET''.
@@ -33,9 +33,9 @@ To give you some more notation:
   not an element of SET''.
 \item $0 \in \{0,1,2,3\}$ should be read ``$0$ is an element of
   $\{0,1,2,3\}$'', and indeed it is.
-\item $0,1 \in \{0,1,2,3\}$ should be read ``$0$ and $1$ are both elements of
-  $\{0,1,2,3\}$''. They are.
-\item $\{0,1\} \not \in \{0,1,2,3\}$ should be read ``$\{0, 1\}$ is not an
+\item $0,1 \in \{0,1,2,3\}$ should be read ``$0$ and $1$ {\bf are both} elements
+  of $\{0,1,2,3\}$''. They are.
+\item $\{0,1\} \not \in \{0,1,2,3\}$ should be read ``$\{0, 1\}$ {\bf is not} an
   element of $\{0,1,2,3\}$''. $\{0,1\}$ is indeed not an element of
   $\{0,1,2,3\}$.
 \end{enumerate}
@@ -51,9 +51,19 @@ notation.
 \newcommand{\zzef}{$\zo \subseteq \zf$}
 
 \begin{enumerate}
-\item \zzf is true. \zzf should be read as ``$\zo$ is a proper subset of $\zf$.''
-\item \zzef is true. \zzef should be read as ``$\zo$ is an improper subset of
-  $\zf$.''
+\item \zzef is {\bf true}. \zzef should be read as ``$\zo$ is an {\bf improper}
+  subset of $\zf$.''
+\item \zzf is {\bf true}. \zzf should be read as ``$\zo$ is a {\bf proper}
+  subset of $\zf$.''
+\item $\zf \sseq \zf$ is {\bf true}. Intuitively, you should think ``$\zf$ is
+  entirely encapsulated inside of $\zf$.''
+\item $\zf \ssof \zf$ is {\bf false}. This highlights the difference between
+  \ssofnm and \sseqnm.
+
+  \zzf implies that $\zf$ contains some stuff that \b{is not} contained in
+  $\zo$. \zzef does not have this implication. That is, \zzef does not say for
+  sure that $\zf$ has more stuff than $\zo$, it just acknowledges it as a
+  possibility.
 \end{enumerate}
 
 Alright, my apologies, that was a lot of crap to throw at you at once, and you
@@ -61,49 +71,9 @@ probably remember absolutely none of it. However, you'll get used to that
 particular \i{set} of crap\footnote{I, for one, would never condone such
   terrible puns.} as time goes along.
 
-Throughout the rest of the chapter, we're going to use some notation that may be
-unfamiliar to you. Namely, we are going to be using letters in the place of
-actual values. The reason we do that is, there are way too many possible values
-for us to write them all down, so we use a letter to account for any possible
-value. Don't worry if you don't understand this completely, you can always come
-back and read this again later.
-
-
-We are going to use the notation $x \in S$ if the answer is `yes', and
-$x \not \in S$ if the answer is `no.'\footnote{In general, when we write some
-  expression like $x \not \equiv y$, it usually means that $x \equiv y$ is not
-  true.}  If $x \in S$, we say that "$x$ is an element of $S$", or simply "$x$
-is in $S$".
-
-There are several ways of writing down sets:
-
-% Personally, I think lists are much easier to read than paragraphs
-\begin{enumerate}
-\item If we already have some objects, we can make a set that contains all of
-  them.  For example, if you assume that the numbers 3 and 5 are
-  well-defined\footnote{The term {\it well-defined} is an odd term in math, in
-    that everybody knows what it means, but very few people can state the
-    definition. You might even say that the term ``well-defined'' is not
-    well-defined.} (trust us here!), you can make the set $\{3, 5\}$.
-
-\item You can create the set that doesn't contain anything.  This is called the
-  {\it empty set}, and is usually denoted $\emptyset$. Note that even if we
-  didn't have anything before, we do have an object now, namely the empty set we
-  just made. This empty set may seem trivial, but it actually becomes very
-  important later, when you will have to combine sets together to make new sets.
-
-\item You can construct a set $\{\emptyset\}$ which contains the empty set and
-   nothing else.  That's not the same thing as the empty set (because the empty
-  set doesn't contain anything). So, now we have two objects.
-
-\item You can repeat this process. For instance, if you repeat the process in
-  the previous list item, you would get the set $\{\{\emptyset\}\}$, which is a
-  set, which contains a set, which contains $\emptyset$. This is how you
-  construct what are called {\it higher-order} sets.
-\end{enumerate}
-
-When dealing in the real world, there are four important sets of numbers of
-which we will --- for now --- assume the existence.
+Now, I'm going to throw more crap at you. I'm sorry for all the notation, but it
+is important that you get used to it. There are a bunch of common sets you'll
+encounter in the real world.
 
 % Again, a list is easier
 \begin{enumerate}
