@@ -106,3 +106,11 @@ We'll next want to approach *systems* of equations. first\ matrices
     + Introduction of the primary authors (Peter Harpending, Randy Brown).
     + Book license
     + How to contribute 
+
+# Copyright
+
+Copyright © 2014, Peter Harpending. <pharpend2@gmail.com>
+
+Copying and distribution of this file, with or without modification, are
+permitted in any medium without royalty provided the copyright notice and this
+notice are preserved.  This file is offered as-is, without any warranty.

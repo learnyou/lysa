@@ -141,3 +141,11 @@ suggested changes, or made a number of trivial changes, add yourself to the
 [idris]: http://www.idris-lang.org/
 [learnhs]: https://github.com/bitemyapp/learnhaskell
 [sage]: http://www.sagemath.org/
+
+# Copyright
+
+Copyright © 2014 Peter Harpending. <pharpend2@gmail.com>
+
+Copying and distribution of this file, with or without modification, are
+permitted in any medium without royalty provided the copyright notice and this
+notice are preserved.  This file is offered as-is, without any warranty.
