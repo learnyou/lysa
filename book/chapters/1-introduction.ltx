@@ -1,85 +1,106 @@
+
 \ch{Introduction}
 
-In this book, we aim to take a logically rigorous, yet informal approach to
-mathematics.  We observed that most math (and science) books nowadays seem to
-value keeping an academic tone over ensuring that the reader understands the
-material, and --- more importantly --- enjoys reading the book. We take the
-opposite approach. We want to create a book that is fun to read and easy to
-understand, while still addressing the more advanced concepts in math.
+Before I bore you with a bunch of crap you don't care about, let's do some math,
+shall we?
 
-We start with basic algebra, but teach it in the way most mathematicians
-understand it. We then move on to the more advanced topics, like linear algebra,
-calculus, and statistics.  In theory, you shouldn't need to know anything more
-than basic arithmetic to understand this book. Nevertheless, if anything seems
-too difficult, please let us know so that we can fix it!
+There are basically three notions you need to be familiar with in order to do
+anything interesting in math. Those three things are {\it sets}, {\it
+  functions}, and {\it proofs}. Unfortunately, to be familiar with one, you have
+to be familiar with the other two.\footnote{You'll learn as we go along, when
+  math people use a common term like {\it set}, {\it function}, {\it proof},
+  {\it group}, {\it continuous} or {\it closed}, they usually mean something
+  similar in concept to the colloquial term, but there are some strings
+  attached. This is usually the case in the sciences too (e.g. \i{theory},
+  \i{hypothesis}, \i{experiment}).}
 
-% Someone write this in a less condescending tone.
-% 
-% We really like math, and we think it's not as difficult as people think it is,
-% especially if you approach it in the way mathematicians do. So, we're going to
-% approach all of math the way a mathematician would, but we won't use the overly
-% formal tone a mathematician would.
+So, what are each of those things?
 
-% below: misfiled info that needs to be relocated
+\begin{itemize}
+\item A \i{set} is an unordered collection of things. There is also no
+  repetition.
 
-% We start with what are called the Peano Axioms, which will give you a good
-% introduction to the utter pretentiousness found in your average field of math.
-% In all seriousness, most people think that math is all about pumping out
-% formulas and crunching numbers. That's about as far from the truth as you can
-% get. Math is about qualitatively and precisely analyzing things and understanding
-% the very nature of reality. The whole numbers thing is just a side gig, as you
-% will see.
-% 
-% The Peano axioms are a very mathematical way of understanding basic arithmetic
-% (addition, subtraction, division, etc). ``A mathematical way of understanding
-% arithmetic'' may sound weird and even redundant, but you'll see. If you are
-% dying to see what we're talking about, you can go ahead and skip to \cref{ch:
-% Peano Axioms}.
+\item A \i{function} is a mathematical construct (well, obviously, else I
+  wouldn't be talking about it). Basically, it takes some input, does something
+  to it, and spits out some output. If you give the function the same input a
+  bunch of times, you should get the same result each time. This concept is
+  called ``referential transparency.'' If the function is not referentially
+  transparent, then it's not a function. It's something else.
 
-\s{Boring stuff}
+\item A \i{proof} is basically where you take a bunch of simple facts, called
+  \i{axioms}, and chain them together to make \i{theorem}s. It's sort of like
+  sticking puzzle pieces together to form a picture.
 
-This section is for people who want to get involved in our community. (Bleh,
-right?)
+  The puzzle pieces (in this case, the axioms) aren't usually very interesting
+  on their own. However, the picture they form (in this case, the theorem) can
+  be really cool and enlightening. The proof would be analogous to an explicit
+  set of instructions explaining how to put the pieces together.
+\end{itemize}
 
-If you like chatting on IRC, come see us in {\tt \#learnmath} on Freenode. If
-you don't know what IRC is, or you don't have a client set up, you can connect
-through
-\link{http://webchat.freenode.net/?channels=learnmath}{Freenode's
-  webchat}.
+Once you are familiar with each of those concepts, we can do all sorts of cool
+stuff. Math can yield all sorts of cool results that you wouldn't be able to
+figure out without math. Throughout the book, we will prove all of the
+following:
 
-\ss{Contributing to this Book}
+\begin{itemize}
+\item If you tap your finger against a bridge at exactly the right frequency,
+  the bridge will collapse. (Resonance)
+\item The formula used to calculate the interest rate on your mortgage is
+  actually just a fancy form of the ratios of angles in a triangle. (Euler's
+  formula)
+\item Logic can't be used to prove everything we know to be true. (Gödel's
+  incompleteness theorem)
+\end{itemize}
 
-This book is open-source. You can go to
-\link{https://github.com/learnmath/lysa}{our GitHub page} and see for yourself.
-Part of being open-source means you can freely distribute the book, sell it, or
-even change it. There are some restrictions, though (see \cref{ss: Licensing} for
-details).
+\s{Introduction (for real this time)}
 
-Most of them are fairly minor; if, for instance, you are a schoolteacher and
-want to use this for your class, you are free to edit it to your liking and
-give the modified copy to your students. The only real caveat is that you must
-publish your source so others can use it. This may be a problem if you want to
-do something such as include more exercises without publishing solutions. If
-that is the case, open an issue on the
-\link{https://github.com/learnmath/lysa/issues}{issue tracker} and we'll talk
-about granting you an exception to the license.
+This is a math book. Well, duh. Why did I write it?
 
-You are more than welcome to contribute, but please read the
-\link{https://github.com/learnmath/lysa/blob/master/contributing.md}{contributing guide}
-first. (Sorry, we know how annoying those are.)
+Most math (and science) books nowadays seem to value keeping an academic tone
+over ensuring that the reader understands the material, and --- more importantly
+--- enjoys reading the book.
 
-If you notice any errors, don't be shy! Report them in the
-\link{https://github.com/learnmath/lysa/issues}{issue tracker}. If you have any
-suggestions for improving LYSA, post them in the issue tracker too (or bring
-them up in the IRC channel).
+I take the opposite approach. I want to create a book that is fun to read and
+easy to understand, while eschewing the practice of making myself look good.
 
-If you have any questions about LYSA (or math), feel free to ask in the channel.
+The inspiration for this book is \href{http://learnyouahaskell.com/}{{\it Learn
+    You a Haskell for Great Good!}, by Miran Lipovača}. Haskell is a programming
+language, and LYAH is a great book for learning Haskell. If you are interested
+in a print copy of LYAH, see \cite{lyah}.
 
-\ss{Licensing}
+\s{The community}
+
+Despite the fact that I used ``I'' in the first part of the book, LYSA is
+actually a community project, and many people participate in the writing of this
+book.
+
+If you want to talk to us, or to other math people, come see us in {\tt \#lysa}
+on Freenode. If you don't know what IRC is, or you don't have a client set up,
+you can connect through
+\link{http://webchat.freenode.net/?channels=lysa}{Freenode's webchat}.
+
+If you have any questions about LYSA (or math), feel free to ask in the IRC
+channel ({\tt \#lysa} on FreeNode in case you forgot).
+
+If you want to submit a correction, or have some issue, or want to add some
+content, really anything having to do with the content of the book, see
+\href{https://github.com/pharpend/lysa}{the source}.
+
+\s{Licensing}
+
+This book is ``open source'', which basically means that you have a lot more
+freedom than you do with most books. You can copy this book and give it to your
+friend. You can even print it out and sell it to your friends.\footnote{There
+  are some restrictions though, see \cref{gfdl}.}
+
+If, for instance, you are a schoolteacher and want to use this for your class,
+you are free to edit it to your liking and give the modified copy to your
+students.
 
 LYSA is licensed under the GNU Free Documentation License. \Cref{gfdl} contains
 the license. Please read the license; it's actually pretty comprehensible.
 
+The source for this book is available on GitHub. See
+\url{https://github.com/pharpend/lysa} for details.
+
 \s{Conventions used in this book}
-
-
