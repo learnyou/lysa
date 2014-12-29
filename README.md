@@ -103,6 +103,10 @@ faster (from several hours to a few minutes). If your memory is precious, use
 
     # apt-get install biblatex texlive texlive-latex-extra texlive-bibtex-extra texlive-xetex texlive-math-extra texlive-latex3
 
+#### Ubuntu 14.04
+
+    # apt-get install texlive-latex-extra texlive-bibtex-extra texlive-xetex texlive-latex3 texlive-fonts-recommended
+
 [texlive]: https://www.tug.org/texlive/
 
 
