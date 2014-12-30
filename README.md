@@ -91,6 +91,9 @@ distributions. Below you can find installation instructions for select operating
 systems. If you don't see your operating system there, but know what software is
 needed, please add it and send a pull request.
 
+![Trustworthiness by file extension. Credit: xkcd](http://imgs.xkcd.com/comics/file_extensions.png)
+
+
 #### Gentoo
 
 **Warning**: this will spawn a ton of processes, but will make the build a lot
