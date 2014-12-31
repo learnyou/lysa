@@ -18,9 +18,9 @@ mkdir tmp
 cp -rvf lysa.ltx appendices/* chapters/* bibliographies/* images/* tmp/
 cd tmp
 
-xelatex lysa.ltx || clean_and_die 1
+pdflatex lysa.ltx || clean_and_die 1
 bibtex lysa
-xelatex lysa.ltx && xelatex lysa.ltx
+pdflatex lysa.ltx && pdflatex lysa.ltx
 
 cp lysa.pdf ..
 clean_and_die 0
