@@ -1,3 +1,9 @@
+Copyright © 2014 Peter Harpending. <pharpend2@gmail.com>
+
+Copying and distribution of this file, with or without modification, are
+permitted in any medium without royalty provided the copyright notice and this
+notice are preserved.  This file is offered as-is, without any warranty.
+
 # Learn You Some Algebras for Glorious Good!
 
 This is a math book, licensed under the GNU FDL.
@@ -53,15 +59,6 @@ can be found in the LICENSE file in the project root.
 
 The remainder of this document is for people who want to contribute.
 
-## Committing
-
-Make sure that each commit only contains one change. It's a lot less annoying to
-have to sift through 20 commits each with 1 different change than 1 commit with
-20 different changes. If the change is difficult to summarize in one line, then
-you should probably split up the commit with `git add -p`.
-
-When in doubt, follow the
-[Erlang OTP Git Commit Guide](https://github.com/erlang/otp/wiki/Writing-good-commit-messages).
 
 ## Software
 
@@ -113,7 +110,6 @@ faster (from several hours to a few minutes). If your memory is precious, use
 
 [texlive]: https://www.tug.org/texlive/
 
-
 ## Content
 
 If you add new *content* to the book, such as a new chapter, or a substantial
@@ -146,10 +142,34 @@ suggested changes, or made a number of trivial changes, add yourself to the
 [learnhs]: https://github.com/bitemyapp/learnhaskell
 [sage]: http://www.sagemath.org/
 
-# Copyright
+## Git
 
-Copyright © 2014 Peter Harpending. <pharpend2@gmail.com>
+Most people don't have Gitorious accounts, which is fine. If you do, I suggest
+you use Gitorious's clone & merge system (it's the easiest option). Just click
+the "Clone" button, and Gitorious will guide you through the rest.
 
-Copying and distribution of this file, with or without modification, are
-permitted in any medium without royalty provided the copyright notice and this
-notice are preserved.  This file is offered as-is, without any warranty.
+![Gitorious clone button](http://i.imgur.com/JuQOmWx.png)
+
+If you don't use Gitorious, and don't want to make a Gitorious account, then you
+can host your git repository elsewhere (such as GitLab or GitHub), and then
+email Peter Harpending (pharpend2@gmail.com) with a link to the repository. It's
+recommended that you copy & paste the diff into the email, because Peter will be
+less grumpy if you do. To generate the diff, run
+
+```
+git remote add upstream git@gitorious.org:lysa/lysa.git
+git remote update
+git diff upstream/master
+```
+
+We'll eventually get mailing lists & bug tracking, just give us some time.
+
+### Committing
+
+Try to make sure that each commit only contains one change. It's a lot less
+annoying to have to sift through 20 commits each with 1 different change than 1
+commit with 20 different changes. If the change is difficult to summarize in one
+line, then you should probably split up the commit with `git add -p`.
+
+When in doubt, follow the
+[Erlang OTP Git Commit Guide](https://github.com/erlang/otp/wiki/Writing-good-commit-messages).
