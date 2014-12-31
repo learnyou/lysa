@@ -21,7 +21,7 @@
 \usepackage[toc,page]{appendix}
 \usepackage[backend=bibtex]{biblatex}
 \usepackage{centernot}
-\usepackage{exercise}
+\usepackage[answerdelayed]{exercise}
 \usepackage{mathtools}
 \usepackage{scrextend}
 \usepackage{setspace}
@@ -80,12 +80,27 @@
 \newcommand{\Qimpliedby}{\stackrel{?}{\impliedby}}
 \newcommand{\comma}{,\,}
 \newcommand{\notimplies}{\centernot\implies}
+\newcommand{\notimpliedby}{\centernot\impliedby}
 
 % Miscellaneous
 \newcommand{\pharpend}{\anauthor{Peter Harpending}{pharpend2@gmail.com}}
 \newcommand{\xti}{\textit}        %italicize
 \newcommand{\xtb}{\textbf}        %boldface
 \setlength{\parskip}{2ex}
+\newenvironment{ExcList}
+{
+  \newpage
+  \sss{Exercises}
+  \begin{ExerciseList}
+}
+{
+  \end{ExerciseList}
+  \newpage
+  \sss{Answers}
+  \shipoutAnswer
+  \newpage
+}
+
 
 \title{Learn You Some Algebras for Glorious Good!}
 \begin{document}

@@ -69,7 +69,104 @@ notation.
 Alright, my apologies, that was a lot of crap to throw at you at once, and you
 probably remember absolutely none of it. However, you'll get used to that
 particular \xti{set} of crap\footnote{I, for one, would never condone such
-  terrible puns.} as time goes along.
+  terrible puns.} as time goes along. Anyway, the next page has some exercises.
+
+I would recommend that you do all of the exercises. Many books berate you with
+dozens of exercises all exercising the same problem. I'm too lazy to do that;
+instead, I'm going to give you a small number of exercises. The reason I do that
+is, I have to solve the exercises, too. The solutions are on the page after the
+exercises.
+
+\begin{ExcList}
+  \Exercise {Say you are given a set. It can be any set, it doesn't matter which
+    set. However, for the sake of brevity, I'm going to call that set $S$. Next,
+    you are given a number, I'm going to call the number $n$. Does it make sense
+    to ask ``how many times does $S$ contain $n$?'' Why or why not?}
+  \Answer {No, because repetition doesn't matter.}
+
+  \Exercise {Say you are given the same set, $S$. However, you are also given
+    another set, $T$. If you know $S \ProperSubset T$, is it also true that $S \ImproperSubset T$?
+    Why or why not?}
+  \Answer {Yes. $S \ImproperSubset T$ means that one of $\mset{S \ProperSubset T \comma S = T}$ is
+    true. If $S \ProperSubset T$ is true, then the condition of $S \ImproperSubset T$ is
+    satisfied. Thus, $S \ProperSubset T \implies S \ImproperSubset T$.}
+
+
+  \Exercise {What about, if you know $S = T$, is it also true that $S \ImproperSubset T$?
+    Why or why not?}
+  \Answer {Yes, by the same logic above. If $S = T$, then the conditions for
+    $S \ImproperSubset T$ are satisfied.}
+
+
+  \Exercise {If it is known that $S \ImproperSubset T$, is it also true that $S \ProperSubset T$?
+    Why or why not?}
+
+  \Answer {No.
+
+    \begin{itemize}
+    \item $S \ProperSubset T$ can be stated as ``all of $\mset{S \ImproperSubset T, S \not = T}$
+      are true.''
+    \item By the previous problem, if $S \not = T$ is false (i.e.  $S = T$ is
+      true), then $S \ImproperSubset T$ is true.
+    \item In this case, the set above could be written as
+      $\mset{S \ImproperSubset T, S \not = T} = \mset{True, False}$.  $S \ProperSubset T$ means
+      that both of those have to be true. That is, $S \ProperSubset T$ is true if (and
+      only if) $\mset{S \ImproperSubset T, S \not = T} = \mset{True, True}$.
+    \item In this case, we have
+      $\mset{S \ImproperSubset T, S \not = T} = \mset{True, False}$, which means
+      $S \not \ProperSubset T$.
+    \item Thus, we have just found a case in which $S \ImproperSubset T$ is true, but
+      $S \ProperSubset T$ is false. Therefore, it cannot be the case that
+      $S \ImproperSubset T \implies S \ProperSubset T$. Or, to put it another way,
+      $S \ImproperSubset T \notimplies S \ProperSubset T$.
+    \end{itemize}}
+  
+  \Exercise { Let's look back at $S$, $T$, and $n$. Let's say that you know
+    $n \in S$ (that is, $n$ is in $S$). You also know that $S \ImproperSubset T$. Does
+    this also mean $n \in T$? Why or why not? To put this in mathematical
+    notation:
+
+    \[ \mset{n \in S\comma S \ImproperSubset T} \Qimplies n \in T \] }
+  \Answer { Yes. $S \ImproperSubset T$ means that all of the elements in $S$ are also in
+    $T$, but not necessarily the other way around.. Thus, if $n \in S$, it must
+    be true that $n \in T$.  }
+    
+
+  \Exercise {Since I'm lazy, and the math notation is probably much easier for
+    you to understand,
+
+    \[ \mset{n \in T \comma S \ImproperSubset T} \Qimplies n \in S \]}
+  \Answer {No. $S \ImproperSubset T$ means that it is possible that $S
+    \ProperSubset T$ is true. $S \ProperSubset T$ means that $T$ has all of the
+    elements in $S$, but there are also more elements. It's entirely plausible
+    that $n$ is one of the additional elements. Thus, 
+
+    \[ \mset{n \in T \comma S \ImproperSubset T} \notimplies n \in S \]}
+
+  \Exercise {What about the opposite? That is,
+
+    \[ S \ImproperSubset T \Qimpliedby \mset{n \in S,  n \in T} \]}
+  \Answer{No. $n \in S$ can be stated as $\mset{n} \ImproperSubset S$. Likewise,
+    $n \in T \iff \mset{n} \ImproperSubset T$. This means there are 3 possible cases for
+    the relation between $S$ and $T$:
+
+    \begin{enumerate}
+    \item $S = T$
+    \item $S \ProperSubset T$
+    \item $S \ProperSuperset T$
+    \end{enumerate}
+    
+    $S \ImproperSubset T$ means that either 1 or 2 is true, but the third one is
+    false. The third one can be true when $\mset{n \in S, n \in T}$ is
+    true. Thus, we have found a case in which $\mset{n \in S, n \in T}$ is true,
+    but $S \ImproperSubset T$ is false. Thus, it must be that.
+    
+    \[ S \ImproperSubset T \notimpliedby \mset{n \in S, n \in T} \]}
+
+\end{ExcList}
+
+
+\s{Numeric sets}
 
 Now, I'm going to throw more crap at you. I'm sorry for all the notation, but it
 is important that you get used to it. There are a bunch of common sets you'll
