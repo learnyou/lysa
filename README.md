@@ -16,15 +16,15 @@ document. I'm sure you can build the project on Windows, I just don't know how
 (most of us use Linux).
 
 ```
-git clone git@gitorious.org:lysa/lysa.git
+git clone https://gitlab.com/lysa/lysa.git
 cd lysa/book
 ./build
 ```
 
 If you don't use git, you can get a tarball from
-<https://gitorious.org/lysa/lysa/archive/HEAD.tar.gz>. If you don't know what a
-tarball is, you can get a Zip archive from
-<https://gitorious.org/lysa/lysa/archive/HEAD.zip>.
+<https://gitlab.com/lysa/lysa/repository/archive.tar.gz>. If you don't know what
+a tarball is, you can get a Zip archive from
+<https://gitlab.com/lysa/lysa/repository/archive.zip>.
 
 The build script is not dangerous, you can look at it if you want. It builds the
 book, and generates it into a file called `lysa.pdf` in the `book/`
@@ -144,26 +144,22 @@ suggested changes, or made a number of trivial changes, add yourself to the
 
 ## Git
 
-Most people don't have Gitorious accounts, which is fine. If you do, I suggest
-you use Gitorious's clone & merge system (it's the easiest option). Just click
-the "Clone" button, and Gitorious will guide you through the rest.
+The git repo is hosted on GitLab. If you have a GitLab account, the easiest
+thing to do is to fork the repo with GitLab, and then submit a merge request.
 
-![Gitorious clone button](http://i.imgur.com/JuQOmWx.png)
+![](http://i.imgur.com/0IAINpq.png)
 
-If you don't use Gitorious, and don't want to make a Gitorious account, then you
-can host your git repository elsewhere (such as GitLab or GitHub), and then
-email Peter Harpending (pharpend2@gmail.com) with a link to the repository. It's
-recommended that you copy & paste the diff into the email, because Peter will be
-less grumpy if you do. To generate the diff, run
+If you don't use GitLab, and don't want to make a GitLab account, then you can
+host your git repository elsewhere (such as Gitorious or GitHub), and then
+[open an issue](https://gitlab.com/lysa/lysa/issues/new) with a link to the
+repository. It's recommended that you copy & paste the diff into the issue,
+because pharpend will be less grumpy if you do. To generate the diff, run
 
 ```
-git remote add upstream git@gitorious.org:lysa/lysa.git
+git remote add upstream git@gitlab.com:lysa/lysa.git
 git remote update
 git diff upstream/master
 ```
-
-We'll eventually get mailing lists & bug tracking, just give us some time.
-
 ### Committing
 
 Try to make sure that each commit only contains one change. It's a lot less
