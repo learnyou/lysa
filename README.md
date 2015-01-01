@@ -1,4 +1,4 @@
-Copyright © 2014 Peter Harpending. <pharpend2@gmail.com>
+Copyright © 2014-2015 Peter Harpending. <pharpend2@gmail.com>
 
 Copying and distribution of this file, with or without modification, are
 permitted in any medium without royalty provided the copyright notice and this
