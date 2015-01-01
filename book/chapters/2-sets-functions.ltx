@@ -1,3 +1,43 @@
+\ch{Boolean logic}
+
+Before we get into interesting content, you have to understand some
+notation. This stuff is pretty easy. This will likely be the shortest and
+easiest chapter in the book.
+
+\begin{itemize}
+\item $A \implies B$ means that ``if $A$ is true, that means that $B$ must be
+  true.'' Note that this \xtb{does not} mean that ``if $B$ is true, then $A$ is
+  true.'' Always follow the arrow. $A \implies B$ should be read as ``$A$
+  implies $B$.''
+
+\item $A \impliedby B$ is the same thing as writing $B \impliedby A$. It's often
+  convenient to write $A \impliedby B$ though. $A \impliedby B$ should be read
+  ``$A$ is implied by $B$.''
+
+\item $A \iff B$ means that $A \implies B$ and $B \implies A$. You can think of
+  $A \iff B$ as meaning ``Saying $A$ is the same thing as saying $B$.''
+  
+\item $A \land B$ should be read as ``$A$ logical-and $B$.'' Both have to be
+  true. If one of them is false, than $A \land B$ is false. Likewise, if $A$ and
+  $B$ are both true, then $A \land B$ is true.
+
+\item $A \lor B$ should be read as ``$A$ logical-or $B$.'' With $A \lor B$, if
+  one of $A$ and $B$ is true, then $A \lor B$ is true.
+\end{itemize}
+
+\begin{lstlisting}
+> :type True
+True :: Bool
+> :type False
+False :: Bool
+> :type (True && True)
+(True && True) :: Bool
+> True && True
+True
+it :: Bool
+\end{lstlisting}
+
+
 \ch{Sets}
 
 Anyway, now that that boring introduction is out of the way, we can get to some
