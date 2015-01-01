@@ -24,6 +24,7 @@
 \usepackage[answerdelayed]{exercise}
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
+\usepackage{listings}
 \usepackage{mathtools}
 \usepackage{scrextend}
 \usepackage{setspace}
@@ -68,14 +69,14 @@
 \newcommand{\Z}{\mathbb{Z}}
 \renewcommand{\emptyset}{\varnothing}
 \newcommand{\nil}{\varnothing}
-\newcommand{\ProperSubset}{\subset}
-\newcommand{\ImproperSubset}{\subseteq}
-\newcommand{\ProperSubsetNM}{$\subset$}
-\newcommand{\ImproperSubsetNM}{$\subseteq$}
-\newcommand{\ProperSuperset}{\supset}
-\newcommand{\ImproperSuperset}{\supseteq}
-\newcommand{\ProperSupersetNM}{$\supset$}
-\newcommand{\ImproperSupersetNM}{$\supseteq$}
+\newcommand{\subof}{\subset}
+\newcommand{\subeq}{\subseteq}
+\newcommand{\subofnm}{$\subset$}
+\newcommand{\subeqnm}{$\subseteq$}
+\newcommand{\supof}{\supset}
+\newcommand{\supeq}{\supseteq}
+\newcommand{\supofnm}{$\supset$}
+\newcommand{\supeqnm}{$\supseteq$}
 \newcommand{\mset}[1]{\left\{\,#1\,\right\}}
 \newcommand{\parens}[1]{\left(\,#1\,\right)}
 \newcommand{\brackets}[1]{\left[\,#1\,\right]}
@@ -85,6 +86,8 @@
 \newcommand{\comma}{,\,}
 \newcommand{\notimplies}{\centernot\implies}
 \newcommand{\notimpliedby}{\centernot\impliedby}
+\newcommand{\Qin}{\stackrel{?}{\in}}
+\newcommand{\Qiff}{\stackrel{?}{\iff}}
 
 % Miscellaneous
 \newcommand{\pharpend}{\anauthor{Peter Harpending}{pharpend2@gmail.com}}
@@ -147,11 +150,11 @@
 
 \begin{appendices}
 
-{\scriptsize
-  \setlength{\parskip}{0ex}
+% {\scriptsize
+  % \setlength{\parskip}{0ex}
   % \setlength{\parindent}{0ex}
   \input{fdl.ltx}
-}
+% }
 \input{how-to-learn.ltx}
 \end{appendices}
 
