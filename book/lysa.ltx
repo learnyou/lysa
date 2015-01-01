@@ -29,6 +29,7 @@
 \usepackage{scrextend}
 \usepackage{setspace}
 \usepackage{tabu}
+\usepackage{ulem}
 \usepackage{url}
 \usepackage[hidelinks]{hyperref}
 \usepackage{cleveref}
@@ -66,6 +67,7 @@
   frame=single,                    % adds a frame around the code
   keepspaces=true,                 % keeps spaces in text, useful for keeping indentation of code (possibly needs columns=flexible)
   keywordstyle=\color{blue},       % keyword style
+  % Actually, we are using Idris, but Haskell is close enough
   language=Haskell,                % the language of the code
   % morekeywords={*,...},            % if you want to add more keywords to the set
   numbers=left,                    % where to put the line-numbers; possible values are (none, left, right)
@@ -113,7 +115,6 @@
 \newcommand{\mset}[1]{\left\{\,#1\,\right\}}
 \newcommand{\parens}[1]{\left(\,#1\,\right)}
 \newcommand{\brackets}[1]{\left[\,#1\,\right]}
-\newcommand{\terminal}{\texttt}
 \newcommand{\Qimplies}{\stackrel{?}{\implies}}
 \newcommand{\Qimpliedby}{\stackrel{?}{\impliedby}}
 \newcommand{\comma}{,\,}
@@ -124,8 +125,11 @@
 
 % Miscellaneous
 \newcommand{\pharpend}{\anauthor{Peter Harpending}{pharpend2@gmail.com}}
-\newcommand{\xti}{\textit}        %italicize
-\newcommand{\xtb}{\textbf}        %boldface
+\let\xti\textit %italicize
+\let\xtb\textbf %boldface
+\newcommand{\code}[1]{{\tt #1}} %boldface
+\let\crappycode\code %boldface
+\let\terminal\code
 \setlength{\parskip}{2ex}
 \newenvironment{ExcList}
 {
@@ -140,6 +144,10 @@
   \shipoutAnswer
   \newpage
 }
+\newenvironment{iquote}{\begin{quote}\it}{\end{quote}}
+\newenvironment{plainfile}{\begin{lstlisting}}{\end{lstlisting}}
+\newenvironment{shellsession}{\begin{lstlisting}}{\end{lstlisting}}
+\newcommand{\filepath}{\texttt}
 
 
 \title{Learn You Some Algebras for Glorious Good!}
@@ -183,11 +191,11 @@
 
 \begin{appendices}
 
-% {\scriptsize
-  % \setlength{\parskip}{0ex}
-  % \setlength{\parindent}{0ex}
+{\footnotesize
+  \setlength{\parskip}{0ex}
+  \setlength{\parindent}{0ex}
   \input{fdl.ltx}
-% }
+}
 \input{how-to-learn.ltx}
 \end{appendices}
 
