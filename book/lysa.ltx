@@ -10,7 +10,7 @@
 \newcommand{\editors}{
   \aneditor{Randy Brown}{randy@beingbrown.net}
   \aneditor{Nick Chambers}{DTSCode@gmail.com}
-  \aneditor{Anton Golov}{jesyspa@gmail.com}
+  % \aneditor{Anton Golov}{jesyspa@gmail.com}
   \aneditor{Ng Wei En}{wei2912.supp0rt@gmail.com}
   \aneditor{Ben Z RF}{benzrf@benzrf.com}
 }
@@ -22,6 +22,8 @@
 \usepackage[backend=bibtex]{biblatex}
 \usepackage{centernot}
 \usepackage[answerdelayed]{exercise}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
 \usepackage{mathtools}
 \usepackage{scrextend}
 \usepackage{setspace}
@@ -46,7 +48,9 @@
 
 
 % Print-friendly links
-\newcommand{\anauthor}[2]{#1 {\href{mailto:#2}{<{#2}>}} \\ }
+\newcommand{\anauthor}[2]
+{#1 {\href{mailto:#2}<{\tt #2}>} \\
+}
 \newcommand{\aneditor}[2]{#1 & {\href{mailto:#2}{<{#2}>}} \\ }
 \newcommand{\link}[2]{#2 (\url{#1})}
 
@@ -124,15 +128,15 @@
   \end{center}
 }
 \vspace*{\fill}
-\newpage
-\section*{Editors \& Noted Contributors}
-\begin{addmargin}[4em]{2em}
-  \begin{tabular}{l l}
-    \editors
-  \end{tabular}
-\end{addmargin}
-\newpage
+% \newpage
+% \section*{Editors \& Noted Contributors}
+% \begin{addmargin}[4em]{2em}
+%   \begin{tabular}{l l}
+%     \editors
+%   \end{tabular}
+% \end{addmargin}
 
+\newpage
 \tableofcontents
 \newpage
 
