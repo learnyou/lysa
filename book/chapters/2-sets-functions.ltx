@@ -1,4 +1,29 @@
-\ch{Boolean logic}
+\ch{Sets}
+
+Anyway, now that that boring introduction is out of the way, we can get to some
+math! The first thing we are going to cover are \xti{set}s.
+
+Sets were first studied by Georg Cantor, a German mathematician, in the second
+half of the nineteenth century.  Back in his own day, the results Cantor found
+by studying sets were considered so thoroughly bizarre that many of his
+colleagues simply refused to believe that Cantor could be right.  In the end,
+Cantor turned out to be right all along. His ideas can be found in any
+introductory text on mathematics---including this one.
+
+Sets are basically like lists--- think ``your grocery list'' or ``your
+to-do-list'' --- except there's no duplication, and there's no intrinsic
+order. Examples:
+
+\begin{enumerate}
+\item $\mset{0, 1, 2, 3}$ is a set.
+\item $\mset{ 1, 2, 0, 3}$ is the same set, because the order is of no
+  consequence.
+\item $\mset{ 1, 1, 2, 0, 3}$ is the same set, because the duplication can be
+  ignored.
+\item $\mset{ 8, 1, 2, 0, 3}$ is a different set, because there's a new element.
+\end{enumerate}
+
+\s{Boolean logic}
 
 Before we get into interesting content, you have to understand some
 notation. This stuff is pretty easy. This will likely be the shortest and
@@ -37,31 +62,6 @@ True
 it :: Bool
 \end{lstlisting}
 
-
-\ch{Sets}
-
-Anyway, now that that boring introduction is out of the way, we can get to some
-math! The first thing we are going to cover are \xti{set}s.
-
-Sets were first studied by Georg Cantor, a German mathematician, in the second
-half of the nineteenth century.  Back in his own day, the results Cantor found
-by studying sets were considered so thoroughly bizarre that many of his
-colleagues simply refused to believe that Cantor could be right.  In the end,
-Cantor turned out to be right all along. His ideas can be found in any
-introductory text on mathematics---including this one.
-
-Sets are basically like lists--- think ``your grocery list'' or ``your
-to-do-list'' --- except there's no duplication, and there's no intrinsic
-order. Examples:
-
-\begin{enumerate}
-\item $\mset{0, 1, 2, 3}$ is a set.
-\item $\mset{ 1, 2, 0, 3}$ is the same set, because the order is of no
-  consequence.
-\item $\mset{ 1, 1, 2, 0, 3}$ is the same set, because the duplication can be
-  ignored.
-\item $\mset{ 8, 1, 2, 0, 3}$ is a different set, because there's a new element.
-\end{enumerate}
 
 \s{Elements, Subsets, and Supersets}
 
