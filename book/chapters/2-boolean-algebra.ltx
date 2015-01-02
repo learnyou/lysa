@@ -1,0 +1,173 @@
+\ch{Booleans, simple logic, and simple operators}
+
+Before we get into interesting content, you have to understand some
+notation. This stuff is pretty easy. This will likely be the shortest and
+easiest chapter in the book.
+
+\ss{True and False}
+
+True or False - in your education, you've been faced with questions where the
+answer is ``True'' or ``False''? Well, hopefully the answer is ``True''. In
+math, it's actually useful to be able to deal with \truenm and \falsenm like
+they are any ordinary value, such as a number. Here are some rules for dealing
+with \truenm and \falsenm
+
+\begin{itemize}  
+\item $A \land B$ should be read as ``$A$ logical-and $B$.'' Both have to be
+  \truenm. If one of them is \falsenm, than $A \land B$ is \falsenm. Likewise,
+  if $A$ and $B$ are both \truenm, then $A \land B$ is \truenm.
+
+\item $A \lor B$ should be read as ``$A$ logical-or $B$.'' With $A \lor B$, if
+  one of $A$ and $B$ is \truenm, then $A \lor B$ is \truenm. It's okay if both
+  of them are \truenm.
+\end{itemize}  
+
+\ss{Logic}
+
+Mathematicians are too lazy to write things like ``if $A$, then $B$ is \truenm,
+but if $B$ is \truenm, it doesn't necessarily imply that $A$ is \truenm.'' So,
+in math, they use these symbols.
+
+\begin{itemize}
+\item $A \implies B$ means that ``if $A$ is \truenm, that means that $B$ must be
+  \truenm.'' Note that this \xtb{does not} mean that ``if $B$ is \truenm, then
+  $A$ is \truenm.'' Always follow the arrow. $A \implies B$ should be read as
+  ``$A$ implies $B$.''
+
+\item $A \impliedby B$ is the same thing as writing $B \impliedby A$. It's often
+  convenient to write $A \impliedby B$ though. $A \impliedby B$ should be read
+  ``$A$ is implied by $B$.''
+
+\item $A \iff B$ means that $A \implies B$ and $B \implies A$. You can think of
+  $A \iff B$ as meaning ``Saying $A$ is the same thing as saying $B$.''
+
+\item $A \notimplies B$ means ``$A$ does not imply $B$.'' \xtb{However}, this
+  does not mean, $A$ implies that $B$ is false. It simply means that knowing
+  something about $A$ doesn't tell you anything about $B$. Got it? The analog is
+  what you'd expect for $A \notimpliedby B$.
+
+\item $A \notiff B$ means ``Saying $A$ is not the same as saying $B$.'' Remember
+  that $A \iff B$ means $\parens{A \implies B} \land \parens{A \impliedby
+    B}$.
+  Well, $A \notiff B$ means that one of the aforementioned conditions is
+  \falsenm. Remember, when dealing with $\land$, if one of the conditions is
+  \falsenm, the greater condition is \falsenm.
+  
+\end{itemize}
+
+\begin{ExcList}
+  \Exercise{Given $A$, is it the case that $A \land A \iff A$?}
+  \Answer{Yes.}
+
+  \Exercise{Given $A$ and $B$, which are both True/False values, is it always
+    the case that $A \land B \iff B \land A$?}
+  \Answer{Yes.}
+
+  \Exercise{Given $A$, $B$, and $C$, is it always the case that $\parens{A \land B} \land
+    C \iff A \land \parens{B \land C}$?}
+  \Answer{Yes.}
+
+  \Exercise{Given $A$, is it the case that $A \lor A \iff A$?}
+  \Answer{Yes.}
+
+  \Exercise{Given $A$ and $B$, which are both True/False values, is it always
+    the case that $A \lor B \iff B \lor A$?}
+  \Answer{Yes.}
+
+  \Exercise{Given $A$, $B$, and $C$, is it always the case that $\parens{A \lor B} \lor
+    C \iff A \lor \parens{B \lor C}$?}
+  \Answer{Yes.}
+
+  \Exercise{Given $A$, $B$, and $C$, what is the result of
+    $A \land \parens{B \lor C}$?}
+  \Answer{$$A \land \parens{B \lor C} \iff \parens{A \land B} \lor \parens{A
+      \land C}$$}
+\end{ExcList}
+
+\ss{Idris}
+
+This section provides a ``working example'' of the above in Idris. If you don't
+know what that is, you are a bad person. Go back and read \cref{intro-idris}!
+% 
+% Edit: Yes you do.
+% 
+% Strictly speaking, you don't \xti{have} to read this subsection, but I think it
+% would be beneficial if you do.
+
+Open up an Idris prompt, and enter \code{:type True}. That is basically asking
+Idris ``what type of thing is \truenm?'' Idris will tell you. Also do the same
+thing for \falsenm. Here's what happens when I do it:
+
+\begin{lstlisting}
+Idris> :type True
+Prelude.Bool.True : Bool
+Idris> :type False
+Prelude.Bool.False : Bool
+\end{lstlisting}
+
+If you ask Idris what the type of \code{True} or \code{False} is, it will tell
+you that they are \code{Bool}s.\footnote{For the most part, you can ignore all
+  the weird stuff on the left-hand-side, for the time being. For instance, when
+  I ran \code{:type True}, Idris switched \code{True} to
+  \code{Prelude.Bool.True}. These are odd caveats of Idris's syntax, which I
+  don't have time to explain right now. We'll get to them later, I promise.}
+You're probably thinking ``what the hell is a \code{Bool}?'' \code{Moreover, why
+  the hell is this guy printing all this stuff in monospace}? Well, explaining
+this sorta stuff, that's what I'm here for. \code{Bool} is short for Boolean,
+which means ``\truenm or \falsenm.''  They're named after a mathematician named
+George Boole, who studied the algebraic manipulation of \truenm and \falsenm.
+
+The reason I'm printing stuff \code{in monospace} is to say ``hey, this is
+code.'' More importantly, printing stuff in monospace eschews some formatting
+flukes caused by variable-width text. In normal paragraph text, these flukes are
+fine --- they are even helpful --- but they cause some ambiguities in code. For
+that reason, the standard thing to do is to write code in monospace.
+
+In Idris, and in most programming languages, the $\land$ operator is replaced
+with \code{\&\&}. We know that, in Idris \truenm and \falsenm are both Boolean
+values. What about $\true \land \false$?
+
+\begin{lstlisting}
+Idris> :type (True && False)
+True && Delay False : Bool
+\end{lstlisting}
+
+\xti{So, wait, \truenm and \falsenm are both Boolean values, but
+  $\true \land \false$ is also a Boolean value?}
+
+Yes, Timmy, now try to keep up.
+
+Now, from the explanation of $\land$ above, $\true \land \false$ should only be
+true if both \truenm and \falsenm are \truenm. Well, that's obviously not the case,
+so $\true \land \false$ should turn out to be \falsenm, right? Let's see!
+
+\begin{lstlisting}
+Idris> True && False
+False : Bool
+\end{lstlisting}
+
+Yay! You figured out some stuff! This dealingswith of \truenm and \falsenm is
+called ``Boolean algebra.'' Boolean algebra deals only with two values, \truenm
+and \falsenm, so it's understandably one of the simpler algebras. Anyway, more
+Boolean algebra to follow:
+
+We've discussed that $\true \iff \true$, and $\false \iff \false$. We've also
+shown how $\true \land \false \iff \false$. What about $\true \lor \false$?
+
+Remember, $\true \lor \false$ is \truenm if one of them is \truenm. Both of them
+can be \truenm; only one of them has to be. You \xti{do} remember, right? Since
+one of them is \truenm, $\true \lor \false$ should therefore be $\true$.
+
+In Idris --- and most programming languages --- $\lor$ is replaced with
+\code{||}.
+
+\begin{lstlisting}
+Idris> True || False
+True : Bool
+\end{lstlisting}
+
+% TODO:
+% * Explain more stuff about \lor and \land
+% * Explain the first few peano axioms (about equality)
+% * Explain the transition of logic.
+% * Exercises
