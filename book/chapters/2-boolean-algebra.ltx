@@ -52,16 +52,41 @@ in math, they use these symbols.
   Well, $A \notiff B$ means that one of the aforementioned conditions is
   \falsenm. Remember, when dealing with $\land$, if one of the conditions is
   \falsenm, the greater condition is \falsenm.
-  
+
+\item For any $A$, it is always true that $A \implies A$ --- and thus that $A
+  \iff A$. Remember, $A \iff A$ is just saying that $\parens{A \implies A}
+  \land \parens{A \impliedby A}$. Also recall that $A \implies B$ is the
+  lazyman's way of writing $B \implies A$. Thus, if you know $A \implies A$,
+  then it must be true that $A \implies A$. Duh!
 \end{itemize}
 
 \begin{ExcList}
   \Exercise{Given $A$, is it the case that $A \land A \iff A$?}
-  \Answer{Yes.}
+  \Answer{Yes. There are two cases we need to deal with here:
+    \[
+    \left\{
+      \begin{array}{rrcl}
+        \true  \to & \true \land \true   & \iff & \true  \\
+        \false \to & \false \land \false & \iff & \false \\
+      \end{array}
+    \right.
+    \]
+    In both cases, $A \land A \iff A$. Q.E.D. This technique is called ``proof
+    by exhaustion''. We named every possible case --- in this case, there were
+    only two --- and proved the theorem for each of them.  }
 
-  \Exercise{Given $A$ and $B$, which are both True/False values, is it always
-    the case that $A \land B \iff B \land A$?}
-  \Answer{Yes.}
+  \Exercise{Given $A$ and $B$, is it always the case that
+    $A \land B \iff B \land A$?}
+
+  \Answer{Yes. In the previous problem, we showed that $A \land A \iff A$. Thus,
+    if $A$ and $B$ are both \truenm, or are both \falsenm, the answer is
+    yes. Thus, the only case we need to consider is that in which $A$ is \truenm
+    and $B$ is \falsenm.\footnote{You may be wondering why I'm not considering
+      the case when $A$ is \falsenm, and $B$ is \truenm. However, as we showed
+      earlier, it's the case that if $A \iff B$, then $B \iff A$. Thus if
+      $A \land B \iff B \land A$, then $B \land A \iff A \land B$}
+
+    If $\true \land \false \iff \false$, and $\false \land \true \iff \false$.}
 
   \Exercise{Given $A$, $B$, and $C$, is it always the case that $\parens{A \land B} \land
     C \iff A \land \parens{B \land C}$?}
@@ -109,8 +134,8 @@ you that they are \code{Bool}s.\footnote{For the most part, you can ignore all
 You're probably thinking ``what the hell is a \code{Bool}?'' \code{Moreover, why
   the hell is this guy printing all this stuff in monospace}? Well, explaining
 this sorta stuff, that's what I'm here for. \code{Bool} is short for Boolean,
-which means ``\truenm or \falsenm.''  They're named after a mathematician named
-George Boole, who studied the algebraic manipulation of \truenm and \falsenm.
+which means ``\truenm\ or \falsenm.''  They're named after a mathematician named
+George Boole, who studied the algebraic manipulation of \truenm\ and \falsenm.
 
 The reason I'm printing stuff \code{in monospace} is to say ``hey, this is
 code.'' More importantly, printing stuff in monospace eschews some formatting
@@ -119,7 +144,7 @@ fine --- they are even helpful --- but they cause some ambiguities in code. For
 that reason, the standard thing to do is to write code in monospace.
 
 In Idris, and in most programming languages, the $\land$ operator is replaced
-with \code{\&\&}. We know that, in Idris \truenm and \falsenm are both Boolean
+with \code{\&\&}. We know that, in Idris \truenm\ and \falsenm\ are both Boolean
 values. What about $\true \land \false$?
 
 \begin{lstlisting}
@@ -127,13 +152,13 @@ Idris> :type (True && False)
 True && Delay False : Bool
 \end{lstlisting}
 
-\xti{So, wait, \truenm and \falsenm are both Boolean values, but
+\xti{So, wait, \truenm\ and \falsenm\ are both Boolean values, but
   $\true \land \false$ is also a Boolean value?}
 
 Yes, Timmy, now try to keep up.
 
 Now, from the explanation of $\land$ above, $\true \land \false$ should only be
-true if both \truenm and \falsenm are \truenm. Well, that's obviously not the case,
+true if both \truenm\ and \falsenm\ are \truenm. Well, that's obviously not the case,
 so $\true \land \false$ should turn out to be \falsenm, right? Let's see!
 
 \begin{lstlisting}
@@ -141,7 +166,7 @@ Idris> True && False
 False : Bool
 \end{lstlisting}
 
-Yay! You figured out some stuff! This dealingswith of \truenm and \falsenm is
+Yay! You figured out some stuff! This dealingswith of \truenm\ and \falsenm\ is
 called ``Boolean algebra.'' Boolean algebra deals only with two values, \truenm
 and \falsenm, so it's understandably one of the simpler algebras. Anyway, more
 Boolean algebra to follow:
@@ -149,9 +174,9 @@ Boolean algebra to follow:
 We've discussed that $\true \iff \true$, and $\false \iff \false$. We've also
 shown how $\true \land \false \iff \false$. What about $\true \lor \false$?
 
-Remember, $\true \lor \false$ is \truenm if one of them is \truenm. Both of them
-can be \truenm; only one of them has to be. You \xti{do} remember, right? Since
-one of them is \truenm, $\true \lor \false$ should therefore be $\true$.
+Remember, $\true \lor \false$ is \truenm\ if one of them is \truenm. Both of
+them can be \truenm; only one of them has to be. You \xti{do} remember, right?
+Since one of them is \truenm, $\true \lor \false$ should therefore be $\true$.
 
 In Idris --- and most programming languages --- $\lor$ is replaced with
 \code{||}.
