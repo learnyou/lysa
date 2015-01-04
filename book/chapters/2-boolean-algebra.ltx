@@ -1,16 +1,37 @@
 \ch{Booleans, simple logic, and simple operators}
 
-Before we get into interesting content, you have to understand some
-notation. This stuff is pretty easy. This will likely be the shortest and
-easiest chapter in the book.
+Before we get into interesting content, you have to understand some stuff. This
+stuff is pretty easy. This will likely be the shortest and easiest chapter in
+the book.
 
-\ss{True and False}
+You might think math is about dealing with numbers and pumping out
+formulas. Well, that's not what math is about. As said in \cref{intro-idris},
+it's about using math as a language to express your thoughts. Most people don't
+think about numbers all day; thus, we deal with things in math that aren't
+numbers.
+
+In this next section, we're going to outline some basic rules for reasoning
+about things. You need to know these rules to do really cool stuff. Although, as
+you will (hopefully) see, these rules can be fun to toy around with on their
+own.
+
+\sss{True and False}
 
 True or False - in your education, you've been faced with questions where the
 answer is ``True'' or ``False''? Well, hopefully the answer is ``True''. In
-math, it's actually useful to be able to deal with \truenm and \falsenm like
-they are any ordinary value, such as a number. Here are some rules for dealing
-with \truenm and \falsenm
+math, we're going to deal with things where we have to decide whether something
+is true or not. Moreover, there are going to be a bunch of statements that may
+or may not be true, and we'll have to figure out how they relate to each
+other. With that in mind, this section has some rules for dealing with truth and
+falsehood.
+
+We're going to create two ``values'', and they are called \truenm\ and \falsenm,
+respectively. These values are called ``Booleans''. They are named after a
+mathematician named George Boole, who studied them rather extensively.
+
+\truenm\ and \falsenm\ are not very interesting on their own. However, when we
+have a bunch of things that are either \truenm\ or \falsenm, we can combine them
+together in three basic ways:
 
 \begin{itemize}  
 \item $A \land B$ should be read as ``$A$ logical-and $B$.'' Both have to be
@@ -20,13 +41,22 @@ with \truenm and \falsenm
 \item $A \lor B$ should be read as ``$A$ logical-or $B$.'' With $A \lor B$, if
   one of $A$ and $B$ is \truenm, then $A \lor B$ is \truenm. It's okay if both
   of them are \truenm.
+\item Sometimes we are going to want to say `$A$ is not \truenm'. Instead of
+  writing that out each time, I'm instead going to use the symbol $\lnot$. So,
+  $\lnot A$ should be read `logical-not $A$'.
+
 \end{itemize}  
 
-\ss{Logic}
+If there are a buncha conditions, some of which might be true, some might be
+false, I'm going to use a huge {\Large$\land$} in front of all of the
+conditions. The conditions will be enclosed in square brackets.
 
-Mathematicians are too lazy to write things like ``if $A$, then $B$ is \truenm,
-but if $B$ is \truenm, it doesn't necessarily imply that $A$ is \truenm.'' So,
-in math, they use these symbols.
+\sss{Logic}
+
+Mathematicians are too lazy to write things like ``if $A$ is \truenm, then $B$
+is \truenm, but if $B$ is \truenm, it doesn't necessarily imply that $A$ is
+\truenm.'' So, in math, they use these symbols. I'm also lazy, so I'm going to
+use these symbols.
 
 \begin{itemize}
 \item $A \implies B$ means that ``if $A$ is \truenm, that means that $B$ must be
@@ -38,7 +68,7 @@ in math, they use these symbols.
   convenient to write $A \impliedby B$ though. $A \impliedby B$ should be read
   ``$A$ is implied by $B$.''
 
-\item $A \iff B$ means that $A \implies B$ and $B \implies A$. You can think of
+\item $A \iff B$ means that $A \implies B$ and $B \implies A$. Bou can think of
   $A \iff B$ as meaning ``Saying $A$ is the same thing as saying $B$.''
 
 \item $A \notimplies B$ means ``$A$ does not imply $B$.'' \xtb{However}, this
@@ -46,21 +76,75 @@ in math, they use these symbols.
   something about $A$ doesn't tell you anything about $B$. Got it? The analog is
   what you'd expect for $A \notimpliedby B$.
 
-\item $A \notiff B$ means ``Saying $A$ is not the same as saying $B$.'' Remember
-  that $A \iff B$ means $\parens{A \implies B} \land \parens{A \impliedby
-    B}$.
-  Well, $A \notiff B$ means that one of the aforementioned conditions is
-  \falsenm. Remember, when dealing with $\land$, if one of the conditions is
-  \falsenm, the greater condition is \falsenm.
+\item For any Boolean $A$, it is always true that $A \implies A$.
 
-\item For any $A$, it is always true that $A \implies A$ --- and thus that $A
-  \iff A$. Remember, $A \iff A$ is just saying that $\parens{A \implies A}
-  \land \parens{A \impliedby A}$. Also recall that $A \implies B$ is the
-  lazyman's way of writing $B \implies A$. Thus, if you know $A \implies A$,
-  then it must be true that $A \implies A$. Duh!
+\item For any $A$, it's always true that $A \notimplies \lnot A$
+
+\end{itemize}
+Now, I'm very lazy, so I'm going to quit writing ``for every $A$,$B$, and $C$
+\ldots'' Instead, I'm going to use the symbol $\forall$. It's an upside-down A,
+and it stands for `all'. You should read it as `for all'. So, the above
+statement is $\forall A,B,C \ldots$
+
+\begin{itemize}
+\item Alright, time for some notation:
+  
+  \[\forall A,B,C \semicolon \parens{\bigand{A \implies B, B \implies C}}
+  \implies \parens{A \implies C} \]
+
+  For this reason, we can write things like $A \implies B \implies C$.
+  \footnote{A common critique of this practice has to do with
+    associativity. That is, many people read $A \implies B \implies C$ as
+    $\parens{A \implies B} \implies C$. This translates to ``if $A$ implies $B$,
+    then $C$ is \truenm'', which isn't \xti{quite} what we want. The solution is
+    to not try to group the operators like that, or use parentheses when you do
+    want to group them.}
+
+  You were probably really confused by that last glob of math. Let me read it
+  out for you. ``for all $A$, $B$, and $C$, if we know that $A \implies B$, and
+  $B \implies C$, then it's true that $A \implies C$.'' Sometimes, I'll write
+  the $\forall\ldots$ part after the statement. So, I should have written the
+  above as
+
+  \[\parens{\bigand{A \implies B, B \implies C}}
+  \implies \parens{A \implies C} \semicolon \forall A,B,C\]
 \end{itemize}
 
+\sss{Combining not, and, and or}
+
+These are some rules for combining $\lnot$, $\land$, and $\lor$ together. You
+should verify these yourself (like with examples and stuff).
+
+\begin{itemize}
+\item $\lnot\parens{\lnot A} \iff A$
+\item $\lnot\parens{A \land B} \iff \parens{\lnot A} \lor \parens{\lnot B}$
+\end{itemize}
+
+The last rule is
+
+\[\lnot\parens{A \lor B} \iff \parens{\lnot A} \land \parens{\lnot B} \semicolon
+\forall A,B\]
+
+However, this can be derived from the last law. Let $C = \lnot A$, and
+$D = \lnot B$. By making the aforementioned substitutions, we know already that
+
+\[
+\begin{array}{rcll}
+\lnot\parens{\parens{\lnot C} \land \parens{\lnot D}} & \iff & C \lor D & \semicolon \forall C,D \\
+C \lor D & \iff & \lnot\parens{\parens{\lnot C} \land \parens{\lnot D}} & \semicolon \forall C,D \\
+\lnot\parens{C \lor D} & \iff & \lnot\parens{\lnot\parens{\parens{\lnot C} \land \parens{\lnot D}}} & \semicolon \forall C,D \\
+\lnot\parens{C \lor D} & \iff & \parens{\lnot C} \land \parens{\lnot D} & \semicolon \forall C,D \\
+\end{array}
+\]
+
 \begin{ExcList}
+  \Exercise{Given $A$, is it always the case that $A \iff A$?}  \Answer{Yes. We
+    know that $A \implies A$. Remember, $A \iff A$ is just saying that
+    $\parens{A \implies A} \land \parens{A \impliedby A}$. Also recall that
+    $A \implies B$ is the lazyman's way of writing $B \implies A$. Thus, if you
+    know $A \implies A$, then it must be true that $A \implies A$, and therefore
+    $A \iff A$. }
+
   \Exercise{Given $A$, is it the case that $A \land A \iff A$?}
   \Answer{Yes. There are two cases we need to deal with here:
     \[
@@ -191,3 +275,50 @@ True : Bool
 % * Explain the first few peano axioms (about equality)
 % * Explain the transition of logic.
 % * Exercises
+
+% \item $A \notiff B$ means ``Saying $A$ is not the same as saying $B$.'' Remember
+%   that $A \iff B$ means $\parens{A \implies B} \land \parens{A \impliedby
+%     B}$.
+%   Well, $A \notiff B$ means that one of the aforementioned conditions is
+%   \falsenm. Remember, when dealing with $\land$, if one of the conditions is
+%   \falsenm, the greater condition is \falsenm.
+
+% Note that in this case, $X$ and $Y$ are whole expressions, like $A = B$. They
+% are technically Boolean values, but, as we'll see, that intuition tends to fail
+% pretty quickly.
+
+% \sss{Equality}
+
+% Before we go much further, I have to make some remarks about equality of
+% things. That is, the use of the $=$ sign, and of the $\ne$ sign. Those signs
+% should be read as `equals' and `not equals', respectively. These statements are
+% true for things that aren't Booleans, such as numbers. However, in this chapter,
+% we are only going to be talking about Booleans.
+
+% \begin{itemize}
+% \item For every $A$, it is always true that $A = A$.
+% \item For every $A$ and $B$, if $A = B$, then it's true that $B = A$. Using the
+%   notation above,
+
+%   \[ A = B \implies B = A\]
+
+% \item For every $A$ and $B$, and $C$, if $A = B$ and $B = C$, then it's true
+%   that $A = C$. Using the notation above,
+  
+%   \[\mset{A = B, B = C} \implies A = C\]
+
+%   Because of this, I can write things like $A = B = C$ without
+%   ambiguity.\footnote{A common critique of this practice has to do with
+%     associativity. That is, many people read $A = B = C$ as
+%     $\parens{A = B} = C$. This translates to $A = B \implies C$, which isn't
+%     what we want. The solution is to not try to group the operators like that,
+%     or use parentheses when you do want to group them.}
+% \end{itemize}
+
+% \begin{itemize}
+% \item See if you can decipher this: $\forall A \comma \lnot\parens{A \ne A}$.
+  
+%   You should read that as ``for all $A$, $A \ne A$ is \falsenm.''
+
+% \item $\forall A,B \comma \parens{A = B} \iff \not \parens{A \ne B}$
+% \end{itemize}

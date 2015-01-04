@@ -20,6 +20,26 @@ point and will probably be gutted and slaughtered in its entirety.
 All of the chapters beyond this point will be assumed to have a multitude of
 exercises, graphs, examples, applications, etc.
 
+* Chapter 2, Boolean Algebra
+    + Introduction
+    + Basic Logic
+        + True and False
+            - \land, \lor, and \lnot
+        + Logic notation
+            - \implies, \impliedby, \iff
+        + Exercises
+
+    + Mildly more complicated Logic
+        + Combining All of them
+            - \lnot\lnot, \lnot\land
+        + More logic notation
+            - \notimplies, \notimpliedby, \notiff
+        + Exercises 
+            - \lnot\lor
+    + Idris stuff
+        + Do all the previous stuff in Idris.
+        
+
 * Chapter 2, Sets
     + Intuitive set theory
         - Sets
