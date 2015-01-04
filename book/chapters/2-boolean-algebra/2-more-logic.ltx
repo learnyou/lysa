@@ -1,0 +1,82 @@
+\s{Combining not, and, and or}
+
+These are some rules for combining $\lnot$, $\land$, and $\lor$ together. You
+should verify these yourself (like with examples and stuff).
+
+\begin{itemize}
+\item $\lnot\parens{\lnot A} \iff A$
+\item $\lnot\parens{A \land B} \iff \parens{\lnot A} \lor \parens{\lnot B}$
+\end{itemize}
+
+The last rule is
+
+\[\lnot\parens{A \lor B} \iff \parens{\lnot A} \land \parens{\lnot B} \semicolon
+\forall A,B\]
+
+However, this can be derived from the last law. Let $C = \lnot A$, and
+$D = \lnot B$. By making the aforementioned substitutions, we know already that
+
+\[
+\begin{array}{rcll}
+\lnot\parens{\parens{\lnot C} \land \parens{\lnot D}} & \iff & C \lor D & \semicolon \forall C,D \\
+C \lor D & \iff & \lnot\parens{\parens{\lnot C} \land \parens{\lnot D}} & \semicolon \forall C,D \\
+\lnot\parens{C \lor D} & \iff & \lnot\parens{\lnot\parens{\parens{\lnot C} \land \parens{\lnot D}}} & \semicolon \forall C,D \\
+\lnot\parens{C \lor D} & \iff & \parens{\lnot C} \land \parens{\lnot D} & \semicolon \forall C,D \\
+\end{array}
+\]
+
+\begin{ExcList}
+  \Exercise{Given $A$, is it always the case that $A \iff A$?}  \Answer{Yes. We
+    know that $A \implies A$. Remember, $A \iff A$ is just saying that
+    $\parens{A \implies A} \land \parens{A \impliedby A}$. Also recall that
+    $A \implies B$ is the lazyman's way of writing $B \implies A$. Thus, if you
+    know $A \implies A$, then it must be true that $A \implies A$, and therefore
+    $A \iff A$. }
+
+  \Exercise{Given $A$, is it the case that $A \land A \iff A$?}
+  \Answer{Yes. There are two cases we need to deal with here:
+    \[
+    \left\{
+      \begin{array}{rrcl}
+        \true  \to & \true \land \true   & \iff & \true  \\
+        \false \to & \false \land \false & \iff & \false \\
+      \end{array}
+    \right.
+    \]
+    In both cases, $A \land A \iff A$. Q.E.D. This technique is called ``proof
+    by exhaustion''. We named every possible case --- in this case, there were
+    only two --- and proved the theorem for each of them.  }
+
+  \Exercise{Given $A$ and $B$, is it always the case that
+    $A \land B \iff B \land A$?}
+
+  \Answer{Yes. In the previous problem, we showed that $A \land A \iff A$. Thus,
+    if $A$ and $B$ are both \truenm, or are both \falsenm, the answer is
+    yes. Thus, the only case we need to consider is that in which $A$ is \truenm
+    and $B$ is \falsenm.\footnote{You may be wondering why I'm not considering
+      the case when $A$ is \falsenm, and $B$ is \truenm. However, as we showed
+      earlier, it's the case that if $A \iff B$, then $B \iff A$. Thus if
+      $A \land B \iff B \land A$, then $B \land A \iff A \land B$}
+
+    If $\true \land \false \iff \false$, and $\false \land \true \iff \false$.}
+
+  \Exercise{Given $A$, $B$, and $C$, is it always the case that $\parens{A \land B} \land
+    C \iff A \land \parens{B \land C}$?}
+  \Answer{Yes.}
+
+  \Exercise{Given $A$, is it the case that $A \lor A \iff A$?}
+  \Answer{Yes.}
+
+  \Exercise{Given $A$ and $B$, which are both True/False values, is it always
+    the case that $A \lor B \iff B \lor A$?}
+  \Answer{Yes.}
+
+  \Exercise{Given $A$, $B$, and $C$, is it always the case that $\parens{A \lor B} \lor
+    C \iff A \lor \parens{B \lor C}$?}
+  \Answer{Yes.}
+
+  \Exercise{Given $A$, $B$, and $C$, what is the result of
+    $A \land \parens{B \lor C}$?}
+  \Answer{$A \land \parens{B \lor C} \iff \parens{A \land B} \lor \parens{A
+      \land C}$}
+\end{ExcList}
