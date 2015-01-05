@@ -145,15 +145,17 @@ suggested changes, or made a number of trivial changes, add yourself to the
 ## Git
 
 The git repo is hosted on GitLab. If you have a GitLab account, the easiest
-thing to do is to fork the repo with GitLab, and then submit a merge request.
+thing to do is to fork the repo with GitLab, and then submit a merge request. If
+you have a Git**Hub** account, you can log into Git**Lab** with your Git**Hub**
+account.
 
 ![](http://i.imgur.com/0IAINpq.png)
 
 If you don't use GitLab, and don't want to make a GitLab account, then you can
-host your git repository elsewhere (such as Gitorious or GitHub), and then
-[open an issue](https://gitlab.com/lysa/lysa/issues/new) with a link to the
-repository. It's recommended that you copy & paste the diff into the issue,
-because pharpend will be less grumpy if you do. To generate the diff, run
+host your git repository elsewhere (such as Gitorious or GitHub), and then email
+pharpend <<pharpend2@gmail.com>> with a link to the repository. It's recommended
+that you copy & paste the diff into the email, because pharpend will be less
+grumpy if you do. To generate the diff, run
 
 ```
 git remote add upstream git@gitlab.com:lysa/lysa.git
