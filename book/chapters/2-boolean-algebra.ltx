@@ -1,193 +1,73 @@
 \ch{Booleans, simple logic, and simple operators}
 
-Before we get into interesting content, you have to understand some
-notation. This stuff is pretty easy. This will likely be the shortest and
-easiest chapter in the book.
+Before we get into interesting content, you have to understand some stuff. This
+stuff is pretty easy. This will likely be the shortest and easiest chapter in
+the book.
 
-\ss{True and False}
+You might think math is about dealing with numbers and pumping out
+formulas. Well, that's not what math is about. As said in \cref{intro-idris},
+it's about using math as a language to express your thoughts. Most people don't
+think about numbers all day; thus, we deal with things in math that aren't
+numbers.
 
-True or False - in your education, you've been faced with questions where the
-answer is ``True'' or ``False''? Well, hopefully the answer is ``True''. In
-math, it's actually useful to be able to deal with \truenm and \falsenm like
-they are any ordinary value, such as a number. Here are some rules for dealing
-with \truenm and \falsenm
+In this next section, we're going to outline some basic rules for reasoning
+about things. You need to know these rules to do really cool stuff. Although, as
+you will (hopefully) see, these rules can be fun to toy around with on their
+own.
 
-\begin{itemize}  
-\item $A \land B$ should be read as ``$A$ logical-and $B$.'' Both have to be
-  \truenm. If one of them is \falsenm, than $A \land B$ is \falsenm. Likewise,
-  if $A$ and $B$ are both \truenm, then $A \land B$ is \truenm.
-
-\item $A \lor B$ should be read as ``$A$ logical-or $B$.'' With $A \lor B$, if
-  one of $A$ and $B$ is \truenm, then $A \lor B$ is \truenm. It's okay if both
-  of them are \truenm.
-\end{itemize}  
-
-\ss{Logic}
-
-Mathematicians are too lazy to write things like ``if $A$, then $B$ is \truenm,
-but if $B$ is \truenm, it doesn't necessarily imply that $A$ is \truenm.'' So,
-in math, they use these symbols.
-
-\begin{itemize}
-\item $A \implies B$ means that ``if $A$ is \truenm, that means that $B$ must be
-  \truenm.'' Note that this \xtb{does not} mean that ``if $B$ is \truenm, then
-  $A$ is \truenm.'' Always follow the arrow. $A \implies B$ should be read as
-  ``$A$ implies $B$.''
-
-\item $A \impliedby B$ is the same thing as writing $B \implies A$. It's often
-  convenient to write $A \impliedby B$ though. $A \impliedby B$ should be read
-  ``$A$ is implied by $B$.''
-
-\item $A \iff B$ means that $A \implies B$ and $B \implies A$. You can think of
-  $A \iff B$ as meaning ``Saying $A$ is the same thing as saying $B$.''
-
-\item $A \notimplies B$ means ``$A$ does not imply $B$.'' \xtb{However}, this
-  does not mean, $A$ implies that $B$ is false. It simply means that knowing
-  something about $A$ doesn't tell you anything about $B$. Got it? The analog is
-  what you'd expect for $A \notimpliedby B$.
-
-\item $A \notiff B$ means ``Saying $A$ is not the same as saying $B$.'' Remember
-  that $A \iff B$ means $\parens{A \implies B} \land \parens{A \impliedby
-    B}$.
-  Well, $A \notiff B$ means that one of the aforementioned conditions is
-  \falsenm. Remember, when dealing with $\land$, if one of the conditions is
-  \falsenm, the greater condition is \falsenm.
-
-\item For any $A$, it is always true that $A \implies A$ --- and thus that $A
-  \iff A$. Remember, $A \iff A$ is just saying that $\parens{A \implies A}
-  \land \parens{A \impliedby A}$. Also recall that $A \implies B$ is the
-  lazyman's way of writing $B \implies A$. Thus, if you know $A \implies A$,
-  then it must be true that $A \implies A$. Duh!
-\end{itemize}
-
-\begin{ExcList}
-  \Exercise{Given $A$, is it the case that $A \land A \iff A$?}
-  \Answer{Yes. There are two cases we need to deal with here:
-    \[
-    \left\{
-      \begin{array}{rrcl}
-        \true  \to & \true \land \true   & \iff & \true  \\
-        \false \to & \false \land \false & \iff & \false \\
-      \end{array}
-    \right.
-    \]
-    In both cases, $A \land A \iff A$. Q.E.D. This technique is called ``proof
-    by exhaustion''. We named every possible case --- in this case, there were
-    only two --- and proved the theorem for each of them.  }
-
-  \Exercise{Given $A$ and $B$, is it always the case that
-    $A \land B \iff B \land A$?}
-
-  \Answer{Yes. In the previous problem, we showed that $A \land A \iff A$. Thus,
-    if $A$ and $B$ are both \truenm, or are both \falsenm, the answer is
-    yes. Thus, the only case we need to consider is that in which $A$ is \truenm
-    and $B$ is \falsenm.\footnote{You may be wondering why I'm not considering
-      the case when $A$ is \falsenm, and $B$ is \truenm. However, as we showed
-      earlier, it's the case that if $A \iff B$, then $B \iff A$. Thus if
-      $A \land B \iff B \land A$, then $B \land A \iff A \land B$}
-
-    If $\true \land \false \iff \false$, and $\false \land \true \iff \false$.}
-
-  \Exercise{Given $A$, $B$, and $C$, is it always the case that $\parens{A \land B} \land
-    C \iff A \land \parens{B \land C}$?}
-  \Answer{Yes.}
-
-  \Exercise{Given $A$, is it the case that $A \lor A \iff A$?}
-  \Answer{Yes.}
-
-  \Exercise{Given $A$ and $B$, which are both True/False values, is it always
-    the case that $A \lor B \iff B \lor A$?}
-  \Answer{Yes.}
-
-  \Exercise{Given $A$, $B$, and $C$, is it always the case that $\parens{A \lor B} \lor
-    C \iff A \lor \parens{B \lor C}$?}
-  \Answer{Yes.}
-
-  \Exercise{Given $A$, $B$, and $C$, what is the result of
-    $A \land \parens{B \lor C}$?}
-  \Answer{$A \land \parens{B \lor C} \iff \parens{A \land B} \lor \parens{A
-      \land C}$}
-\end{ExcList}
-
-\ss{Idris}
-
-This section provides a ``working example'' of the above in Idris. If you don't
-know what that is, you are a bad person. Go back and read \cref{intro-idris}!
-
-Open up an Idris prompt, and enter \code{:type True}. That is basically asking
-Idris ``what type of thing is \truenm?'' Idris will tell you. Also do the same
-thing for \falsenm. Here's what happens when I do it:
-
-\begin{lstlisting}
-Idris> :type True
-Prelude.Bool.True : Bool
-Idris> :type False
-Prelude.Bool.False : Bool
-\end{lstlisting}
-
-If you ask Idris what the type of \code{True} or \code{False} is, it will tell
-you that they are \code{Bool}s.\footnote{For the most part, you can ignore all
-  the weird stuff on the left-hand-side, for the time being. For instance, when
-  I ran \code{:type True}, Idris switched \code{True} to
-  \code{Prelude.Bool.True}. These are odd caveats of Idris's syntax, which I
-  don't have time to explain right now. We'll get to them later, I promise.}
-You're probably thinking ``what the hell is a \code{Bool}?'' \code{Moreover, why
-  the hell is this guy printing all this stuff in monospace}? Well, explaining
-this sorta stuff, that's what I'm here for. \code{Bool} is short for Boolean,
-which means ``\truenm\ or \falsenm.''  They're named after a mathematician named
-George Boole, who studied the algebraic manipulation of \truenm\ and \falsenm.
-
-The reason I'm printing stuff \code{in monospace} is to say ``hey, this is
-code.'' More importantly, printing stuff in monospace eschews some formatting
-flukes caused by variable-width text. In normal paragraph text, these flukes are
-fine --- they are even helpful --- but they cause some ambiguities in code. For
-that reason, the standard thing to do is to write code in monospace.
-
-In Idris, and in most programming languages, the $\land$ operator is replaced
-with \code{\&\&}. We know that, in Idris \truenm\ and \falsenm\ are both Boolean
-values. What about $\true \land \false$?
-
-\begin{lstlisting}
-Idris> :type (True && False)
-True && Delay False : Bool
-\end{lstlisting}
-
-\xti{So, wait, \truenm\ and \falsenm\ are both Boolean values, but
-  $\true \land \false$ is also a Boolean value?}
-
-Yes, Timmy, now try to keep up.
-
-Now, from the explanation of $\land$ above, $\true \land \false$ should only be
-true if both \truenm\ and \falsenm\ are \truenm. Well, that's obviously not the case,
-so $\true \land \false$ should turn out to be \falsenm, right? Let's see!
-
-\begin{lstlisting}
-Idris> True && False
-False : Bool
-\end{lstlisting}
-
-Yay! You figured out some stuff! This dealingswith of \truenm\ and \falsenm\ is
-called ``Boolean algebra.'' Boolean algebra deals only with two values, \truenm
-and \falsenm, so it's understandably one of the simpler algebras. Anyway, more
-Boolean algebra to follow:
-
-We've discussed that $\true \iff \true$, and $\false \iff \false$. We've also
-shown how $\true \land \false \iff \false$. What about $\true \lor \false$?
-
-Remember, $\true \lor \false$ is \truenm\ if one of them is \truenm. Both of
-them can be \truenm; only one of them has to be. You \xti{do} remember, right?
-Since one of them is \truenm, $\true \lor \false$ should therefore be $\true$.
-
-In Idris --- and most programming languages --- $\lor$ is replaced with
-\code{||}.
-
-\begin{lstlisting}
-Idris> True || False
-True : Bool
-\end{lstlisting}
+\input{2-boolean-algebra/1-basic-logic.ltx}
+\input{2-boolean-algebra/2-more-logic.ltx}
+\input{2-boolean-algebra/3-idris.ltx}
 
 % TODO:
 % * Explain more stuff about \lor and \land
 % * Explain the first few peano axioms (about equality)
 % * Explain the transition of logic.
 % * Exercises
+
+% \item $A \notiff B$ means ``Saying $A$ is not the same as saying $B$.'' Remember
+%   that $A \iff B$ means $\parens{A \implies B} \land \parens{A \impliedby
+%     B}$.
+%   Well, $A \notiff B$ means that one of the aforementioned conditions is
+%   \falsenm. Remember, when dealing with $\land$, if one of the conditions is
+%   \falsenm, the greater condition is \falsenm.
+
+% Note that in this case, $X$ and $Y$ are whole expressions, like $A = B$. They
+% are technically Boolean values, but, as we'll see, that intuition tends to fail
+% pretty quickly.
+
+% \sss{Equality}
+
+% Before we go much further, I have to make some remarks about equality of
+% things. That is, the use of the $=$ sign, and of the $\ne$ sign. Those signs
+% should be read as `equals' and `not equals', respectively. These statements are
+% true for things that aren't Booleans, such as numbers. However, in this chapter,
+% we are only going to be talking about Booleans.
+
+% \begin{itemize}
+% \item For every $A$, it is always true that $A = A$.
+% \item For every $A$ and $B$, if $A = B$, then it's true that $B = A$. Using the
+%   notation above,
+
+%   \[ A = B \implies B = A\]
+
+% \item For every $A$ and $B$, and $C$, if $A = B$ and $B = C$, then it's true
+%   that $A = C$. Using the notation above,
+  
+%   \[\mset{A = B, B = C} \implies A = C\]
+
+%   Because of this, I can write things like $A = B = C$ without
+%   ambiguity.\footnote{A common critique of this practice has to do with
+%     associativity. That is, many people read $A = B = C$ as
+%     $\parens{A = B} = C$. This translates to $A = B \implies C$, which isn't
+%     what we want. The solution is to not try to group the operators like that,
+%     or use parentheses when you do want to group them.}
+% \end{itemize}
+
+% \begin{itemize}
+% \item See if you can decipher this: $\forall A \comma \lnot\parens{A \ne A}$.
+  
+%   You should read that as ``for all $A$, $A \ne A$ is \falsenm.''
+
+% \item $\forall A,B \comma \parens{A = B} \iff \not \parens{A \ne B}$
+% \end{itemize}

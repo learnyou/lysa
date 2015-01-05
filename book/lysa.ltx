@@ -19,6 +19,7 @@
 \usepackage{amsmath}
 \usepackage{amsfonts}
 \usepackage{amssymb}
+\usepackage{amsthm}
 \usepackage[toc,page]{appendix}
 \usepackage[backend=bibtex]{biblatex}
 \usepackage{centernot}
@@ -128,6 +129,8 @@
 \newcommand{\falsenm}{$\false$}
 \newcommand{\true}{\mathrm{True}}
 \newcommand{\false}{\mathrm{False}}
+\newcommand{\bigand}[1]{\land\brackets{#1}}
+\newcommand{\semicolon}{;\;}
 
 % Miscellaneous
 \newcommand{\pharpend}{\anauthor{Peter Harpending}{pharpend2@gmail.com}}
@@ -140,7 +143,7 @@
 \newenvironment{ExcList}
 {
   \newpage
-  \sss{Exercises}
+  \ss{Exercises}
   \begin{ExerciseList}
 }
 {
