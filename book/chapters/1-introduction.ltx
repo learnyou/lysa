@@ -140,52 +140,45 @@ installation instructions. This is an
 \link{https://gitlab.com/lysa/lysa/issues/1}{open issue}, with no solution in
 sight. Good luck getting Idris installed.
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% LaTeX is apparently having issues with the monospace fonts, so this is
-%% commented out for the time being.
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%
-%% \sss{Linux}
-%% 
-%% \pg{Gentoo}
-%% 
-%% You will need the Haskell platform, along with the GMP library. As of now, the
-%% Haskell platform is only available on \code{ARCH}, where \code{ARCH} is your
-%% processor architecture (e.g. \code{amd64}, \code{x86}). If you use \code{ARCH},
-%% you can enable these by adding the following to
-%% \filepath{/etc/portage/package.keywords}:\footnote{If you already use
-%% \code{ARCH}, you can ignore this}
-%% 
-%% \begin{plainfile}
-%% dev-lang/ghc
-%% dev-haskell/cabal-install
-%% \end{plainfile}
-%% 
-%% Regardless of your \code{ACCEPT\_KEYWORDS} variable, you should add the
-%% following to \filepath{/etc/portage/package.use}:
-%% 
-%% \begin{plainfile}
-%% dev-lang/ghc binary
-%% \end{plainfile}
-%% 
-%% Otherwise, you have to compile GHC (the Haskell compiler) by hand, and that
-%% takes forever.
-%% 
-%% Once you have that all out of the way, you'll want to run \terminal{emerge
-%% -jav dev-lang/ghc dev-haskell/cabal-install} as root.\footnote{\terminal{-j}
-%% will make the installation a lot faster, but is more resource-intensive. If
-%% your power usage is precious, omit it.} Once GHC and cabal-install are
-%% installed, you'll want to run the following as a normal user:
-%% 
-%% \begin{shellsession}
-%% cabal update
-%% cabal install alex happy haddock hscolour
-%% cabal install idris
-%% \end{shellsession}
-%% 
-%% You can then get at the Idris shell by running \terminal{idris}. 
+\sss{Linux}
+
+\pg{Gentoo}
+
+You will need the Haskell platform, along with the GMP library. As of now, the
+Haskell platform is only available on \code{ARCH}, where \code{ARCH} is your
+processor architecture (e.g. \code{amd64}, \code{x86}). If you use \code{ARCH},
+you can enable these by adding the following to
+\filepath{/etc/portage/package.keywords}:\footnote{If you already use
+\code{ARCH}, you can ignore this}
+
+\begin{plainfile}
+dev-lang/ghc
+dev-haskell/cabal-install
+\end{plainfile}
+
+Regardless of your \code{ACCEPT\_KEYWORDS} variable, you should add the
+following to \filepath{/etc/portage/package.use}:
+
+\begin{plainfile}
+dev-lang/ghc binary
+\end{plainfile}
+
+Otherwise, you have to compile GHC (the Haskell compiler) by hand, and that
+takes forever.
+
+Once you have that all out of the way, you'll want to run \terminal{emerge
+-jav dev-lang/ghc dev-haskell/cabal-install} as root.\footnote{\terminal{-j}
+will make the installation a lot faster, but is more resource-intensive. If
+your power usage is precious, omit it.} Once GHC and cabal-install are
+installed, you'll want to run the following as a normal user:
+
+\begin{shellsession}
+cabal update
+cabal install alex happy haddock hscolour
+cabal install idris
+\end{shellsession}
+
+You can then get at the Idris shell by running \terminal{idris}.
 
 \s{Licensing}
 
@@ -205,4 +198,3 @@ The source for this book can be downloaded at
 to contribute, it's probably best to clone the git repository. You can clone the
 git repository by running \terminal{git clone https://gitlab.com/lysa/lysa.git}
 in a terminal.
-
