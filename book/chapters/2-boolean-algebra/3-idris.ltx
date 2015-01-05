@@ -23,8 +23,7 @@ you that they are \code{Bool}s.\footnote{For the most part, you can ignore all
 You're probably thinking ``what the hell is a \code{Bool}?'' \code{Moreover, why
   the hell is this guy printing all this stuff in monospace}? Well, explaining
 this sorta stuff, that's what I'm here for. \code{Bool} is short for Boolean,
-which means ``\truenm\ or \falsenm.''  They're named after a mathematician named
-George Boole, who studied the algebraic manipulation of \truenm\ and \falsenm.
+which is what this chapter is about.
 
 The reason I'm printing stuff \code{in monospace} is to say ``hey, this is
 code.'' More importantly, printing stuff in monospace eschews some formatting
@@ -46,29 +45,18 @@ True && Delay False : Bool
 
 Yes, Timmy, now try to keep up.
 
-Now, from the explanation of $\land$ above, $\true \land \false$ should only be
-true if both \truenm\ and \falsenm\ are \truenm. Well, that's obviously not the case,
-so $\true \land \false$ should turn out to be \falsenm, right? Let's see!
+Now, from the explanation of $\land$ in \cref{s: Basic Logic},
+$\true \land \false$ should only be true if both \truenm\ and \falsenm\ are
+\truenm. Well, that's obviously not the case, so $\true \land \false$ should
+turn out to be \falsenm, right? Let's see!
 
 \begin{lstlisting}
 Idris> True && False
 False : Bool
 \end{lstlisting}
 
-Yay! You figured out some stuff! This dealingswith of \truenm\ and \falsenm\ is
-called ``Boolean algebra.'' Boolean algebra deals only with two values, \truenm
-and \falsenm, so it's understandably one of the simpler algebras. Anyway, more
-Boolean algebra to follow:
-
-We've discussed that $\true \iff \true$, and $\false \iff \false$. We've also
-shown how $\true \land \false \iff \false$. What about $\true \lor \false$?
-
-Remember, $\true \lor \false$ is \truenm\ if one of them is \truenm. Both of
-them can be \truenm; only one of them has to be. You \xti{do} remember, right?
-Since one of them is \truenm, $\true \lor \false$ should therefore be $\true$.
-
-In Idris --- and most programming languages --- $\lor$ is replaced with
-\code{||}.
+What about $\lor$?  In Idris --- and most programming languages --- $\lor$ is
+replaced with \code{||}.
 
 \begin{lstlisting}
 Idris> True || False
