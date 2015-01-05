@@ -40,16 +40,25 @@ exercises, graphs, examples, applications, etc.
         + Do all the previous stuff in Idris.
         
 
-* Chapter 2, Sets
-    + Intuitive set theory
-        - Sets
-        - Unions
-        - Intersects
-        - Null set
-    + Axiomatic set theory
-        - What are functions?
-        - Unary functions
-        - Binary functions
+* Chapter 3, Sets
+    + Lists and ordered pairs
+    + Sets
+        + ElementOf
+        + ImproperSubset
+        + ProperSubset
+        + Exercises
+    + Operators on Sets
+        + Unary opearators
+        + Binary operators
+        + The set of booleans
+            - Unary ~ operator
+            - Binary V and ^ operators
+            - Binary V and ^ operators
+        + Exercises
++ The set of natural numbers
++ The set of integers
++ The set of real numbers
+
 
 * Chapter 3, Proofs
     + What are proofs?
