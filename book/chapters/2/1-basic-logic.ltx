@@ -60,7 +60,7 @@ use these symbols.
   something about $A$ doesn't tell you anything about $B$. Got it? The analog is
   what you'd expect for $A \notimpliedby B$.
 
-\item For any Boolean $A$, it is always true that $A \implies A$.
+\item For any $A$, it is always true that $A \implies A$.
 
 \item For any $A$, it's always true that $A \notimplies \lnot A$
 
@@ -96,6 +96,11 @@ statement is $\forall A,B,C \ldots$
 \item If you know that $A \implies B$, then $\lnot A \implies \lnot B$.
 \end{itemize}
 
+Be careful. If two independent statements happen to be \truenm, it doesn't mean
+that one implies the other. Thus, the values $A$, $B$, and $C$ are not
+themselves the values \truenm\ and \falsenm, but are instead statements, that,
+when evaluated, happen to be \truenm\ or \falsenm.
+
 \begin{ExcList}
   \Exercise{Given $A$, is it always the case that $A \iff A$?}  \Answer{Yes. We
     know that $A \implies A$. Remember, $A \iff A$ is just saying that
@@ -109,14 +114,17 @@ statement is $\forall A,B,C \ldots$
     \[
     \left\{
       \begin{array}{rrcl}
-        \true  \to & \true \land \true   & \iff & \true  \\
-        \false \to & \false \land \false & \iff & \false \\
+        A := \true  \to & \true \land \true   & \iff & \true  \\
+        A := \false \to & \false \land \false & \iff & \false \\
       \end{array}
     \right.
     \]
     In both cases, $A \land A \iff A$. Q.E.D. This technique is called ``proof
     by exhaustion''. We named every possible case --- in this case, there were
-    only two --- and proved the theorem for each of them.  }
+    only two --- and proved the theorem for each of them.
+
+    You might be wondering what $A := \true \to \ldots$ is. It should be read
+    ``let $A$ be \truenm; then, \ldots'' }
 
   \Exercise{Given $A$ and $B$, is it always the case that
     $A \land B \iff B \land A$?}
