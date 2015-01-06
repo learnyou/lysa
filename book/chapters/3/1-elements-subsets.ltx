@@ -102,6 +102,15 @@ definitions are usually the most helpful.
   $S \supeq T$, and $S \ne T$ This is to be written $S \supof T$.
 \end{description}
 
+I'm going to state a few properties of equality, which you should already know
+and/or should be obvious.
+
+\begin{itemize}
+\item $a = a \sfall a$
+\item $\parens{a = b} \iff \parens{b = a} \sfall a,b$
+\item $\parens{\parens{a = b} \land \parens{b = c}} \implies \parens{a = c} \sfall a,b,c$
+\end{itemize}
+
 \begin{ExcList}
   \Exercise { Does it make sense to ask ``how many times does $S$ contain $n$?''
     Why or why not?}  \Answer {No, because repetition doesn't matter.}
