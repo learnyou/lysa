@@ -139,6 +139,7 @@
 \newcommand{\code}[1]{{\tt #1}} %boldface
 \let\crappycode\code %boldface
 \let\terminal\code
+\let\tilde\textasciitilde
 \setlength{\parskip}{2ex}
 \newenvironment{ExcList}
 {
@@ -166,7 +167,7 @@
 \lstnewenvironment{shellsession}[1][]
   {\lstset{
       numbers=none,
-      language=bash,
+      % language=bash,
       basicstyle=\small\ttfamily,
       #1
           }}

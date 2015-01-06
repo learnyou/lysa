@@ -128,28 +128,23 @@ can, which is why it is special.\footnote{There are other programming languages
 
 \ss{Installing Idris}
 
-% \sout{This is something that is actually rather difficult to summarize, because
-%   it varies from operating system to operating system. I will put down the
-%   instructions for the operating systems I use. If you come upon this and don't
-%   see your operating system, please report this on
-%   \link{https://gitlab.com/lysa/lysa/issues/new}{the issue tracker}. Better yet,
-%   you could add the instructions yourself, and ask me to merge your changes.}
-
-In our markup language, it's actually really difficult to put in the
-installation instructions. This is an
-\link{https://gitlab.com/lysa/lysa/issues/1}{open issue}, with no solution in
-sight. Good luck getting Idris installed.
+This is something that is actually rather difficult to summarize, because it
+varies from operating system to operating system. I will put down the
+instructions for the operating systems I use. If you come upon this and don't
+see your operating system, please report this on
+\link{https://gitlab.com/lysa/lysa/issues/new}{the issue tracker}. Better yet,
+you could add the instructions yourself, and ask me to merge your changes.
 
 \sss{Linux}
 
 \pg{Gentoo}
 
-You will need the Haskell platform, along with the GMP library. As of now, the
-Haskell platform is only available on \code{ARCH}, where \code{ARCH} is your
-processor architecture (e.g. \code{amd64}, \code{x86}). If you use \code{ARCH},
-you can enable these by adding the following to
-\filepath{/etc/portage/package.keywords}:\footnote{If you already use
-\code{ARCH}, you can ignore this}
+You will need the Haskell platform, along with the GNU Multiple Precision (GMP)
+library. As of 5 January 2015, the Haskell platform is only available on
+\code{\tilde ARCH}, where \code{ARCH} is your processor architecture
+(e.g. \code{amd64}, \code{x86}). If you use \code{ARCH}, you can enable these by
+adding the following to \filepath{/etc/portage/package.keywords}:\footnote{If
+  you already use \code{\tilde ARCH}, you can ignore this}
 
 \begin{plainfile}
 dev-lang/ghc
@@ -163,19 +158,26 @@ following to \filepath{/etc/portage/package.use}:
 dev-lang/ghc binary
 \end{plainfile}
 
-Otherwise, you have to compile GHC (the Haskell compiler) by hand, and that
+Otherwise, you have to compile GHC (the Haskell compiler) from scratch, and that
 takes forever.
 
-Once you have that all out of the way, you'll want to run \terminal{emerge
--jav dev-lang/ghc dev-haskell/cabal-install} as root.\footnote{\terminal{-j}
-will make the installation a lot faster, but is more resource-intensive. If
-your power usage is precious, omit it.} Once GHC and cabal-install are
-installed, you'll want to run the following as a normal user:
+Once you have that all out of the way, you'll want to run the following command as root:
 
 \begin{shellsession}
-cabal update
-cabal install alex happy haddock hscolour
-cabal install idris
+# emerge -jav dev-lang/ghc dev-haskell/cabal-install
+\end{shellsession}
+
+\xtb{Warning}: \terminal{-j} will make the installation a lot faster, but is
+more resource-intensive. If your power usage is precious, omit it (i.e. use
+\terminal{-av} instead).
+
+Once GHC and cabal-install are installed, you'll want to run the following as a
+normal user:
+
+\begin{shellsession}
+% cabal update
+% cabal install alex happy haddock hscolour
+% cabal install idris
 \end{shellsession}
 
 You can then get at the Idris shell by running \terminal{idris}.
