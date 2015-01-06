@@ -11,19 +11,28 @@ Cantor turned out to be right all along. His ideas can be found in any
 introductory text on mathematics---including this one.
 
 Sets are basically like lists--- think ``your grocery list'' or ``your
-to-do-list'' --- except there's no duplication, and there's no intrinsic
-order. Examples:
+to-do-list'' --- except there's no multiplicity, and there's no intrinsic
+order. A ``list'' is exactly what you think it is. It's a bunch of things. The
+standard notation is to use $\mset{\mathrm{Braces}}$ for sets, and
+$\mlist{\mathrm{Parentheses}}$ for lists. Lists can have duplication, and order
+does matter.
 
-\begin{enumerate}
-\item $\mset{0, 1, 2, 3}$ is a set.
-\item $\mset{ 1, 2, 0, 3}$ is the same set, because the order is of no
-  consequence.
-\item $\mset{ 1, 1, 2, 0, 3}$ is the same set, because the duplication can be
-  ignored.
-\item $\mset{ 8, 1, 2, 0, 3}$ is a different set, because there's a new element.
-\end{enumerate}
+$\mlist{4}$, $\mlist{4,4}$, and $\mlist{4,4,4}$ are all different \xtb{lists};
+$\mset{4}$, $\mset{4,4}$, and $\mset{4,4,4}$ are the same \xtb{set}. In a
+\xtb{list}, each $4$ is considered a separate item. In a \xtb{set}, $4$ can
+appear a billion times, but it's only counted once.
 
-Hopefully, you get somewhat of an idea.
+$\mlist{1,2,3}$, $\mlist{3,1,2}$, and $\mlist{2,3,1}$ are all different
+\xtb{lists}. $\mset{1,2,3}$, $\mset{3,1,2}$, and $\mset{2,3,1}$ are all the same
+\xtb{set}. In a \xtb{set}, the order in which items appear doesn't matter; all
+that matters is that the items are there. In a \xtb{list}, however, the order is
+important.
+
+In a list, order and multiplicity matter. In a set, order and multiplicity are
+ignored. If you can't remember whether to use braces \{the curly things\}, or
+parentheses (the round things), remember: \xti{a \xtb{brace} is used to
+  \xtb{set} a broken bone.} I don't have a horrible pun having to do with
+parentheses and lists, and for that, I apologize.
 
 \s{Elements, Subsets, and Supersets}
 
