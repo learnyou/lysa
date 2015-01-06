@@ -139,6 +139,7 @@
 \newcommand{\code}[1]{{\tt #1}} %boldface
 \let\crappycode\code %boldface
 \let\terminal\code
+\let\tilde\textasciitilde
 \setlength{\parskip}{2ex}
 \newenvironment{ExcList}
 {
@@ -154,8 +155,24 @@
   \newpage
 }
 \newenvironment{iquote}{\begin{quote}\it}{\end{quote}}
-\newenvironment{plainfile}{\begin{lstlisting}}{\end{lstlisting}}
-\newenvironment{shellsession}{\begin{lstlisting}}{\end{lstlisting}}
+
+\lstnewenvironment{plainfile}[1][]
+  {\lstset{
+      numbers=none,
+      basicstyle=\small\ttfamily,
+      #1
+    }}
+  {}
+
+\lstnewenvironment{shellsession}[1][]
+  {\lstset{
+      numbers=none,
+      % language=bash,
+      basicstyle=\small\ttfamily,
+      #1
+          }}
+  {}
+
 \newcommand{\filepath}{\texttt}
 
 
