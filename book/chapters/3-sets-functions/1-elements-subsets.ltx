@@ -1,0 +1,228 @@
+\s{Elements, Subsets, and Supersets}
+
+\begin{enumerate}
+\item $0,1,2,3$ {\bf is not} a set, it is instead the numbers $0$ through $3$, which
+  are to be considered separately.
+\item $\mset{0,1,2,3}$ {\bf is} indeed a set (notice the braces).
+\item If some object is in a set, the notation is
+  `$\mathrm{OBJECT} \in \mathrm{SET}$', which should be read ``OBJECT is an
+  element of SET''.
+\item If the object is not in the set, the notation is
+  `$\mathrm{OBJECT} \not \in \mathrm{SET}$', which should be read ``OBJECT is
+  not an element of SET''.
+\item $0 \in \mset{0,1,2,3}$ should be read ``$0$ is an element of
+  $\mset{0,1,2,3}$'', and indeed it is.
+\item $0,1 \in \mset{0,1,2,3}$ should be read ``$0$ and $1$ {\bf are both} elements
+  of $\mset{0,1,2,3}$''. They are.
+\item $\mset{0,1} \not \in \mset{0,1,2,3}$ should be read ``$\mset{0, 1}$ {\bf
+    is not} an element of $\mset{0,1,2,3}$''. $\mset{0,1}$ is indeed not an
+  element of $\mset{0,1,2,3}$.
+\end{enumerate}
+
+Now, here, we're faced with an interesting problem. $\mset{0,1,2,3}$
+encapsulates $\mset{0,1}$, but $\mset{0,1}$ is not an element of
+$\mset{0,1,2,3}$. So, how do we express this notion of `encapsulation'? The
+answer is by using ``subset'' notation.
+
+\newcommand{\zo}{\mset{0,1}}
+\newcommand{\zf}{\mset{0,1,2,3}}
+\newcommand{\zzf}{$\zo \subset \zf$}
+\newcommand{\zzef}{$\zo \subseteq \zf$}
+
+\begin{enumerate}
+\item \zzef is {\bf true}. \zzef should be read as ``$\zo$ is an {\bf improper}
+  subset of $\zf$.''
+\item \zzf is {\bf true}. \zzf should be read as ``$\zo$ is a {\bf proper}
+  subset of $\zf$.''
+\item $\zf \subeq \zf$ is {\bf true}. Intuitively, you should think ``$\zf$ is
+  entirely encapsulated inside of $\zf$.''
+\item $\zf \subof \zf$ is {\bf false}. This highlights the difference between
+  \subofnm and \subeqnm.
+
+  \zzf implies that $\zf$ contains some stuff that \b{is not} contained in
+  $\zo$. \zzef does not have this implication. That is, \zzef does not say for
+  sure that $\zf$ has more stuff than $\zo$, it just acknowledges it as a
+  possibility.
+\end{enumerate}
+
+Alright, my apologies, that was a lot of stuff to throw at you at once, and you
+probably remember absolutely none of it. However, you'll get used to that
+particular \xti{set} of stuff\footnote{I, for one, would never condone such
+  terrible puns.} as time goes along.
+
+\ss{Formal Definitions}
+
+I'm all for formalism up to the point at which it hinders your understanding of
+the material. In most cases, formalism does hinder your understanding. However,
+in this case --- when talking about definitions --- precise and formal
+definitions are usually the most helpful.
+
+\begin{description}
+\item[Set] A collection of items, called ``elements''. The elements have no
+  intrinsic order, and no multiplicity.
+\item[Elements] Given a set $S$ and an element $x$, $x \in S$ is the formal
+  notation for saying ``$S$ contains $x$.''
+\item[Non-elements] Given a set $S$ and an element $x$, $x \not\in S$ is the
+  formal notation for saying ``$S$ does not contain $x$.''\footnote{In general,
+    if you want to say ``something is not true,'' you cross out the operator in
+    question. For instance, if you want to say ``$x=y$ is not true'', the
+    notation is $x \ne y$.}
+\item[Questions] If you want to pose the question ``does $S$ contain $x$?'', the
+  notation is $x \Qin S$.\footnote{In general, if you want to pose a question,
+    you put a $?$ over the operator in question.}
+\item[Improper subsets] If you want to say ``all of the elements in $S$ are in
+  $T$, but not necessarily the other way around'' the notation is $S \subeq T$.
+  This is to be read ``$S$ is an improper subset of $T$''.
+
+  More formally, $S \subeq T$ means that for all elements $x$, such that
+  $x \in S$, it is true that $x \in T$. In purely mathematical notation, this is
+  written
+
+  \[ S \subeq T \iff \forall \mset{x \mid x \in S} \comma x \in T\]
+  
+  That should be read ``$S$ is an improper subset of $T$ if and only if for all
+  $x$, such that $x$ is an element of $S$, $x$ is an element of $T$.''
+
+\item[Improper supersets] If you want to say ``$S$ contains all of the elements
+  in $T$'', you write $S \supeq T$. $S \supeq T$ should be read ``$S$ is an
+  improper superset of $T$.'' Note that $S \supeq T$ is the same as writing
+  $T \subeq S$, but it's often convenient to have the superset notation.
+
+\item[Equality of Sets] A set $S$ is equal to another set $T$ if and only if
+  $S \subeq T$ and $S \supeq T$. The notation for this is $S = T$, which is to
+  be read ``$S$ is equal to $T$.'' That is,
+
+  \[ S = T \iff \parens{\forall \mset{x \mid x \in S} \comma x \in T}
+  \land \parens{\forall \mset{x \mid x \in T} \comma x \in S} \]
+
+\item[Proper subsets] $S$ is a proper subset of $T$ if and only if $S \subeq T$
+  and $S \ne T$. This is to be written $S \subof T$
+  
+\item[Proper supersets] $S$ is a proper superset of $T$ if and only if
+  $S \supeq T$, and $S \ne T$ This is to be written $S \supof T$.
+\end{description}
+
+\begin{ExcList}
+  \Exercise { Does it make sense to ask ``how many times does $S$ contain $n$?''
+    Why or why not?}  \Answer {No, because repetition doesn't matter.}
+
+  \Exercise {
+    \begin{enumerate}
+    \item If $S$ is a proper superset of $T$, is it also true that
+      $S \nsubseteq T$?  In math notation, 
+      
+      \[ S \supof T \Qimplies S \nsubseteq T \]
+    \item What about the opposite? That is, if $S \nsubseteq T$, is it also true
+      that $S \supof T$? That is,
+
+      \[ S \supof T \Qimpliedby S \nsubseteq T \]
+    
+    \end{enumerate}
+
+    Explain why or why not. }
+
+  \Exercise {
+    \begin{enumerate}
+    \item If $S \subof T$, is it the case that there are elements of $T$ which
+      are not in $S$? Why or why not? To put this in mathematical notation:
+    
+      \[ S \subof T \Qimplies \exists \mset{x \mid x \in T \land x \not\in S}\]
+
+      The expression above should be read ``$S$ is subset of $T$, question
+      implies there exists a set of $x$, such that $x$ is an element of $T$, and
+      $x$ is not an element of $S$''
+      
+    \item What about the opposite, that is
+
+      \[ S \subof T \Qimpliedby \exists \mset{x \mid x \in T \land x \not\in S}\]
+    \end{enumerate}
+  }
+  
+
+\Exercise {If you know $S \subof T$, is it also true that $S \subeq T$? In math
+  notation:
+
+  \[ S \subof T \Qimplies S \supeq T\]
+
+  Why or why not?}
+
+\Answer {Yes. $S \subeq T$ means that one of $\mset{S \subof T \comma S = T}$ is
+  true. If $S \subof T$ is true, then the condition of $S \subeq T$ is
+  satisfied. Thus, $S \subof T \implies S \subeq T$.}
+
+
+\Exercise {What about, if you know $S = T$, is it also true that $S \subeq T$?
+  Why or why not? In math notation,
+
+  \[S = T \Qimplies S \subeq T\] }
+
+\Answer {Yes, by the same logic above. If $S = T$, then the conditions for
+  $S \subeq T$ are satisfied.}
+
+\Exercise {If it is known that $S \subeq T$, is it also true that $S \subof T$?
+  Why or why not?
+    
+  \[ S \subeq T \Qimplies S \subof T\] }
+
+\Answer {No.
+
+  \begin{itemize}
+  \item $S \subof T$ can be stated as ``all of $\mset{S \subeq T, S \not = T}$
+    are true.''
+  \item By the previous problem, if $S \not = T$ is false (i.e.  $S = T$ is
+    true), then $S \subeq T$ is true.
+  \item In this case, the set above could be written as
+    $\mset{S \subeq T, S \not = T} = \mset{True, False}$.  $S \subof T$ means
+    that both of those have to be true. That is, $S \subof T$ is true if (and
+    only if) $\mset{S \subeq T, S \not = T} = \mset{True, True}$.
+  \item In this case, we have
+    $\mset{S \subeq T, S \not = T} = \mset{True, False}$, which means
+    $S \not \subof T$.
+  \item Thus, we have just found a case in which $S \subeq T$ is true, but
+    $S \subof T$ is false. Therefore, it cannot be the case that
+    $S \subeq T \implies S \subof T$. Or, to put it another way,
+    $S \subeq T \notimplies S \subof T$.
+  \end{itemize}}
+  
+\Exercise { Let's look back at $S$, $T$, and $n$. Let's say that you know
+  $n \in S$ (that is, $n$ is in $S$). You also know that $S \subeq T$. Does this
+  also mean $n \in T$? Why or why not? To put this in mathematical notation:
+
+  \[ \mset{n \in S\comma S \subeq T} \Qimplies n \in T \]
+} \Answer { Yes. $S \subeq T$ means that all of the elements in $S$ are also in
+  $T$, but not necessarily the other way around.. Thus, if $n \in S$, it must be
+  true that $n \in T$.  }
+    
+
+\Exercise {Since I'm lazy, and the math notation is probably much easier for you
+  to understand,
+
+  \[ \mset{n \in T \comma S \subeq T} \Qimplies n \in S \]}
+\Answer {No. $S \subeq T$ means that it is possible that $S \subof T$ is
+  true. $S \subof T$ means that $T$ has all of the elements in $S$, but there
+  are also more elements. It's entirely plausible that $n$ is one of the
+  additional elements. Thus,
+
+  \[ \mset{n \in T \comma S \subeq T} \notimplies n \in S \]}
+
+\Exercise {What about the opposite? That is,
+
+  \[ S \subeq T \Qimpliedby \mset{n \in S, n \in T} \]}
+\Answer{No. $n \in S$ can be stated as $\mset{n} \subeq S$. Likewise,
+  $n \in T \iff \mset{n} \subeq T$. This means there are 3 possible cases for
+  the relation between $S$ and $T$:
+
+  \begin{enumerate}
+  \item $S = T$
+  \item $S \subof T$
+  \item $S \supof T$
+  \end{enumerate}
+    
+  $S \subeq T$ means that either 1 or 2 is true, but the third one is false. The
+  third one can be true when $\mset{n \in S, n \in T}$ is true. Thus, we have
+  found a case in which $\mset{n \in S, n \in T}$ is true, but $S \subeq T$ is
+  false. Thus, it must be that.
+    
+    \[ S \subeq T \notimpliedby \mset{n \in S, n \in T} \]}
+\end{ExcList}
+
