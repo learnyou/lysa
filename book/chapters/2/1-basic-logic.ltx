@@ -93,7 +93,7 @@ statement is $\forall A,B,C \ldots$
 
   \[\parens{\parens{A \implies B} \land \parens{B \implies C}} \implies \parens{A \implies C} \semicolon \forall A,B,C\]
 
-\item If you know that $A \implies B$, then $\lnot A \implies \lnot B$.
+\item If you know that $A \implies B$, then $\lnot A \impliedby \lnot B$.
 \end{itemize}
 
 Be careful. If two independent statements happen to be \truenm, it doesn't mean
@@ -170,5 +170,47 @@ when evaluated, happen to be \truenm\ or \falsenm.
 
     \[\lnot\parens{A \lor B} \iff \parens{\lnot A} \land \parens{\lnot B}
     \semicolon \forall A, B \]
+  }
+
+  \Exercise{We know, from one of the laws
+
+    \[ \parens{A \implies B} \implies \parens{\lnot A \impliedby \lnot B} \sfall A,B \]
+
+    Is the following true?
+    
+    \[ \parens{A \implies B} \iff \parens{\lnot A \impliedby \lnot B} \sfall A,B \]
+
+    In the future, I won't put ``is the following true\ldots'', mostly because
+    I'm lazy, but it also means that you, the reader, might have a difficult
+    time trying to figure out what the point of controversy is. So, in the
+    future, I'll instead write:
+
+    \[ \parens{A \implies B} \Qiff \parens{\lnot A \impliedby \lnot B} \sfall A,B \]
+
+    (Notice the ? over $\iff$). Now you know exactly what the question is, and I
+    don't have to write as much.
+
+  }
+  \Answer{Yes, by just applying the law again. Let's restate the law:
+
+    \[ \parens{A \implies B} \implies \parens{\lnot A \impliedby \lnot B} \sfall A, B\]
+    \[ \parens{\lnot A \impliedby \lnot B} \impliedby \parens{A \implies B} \sfall A,B \]
+    \[ \parens{\lnot B \implies \lnot A} \impliedby \parens{B \impliedby A} \sfall A,B \]
+    \[ \parens{\lnot B \implies \lnot A} \impliedby \parens{B \impliedby A} \sfall A,B \]
+
+    Let $C := \lnot B$, $D := \lnot A$
+
+    \[ \parens{C \implies D} \impliedby \parens{\lnot C \impliedby \lnot D} \sfall C,D \]
+
+    We know, from the law,
+
+    \[ \parens{C \implies D} \implies \parens{\lnot C \impliedby \lnot D} \sfall C,D \]
+
+    Therefore,
+
+    \[ \parens{C \implies D} \iff \parens{\lnot C \impliedby \lnot D} \sfall C,D \]
+    \[ \parens{A \implies B} \iff \parens{\lnot A \impliedby \lnot B} \sfall A,B \]
+
+    Q.E.D.
   }
 \end{ExcList}
