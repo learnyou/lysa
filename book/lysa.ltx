@@ -134,6 +134,24 @@
 \newcommand{\mlist}[1]{\left(\,#1\,\right)}
 \newcommand{\sfall}{\semicolon\forall}
 \newcommand{\ld}[1]{\lambda\mlist{#1} \to}
+\newcommand{\domain}[1]{^{\mathrm{dom}}\brackets{#1}}
+\let\dom\domain
+\newcommand{\codomain}[1]{^{\mathrm{codom}}\brackets{#1}}
+\let\codom\codomain
+\newcommand{\bool}{\mathbb{B}}
+\newcommand{\boolnm}{$\mathrm{\bool}$}
+\newcommand{\bracketset}[1]{\brackets{ #1 }}
+\newcommand{\evalat}[2]{#1 _{\,\bracketset{#2}}}
+\newenvironment{alignmath}[1]
+  {\begin{displaymath}\begin{array}{#1}}
+  {\end{array}\end{displaymath}}
+\newenvironment{alignedmath}
+  {\begin{alignmath}{l}}
+  {\end{alignmath}}
+\newcommand{\lto}{\lambda\to}
+\newcommand{\arc}[1]  {{^{\mathrm{arc}}\brackets{#1}}}
+\newcommand{\im}[1]   {{^{\mathrm{im}}\brackets{#1}}}
+\newcommand{\preim}[1]{{^{\mathrm{preim}}\brackets{#1}}}
 
 % Miscellaneous
 \newcommand{\pharpend}{\anauthor{Peter Harpending}{pharpend2@gmail.com}}

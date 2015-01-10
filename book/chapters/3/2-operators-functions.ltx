@@ -8,9 +8,6 @@ which would still be a Boolean value. Well, most people would call $\lnot$ an
 lazy, so instead of ``Boolean value'', I'm just going to write ``Boolean,'' or
 sometimes ``Bool.''
 
-\newcommand{\bool}{\mathbb{B}}
-\newcommand{\boolnm}{$\mathrm{\bool}$}
-
 It's convenient for us lazy math people to have a notation for ``$\lnot$ takes a
 Boolean, and gives you another Boolean.'' First, we need a symbol for ``this is
 a Boolean value.'' $\bool$. There we go. So, here's the notation for ``$\lnot$
@@ -171,9 +168,6 @@ we're going to write $f$:
 
 \[ f = \ld{x} x + 5 \]
 
-\newcommand{\bracketset}[1]{\brackets{ #1 }}
-% \newcommand{\evalmultat}[2]{#1 \bracketset{#2}}
-\newcommand{\evalat}[2]{#1 _{\,\bracketset{#2}}}
 \let\evalmultat\evalat
 
 If we want to say $f$ evaluated where $\mlist{x = 1}$, we'll write
@@ -317,8 +311,6 @@ at that definition of $f$ from above:
 
 \[ f = \ld{x} x + 5 \]
 
-\newenvironment{alignedmath}{\begin{displaymath}\begin{array}{l}}{\end{array}\end{displaymath}}
-\newcommand{\lto}{\lambda\to}
 
 \begin{alignedmath}
   f : \N \to \N \\
@@ -380,11 +372,29 @@ You can read $\circ$ as ``compose'' or ``of'', depending on your taste.
 Again, now that I've given you the intuition, let's go on with the formal
 definitions:
 
+\sss{Cartesian products}
+
+The superduper formal definition of function relies on the definition of
+Cartesian products. The Cartesian product operates on two sets. The Cartesian
+product of two sets is the set of all ordered pairs between the two sets. So,
+
+$$
+A \times B = \mset{\mlist{x,y} \mid \parens{x \in A} \land \parens{y \in B}}
+$$
+
+A function $f : A \to B$ is the set
+
+\[ \mset{\mlist{x, \evalat{f}{x}} \mid \parens{x \in A} \land \parens{\evalat{f}{x} \in B}}\]
+
+There is also the condition that
+
+\[ \parens{x = y} \implies \parens{\evalat{f}{x} = \evalat{f}{y}}\]
+
+This is harmless formalism that, like I said, becomes useful when we graph
+stuff.
+
 \nocite{w-functions}
 
-\newcommand{\arc}[1]{\mathrm{arc}\mlist{#1}}
-\newcommand{\im}[1]{\mathrm{im}\mlist{#1}}
-\newcommand{\preim}[1]{\mathrm{preim}\mlist{#1}}
 
 \begin{description}
 \item[Functions] If a function $f$ is a mapping from a set $X$ to another set
