@@ -375,6 +375,77 @@ afterwards.
 
 You can read $\circ$ as ``compose'' or ``of'', depending on your taste.
 
-% \ss{Formal definitions}
+\ss{Formal definitions}
 
-% Again, now that I've given you the intuition, let's go 
+Again, now that I've given you the intuition, let's go on with the formal
+definitions:
+
+\nocite{w-functions}
+
+\newcommand{\arc}[1]{\mathrm{arc}\mlist{#1}}
+\newcommand{\im}[1]{\mathrm{im}\mlist{#1}}
+\newcommand{\preim}[1]{\mathrm{preim}\mlist{#1}}
+
+\begin{description}
+\item[Functions] If a function $f$ is a mapping from a set $X$ to another set
+  $Y$, the notation is $f : X \to Y$. $f$, when given an argument $x$, gives the
+  result $\evalat{f}{x}$. That is,
+
+  \[ f \equiv \ld x \evalat{f}{x} \]
+
+  That is, $f$ is a function, when given a value $x$, yields the value
+  $\evalat{f}{x}$. It's also the case that if $f : X \to Y$, and $x \in X$, then
+  $\evalat{f}{x} \in Y$. That is
+
+  \begin{displaymath}
+    \parens{f : X \to Y} \land \parens{x \in X} \iff \evalat{f}{x} \in Y
+  \end{displaymath}
+
+\item[Inverse Functions] Many functions have an inverse. That is, if
+  $f : X \to Y$, then the inverse $\arc{f}$ has the signature $\arc{f} : Y \to X$
+
+  This brings up a couple of points about functions. Mostly, they have to be
+  determinant. That is, if you have some value $x$ which is in the domain, there
+  can only be one value $\evalat{f}{x}$. (There's a graphical interpretation of
+  this which is much easier to understand). The phrase ``referentially
+  transparent'' means the same thing as ``determinant.''
+
+  Anyway, if a function isn't determinant, then it's not a function, it
+  something functionyish. Determinance can be stated as such:
+
+  \[ \parens{x = y} \implies \parens{\evalat{f}{x} = \evalat{f}{y} }\]
+
+  If there are two values $x$ and $y$ such that $x = y$ but
+  $\evalat{f}{x} = \evalat{f}{y}$, then $f$ does not have an inverse. That is,
+  an invertible function has the following property
+  
+  \[ \parens{x = y} \impliedby \parens{\evalat{f}{x} = \evalat{f}{y} }\]
+
+\item[Domain \& Codomain] If $f : X \to Y$, then $X$ is the \xti{domain} of $f$,
+  and $Y$ is the \xti{codomain} of $f$.
+
+\item[Image \& Preimage] If $f : X \to Y$, then the set of elements in $Y$ which
+  can be expressed as $\evalat{f}{x}$ is called the \xti{image} of $f$. The
+  image of $f$ is written $\im{f}$ The set of elements in $X$ which can be used
+  as an argument to $f$ is called the \xti{preimage}, denoted $\preim{f}$. That
+  is,
+
+  \begin{alignedmath}
+    \im{f} = \mset{ \evalat{f}{x} \mid  \parens{x \in X} \land \parens{\evalat{f}{x} \in Y} } \sfall f : X \to Y \\
+    \preim{f} = \mset{ x \mid  \parens{x \in X} \land \parens{\evalat{f}{x} \in \im{f}} }          \sfall f : X \to Y \\
+  \end{alignedmath}
+
+\item[Injection \& Surjection] If a function's preimage is equal to its domain,
+  then the function is \xti{injective}. If a function's image is equal to it's
+  codomain, then the function is \xti{surjective}. If the function is both
+  injective and surjective, then the function is \xti{bijective}.
+
+\end{description}
+
+\begin{ExcList}
+  \Exercise{Show that if a function is not invertible, then there is no preimage.}
+  % \Answer{Show that if a function is not invertible, then there is no preimage.}
+  \Exercise{Show that a function is invertible iff it is bijective.}
+  % \Answer{Show that if a function is not invertible, then there is no preimage.}
+\end{ExcList}
+
