@@ -1,0 +1,32 @@
+\s{Unions and Intersections}
+
+So, we've talked briefly about sets. We're going to talk more about them a
+little bit, then move on to a very special set.
+
+First, some notation. For now, we are going to denote ``the set of sets'' as
+$\Set$. That is, for any set $A$, $A \in \Set$ is \truenm. It's also true that
+$\Set \in \Set$, which is pretty weird, but we'll get to that later.
+
+First, there's a trivial set, called $\nil$, which is just a set with no
+elements. It's obviously true that
+
+\begin{displaymath}
+  \nil \subeq A \sfall A \in \Set
+\end{displaymath}
+
+We're going to define two operations here:
+
+\begin{alignedmath}
+  \cup : \Set \to \Set \to \Set \\
+  \cap : \Set \to \Set \to \Set \\
+\end{alignedmath}
+
+\begin{ExcList}
+  \Exercise{$\nil \Qin \nil$}
+  \Answer{No, because $\nil$ does not have any elements. To be even more
+    general, there is no $x$ such that $x \in \nil$. Therefore,
+    $\nil \notin \nil$.}
+
+  \Exercise{$\nil \Qsubof A \sfall A \in \Set$}
+  \Answer{No, because $\nil \notsubof \nil$, and $\nil \in \Set$.}
+\end{ExcList}
