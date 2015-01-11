@@ -408,7 +408,7 @@ stuff.
   $\evalat{f}{x} \in Y$. That is
 
   \begin{displaymath}
-    \parens{f : X \to Y} \land \parens{x \in X} \iff \evalat{f}{x} \in Y
+    \parens{f : X \to Y} \land \parens{x \in A} \iff \evalat{f}{x} \in Y
   \end{displaymath}
 
 \item[Inverse Functions] Many functions have an inverse. That is, if
@@ -453,9 +453,65 @@ stuff.
 \end{description}
 
 \begin{ExcList}
-  \Exercise{Show that if a function is not invertible, then there is no preimage.}
-  % \Answer{Show that if a function is not invertible, then there is no preimage.}
-  \Exercise{Show that a function is invertible iff it is bijective.}
-  % \Answer{Show that if a function is not invertible, then there is no preimage.}
-\end{ExcList}
+  \Exercise{What is the result of
+    \[ \mset{0,1} \times \mset{2,3} \]
+  }
+  \Answer{The result is the set of ordered pairs between the two sets, so:
 
+    \begin{displaymath}
+      \begin{array}{rcl}
+        \mset{0,1} \times \mset{2,3} & = & \{\,   \mlist{0,2} \\
+                                     &   & \comma \mlist{0,3} \\
+                                     &   & \comma \mlist{1,2} \\
+                                     &   & \comma \mlist{1,3} \\
+                                     &   & \}                 \\
+      \end{array}
+    \end{displaymath}
+  }
+
+  \Exercise{Write a bijective function $f$ for the Cartesian product above. That
+    is, write a function $f$ such that
+
+    \begin{alignedmath}
+      \mset{\mlist{x, \evalat{f}{x}} \mid \parens{x \in \mset{0,1}} \land \parens{\evalat{f}{x} \in \mset{2,3}}}\\
+      \parens{x = y} \iff \parens{\evalat{f}{x} = \evalat{f}{y} } \\
+    \end{alignedmath}
+  }
+  \Answer{$f = \parens{+2}$}
+
+  \Exercise{Given the $f$ above, what is $\arc{f}$?}
+  \Answer{$\arc{f} = \parens{-2}$}
+
+  
+
+  \Exercise{Show that a function is invertible iff it is bijective.}
+
+  \Answer{ A function is \xtb{in}jective if its preimage equals its domain. It
+    is \xtb{sur}jective if its image equals its codomain.  This means that if
+    $f$ is bijective, then $\arc{f}$ is also bijective.
+
+    This means that if a function is bijective, then it obviously has an
+    inverse. (We've just shown that the inverse is bijective in this case, and
+    that is predicated on the inverse existing.)
+
+    Let's assume that a function is not surjective. Then there is no inverse,
+    because $B$ is larger than $\dom{\arc{f}}$.
+
+    Let's assume that a function is not injective. Then there is no inverse,
+    because there would then be two elements of $B$ such that
+    
+    \begin{alignedmath}
+      p, q \in B \\
+      p = q \\
+      \evalat{\arc{f}}{p} \ne \evalat{\arc{f}}{q} \\
+    \end{alignedmath}
+
+    Which would mean that the inverse is not a function, and therefore doesn't
+    exist.
+
+    Thus if a function has an inverse, then it must be bijective.
+
+    Q.E.D.
+  }
+
+\end{ExcList}
