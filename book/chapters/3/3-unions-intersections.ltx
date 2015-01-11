@@ -14,12 +14,31 @@ elements. It's obviously true that
   \nil \subeq A \sfall A \in \Set
 \end{displaymath}
 
-We're going to define two operations here:
+We're going to define two operations here. The first is the ``union:''
 
 \begin{alignedmath}
   \cup : \Set \to \Set \to \Set \\
-  \cap : \Set \to \Set \to \Set \\
+  \cup = \ld{A, B} \mset{x \mid \parens{x \in A} \lor \parens{x \in B}} \\
 \end{alignedmath}
+
+The $\cup$ looks vaguely like a U, so that's a mnemonic way you could think of
+it. You can also think of it as a ``cup'', and everything in either of the sets
+falls into the cup. Typically, we'll write $\evalat{\cup}{A, B}$ as $A \cup B$,
+which should be read ``$A$ union $B$''.
+
+The other thing is for the intersect. 
+
+\begin{alignedmath}
+  \cap : \Set \to \Set \to \Set \\
+  \cap = \ld{A, B} \mset{x \mid \parens{x \in A} \land \parens{x \in B}} \\
+\end{alignedmath}
+
+It has the items that are in \xtb{both} of the sets. That is, if an item is in
+one set, but not the other, it's not in $A \cap B$, but it would be in $A \cup B$.
+
+% Earlier, I hinted at the notion of ``size'' of a set. Intuitively, it should be
+% the number of unique items in the set. However, defining ``uniqueness'' actually
+% turns out to be pretty difficult.
 
 \begin{ExcList}
   \Exercise{$\nil \Qin \nil$}
@@ -29,4 +48,9 @@ We're going to define two operations here:
 
   \Exercise{$\nil \Qsubof A \sfall A \in \Set$}
   \Answer{No, because $\nil \notsubof \nil$, and $\nil \in \Set$.}
+
+  \Exercise{$\parens{A \cap B} \Qsubeq \parens{A \cup B} \sfall A,B \in \Set$}
+  \Answer{Yes. It's possible that there are elements in $A \cup B$ not in
+    $A \cap B$, but it's not possible for something to be in $A \cap B$ but not
+    in $A \cup B$.}
 \end{ExcList}
