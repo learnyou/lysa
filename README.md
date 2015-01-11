@@ -171,3 +171,16 @@ line, then you should probably split up the commit with `git add -p`.
 
 When in doubt, follow the
 [Erlang OTP Git Commit Guide](https://github.com/erlang/otp/wiki/Writing-good-commit-messages).
+
+# Sources
+
+The sources are listed in the book/bibliographies/lysa.bib file. Here
+are some suggested readings:
+
+* [*Abstract Algebra*, from Wikibooks](http://en.wikibooks.org/wiki/Abstract_Algebra)
+* [*Foundations of Analysis*, by Edmund Landau](http://fmi.unibuc.ro/ro/pdf/2008/catedre/analiza/miculescu_r/Landau.pdf)
+* [*The Foundations of Analysis*, by Larry Clifton](http://arxiv.org/pdf/1303.6576.pdf)
+* [*Algebra*, by Thomas W. Hungerford](http://stealcode.com/misc/algebra/Hungerford_grad.pdf)
+* [*Linear Algebra Done Right*, by Sheldon Axler](http://genes.mit.edu/burgelab/yarden/linear_algebra_done_right.pdf)
+* [*Set Theory*, by Thomas Jech](https://logic.wikischolars.columbia.edu/file/view/Jech,+T.+J.+%282003%29.+Set+Theory+%28The+3rd+millennium+ed.%29.pdf)
+* [*Foundations of Analysis*, by Joe Taylor](http://www.lemiller.net/media/classfiles/notes.pdf)
