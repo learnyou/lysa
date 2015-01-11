@@ -425,9 +425,31 @@ stuff.
 
   \[ \parens{x = y} \implies \parens{\evalat{f}{x} = \evalat{f}{y} }\]
 
-  If there are two values $x$ and $y$ such that $x = y$ but
-  $\evalat{f}{x} = \evalat{f}{y}$, then $f$ does not have an inverse. That is,
-  an invertible function has the following property
+  The inverse of $f$, noted $\arc{f}$ has the following properties:
+
+  \begin{alignedmath}
+    \evalat{\arc{f}}{\evalat{f}{x}} \equiv x \\
+    \arc{\arc{f}} \equiv f \\
+  \end{alignedmath}
+
+  If there are two values $x$ and $y$ such that $x \ne y$ but
+  $\evalat{f}{x} = \evalat{f}{y}$, then there would be two possible $x$'s to fit
+  the definition of $\arc{f}$, and therefore $\arc{f}$ wouldn't be a
+  function. That is,
+
+  Let $p = \evalat{f}{x}$, $q = \evalat{f}{y}$, $x \ne y$ and $p = q$. Let
+  $\arc{f} = h$
+
+  \begin{alignedmath}
+    \evalat{h}{p} = x \\
+    \evalat{h}{q} = y \\
+    p = q \\
+  \end{alignedmath}
+
+  If $h$ is a function, then it must be true that $x = y$, which we know is not
+  true. This means that there exists an $f$ such that $\centernot\exists \null\arc{f}$.
+  There are many functions that are not invertible. As a rule, an invertible
+  function has the following property
   
   \[ \parens{x = y} \impliedby \parens{\evalat{f}{x} = \evalat{f}{y} }\]
 
@@ -512,6 +534,33 @@ stuff.
     Thus if a function has an inverse, then it must be bijective.
 
     Q.E.D.
+  }
+
+  \Exercise{What are the signatures for each of the following?
+    \begin{enumerate}
+    \item $\subof$
+    \item $\subeq$
+    \item $\supof$
+    \item $\supeq$
+    \item $\notsubof$
+    \item $\notsubeq$
+    \item $\notsupof$
+    \item $\notsupeq$
+    \end{enumerate}
+
+    (hint: they all have the same signature)
+  }
+  \Answer{$\Set \to \Set \to \bool$}
+
+  \Exercise{What is the signature for $\in$?}
+
+  \Answer{Let $a$ be any type of thing, like a number, or a boolean, or a
+    set. Let $\superbracket{\Set}{a}$ be the set of sets where the elements are
+    of type $a$.
+
+    \[\in \null : a \to \superbracket{\Set}{a} \to \bool \]
+
+    (remember, $\bool$ is the set of booleans.)
   }
 
 \end{ExcList}
