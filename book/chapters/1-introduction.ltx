@@ -67,82 +67,145 @@
 %   set of instructions explaining how to put the pieces together.
 \end{itemize}
 
-Once you are familiar with each of those concepts, we can do all sorts of cool
-stuff.  Throughout the book, we will prove all of the following:
+Как только вы познакомитесь с каждым из этих понятий, мы сможем делать все, что
+заблагорассудится. В этой книге мы докажем следующее:
+% ENG
+% Once you are familiar with each of those concepts, we can do all sorts of cool
+% stuff.  Throughout the book, we will prove all of the following:
 
 \begin{itemize}
-\item If you tap your finger against a bridge at exactly the right frequency,
-  the bridge will collapse. (Resonance)
-\item The formula used to calculate the interest rate on your mortgage is
-  actually just a fancy form of the ratios of angles in a triangle. (Euler's
-  formula)
-\item Logic can't be used to prove everything we know to be true. (Gödel's
-  incompleteness theorem)
+\item Если вы постучите пальцем по мосту с определенной частотой, мост рухнет.
+  (Резонанс)
+% ENG
+% \item If you tap your finger against a bridge at exactly the right frequency,
+%   the bridge will collapse. (Resonance)
+\item Формула для рассчета процентной ставки по ипотеки – лишь частная форма
+  коэффициентов углов треугольника. (Формула Эйлера)
+% ENG
+% \item The formula used to calculate the interest rate on your mortgage is
+%   actually just a fancy form of the ratios of angles in a triangle. (Euler's
+%   formula)
+\item Логикой не всегда можно доказать то, что как мы знаем заведомо является правдой.
+  (Неполная теорема Гёделя ???)
+% ENG
+% \item Logic can't be used to prove everything we know to be true. (Gödel's
+%   incompleteness theorem)
 \end{itemize}
 
-\s{Introduction (for real this time)}
+\s{Вступление (теперь взаправду)}
+% \s{Introduction (for real this time)}
 
-This is a math book. Well, duh. Why did I write it?
+Это книга по математике. Хм, мда. Зачем я написал ее?
+% This is a math book. Well, duh. Why did I write it?
 
-Most math (and science) books nowadays seem to value keeping an academic tone
-over ensuring that the reader understands the material, and --- more importantly
---- enjoys reading the book.
+Большая часть книг по математике (и другим наукам) сегодня акцентируется на
+академическом тоне, вместо заботы о том, что читатель понимает материал и --- что более важно
+--- наслаждается чтением книги.
+% ENG
+% Most math (and science) books nowadays seem to value keeping an academic tone
+% over ensuring that the reader understands the material, and --- more importantly
+% --- enjoys reading the book.
 
-I take the opposite approach. I want to create a book that is fun to read and
-easy to understand, while eschewing the practice of making myself look good.
+Я решил поступить наоборот. Я хочу создать книгу, которую весело читать и легко понимать,
+сторонясь практики показать, насколько я сам все знаю.
+% ENG
+% I take the opposite approach. I want to create a book that is fun to read and
+% easy to understand, while eschewing the practice of making myself look good.
 
-The inspiration for this book is \href{http://learnyouahaskell.com/}{{\it Learn
-    You a Haskell for Great Good!}, by Miran Lipovača}. Haskell is a programming
-language, and LYAH is a great book for learning Haskell. If you are interested
-in a print copy of LYAH, see \cite{lyah}.
+Вдохновением для этой книги послужила книга Миран Липовача
+\href{http://learnyouahaskell.com/}{\it Learn You a Haskell for Great Good!}
+Haskell – это язык программирования, и LYAH – отличная книга для изучения этого языка.
+Печатное издание LYAH можно заказать здесь: \cite{lyah}.
+% ENG
+% The inspiration for this book is \href{http://learnyouahaskell.com/}{{\it Learn
+%     You a Haskell for Great Good!}, by Miran Lipovača}. Haskell is a programming
+% language, and LYAH is a great book for learning Haskell. If you are interested
+% in a print copy of LYAH, see \cite{lyah}.
 
-\s{The community}
+\s{Сообщество}
+%\s{The community}
 
-Despite the fact that I used ``I'' in the first part of the book, LYSA is
-actually a community project, and many people participate in the writing of this
-book.
+Опуская тот факт, что я использую ``Я'' в первой части книги, LYSA является
+проектом сообщества и довольно много людей участвуют в написании этой книги.
+% ENG
+% Despite the fact that I used ``I'' in the first part of the book, LYSA is
+% actually a community project, and many people participate in the writing of this
+% book.
 
-If you want to talk to us, or to other math people, come see us in {\tt \#lysa}
-on Freenode. If you don't know what IRC is, or you don't have a client set up,
-you can connect through
-\link{http://webchat.freenode.net/?channels=lysa}{Freenode's webchat}.
+Если вы хотите пообщаться с нами или другими математиками, приходите к нам в чат
+{\tt \#lysa} на Freenode. Если вы не знаете, что такое IRC, или вы не знаете
+как настроить клиент – вы можете зайти в чат через
+\link{http://webchat.freenode.net/?channels=lysa}{вебчат Freenode}.
+% ENG
+% If you want to talk to us, or to other math people, come see us in {\tt \#lysa}
+% on Freenode. If you don't know what IRC is, or you don't have a client set up,
+% you can connect through
+% \link{http://webchat.freenode.net/?channels=lysa}{Freenode's webchat}.
 
-If you have any questions about LYSA (or math), feel free to ask in the IRC
-channel ({\tt \#lysa} on FreeNode in case you forgot).
+Если у вас возникли любые вопросы по LYSA (или математике), пожалуйста задавайте их в чате
+({\tt \#lysa} на FreeNode, в случае если вы забыли).
+% If you have any questions about LYSA (or math), feel free to ask in the IRC
+% channel ({\tt \#lysa} on FreeNode in case you forgot).
 
-If you want to submit a correction, or have some issue, or want to add some
-content, really anything having to do with the content of the book, you can
-visit \link{https://gitlab.com/lysa/lysa}{our GitLab page}. We also have a
-\link{https://lysa.reddit.com/}{community on Reddit}.
+Если вы хотите исправить что-либо, или заметили какую-либо проблему, или хотите
+добавить какой-то материал – что угодно, связаное с содержимым книги – вы можете зайти
+на \link{https://github.com/gazay/lysa}{нашу русскоязычную GitHub страницу} или на
+\link{https://gitlab.com/lysa/lysa}{оригинальную страницу книги}. У нас также есть
+\link{https://lysa.reddit.com/}{сообщество на Reddit}.
+% ENG
+% If you want to submit a correction, or have some issue, or want to add some
+% content, really anything having to do with the content of the book, you can
+% visit \link{https://gitlab.com/lysa/lysa}{our GitLab page}. We also have a
+% \link{https://lysa.reddit.com/}{community on Reddit}.
 
 \s{Idris}\label{intro-idris}
 
-In this book, we cover a lot of hard stuff.\footnote{This isn't actually
-  true. Math isn't hard, stupid!} Sometimes, it's useful to program your way
-through a problem. Every programmer will tell you that programming teaches a
-manner of thinking.
+В этой книге мы изучим кучу сложных вещей.\footnote{Это не совсем правда.
+  Математика не сложная, дурачина!} Иногда очень полезно напрограммировать
+решение проблемы. Каждый программист скажет вам, что программирование учит
+думать иначе.
+% ENG
+% In this book, we cover a lot of hard stuff.\footnote{This isn't actually
+%   true. Math isn't hard, stupid!} Sometimes, it's useful to program your way
+% through a problem. Every programmer will tell you that programming teaches a
+% manner of thinking.
 
-Many programmers will cite Steve Jobs\footnote{For you youngsters, Steve Jobs is
-  the former CEO of Apple. He's dead now.} famous quote, regarding the use of
-programming in his job,
+Многие программисты процитируют известные слова Стива Джобса\footnote{Для вас, молодняка, Стив Джобс –
+  основатель Apple. Он умер.}, относящиеся к программированию в его работе,
+% ENG
+% Many programmers will cite Steve Jobs\footnote{For you youngsters, Steve Jobs is
+%   the former CEO of Apple. He's dead now.} famous quote, regarding the use of
+% programming in his job,
 
 \begin{iquote}
-  [sic] \ldots much more importantly, it had nothing to do with using [the
-  programs we wrote] for anything practical. It had to do with using them to be
-  a mirror of your thought process; to actually learn how to think. I think
-  everybody in this country should learn how to program a computer --- should
-  learn a computer language --- because it teaches you how to think.
+  [sic] \ldots что намного важнее, нет ничего общего с использованием (программ, что мы пишем)
+  на практике. С другой стороны, это как отражение мыслительного процесса; по настоящему учиться думать.
+  Я думаю каждый в этой стране должен знать как программировать на компьютере --- должен
+  изучать компьютерный язык --- потому что это учит нас думать.
+  % ENG
+  % [sic] \ldots much more importantly, it had nothing to do with using [the
+  % programs we wrote] for anything practical. It had to do with using them to be
+  % a mirror of your thought process; to actually learn how to think. I think
+  % everybody in this country should learn how to program a computer --- should
+  % learn a computer language --- because it teaches you how to think.
 \end{iquote}
 
 \nocite{jobs-programming}
 
-That first sentence or two is actually a pretty good description of mathematics
-(and programming). Both are incredibly useful, and have endless practical
-applications. That's not the point, though. The whole usefulness thing is a side
-gig. It's about learning how to think, and having a rigorous language through
-which to express your thoughts. Furthermore, the rigor of the language helps you
-build upon your current thoughts to find out even cooler things. That's what
-math is about.
+Это первое предложение или два, на самом деле, отличное описание математики (и программирования).
+Обе сферы невероятно полезны и имеют бесконечный потенциал практического применения.
+Но это не самое важное. Самая полезная вещь – это побочный эффект. Про то, как учиться думать и
+иметь строгий язык для выражения своих мыслей. Кроме того, строгость языка
+помогает вам при построении текущих мыслей находить еще более крутые вещи.
+Вот о чем математика.
+% ENG
+% That first sentence or two is actually a pretty good description of mathematics
+% (and programming). Both are incredibly useful, and have endless practical
+% applications. That's not the point, though. The whole usefulness thing is a side
+% gig. It's about learning how to think, and having a rigorous language through
+% which to express your thoughts. Furthermore, the rigor of the language helps you
+% build upon your current thoughts to find out even cooler things. That's what
+% math is about.
 
 Programming and math go hand-in-hand. Programmers and mathematicians will attest
 to this; I certainly can. For that reason, throughout this book, there will be
