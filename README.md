@@ -1,56 +1,59 @@
 Copyright © 2014-2015 Peter Harpending. <pharpend2@gmail.com>
 
-Copying and distribution of this file, with or without modification, are
-permitted in any medium without royalty provided the copyright notice and this
-notice are preserved.  This file is offered as-is, without any warranty.
+Копирование и распространение этого файла, с или без изменения, разрешено в
+любой среде без выплат правообладателю при сохранении ссылки на правообладателя и
+этого сообщения. Этот файл предоставляется как есть, без каких-либо гарантий.
 
-# Learn You Some Algebras for Glorious Good!
+# Original book
 
-This is a math book, licensed under the GNU FDL.
+This is a russian translation of project [Learn You Some Algebras for Glorious Good!](https://gitlab.com/lysa/lysa)
 
-# Building
+# Изучай алгебру во имя добра!
 
-To build the project from source, you'll need to have TeX installed, along with
-a number of packages. A list can be found in the "Contributing" section of this
-document. I'm sure you can build the project on Windows, I just don't know how
-(most of us use Linux).
+Это книга по математике, лицензирована по GNU FDL.
+
+# Сборка
+
+Для сборки проекта из исходников необходим установленный TeX и несколько других пакетов.
+Список может быть найден в секции "Участие в разработке" данного документа.
+Я уверен, что проект может быть собран на Windows, но я не знаю как
+(большинство из нас на Linux).
 
 ```
-git clone https://gitlab.com/lysa/lysa.git
+git clone https://github.com/gazay/lysa.git
 cd lysa/book
 ./build
 ```
 
-If you don't use git, you can get a tarball from
-<https://gitlab.com/lysa/lysa/repository/archive.tar.gz>. If you don't know what
-a tarball is, you can get a Zip archive from
-<https://gitlab.com/lysa/lysa/repository/archive.zip>.
+Если вы не используете git, вы можете скачать [архив](https://github.com/gazay/lysa/archive/master.zip).
 
-The build script is not dangerous, you can look at it if you want. It builds the
-book, and generates it into a file called `lysa.pdf` in the `book/`
-directory. If you have a slow computer, it might take about 30 seconds or so to
-build. On a fast computer, it will take less than a second. We don't include the
-PDF file in the git tree because it's a binary file, and thus causes merge
-conflicts if we try to track it.
+Скрипт для сборки безопасен, вы можете убедиться в этом
+[сами](https://github.com/gazay/lysa/blob/master/book/build) если хотите.
+Он собирает книгу и генерирует файл с названием `lysa.pdf` в папке `book/`.
+Если ваш компьютер достаточно медленный, это может занять около 30 секунд
+или около того, чтобы собрать книгу. На быстрых компьюторах сборка займет меньше секунды.
+Мы не включаем PDF файл в гит, потому что он бинарный и вызовет конфликты
+при попытке прослеживать изменения.
 
-If you like chatting on IRC, come see us in `#lysa` on FreeNode. If you don't
-know what IRC is, or you don't have a client set up, you can connect through
-[FreeNode's webchat][webchat].
+Если вам нравится общаться в IRC, приходите пообщаться с нами в `#lysa` на FreeNode.
+Общение происходит на английском, но вы всегда можете написать мне (gazay) и,
+если возникнет необходимость – мы создадим свой канал на русском языке.
+Если вы не знаете, что такое IRC, или вы не знаете как настроить клиент – вы можете
+зайти в чат через [FreeNode's webchat][webchat].
 
-If you notice any errors, don't be shy to report them in the
-[issue tracker](//github.com/pharpend/lysa/issues). If you have any suggestions
-for improving LYSA, also post them in the issue tracker (or bring them up in the
-IRC channel).
+Если вы заметили ошибку, не стесняйтесь рассказать нам о ней в [issue tracker](https://github.com/gazay/lysa/issues).
+Если у вас есть какие-либо идеи об улучшении LYSA, вы также можете писать о них в issue tracker
+(или поговорить о них в IRC чате).
 
-If you have any questions about LYSA (or math), feel free to ask in the channel,
-or in the issue tracker.
+Если у вас возникли любые вопросы по LYSA (или математике), пожалуйста задавайте их в чате или
+в issue tracker.
 
 [webchat]: http://webchat.freenode.net/?channels=lysa
 
 
-# License
+# Лицензия
 
-LYSA is licensed under the [GNU Free Documentation License][gfdl]. The license
-can be found in the LICENSE file in the project root.
+LYSA лизцензирована по [GNU Free Documentation License][gfdl].
+Лицензию вы можете найти в файле [LICENSE](https://github.com/gazay/lysa/LICENSE) в корне проекта.
 
 [gfdl]: https://gnu.org/licenses/fdl.html
