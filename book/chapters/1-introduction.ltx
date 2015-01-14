@@ -1,41 +1,70 @@
-\ch{Introduction}
+\ch{Вступление}
 
-Before I bore you with a bunch of crap you don't care about, let's do some math,
-shall we?
+Прежде чем заскучать от кучи хлама до которого вам нет дела, давайте немного
+поговорим о математике?
 
-There are basically three notions with which you need to be familiar in order to
-do anything interesting in math. Those three things are {\it sets}, {\it
-  functions}, and {\it proofs}. Unfortunately, to be familiar with one, you have
-to be familiar with the other two.\footnote{You'll learn as we go along, when
-  math people use a common term like {\it set}, {\it function}, {\it proof},
-  {\it group}, {\it continuous} or {\it closed}, they usually mean something
-  similar in concept to the colloquial term, but there are some strings
-  attached. This is usually the case in the sciences too (e.g. \xti{theory},
-  \xti{hypothesis}, \xti{experiment}).}
+Есть всего три основных понятия, с которыми вы должны быть знакомы,
+чтобы делать что-либо интересное в математике. Это {\it сеты}, {\it функции} и {\it доказательства}.
+К несчастью, чтобы понимать одно из них, вы должны быть знакомы с
+оставшимися.\footnote{Вы поймете далее, что когда математики используют понятие
+  типа {\it сет}, {\it функция}, {\it доказательство}, {\it группа}, {\it непрерывный} или
+  {\it замкнутый}, они обычно имеют ввиду что-то, похожее по смыслу на общепринятое
+  значение понятия, но с дополнениями. Это обычное дело для науки (например, \xti{теория},
+  \xti{гипотеза}, \xti{эксперимент}).}
+% ENG
+% There are basically three notions with which you need to be familiar in order to
+% do anything interesting in math. Those three things are {\it sets}, {\it
+%   functions}, and {\it proofs}. Unfortunately, to be familiar with one, you have
+% to be familiar with the other two.\footnote{You'll learn as we go along, when
+%   math people use a common term like {\it set}, {\it function}, {\it proof},
+%   {\it group}, {\it continuous} or {\it closed}, they usually mean something
+%   similar in concept to the colloquial term, but there are some strings
+%   attached. This is usually the case in the sciences too (e.g. \xti{theory},
+%   \xti{hypothesis}, \xti{experiment}).}
 
-So, what are each of those things?
+Итак, что означает каждое из этих понятий?
+% ENG
+% So, what are each of those things?
 
 \begin{itemize}
-\item A \xti{set} is an unordered collection of things. There is also no
-  repetition. For instance, $\mset{2, 5}$ is the same as $\mset{5, 2}$ (because
-  order doesn't matter). $\mset{2, 5, 5}$ would be the same set, because there's
-  no notion of multiplicity.
+\item \xti{Сет} – это неупорядоченая коллекция чего-либо. Кроме того без повторений.
+  Например, $\mset{2, 5}$ – то же самое, что $\mset{5, 2}$ (потому что порядок не важен).
+  $\mset{2, 5, 5}$ будет тем же самым сетом, потому что там нет понятия многочисленности.
+% ENG
+% \item A \xti{set} is an unordered collection of things. There is also no
+%   repetition. For instance, $\mset{2, 5}$ is the same as $\mset{5, 2}$ (because
+%   order doesn't matter). $\mset{2, 5, 5}$ would be the same set, because there's
+%   no notion of multiplicity.
 
-\item A \xti{function} is a mathematical construct (well, obviously, else I
-  wouldn't be talking about it). Basically, it takes some input, does something
-  to it, and spits out some output. If you give the function the same input a
-  bunch of times, you should get the same result each time. This concept is
-  called ``referential transparency.'' If the function is not referentially
-  transparent, then it's not a function. It's something else.
+\item \xti{Функция} – это математическая конструкция (что очевидно, раз мы говорим об этом).
+  По сути, она принимает какие-то данные на вход, производит действия над ними и возвращает результат.
+  Если вы даете функции одни и те же данные на вход несколько раз, каждый раз
+  вы должны получать один и тот же результат на выходе. Это называется "чистотой".
+  Если функция не чистая, значит это не функция. Это что-то другое.
+% ENG
+% \item A \xti{function} is a mathematical construct (well, obviously, else I
+%   wouldn't be talking about it). Basically, it takes some input, does something
+%   to it, and spits out some output. If you give the function the same input a
+%   bunch of times, you should get the same result each time. This concept is
+%   called ``referential transparency.'' If the function is not referentially
+%   transparent, then it's not a function. It's something else.
 
-\item A \xti{proof} is basically where you take a bunch of simple facts, called
-  \xti{axioms}, and chain them together to make \xti{theorem}s. It's sort of like
-  sticking puzzle pieces together to form a picture.
+\item \xti{Доказательство} – это когда вы берете кучу простых фактов,
+  называемых \xti{аксиомами}, и связываете их вместе, чтобы вывести \xti{теоремы}.
+  Что-то вроде пазла, который вы собираете из маленьких кусочков, чтобы сформировать картину.
+%ENG
+% \item A \xti{proof} is basically where you take a bunch of simple facts, called
+%   \xti{axioms}, and chain them together to make \xti{theorem}s. It's sort of like
+%   sticking puzzle pieces together to form a picture.
 
-  The puzzle pieces (in this case, the axioms) aren't usually very interesting
-  on their own. However, the picture they form (in this case, the theorem) can
-  be really cool and enlightening. The proof would be analogous to an explicit
-  set of instructions explaining how to put the pieces together.
+  Кусочки пазла (в данном случае аксиомы) не особо интересны сами по себе. Но картинка,
+  которая из ни получается (в данном случае теорема), может быть очень крутой и информативной.
+  Можно сказать, что доказательство, это набор инструкций, разъясняющих, как собрать кусочки вместе.
+% ENG
+%   The puzzle pieces (in this case, the axioms) aren't usually very interesting
+%   on their own. However, the picture they form (in this case, the theorem) can
+%   be really cool and enlightening. The proof would be analogous to an explicit
+%   set of instructions explaining how to put the pieces together.
 \end{itemize}
 
 Once you are familiar with each of those concepts, we can do all sorts of cool
