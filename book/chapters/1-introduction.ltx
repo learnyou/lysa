@@ -207,72 +207,104 @@ Haskell – это язык программирования, и LYAH – от
 % build upon your current thoughts to find out even cooler things. That's what
 % math is about.
 
-Programming and math go hand-in-hand. Programmers and mathematicians will attest
-to this; I certainly can. For that reason, throughout this book, there will be
-coding exercises in the programming language Idris. Idris is an interesting
-programming language for many reasons. The chief of which is that it can be used
-to prove things mathematically. Most programming languages can't do this. Idris
-can, which is why it is special.\footnote{There are other programming languages
-  that can prove things, namely Coq and Agda. However, I'm most familiar with
-  Idris, and Idris is probably the most useful, so I'm using Idris. Deal with
-  it.}
+Программирование и математика идут рука об руку. Программисты и математики подтвердят это;
+я точно могу. Поэтому вы встретите в этой книге упражнения на языке Idris. Idris – это
+очень интересный язык программирования по многим причинам. Главная из которых заключается в том,
+что он позволяет доказывать вещи математически. Большинство языков программирования не
+могут этого. Idris может, поэтому он такой замечательный.\footnote{Кроме Idris позволяют
+  доказывать вещи математически два других языка: Coq и Agda. Но, так как я наиболее
+  знаком с Idris и Idris видимо является наиболее полезным, то я использую Idris.
+  Смиритесь.}
+% ENG
+% Programming and math go hand-in-hand. Programmers and mathematicians will attest
+% to this; I certainly can. For that reason, throughout this book, there will be
+% coding exercises in the programming language Idris. Idris is an interesting
+% programming language for many reasons. The chief of which is that it can be used
+% to prove things mathematically. Most programming languages can't do this. Idris
+% can, which is why it is special.\footnote{There are other programming languages
+%   that can prove things, namely Coq and Agda. However, I'm most familiar with
+%   Idris, and Idris is probably the most useful, so I'm using Idris. Deal with
+%   it.}
 
 
-\ss{Installing Idris}
+\ss{Установка Idris}
+% \ss{Installing Idris}
 
-This is something that is actually rather difficult to summarize, because it
-varies from operating system to operating system. I will put down the
-instructions for the operating systems I use. If you come upon this and don't
-see your operating system, please report this on
-\link{https://gitlab.com/lysa/lysa/issues/new}{the issue tracker}. Better yet,
-you could add the instructions yourself, and ask me to merge your changes.
+Это то, что довольно трудно обобщить, потому что процесс очень сильно зависит от
+операционной системы. Я размещу инструкции для операционных систем, которые использую сам.
+Если вы не найдете своей операционной системы ниже, пожалуйста, напишите об этом в
+\link{https://github.com/gazay/lysa/issues/new}{issue tracker}. Еще лучше, если вы сможете
+написать инструкции самостоятельно и попросить меня добавить это в саму книгу.
+% ENG
+% This is something that is actually rather difficult to summarize, because it
+% varies from operating system to operating system. I will put down the
+% instructions for the operating systems I use. If you come upon this and don't
+% see your operating system, please report this on
+% \link{https://gitlab.com/lysa/lysa/issues/new}{the issue tracker}. Better yet,
+% you could add the instructions yourself, and ask me to merge your changes.
 
-\sss{Linux}
+\sss{Mac}
 
-\pg{Gentoo}
-
-You will need the Haskell platform, along with the GNU Multiple Precision (GMP)
-library. As of 5 January 2015, the Haskell platform is only available on
-\code{\tilde ARCH}, where \code{ARCH} is your processor architecture
-(e.g. \code{amd64}, \code{x86}). If you use \code{ARCH}, you can enable these by
-adding the following to \filepath{/etc/portage/package.keywords}:\footnote{If
-  you already use \code{\tilde ARCH}, you can ignore this}
-
-\begin{plainfile}
-dev-lang/ghc
-dev-haskell/cabal-install
-\end{plainfile}
-
-Regardless of your \code{ACCEPT\_KEYWORDS} variable, you should add the
-following to \filepath{/etc/portage/package.use}:
-
-\begin{plainfile}
-dev-lang/ghc binary
-\end{plainfile}
-
-Otherwise, you have to compile GHC (the Haskell compiler) from scratch, and that
-takes forever.
-
-Once you have that all out of the way, you'll want to run the following command as root:
+Если у вас установлена система установки \link{http://brew.sh/}{Homebrew}, то,
+по идее, все должно быть очень просто:
 
 \begin{shellsession}
-# emerge -jav dev-lang/ghc dev-haskell/cabal-install
+# brew install idris
 \end{shellsession}
 
-\xtb{Warning}: \terminal{-j} will make the installation a lot faster, but is
-more resource-intensive. If your power usage is precious, omit it (i.e. use
-\terminal{-av} instead).
+После этого вы сможете запустить Idris командой \terminal{idris}.
 
-Once GHC and cabal-install are installed, you'll want to run the following as a
-normal user:
+Если же у вас возникли какие-либо проблемы с установкой напрямую,
+попробуйте выполнить все шаги из
+\link{https://github.com/idris-lang/Idris-dev/wiki/Idris-on-OS-X-using-Homebrew}{официальной вики по установке}
+Idris на Mac.
 
-\begin{shellsession}
-% cabal update
-% cabal install alex happy haddock hscolour
-% cabal install idris
-\end{shellsession}
+% \sss{Linux}
 
-You can then get at the Idris shell by running \terminal{idris}.
+% \pg{Gentoo}
+
+% You will need the Haskell platform, along with the GNU Multiple Precision (GMP)
+% library. As of 5 January 2015, the Haskell platform is only available on
+% \code{\tilde ARCH}, where \code{ARCH} is your processor architecture
+% (e.g. \code{amd64}, \code{x86}). If you use \code{ARCH}, you can enable these by
+% adding the following to \filepath{/etc/portage/package.keywords}:\footnote{If
+%   you already use \code{\tilde ARCH}, you can ignore this}
+
+% \begin{plainfile}
+% dev-lang/ghc
+% dev-haskell/cabal-install
+% \end{plainfile}
+
+% Regardless of your \code{ACCEPT\_KEYWORDS} variable, you should add the
+% following to \filepath{/etc/portage/package.use}:
+
+% \begin{plainfile}
+% dev-lang/ghc binary
+% \end{plainfile}
+
+% Otherwise, you have to compile GHC (the Haskell compiler) from scratch, and that
+% takes forever.
+
+% Once you have that all out of the way, you'll want to run the following command as root:
+
+% \begin{shellsession}
+% # emerge -jav dev-lang/ghc dev-haskell/cabal-install
+% \end{shellsession}
+
+% \xtb{Warning}: \terminal{-j} will make the installation a lot faster, but is
+% more resource-intensive. If your power usage is precious, omit it (i.e. use
+% \terminal{-av} instead).
+
+% Once GHC and cabal-install are installed, you'll want to run the following as a
+% normal user:
+
+% \begin{shellsession}
+% % cabal update
+% % cabal install alex happy haddock hscolour
+% % cabal install idris
+% \end{shellsession}
+
+% You can then get at the Idris shell by running \terminal{idris}.
 
 \s{Licensing}
 
