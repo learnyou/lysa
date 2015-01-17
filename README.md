@@ -6,7 +6,8 @@ notice are preserved.  This file is offered as-is, without any warranty.
 
 # Learn You Some Algebras for Glorious Good!
 
-This is a math book, licensed under the GNU FDL.
+This is a math book, licensed under the GNU FDL. It is written in English. There
+is an unofficial [Russian translation](https://github.com/gazay/lysa)
 
 # Building
 
