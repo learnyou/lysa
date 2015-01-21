@@ -12,7 +12,7 @@ is an unofficial [Russian translation](https://github.com/gazay/lysa)
 # Building
 
 If you want a pre-build PDF, see the
-[pdfs repository](https://github.com/learnyou/pdfs).
+[pdfs repository](https://gitlab.com/lysa/pdfs).
 
 To build a PDF from source, you'll need to have TeX installed, along with a
 number of packages. A list can be found in the
@@ -42,7 +42,7 @@ know what IRC is, or you don't have a client set up, you can connect through
 [FreeNode's webchat][webchat].
 
 If you notice any errors, don't be shy to report them in the
-[issue tracker](https://github.com/learnyou/lysa/issues). If you have any
+[issue tracker](https://gitlab.com/lysa/lysa/issues). If you have any
 suggestions for improving LYSA, also post them in the issue tracker (or bring
 them up in the IRC channel).
 
@@ -50,6 +50,18 @@ If you have any questions about LYSA (or math), feel free to ask in the channel,
 or in the issue tracker.
 
 [webchat]: http://webchat.freenode.net/?channels=lysa
+
+# Hosting
+
+This project is hosted on GitLab, at https://gitlab.com/lysa/lysa . There are 3
+official "mirrors":
+
+* BitBucket - https://bitbucket.org/pharpend/lysa
+* GitHub - https://github.com/learnyou/lysa
+* Gitorious - https://gitorious.org/lysa/lysa
+
+I accept merge requests to each of those. However, issues should be brought up
+in the GitLab repository.
 
 # License
 
