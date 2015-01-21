@@ -1,4 +1,4 @@
-Copyright © 2014-2015 Peter Harpending. `<peter@harpending.org>`
+Copyright © 2014-2015 Peter Harpending. <pharpend2@gmail.com>
 
 Копирование и распространение этого файла, с или без изменения, разрешено в
 любой среде без выплат правообладателю при сохранении ссылки на правообладателя и
@@ -6,12 +6,7 @@ Copyright © 2014-2015 Peter Harpending. `<peter@harpending.org>`
 
 # Original book
 
-<<<<<<< HEAD
 This is a russian translation of project [Learn You Some Algebras for Glorious Good!](https://gitlab.com/lysa/lysa)
-=======
-This is a math book, licensed under the GNU FDL. It is written in English. There
-is an unofficial [Russian translation](https://github.com/gazay/lysa)
->>>>>>> c35f3bc56d0c57f436fb62306ff5b858d0627543
 
 # Изучай алгебру во имя добра!
 
