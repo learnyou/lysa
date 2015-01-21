@@ -1,0 +1,566 @@
+\s{Operators and Functions}
+
+This section will go over the general idea of functions --- and therefore
+operators. Remember back to \cref{booleans}, I yammered on about the idea where
+you could take a Boolean value, call it $A$, and then you could do $\lnot A$,
+which would still be a Boolean value. Well, most people would call $\lnot$ an
+``operator.'' Basically, it takes a Boolean, and gives you another Boolean. I'm
+lazy, so instead of ``Boolean value'', I'm just going to write ``Boolean,'' or
+sometimes ``Bool.''
+
+It's convenient for us lazy math people to have a notation for ``$\lnot$ takes a
+Boolean, and gives you another Boolean.'' First, we need a symbol for ``this is
+a Boolean value.'' $\bool$. There we go. So, here's the notation for ``$\lnot$
+takes in a Boolean and spits out a Boolean.''
+
+\[ \lnot : \bool \to \bool \]
+
+This property is called \xti{algebra}, in the sense that the operator $\lnot$
+is \xti{algebraic}. An operator is \xti{algebraic} if it takes an element from
+a given set, and then spits back out an element of that set.
+
+So, what really is \boolnm? Well, it's the set of Booleans.
+
+\xti{Wait, we're using sets already for stuff?}
+
+Yes, silly, why do you think I was talking about them?
+
+So, basically:
+
+\[ \bool = \mset{\true, \false} \]
+
+Here's something super cool and fun to do in math, that we'll do a lot. We're
+going to take concepts that seem impossible to define, and define them. I bet
+the average mathematician is capable of defining irony. It seems boring, but
+it's actually pretty fun.
+
+So, try to write down a definition of $\lnot$.
+
+You probably can't do it, can you? It just seems so obviously true. Well, the
+easiest thing to do is to just list some properties of $\lnot$, and then usually
+a definition emerges.
+
+We already know
+
+
+What's the result of $\lnot\true$? Well, \falsenm, of course! So:
+
+\[ \lnot\true = \false \]
+
+We also know that $\lnot\parens{\lnot A} = A \sfall A$, so we can write down:
+
+\[ \lnot \parens{\lnot A} = A \sfall A\]
+
+(you should actually be writing this down on paper, by the way)
+
+So, we're lazy, and we don't like writing $\sfall A$ or $\sfall A,B,C$ or
+whatever every time we write something down. It just gets annoying. Instead,
+we're going to use the symbol $\equiv$. You can read $\equiv$ as ``identically
+equal to.'' So, $A \equiv B$ is just the lazyman's way of writing
+$A = B \sfall A,B$. Thus, we can restate the previous definition as:
+
+\[ \lnot \parens{\lnot A} \equiv A \]
+
+Let's recollect all the information we have so far:
+
+\begin{displaymath}
+  \begin{array}{l}
+    \bool                 =      \mset{\true,\false} \\
+    \lnot                 :      \bool \to \bool \\
+    \lnot\true            =      \false \\
+    \lnot\parens{\lnot A} \equiv A \\
+  \end{array}
+\end{displaymath}
+
+This is almost enough. We need one more thing. You could state that
+$\lnot\false = \true$, which is \truenm, but not as useful as what we're going
+to say:
+
+\[ \parens{A = B} \implies \parens{\lnot A = \lnot B} \sfall A,B\]
+
+You might be asking ``he used a $\forall$ and $=$, why didn't he use the cool
+$\equiv$ symbol?'' Really, because it would have been wrong. $\equiv$ is really
+a lazyman's amalgamation of $=$ and $\forall$. So, in that last thing, I was
+talking about a situation involving three separate operators: the $=$ on the
+left, the $\implies$, and the $=$ on the right. It was important to note that
+the $\forall A,B$ applies to all of those operators collectively. $\equiv$ would
+mean that the $\forall$ only applies to the $=$ operator.
+
+Anyway, here's what we know:
+
+\begin{displaymath}
+  \begin{array}{l}
+    \bool                 =        \mset{\true,\false} \\
+    \lnot                 :        \bool \to \bool \\
+    \lnot\true            =        \false \\
+    \lnot\parens{\lnot A} \equiv   A \\
+    \parens{A = B}        \implies \parens{\lnot A = \lnot B} \sfall A,B \\
+  \end{array}
+\end{displaymath}
+
+This is enough to define $\bool$. Here's one quick exercise, then we'll move on.
+
+\begin{ExcList}
+  \Exercise{Using only the definition above, (and the definition of $=$), show
+    that $\lnot False = True$.}  \Answer{
+    \begin{proof}
+      From the definition of $\lnot$:
+      \[\lnot\true = \false\]
+      By the commutativity of equality:
+      \[ \false = \lnot \true \]
+      From the definition of $\lnot$:
+      \[\parens{A = B} \implies \parens{\lnot A = \lnot B} \sfall A,B\]
+      Therefore,
+      \[ \lnot \false = \lnot\parens{\lnot \true} \]
+      From the definition of $\lnot$:
+      \[\lnot\parens{\lnot A} \equiv A\]
+      Therefore,
+      \[\lnot\parens{\lnot \true} = \true \]
+      By the transition of equality,
+      \[ \lnot \false = \true \]
+    \end{proof}
+  }
+
+  \Exercise{Use the following definition of $\land$ to prove:
+
+    \begin{itemize}
+    \item $A \land A \equiv A$
+    \item $\parens{A \land B} \land C \equiv A \land \parens{B \land C}$
+    \end{itemize}
+
+    \begin{displaymath}
+      \begin{array}{l}
+        \land : \bool^2 \to \bool \\
+        A \land \true \equiv A \\
+        A \land B \equiv B \land A \\
+      \end{array}
+    \end{displaymath}
+
+    {\footnotesize By the way, the $\bool^2$ thing just means it needs two
+      elements of $\bool$ to do its job.}  }
+
+  \Exercise{Do the same thing for $\lor$}
+
+  \Exercise{Use this definition (and those aforementioned):
+      \begin{displaymath}
+        \lnot\parens{A \land B} \equiv \lnot A \lor \lnot B
+      \end{displaymath}
+
+      to prove
+
+      \begin{displaymath}
+        \lnot\parens{A \lor B} \equiv \lnot A \land \lnot B
+      \end{displaymath}
+  }
+
+\end{ExcList}
+
+
+\ss{Moving on}
+
+Before we got distracted with all that proof stuff, we were talking about
+operators. $\lnot$ is rather narrow in scope. It deals with literally two
+values. There are some operators that deal with more values. 
+
+You remember numbers, right? Well, let's look at an operator, which takes a
+number, and adds 5 to it. We're going to call that operator $f$. Here's how
+we're going to write $f$:
+
+\[ f = \ld{x} x + 5 \]
+
+\let\evalmultat\evalat
+
+If we want to say $f$ evaluated where $\mlist{x = 1}$, we'll write
+
+\[ \evalat{f}{x = 1} \]
+
+Let's carry this out:
+
+\begin{displaymath}
+  \begin{array}{rcl}
+    f & = & \ld{x} x + 5 \\
+    \evalat{f}{x = 1} & = & \ld{x= 1} x + 5 \\
+    & = & 1 + 5 \\
+    & = & 6 \\
+  \end{array}
+\end{displaymath}
+
+Hopefully you get the idea. $f$ evaluated where $x = something$ basically means
+``replace $x$ with $something$, and carry out the calculation.''
+
+That thing where  you have to wrap the parentheses around both of the things:
+
+I'm going to write another operator, $g$, which takes two numbers. It adds $5$
+to the first number, and subtracts $2$ from the second. Then it multiplies the
+intermediate results together.
+
+\[ g = \ld{x,y} \parens{x + 5} \times \parens{y - 2} \]
+
+So, let's see what happens when we carry out $g$ when $x = 4$ and $y = 6$. First
+of all, how do you write that?
+
+\newcommand{\gfun}{\ld{x,y} \parens{x+5} \times \parens{y-2}}
+\newcommand{\gfunevald}{\ld{x=4, y=6} \parens{x+5} \times \parens{y-2}}
+\begin{displaymath}
+  \begin{array}{rcl}
+    \evalmultat{g}{x = 4, y = 6} & = & \gfunevald \\
+                     & = & \parens{4 + 5} \times \parens{6 - 2} \\
+                     & = & 9 \times 4 \\
+                     & = & 36 \\
+  \end{array}
+\end{displaymath}
+
+What are the signatures\footnote{(the thing with the colon and the arrows)} for
+these functions?
+
+Well, $f$ takes a number, and gives back a number. Our fancy-schmancy symbol for
+``numbers'' is $\N$.
+
+\[ f : \N \to \N \]
+
+Thus, because $g$ requires 2 numbers to do its job, its signature is:
+
+\[ g : \N^2 \to \N \]
+
+\ss{Currying}
+
+This is a nice point to break and talk about Currying.
+
+Currying is basically another instance of mathematicians being clever and lazy
+at the same time.
+
+Remember $g$, right?
+
+\[ g = \gfun \]
+
+Well, what happens when we let $x = 4$, but leave $y$ alone?
+
+\newcommand{\gfunprtevald}{\ld{x=4, y} \parens{x+5} \times \parens{y-2}}
+
+\begin{displaymath}
+  \begin{array}{rcl}
+    \evalat{g}{x = 4} & = & \gfunprtevald \\
+                      & = & \ld{y} \parens{4 + 5} \times \parens{y - 2} \\
+                      & = & \ld{y} 9 \times \parens{y - 2} \\
+  \end{array}
+\end{displaymath}
+
+So, in this case, $g$ took in a number, and gave us back a function with the
+signature $\N \to \N$. So, in this case, $g$'s signature is actually:
+
+\[ g : \N \to \parens{\N \to \N}\]
+
+Thus it might be more semantic to write $g$ as:
+
+\[ g = \ld{x} \parens{\ld{y} \parens{x + 5} \times \parens{y - 2}} \]
+
+\xti{But wait, isn't that notation rather constrictive? What if we want to do
+  $\evalat{g}{y = 3}$?}
+
+Since it's pretty clear that $\to$ is right-associative --- i.e. it doesn't make
+sense to write
+$\parens{\ld{x} \lambda\mlist{y}} \to \parens{x + 5} \times \parens{y - 2}$ ---
+then we can be lazy and write:
+
+\begin{displaymath}
+  \begin{array}{l}
+    g : \N \to \N \to \N  \\
+    g = \ld{x} \ld{y} \parens{x + 5} \times \parens{y - 2} \\
+    g = \ld{x, y} \parens{x + 5} \times \parens{y - 2} \\
+  \end{array}
+\end{displaymath}
+
+And thus, it no longer seems wrong to write $\evalat{g}{y = 3}$.
+
+\xtb{What's that $\lambda$ symbol?}
+
+It's the Greek letter lambda, pronounced ``lamb-duh.''
+
+\ss{Moving on Again}
+
+So, we've --- in very little depth --- covered the idea of what a function looks
+like. What about operators?
+
+Well, operators are actually just really sneaky functions. Remember, the
+definition for $\lnot$ looked an awful lot like our function.
+
+\begin{displaymath}
+  \begin{array}{l}
+    \bool                 =        \mset{\true,\false} \\
+    \lnot                 :        \bool \to \bool \\
+    \lnot\true            =        \false \\
+    \lnot\parens{\lnot A} \equiv   A \\
+    \parens{A = B}        \implies \parens{\lnot A = \lnot B} \sfall A,B \\
+  \end{array}
+\end{displaymath}
+
+However, it is really awkward to write unary operators (things that take only
+one argument) in $\lambda$-notation. So, we just don't. Especially when the
+definitions are recursive ($\lnot$'s definition uses $\lnot$ in the
+definition). Your English teacher probably told you that it's not okay to use a
+word in its own definition. Well, in math, it is okay.
+
+\ss{Function Composition}
+
+Okay, just two more little subsections, then you get to do all the wonderful
+exercises! Yay!
+
+Function composition is another example of mathematicians being lazy. Let's look
+at that definition of $f$ from above:
+
+
+\[ f = \ld{x} x + 5 \]
+
+
+\begin{alignedmath}
+  f : \N \to \N \\
+  f = \ld{x}{x + 5}
+\end{alignedmath}
+
+In that case, because the function only does one thing (adds 5), the whole thing
+about explaining that there's an $x$ there is sort of obvious
+
+\[ f = \lto \parens{+ 5} \]
+
+And even the $\lto$ is getting in the way. It's pretty obvious that
+$\parens{+ 5}$ isn't a number, especially when we annotate $f$ with its
+signature. So, we can be lazy, and write:
+
+\begin{alignedmath}
+  f : \N \to \N \\
+  f = \parens{+ 5}
+\end{alignedmath}
+
+Yay for laziness!
+
+Now, what if we want to add 5 to the number and then multiply the intermediate
+result by $10$? Well, the verboseman's way of writing this is:
+
+\begin{alignedmath}
+  f : \N \to \N \\
+  f = \ld{x} \parens{x + 5} \times 10
+\end{alignedmath}
+
+Well, let's see. There's probably an easier way to write that. First, we know
+that $\times$ is commutative (we'll prove this later, don't worry), so we can write
+
+\[f = \ld{x}  10 \times \parens{x + 5}  \]
+
+Let's give the intermediate result a value:
+
+\begin{alignedmath}
+  f = \ld {x}  10 \times \parens{\ld {z = x} z + 5}
+\end{alignedmath}
+
+Basically $f$ says ``do $q$ first, then multiply the result of $q$ by $10$.''
+Well, this seems a little verbose. We're sort of smushing the functions
+$\parens{\times 10}$ and $\parens{+ 5}$ together. Well, luckily there's a way to
+write this:
+
+\begin{displaymath}
+  f = \parens{\times 10} \circ \parens{+ 5}
+\end{displaymath}
+
+Note that order is important. When evaluating $\evalat{f}{\ldots}$, you do the
+thing on the right-hand-side of $\circ$ first, then the thing on the left
+afterwards.
+
+You can read $\circ$ as ``compose'' or ``of'', depending on your taste.
+
+\ss{Formal definitions}
+
+Again, now that I've given you the intuition, let's go on with the formal
+definitions:
+
+\sss{Cartesian products}
+
+The superduper formal definition of function relies on the definition of
+Cartesian products. The Cartesian product operates on two sets. The Cartesian
+product of two sets is the set of all ordered pairs between the two sets. So,
+
+$$
+A \times B = \mset{\mlist{x,y} \mid \parens{x \in A} \land \parens{y \in B}}
+$$
+
+A function $f : A \to B$ is the set
+
+\[ \mset{\mlist{x, \evalat{f}{x}} \mid \parens{x \in A} \land \parens{\evalat{f}{x} \in B}}\]
+
+There is also the condition that
+
+\[ \parens{x = y} \implies \parens{\evalat{f}{x} = \evalat{f}{y}}\]
+
+This is harmless formalism that, like I said, becomes useful when we graph
+stuff.
+
+\nocite{w-functions}
+
+
+\begin{description}
+\item[Functions] If a function $f$ is a mapping from a set $X$ to another set
+  $Y$, the notation is $f : X \to Y$. $f$, when given an argument $x$, gives the
+  result $\evalat{f}{x}$. That is,
+
+  \[ f \equiv \ld x \evalat{f}{x} \]
+
+  That is, $f$ is a function, when given a value $x$, yields the value
+  $\evalat{f}{x}$. It's also the case that if $f : X \to Y$, and $x \in X$, then
+  $\evalat{f}{x} \in Y$. That is
+
+  \begin{displaymath}
+    \parens{f : X \to Y} \land \parens{x \in A} \iff \evalat{f}{x} \in Y
+  \end{displaymath}
+
+\item[Inverse Functions] Many functions have an inverse. That is, if
+  $f : X \to Y$, then the inverse $\arc{f}$ has the signature $\arc{f} : Y \to X$
+
+  This brings up a couple of points about functions. Mostly, they have to be
+  determinant. That is, if you have some value $x$ which is in the domain, there
+  can only be one value $\evalat{f}{x}$. (There's a graphical interpretation of
+  this which is much easier to understand). The phrase ``referentially
+  transparent'' means the same thing as ``determinant.''
+
+  Anyway, if a function isn't determinant, then it's not a function, it
+  something functionyish. Determinance can be stated as such:
+
+  \[ \parens{x = y} \implies \parens{\evalat{f}{x} = \evalat{f}{y} }\]
+
+  The inverse of $f$, noted $\arc{f}$ has the following properties:
+
+  \begin{alignedmath}
+    \evalat{\arc{f}}{\evalat{f}{x}} \equiv x \\
+    \arc{\arc{f}} \equiv f \\
+  \end{alignedmath}
+
+  If there are two values $x$ and $y$ such that $x \ne y$ but
+  $\evalat{f}{x} = \evalat{f}{y}$, then there would be two possible $x$'s to fit
+  the definition of $\arc{f}$, and therefore $\arc{f}$ wouldn't be a
+  function. That is,
+
+  Let $p = \evalat{f}{x}$, $q = \evalat{f}{y}$, $x \ne y$ and $p = q$. Let
+  $\arc{f} = h$
+
+  \begin{alignedmath}
+    \evalat{h}{p} = x \\
+    \evalat{h}{q} = y \\
+    p = q \\
+  \end{alignedmath}
+
+  If $h$ is a function, then it must be true that $x = y$, which we know is not
+  true. This means that there exists an $f$ such that $\centernot\exists \null\arc{f}$.
+  There are many functions that are not invertible. As a rule, an invertible
+  function has the following property
+  
+  \[ \parens{x = y} \impliedby \parens{\evalat{f}{x} = \evalat{f}{y} }\]
+
+\item[Domain \& Codomain] If $f : X \to Y$, then $X$ is the \xti{domain} of $f$,
+  and $Y$ is the \xti{codomain} of $f$.
+
+\item[Image \& Preimage] If $f : X \to Y$, then the set of elements in $Y$ which
+  can be expressed as $\evalat{f}{x}$ is called the \xti{image} of $f$. The
+  image of $f$ is written $\im{f}$ The set of elements in $X$ which can be used
+  as an argument to $f$ is called the \xti{preimage}, denoted $\preim{f}$. That
+  is,
+
+  \begin{alignedmath}
+    \im{f} = \mset{ \evalat{f}{x} \mid  \parens{x \in X} \land \parens{\evalat{f}{x} \in Y} } \sfall f : X \to Y \\
+    \preim{f} = \mset{ x \mid  \parens{x \in X} \land \parens{\evalat{f}{x} \in \im{f}} }          \sfall f : X \to Y \\
+  \end{alignedmath}
+
+\item[Injection \& Surjection] If a function's preimage is equal to its domain,
+  then the function is \xti{injective}. If a function's image is equal to it's
+  codomain, then the function is \xti{surjective}. If the function is both
+  injective and surjective, then the function is \xti{bijective}.
+
+\end{description}
+
+\begin{ExcList}
+  \Exercise{What is the result of
+    \[ \mset{0,1} \times \mset{2,3} \]
+  }
+  \Answer{The result is the set of ordered pairs between the two sets, so:
+
+    \begin{displaymath}
+      \begin{array}{rcl}
+        \mset{0,1} \times \mset{2,3} & = & \{\,   \mlist{0,2} \\
+                                     &   & \comma \mlist{0,3} \\
+                                     &   & \comma \mlist{1,2} \\
+                                     &   & \comma \mlist{1,3} \\
+                                     &   & \}                 \\
+      \end{array}
+    \end{displaymath}
+  }
+
+  \Exercise{Write a bijective function $f$ for the Cartesian product above. That
+    is, write a function $f$ such that
+
+    \begin{alignedmath}
+      \mset{\mlist{x, \evalat{f}{x}} \mid \parens{x \in \mset{0,1}} \land \parens{\evalat{f}{x} \in \mset{2,3}}}\\
+      \parens{x = y} \iff \parens{\evalat{f}{x} = \evalat{f}{y} } \\
+    \end{alignedmath}
+  }
+  \Answer{$f = \parens{+2}$}
+
+  \Exercise{Given the $f$ above, what is $\arc{f}$?}
+  \Answer{$\arc{f} = \parens{-2}$}
+
+  
+
+  \Exercise{Show that a function is invertible iff it is bijective.}
+
+  \Answer{ A function is \xtb{in}jective if its preimage equals its domain. It
+    is \xtb{sur}jective if its image equals its codomain.  This means that if
+    $f$ is bijective, then $\arc{f}$ is also bijective.
+
+    This means that if a function is bijective, then it obviously has an
+    inverse. (We've just shown that the inverse is bijective in this case, and
+    that is predicated on the inverse existing.)
+
+    Let's assume that a function is not surjective. Then there is no inverse,
+    because $B$ is larger than $\dom{\arc{f}}$.
+
+    Let's assume that a function is not injective. Then there is no inverse,
+    because there would then be two elements of $B$ such that
+    
+    \begin{alignedmath}
+      p, q \in B \\
+      p = q \\
+      \evalat{\arc{f}}{p} \ne \evalat{\arc{f}}{q} \\
+    \end{alignedmath}
+
+    Which would mean that the inverse is not a function, and therefore doesn't
+    exist.
+
+    Thus if a function has an inverse, then it must be bijective.
+
+    Q.E.D.
+  }
+
+  \Exercise{What are the signatures for each of the following?
+    \begin{enumerate}
+    \item $\subof$
+    \item $\subeq$
+    \item $\supof$
+    \item $\supeq$
+    \item $\notsubof$
+    \item $\notsubeq$
+    \item $\notsupof$
+    \item $\notsupeq$
+    \end{enumerate}
+
+    (hint: they all have the same signature)
+  }
+  \Answer{$\Set \to \Set \to \bool$}
+
+  \Exercise{What is the signature for $\in$?}
+
+  \Answer{Let $a$ be any type of thing, like a number, or a boolean, or a
+    set. Let $\superbracket{\Set}{a}$ be the set of sets where the elements are
+    of type $a$.
+
+    \[\in \null : a \to \superbracket{\Set}{a} \to \bool \]
+
+    (remember, $\bool$ is the set of booleans.)
+  }
+
+\end{ExcList}

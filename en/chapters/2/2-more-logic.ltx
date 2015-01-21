@@ -1,0 +1,106 @@
+\s{Combining not, and, and or}\label{2.2-more-logic}
+
+In the previous section, we took a cursory look into the operators $\implies$,
+$\impliedby$, $\iff$, $\land$, $\lor$, and $\lnot$.
+
+I'm only going to introduce 2 new rules in this section, and here they are
+
+\begin{itemize}
+\item $\lnot\parens{\lnot A} \iff A$
+\item $\lnot\parens{A \land B} \iff \parens{\lnot A} \lor \parens{\lnot B}$
+
+  Intuitively you can think of this law this way: both $A$ and $B$ have to be
+  true for $A \land B$ to be true. So, if one of them isn't, the entire
+  condition is false. The way to say ``the entire condition isn't true'' is
+  $\lnot\parens{A \land B}$. The way to say ``one of them isn't true'' is
+  $\parens{\lnot A} \lor \parens{\lnot B}$.
+\end{itemize}
+
+The last rule is
+
+\[\lnot\parens{A \lor B} \iff \parens{\lnot A} \land \parens{\lnot B} \semicolon
+\forall A,B\]
+
+
+\begin{proof}
+  This can be derived from the last law. Let $C = \lnot A$, and $D = \lnot B$.
+  \[
+  \begin{array}{rcll}
+    \lnot\parens{A \land  B}                              & \iff & \parens{\lnot A} \lor \parens{\lnot B}                              & \semicolon \forall C,D \\
+    \lnot\parens{\parens{\lnot C} \land \parens{\lnot D}} & \iff & C \lor D                                                            & \semicolon \forall C,D \\
+    C \lor D                                              & \iff & \lnot\parens{\parens{\lnot C} \land \parens{\lnot D}}               & \semicolon \forall C,D \\
+    \lnot\parens{C \lor D}                                & \iff & \lnot\parens{\lnot\parens{\parens{\lnot C} \land \parens{\lnot D}}} & \semicolon \forall C,D \\
+    \lnot\parens{C \lor D}                                & \iff & \parens{\lnot C} \land \parens{\lnot D}                             & \semicolon \forall C,D \\
+  \end{array}
+  \]
+\end{proof}
+
+So what the hell is all that? Well, this is your first taste of a
+\xti{mathematical proof}. Basically, we start with a set of rules which we know
+are true (the \xti{laws} or \xti{axioms}). We build them together to form
+\xti{theorems}. That little white box at the bottom right is to say ``okay,
+here's where I'm done proving stuff.''
+
+I will also use the acronym Q.E.D., which is short for ``quod erat
+demonstrandum'', which is fancy-talk for ``I'm done proving stuff''.
+
+This really is your second taste of proofs, provided you did the exercises for
+\cref{2.1-basic-logic}. You may have seen the terms ``proof'' and ``Q.E.D''
+thrown around a lot. Well, now you know what they mean --- hopefully.
+
+\begin{ExcList}
+  \Exercise{Show that
+    $\parens{A \notiff B} \iff \parens{\parens{A \notimplies B} \lor \parens{B
+        \notimplies A}}$}
+  \Answer{Let's restate the problem.
+    \[
+    \parens{
+      A \notiff B
+    } \iff \parens{
+      \parens{
+        A \notimplies B
+      } \lor \parens{
+        B \notimplies A
+      }
+    }
+    \]
+    \[
+    \lnot\parens{
+      A \iff B
+    } \iff \parens{
+      \lnot\parens{
+        A \implies B
+      } \lor \lnot\parens{
+        B \implies A
+      }
+    }
+    \]
+    \[
+    \lnot\parens{
+      A \iff B
+    }
+    \iff
+    \lnot
+    \parens{
+      \parens{
+        A \implies B
+      }
+      \land
+      \parens{
+        B \implies A
+      }
+    }
+    \]
+    \[
+    \lnot\parens{
+      A \iff B
+    }
+    \iff
+    \lnot
+    \parens{
+      A \iff B
+    }
+    \]
+    Q.E.D.
+  }
+\end{ExcList}

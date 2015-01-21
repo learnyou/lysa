@@ -1,0 +1,285 @@
+\documentclass[12pt]{book}
+
+% Append yourself to this list. Aliases are fine (e.g. darkf), but please do
+% include an email where people can email you. If applicable, also include your
+% middle initial, as is the convention in academia.
+\author{
+  \pharpend
+}
+
+\newcommand{\editors}{
+  \aneditor{Randy Brown}{randy@beingbrown.net}
+  \aneditor{Nick Chambers}{DTSCode@gmail.com}
+  % \aneditor{Anton Golov}{jesyspa@gmail.com}
+  \aneditor{Ng Wei En}{wei2912.supp0rt@gmail.com}
+  \aneditor{Ben Z RF}{benzrf@benzrf.com}
+  \aneditor{Alexander G Bauer}{sasha@crofter.org}
+}
+
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage[toc,page]{appendix}
+\usepackage[backend=bibtex]{biblatex}
+\usepackage{centernot}
+\usepackage[answerdelayed]{exercise}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{listings}
+\usepackage{mathtools}
+\usepackage{relsize}
+\usepackage{scrextend}
+\usepackage{setspace}
+\usepackage{tabu}
+\usepackage{ulem}
+\usepackage{url}
+\usepackage[hidelinks]{hyperref}
+\usepackage{cleveref}
+
+\crefname{chapter}{\S}{\S}
+\crefname{section}{\S}{\S}
+\crefname{subsection}{\S}{\S}
+\crefname{subsubsection}{\S}{\S}
+\crefname{paragraph}{\S}{\S}
+\Crefname{chapter}{\S}{\S}
+\Crefname{section}{\S}{\S}
+\Crefname{subsection}{\S}{\S}
+\Crefname{subsubsection}{\S}{\S}
+\Crefname{paragraph}{\S}{\S}
+
+\addbibresource{lysa.bib}
+\usepackage{listings}
+\usepackage{color}
+
+\definecolor{mygreen}{rgb}{0,0.6,0}
+\definecolor{mygray}{rgb}{0.5,0.5,0.5}
+\definecolor{mymauve}{rgb}{0.58,0,0.82}
+
+\lstset{ %
+  backgroundcolor=\color{white},   % choose the background color; you must add \usepackage{color} or \usepackage{xcolor}
+  basicstyle=\footnotesize\tt,     % the size of the fonts that are used for the code
+  breakatwhitespace=false,         % sets if automatic breaks should only happen at whitespace
+  breaklines=true,                 % sets automatic line breaking
+  captionpos=b,                    % sets the caption-position to bottom
+  commentstyle=\color{mygreen},    % comment style
+  deletekeywords={...},            % if you want to delete keywords from the given language
+  escapeinside={\%*}{*)},          % if you want to add LaTeX within your code
+  extendedchars=true,              % lets you use non-ASCII characters; for 8-bits encodings only, does not work with UTF-8
+  frame=single,                    % adds a frame around the code
+  keepspaces=true,                 % keeps spaces in text, useful for keeping indentation of code (possibly needs columns=flexible)
+  keywordstyle=\color{blue},       % keyword style
+  % Actually, we are using Idris, but Haskell is close enough
+  language=Haskell,                % the language of the code
+  % morekeywords={*,...},            % if you want to add more keywords to the set
+  numbers=left,                    % where to put the line-numbers; possible values are (none, left, right)
+  numbersep=5pt,                   % how far the line-numbers are from the code
+  numberstyle=\footnotesize\tt,    % the style that is used for the line-numbers
+  rulecolor=\color{mygray},        % if not set, the frame-color may be changed on line-breaks within not-black text (e.g. comments (green here))
+  showspaces=false,                % show spaces everywhere adding particular underscores; it overrides 'showstringspaces'
+  showstringspaces=false,          % underline spaces within strings only
+  showtabs=false,                  % show tabs within strings adding particular underscores
+  stepnumber=2,                    % the step between two line-numbers. If it's 1, each line will be numbered
+  % stringstyle=\color{mymauve},     % string literal style
+  tabsize=2,                       % sets default tabsize to 2 spaces
+  title=\lstname                   % show the filename of files included with \lstinputlisting; also try caption instead of title
+}
+
+% Print-friendly links
+\newcommand{\anauthor}[2]
+{#1 {\href{mailto:#2}<{\tt #2}>} \\
+}
+\newcommand{\aneditor}[2]{#1 & {\href{mailto:#2}{<{#2}>}} \\ }
+\newcommand{\link}[2]{#2 (\url{#1})}
+
+% Section & Chapter he
+\newcommand{\ch}[1]{\chapter{#1}\label{ch: #1}}
+\newcommand{\s}[1]{\section{#1}\label{s: #1}}
+\renewcommand{\ss}[1]{\subsection{#1}\label{ss: #1}}
+\newcommand{\sss}[1]{\subsubsection{#1}\label{sss: #1}}
+\newcommand{\pg}[2]{\paragraph{#1}\label{pg: #1}}
+
+% Math shortcuts
+\newcommand{\suc}{\mathrm{suc}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\renewcommand{\emptyset}{\varnothing}
+% \newcommand{\nil}{\varnothing}
+\newcommand{\nil}{\emptyset}
+\newcommand{\subof}{\subset}
+\newcommand{\subeq}{\subseteq}
+\newcommand{\subofnm}{$\subset$}
+\newcommand{\subeqnm}{$\subseteq$}
+\newcommand{\supof}{\supset}
+\newcommand{\supeq}{\supseteq}
+\newcommand{\supofnm}{$\supset$}
+\newcommand{\supeqnm}{$\supseteq$}
+\newcommand{\mset}[1]{\left\{\,#1\,\right\}}
+\newcommand{\parens}[1]{\left(\,#1\,\right)}
+\newcommand{\brackets}[1]{\left[\,#1\,\right]}
+\newcommand{\Qimplies}{\stackrel{?}{\implies}}
+\newcommand{\Qimpliedby}{\stackrel{?}{\impliedby}}
+\newcommand{\comma}{,\,}
+\newcommand{\notimplies}{\centernot\implies}
+\newcommand{\notimpliedby}{\centernot\impliedby}
+\newcommand{\notiff}{\centernot\iff}
+\newcommand{\Qin}{\stackrel{?}{\in}}
+\newcommand{\Qiff}{\stackrel{?}{\iff}}
+\newcommand{\truenm}{$\true$}
+\newcommand{\falsenm}{$\false$}
+\newcommand{\true}{\mathrm{True}}
+\newcommand{\false}{\mathrm{False}}
+\newcommand{\bigand}[1]{\land\brackets{#1}}
+\newcommand{\semicolon}{;\;}
+\newcommand{\mlist}[1]{\left(\,#1\,\right)}
+\newcommand{\sfall}{\semicolon\forall}
+\newcommand{\ld}[1]{\lambda\mlist{#1} \to}
+\newcommand{\domain}[1]{^{\mathrm{dom}}\brackets{#1}}
+\let\dom\domain
+\newcommand{\codomain}[1]{^{\mathrm{codom}}\brackets{#1}}
+\let\codom\codomain
+\newcommand{\bool}{\mathbb{B}}
+\newcommand{\boolnm}{$\mathrm{\bool}$}
+\newcommand{\bracketset}[1]{\brackets{ #1 }}
+\newcommand{\evalat}[2]{#1 _{\,\bracketset{#2}}}
+\newenvironment{alignmath}[1]
+  {\begin{displaymath}\begin{array}{#1}}
+  {\end{array}\end{displaymath}}
+\newenvironment{alignedmath}
+  {\begin{alignmath}{l}}
+  {\end{alignmath}}
+\newcommand{\lto}{\lambda\to}
+\newcommand{\arc}[1]  {{^{\mathrm{arc}}\brackets{#1}}}
+\newcommand{\im}[1]   {{^{\mathrm{im}}\brackets{#1}}}
+\newcommand{\preim}[1]{{^{\mathrm{preim}}\brackets{#1}}}
+\newcommand{\Set}{\mathbf{Set}}
+\newcommand{\Qsubof}{\stackrel{?}{\subof}}
+\newcommand{\Qsubeq}{\stackrel{?}{\subeq}}
+\newcommand{\Qsupof}{\stackrel{?}{\supof}}
+\newcommand{\Qsupeq}{\stackrel{?}{\supeq}}
+\newcommand{\notsubof}{\centernot{\subof}}
+\newcommand{\notsubeq}{\centernot{\subeq}}
+\newcommand{\notsupof}{\centernot{\supof}}
+\newcommand{\notsupeq}{\centernot{\supeq}}
+\newcommand{\superbracket}[2]{
+  {
+    ^{
+      {#1}
+    }
+    \brackets{
+      {#2}
+    }
+  }
+}
+
+% Miscellaneous
+\newcommand{\pharpend}{\anauthor{Peter Harpending}{pharpend2@gmail.com}}
+\let\xti\textit %italicize
+\let\xtb\textbf %boldface
+\newcommand{\code}[1]{{\tt #1}} %boldface
+\let\crappycode\code %boldface
+\let\terminal\code
+\let\tilde\textasciitilde
+\setlength{\parskip}{2ex}
+\newenvironment{ExcList}
+{
+  \newpage
+  \ss{Exercises}
+  \begin{ExerciseList}
+}
+{
+  \end{ExerciseList}
+  \newpage
+  \sss{Answers}
+  \shipoutAnswer
+  \newpage
+}
+\newenvironment{iquote}{\begin{quote}\it}{\end{quote}}
+
+\lstnewenvironment{plainfile}[1][]
+  {\lstset{
+      numbers=none,
+      basicstyle=\small\ttfamily,
+      #1
+    }}
+  {}
+
+\lstnewenvironment{shellsession}[1][]
+  {\lstset{
+      numbers=none,
+      % language=bash,
+      basicstyle=\small\ttfamily,
+      #1
+          }}
+  {}
+
+\newcommand{\filepath}{\texttt}
+
+
+\title{Learn You Some Algebras for Glorious Good!}
+\begin{document}
+\maketitle
+
+\newpage
+\topskip0pt
+\vspace*{\fill}
+
+{\footnotesize
+  \begin{center}
+    Copyright © 2014-2015 \pharpend
+  \end{center}
+% \noindent
+  \begin{center}
+    Permission is granted to copy, distribute and/or modify this document under
+    the terms of the GNU Free Documentation License, Version 1.3 or any later
+    version published by the Free Software Foundation; with no Invariant
+    Sections, no Front-Cover Texts, and no Back-Cover Texts. A copy of the
+    license is included in \cref{gfdl}.
+  \end{center}
+}
+\vspace*{\fill}
+% \newpage
+% \section*{Editors \& Noted Contributors}
+% \begin{addmargin}[4em]{2em}
+%   \begin{tabular}{l l}
+%     \editors
+%   \end{tabular}
+% \end{addmargin}
+
+\newpage
+\tableofcontents
+\newpage
+
+\input{1-introduction.ltx}
+\input{2-boolean-algebra.ltx}
+\input{3-sets-functions.ltx}
+\input{4-proofs.ltx}
+ 
+% Citations
+% \nocite{lyah}
+% \nocite{jobs-programming}
+% \nocite{w-functions}
+% \nocite{landau-analysis}
+% \nocite{expeditions}
+% \nocite{axler-linalg}
+% \nocite{taylor-analysis}
+% \nocite{hungerford}
+% \nocite{mathstats}
+% \nocite{lang-linalg}
+% \nocite{reid-commalg}
+% \nocite{jech-set-theory}
+
+\begin{appendices}
+
+{\footnotesize
+  \setlength{\parskip}{0ex}
+  \setlength{\parindent}{0ex}
+  \input{fdl.ltx}
+}
+\input{how-to-learn.ltx}
+\end{appendices}
+
+\newpage
+\printbibliography
+\end{document}

@@ -1,0 +1,73 @@
+\ch{Booleans, simple logic, and simple operators}\label{booleans}
+
+Before we get into interesting content, you have to understand some stuff. This
+stuff is pretty easy. This will likely be the shortest and easiest chapter in
+the book.
+
+You might think math is about dealing with numbers and pumping out
+formulas. Well, that's not what math is about. As said in \cref{intro-idris},
+it's about using math as a language to express your thoughts. Most people don't
+think about numbers all day; thus, we deal with things in math that aren't
+numbers.
+
+In this next section, we're going to outline some basic rules for reasoning
+about things. You need to know these rules to do really cool stuff. Although, as
+you will (hopefully) see, these rules can be fun to toy around with on their
+own.
+
+\input{2/1-basic-logic.ltx}
+\input{2/2-more-logic.ltx}
+\input{2/3-idris.ltx}
+
+% TODO:
+% * Explain more stuff about \lor and \land
+% * Explain the first few peano axioms (about equality)
+% * Explain the transition of logic.
+% * Exercises
+
+% \item $A \notiff B$ means ``Saying $A$ is not the same as saying $B$.'' Remember
+%   that $A \iff B$ means $\parens{A \implies B} \land \parens{A \impliedby
+%     B}$.
+%   Well, $A \notiff B$ means that one of the aforementioned conditions is
+%   \falsenm. Remember, when dealing with $\land$, if one of the conditions is
+%   \falsenm, the greater condition is \falsenm.
+
+% Note that in this case, $X$ and $Y$ are whole expressions, like $A = B$. They
+% are technically Boolean values, but, as we'll see, that intuition tends to fail
+% pretty quickly.
+
+% \sss{Equality}
+
+% Before we go much further, I have to make some remarks about equality of
+% things. That is, the use of the $=$ sign, and of the $\ne$ sign. Those signs
+% should be read as `equals' and `not equals', respectively. These statements are
+% true for things that aren't Booleans, such as numbers. However, in this chapter,
+% we are only going to be talking about Booleans.
+
+% \begin{itemize}
+% \item For every $A$, it is always true that $A = A$.
+% \item For every $A$ and $B$, if $A = B$, then it's true that $B = A$. Using the
+%   notation above,
+
+%   \[ A = B \implies B = A\]
+
+% \item For every $A$ and $B$, and $C$, if $A = B$ and $B = C$, then it's true
+%   that $A = C$. Using the notation above,
+  
+%   \[\mset{A = B, B = C} \implies A = C\]
+
+%   Because of this, I can write things like $A = B = C$ without
+%   ambiguity.\footnote{A common critique of this practice has to do with
+%     associativity. That is, many people read $A = B = C$ as
+%     $\parens{A = B} = C$. This translates to $A = B \implies C$, which isn't
+%     what we want. The solution is to not try to group the operators like that,
+%     or use parentheses when you do want to group them.}
+% \end{itemize}
+
+% \begin{itemize}
+% \item See if you can decipher this: $\forall A \comma \lnot\parens{A \ne A}$.
+  
+%   You should read that as ``for all $A$, $A \ne A$ is \falsenm.''
+
+% \item $\forall A,B \comma \parens{A = B} \iff \not \parens{A \ne B}$
+% \end{itemize}
