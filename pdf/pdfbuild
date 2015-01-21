@@ -1,0 +1,25 @@
+#!/bin/sh
+#
+# Copyright © 2015, Peter Harpending. <peter@harpending.org>
+# 
+# Copying and distribution of this file, with or without modification, are
+# permitted in any medium without royalty provided the copyright notice and this
+# notice are preserved.  This file is offered as-is, without any warranty.
+
+linguas=$@
+datestamp=`date -u +%y%m%d%H%M%S`
+
+bitch_about_no_pdfs () {
+    echo "Please run \"lysabuild bootstrap\" first."
+    exit 1
+}
+for lang in $linguas ; do
+  cp -v ../$lang/lysa.pdf pdfs/$lang/`printf "lysa-%s.pdf" $datestamp` || bitch_about_no_pdfs
+done
+
+cd pdfs
+git pull
+git add -A .
+git commit 
+git push
+cd ..
