@@ -1,79 +1,75 @@
-\s{Basic Logic}\label{2.1-basic-logic}
+\s{Базовая логика}\label{2.1-basic-logic}
 
-\ss{True and False}
+\ss{True и False}
 
-True or False - in your education, you've been faced with questions where the
-answer is ``True'' or ``False''? Well, hopefully the answer is ``True''. In
-math, we're going to deal with things where we have to decide whether something
-is true or not. Moreover, there are going to be a bunch of statements that may
-or may not be true, and we'll have to figure out how they relate to each
-other. With that in mind, this section has some rules for dealing with truth and
-falsehood.
+``Правда`` или ``Ложь`` – что за время вашего обучения
+вы сталкивались с вопросами, ответами на которые были ``Правда`` или ``Ложь``?
+Ну, надеюсь, ответ ``Правда``. В математике мы будем иметь дело с задачами,
+где нам нужно будет решить, что нечто является правдой или нет. Более того,
+мы встретим кучу выражений, которые могут быть или не быть правдой, и нам нужно будет
+понять, как они связаны друг с другом. Помните об этом, пока читаете этот раздел,
+в нем представлены некоторые правила о том, как иметь дело с правдой и ложью. ???
 
-We're going to create two ``values'', and they are called \truenm\ and \falsenm,
-respectively. These values are called ``Booleans''. They are named after a
-mathematician named George Boole, who studied them rather extensively.
+Мы создадим два ``значения`` и назовем их \truenm\ и \falsenm соответственно.
+Эти значения называются ``Булевы''. Они названы вчесть математика Джорджа Буля,
+который изучал их довольно много.
 
-\truenm\ and \falsenm\ are not very interesting on their own. However, when we
-have a bunch of things that are either \truenm\ or \falsenm, we can combine them
-together in three basic ways:
-
-\begin{itemize}  
-\item $A \land B$ should be read as ``$A$ logical-and $B$.'' Both have to be
-  \truenm. If one of them is \falsenm, than $A \land B$ is \falsenm. Likewise,
-  if $A$ and $B$ are both \truenm, then $A \land B$ is \truenm.
-
-\item $A \lor B$ should be read as ``$A$ logical-or $B$.'' With $A \lor B$, if
-  one of $A$ and $B$ is \truenm, then $A \lor B$ is \truenm. It's okay if both
-  of them are \truenm.
-\item Sometimes we are going to want to say `$A$ is not \truenm'. Instead of
-  writing that out each time, I'm instead going to use the symbol $\lnot$. So,
-  $\lnot A$ should be read `logical-not $A$'.
-
-\end{itemize}  
-
-\ss{Logic}
-
-Mathematicians are too lazy to write things like ``if $A$ is \truenm, then $B$
-is \truenm, but if $B$ is \truenm, it doesn't necessarily imply that $A$ is
-\truenm.'' So, in math, they use these symbols. I'm also lazy, so I'm going to
-use these symbols.
+\truenm\ и \falsenm\ не очень интересны сами по себе. Но когда у нас есть куча
+вещей которые являются \truenm\ или \falsenm, мы можем комбинировать их вместе
+тремя основными способами:
 
 \begin{itemize}
-\item $A \implies B$ means that ``if $A$ is \truenm, that means that $B$ must be
-  \truenm.'' Note that this \xtb{does not} mean that ``if $B$ is \truenm, then
-  $A$ is \truenm.'' Always follow the arrow. $A \implies B$ should be read as
-  ``$A$ implies $B$.''
+\item $A \land B$ нужно читать как ``$A$ логическое-и $B$.'' Оба должны быть \truenm.
+  Если один из них \falsenm, значит $A \land B$ является \falsenm. Таким образом,
+  если $A$ и $B$ оба \truenm, тогда $A \land B$ является \truenm.
 
-\item $A \impliedby B$ is the same thing as writing $B \implies A$. It's often
-  convenient to write $A \impliedby B$ though. $A \impliedby B$ should be read
-  ``$A$ is implied by $B$.''
+\item $A \lor B$ нужно читать как ``$A$ логическое-или $B$.'' Если $A$ или $B$ \truenm,
+  то $A \lor B$ тоже \truenm. Такой же результат если они оба \truenm.
 
-\item $A \iff B$ means that $A \implies B$ and $B \implies A$. You can think of
-  $A \iff B$ as meaning ``Saying $A$ is the same thing as saying $B$.'' You
-  should read $\iff$ as ``if (and only if).'' ``If (and only if)'' takes a while
-  to write, and $\iff$ is often contextually inappropriate. So, I'll sometimes
-  use iff (with two `f's) in the place of ``if (and only if)''.
-
-\item $A \notimplies B$ means ``$A$ does not imply $B$.'' \xtb{However}, this
-  does not mean, $A$ implies that $B$ is false. It simply means that knowing
-  something about $A$ doesn't tell you anything about $B$. Got it? The analog is
-  what you'd expect for $A \notimpliedby B$.
-
-\item For any $A$, it is always true that $A \implies A$.
-
-\item For any $A$, it's always true that $A \notimplies \lnot A$
+\item Иногда мы хотим сказать `$A$ не является \truenm'. Вместо того, чтобы писать
+  так каждый раз, я буду использовать символ $\lnot$. Таким образом,
+  $\lnot A$ нужно читать как `логическое-не $A$'.
 
 \end{itemize}
 
-Now, I'm very lazy, so I'm going to quit writing ``for every $A$,$B$, and $C$
-\ldots'' Instead, I'm going to use the symbol $\forall$. It's an upside-down A,
-and it stands for `all'. You should read it as `for all'. So, the above
-statement is $\forall A,B,C \ldots$
+\ss{Логика}
+
+Математики слишком ленивы, чтобы писать штуки типа ``если $A$ является \truenm, то
+$B$ тоже \truenm, но если $B$ является \truenm, это не обязательно значит, что
+$A$ является \truenm.'' Так что в математике они используют символы. Я тоже ленивый и
+я тоже буду использовать эти символы.
+
+\begin{itemize}
+\item $A \implies B$ означает, что ``если $A$ является \truenm, то $B$ тоже должно быть
+  \truenm.'' Всегда следуйте за стрелкой. $A \implies B$ нужно читать как ``из $A$ следует $B$.''
+
+\item $A \impliedby B$ это то же самое, что написать $B \implies A$. Часто удобнее написать
+  именно $A \impliedby B$. $A \impliedby B$ нужно читать как ``$A$ следует из $B$.''
+
+\item $A \iff B$ означает, что $A \implies B$ и $B \implies A$. Вы можете перевести
+  $A \iff B$ как ``Сказать $A$ то же самое, что сказать $B$.'' Нужно читать $\iff$ как
+  ``если (и только если).'' ``Если (и только если)'' довольно долго писать, и $\iff$ часто
+  не очень подходит по контексту. Так что я иногда буду использовать ессли (с двумя `с')
+  вместо ``если (и только если)''.
+
+\item $A \notimplies B$ означает ``из $A$ не следует $B$.'' \xtb{Не смотря на это}, это не
+  означает, что из $A$ следует что $B$ ложно. Это попросту означает, что информация о
+  $A$ не говорит вам ничего о $B$. Поняли? Аналогичное значение имеет выражение $A \notimpliedby B$.
+
+\item Для любого $A$ всегда является правдой, что $A \implies A$.
+
+\item Для любого $A$ всегда является правдой, что $A \notimplies \lnot A$.
+
+\end{itemize}
+
+Итак, я слишком ленив, так что я заканчиваю писать ``для каждого $A$, $B$, и $C$\ldots''
+Вместо этого я буду использовать символ $\forall$. Это перевернутая буква А, и
+она служит для обозначения `для всех'. Нужно читать её именно как `для всех'.
+Так что предложение в начале абзаца будет выглядеть как $\forall A,B,C \ldots$
 
 \begin{itemize}
 \item Alright, time for some notation:
-  
+
   \[\forall A,B,C \semicolon \parens{\parens{A \implies B} \land \parens{B \implies C}}
   \implies \parens{A \implies C} \]
 
@@ -177,7 +173,7 @@ when evaluated, happen to be \truenm\ or \falsenm.
     \[ \parens{A \implies B} \implies \parens{\lnot A \impliedby \lnot B} \sfall A,B \]
 
     Is the following true?
-    
+
     \[ \parens{A \implies B} \iff \parens{\lnot A \impliedby \lnot B} \sfall A,B \]
 
     In the future, I won't put ``is the following true\ldots'', mostly because
