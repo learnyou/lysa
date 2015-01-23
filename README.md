@@ -25,7 +25,11 @@ cd lysa
 ./lysabuild LANG
 ```
 
-Where `LANG` is one of the supported languages. Run `lysabuild help` for a list.
+Where `LANG` is one of the supported languages. Run `./lysabuild help` for a
+list.
+
+Please do not try to compile `lysa.ltx` directly. It won't work, and it will
+create a bunch of garbage files. Use the build script instead.
 
 If you don't use git, you can get a tarball from
 <https://gitlab.com/lysa/lysa/repository/archive.tar.gz>. If you don't know what
