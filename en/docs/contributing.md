@@ -41,6 +41,17 @@ needed, please add it and send a pull request.
 Credit: xkcd
 
 
+#### Arch
+
+To get the bare minimum for the English version:
+
+    # pacman -S texlive-core texlive-latexextra texlive-bibtexextra
+
+Alternatively, you can just get every TeXLive package under the sun so you don't
+have to worry about having the right package every time we change something.
+
+    # pacman -S texlive-most
+
 #### Gentoo
 
 **Warning**: this will spawn a ton of processes, but will make the build a lot
