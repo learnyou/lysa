@@ -1,0 +1,48 @@
+\s{Categories}
+
+So, I've been a bit less than honest with you. I've never outright said it, but
+I've sort of implied that, if you have some condition $p$, you can form a set
+
+\[ \mset{x \mid p} \]
+
+Remember when I brought up $\Set$, and presented it as ``the set of all sets''?
+Well, surprise, I was lying! So, it turns out that, if you have some condition,
+you can't always form a set based on that condition.
+
+Case in point:
+
+\[ A = \mset{x \mid x \notin x}\]
+
+This should be read ``$A$ is the set of all sets $x$ for which $x$ is not an
+element of itself''. With regard to $x \Qin x$, there are two possibilities:
+
+\begin{enumerate}
+\item $x \in x$
+\item $x \notin x$
+\end{enumerate}
+
+Okay, let's look at the entire set $A$. $A \Qin A$
+
+Well, if $A \in A$, then it must be true that $A \notin A$, because $A$ is the
+set of all sets for which $x \notin x$. However, if $A \notin A$, then
+$A \in A$, because $A$ is the set of all $x$ such that $x \notin x$. Therefore,
+if $A \notin A$, then $A \in A$. In essence:
+
+\[ A \in A \iff A \notin A \]
+
+We've found an instance in which our intuition of sets fails. A
+philosopher-stroke-mathematician named Bertrand Russell was the first to point
+this out, in the early 20\textsuperscript{th} century.\cite{jech-set-theory} The
+conclusion to draw from this result is that we need a more formal definition of
+sets, not the slimy intuitive definition we already had.
+% 
+% Let's write an appendix on Bertrand Russell.
+
+This is called ``disproof by counterexample''. We were trying to prove that some
+property was universally true. However, we found one instance in which the
+property was false, so therefore it can't be universally true.
+
+Like I said above, we need some formal axioms for sets. The way we'll do this
+is, instead of calling $\Set$ the ``set of all sets'', we're instead going to
+call it the ``\xti{category} of sets''. Ooh yay we used the section title! So,
+what's a category?
