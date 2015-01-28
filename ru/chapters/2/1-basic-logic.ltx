@@ -114,98 +114,97 @@ $A$ является \truenm.'' Так что в математике они и�
       \end{array}
     \right.
     \]
-    В обоих случаях $A \land A \iff A$. Ч.Т.Д. Эта техника называется This technique is called ``proof
-    by exhaustion''. We named every possible case --- in this case, there were
-    only two --- and proved the theorem for each of them.
+    В обоих случаях $A \land A \iff A$. Ч.Т.Д. Эта техника называется ``доказательство
+    перебором''. Мы взяли все возможные случаи --- в данном случае их всего два ---
+    и доказали теорему для каждого из них.
 
-    You might be wondering what $A := \true \to \ldots$ is. It should be read
-    ``let $A$ be \truenm; then, \ldots'' }
+    Вы можете гадать, что такое $A := \true \to \ldots$. Это нужно читать как
+    ``пусть $A$ будет \truenm, тогда \ldots'' }
 
-  \Exercise{Given $A$ and $B$, is it always the case that
+  \Exercise{Даны $A$ и $B$, всегда ли для них верно, что
     $A \land B \iff B \land A$?}
 
-  \Answer{Yes. In the previous problem, we showed that $A \land A \iff A$. Thus,
-    if $A$ and $B$ are both \truenm, or are both \falsenm, the answer is
-    yes. Thus, the only case we need to consider is that in which $A$ is \truenm
-    and $B$ is \falsenm.\footnote{You may be wondering why I'm not considering
-      the case when $A$ is \falsenm, and $B$ is \truenm. However, as we showed
-      earlier, it's the case that if $A \iff B$, then $B \iff A$. Thus if
-      $A \land B \iff B \land A$, then $B \land A \iff A \land B$}
+  \Answer{Да. В предыдущем упражнении мы показали, что $A \land A \iff A$. Таким
+    образом, если $A$ и $B$ оба \truenm, или оба из них \falsenm, ответ – да.
+    И получается, что единственный случай, который мы должны рассмотреть, это
+    когда $A$ является \truenm и $B$ – \falsenm.\footnote{Вы наверное гадаете,
+      почему я не рассматриваю случай, когда $A$ является \falsenm и $B$ является \truenm.
+      Из случаев, что мы рассмотрели ранее, видно, что если $A \iff B$, то $B \iff A$.
+      Так что если $A \land B \iff B \land A$, то $B \land A \iff A \land B$}
 
-    If $\true \land \false \iff \false$, and $\false \land \true \iff \false$.}
+    Если $\true \land \false \iff \false$, и $\false \land \true \iff \false$.}
 
-  \Exercise{Given $A$, $B$, and $C$, is it always the case that $\parens{A \land B} \land
+  \Exercise{Даны $A$, $B$, и $C$, всегда ли для них верно, что $\parens{A \land B} \land
     C \iff A \land \parens{B \land C}$?}
-  \Answer{Yes. }
+  \Answer{Да. }
 
-  \Exercise{Given $A$, is it the case that $A \lor A \iff A$?}
-  \Answer{Yes.}
+  \Exercise{Дано $A$, верно ли, что $A \lor A \iff A$?}
+  \Answer{Да.}
 
-  \Exercise{Given $A$ and $B$, which are both True/False values, is it always
-    the case that $A \lor B \iff B \lor A$?}
-  \Answer{Yes.}
+  \Exercise{Даны $A$ и $B$, оба являются значениями True/False, всегда ли для них
+    верно, что $A \lor B \iff B \lor A$?}
+  \Answer{Да.}
 
-  \Exercise{Given $A$, $B$, and $C$, is it always the case that $\parens{A \lor B} \lor
+  \Exercise{Даны $A$, $B$, и $C$, всегда ли верно, что $\parens{A \lor B} \lor
     C \iff A \lor \parens{B \lor C}$?}
-  \Answer{Yes.}
+  \Answer{Да.}
 
-  \Exercise{Given $A$, $B$, and $C$, what is the result of
+  \Exercise{Даны $A$, $B$, и $C$, каков будет результат выражения
     $A \land \parens{B \lor C}$?}
   \Answer{$A \land \parens{B \lor C} \iff \parens{A \land B} \lor \parens{A
       \land C}$}
 
-  \Exercise{What do you think the result of $\lnot\parens{A \land B}$ is?}
-  \Answer{I will explain in \cref{2.2-more-logic}, but the answer is
+  \Exercise{Как вы думаете, какой результат выражения $\lnot\parens{A \land B}$?}
+  \Answer{Я объясню подробнее в \cref{2.2-more-logic}, но ответ:
 
     \[\lnot\parens{A \land B} \iff \parens{\lnot A} \lor \parens{\lnot B}
     \semicolon \forall A,B \]
   }
-  \Exercise{What do you think the result of $\lnot\parens{A \lor B}$ is?}
-  \Answer{I will explain in \cref{2.2-more-logic}, but the answer is
+  \Exercise{Как вы думаете, какой результат выражения $\lnot\parens{A \lor B}$?}
+  \Answer{Я объясню подробнее в \cref{2.2-more-logic}, но ответ:
 
     \[\lnot\parens{A \lor B} \iff \parens{\lnot A} \land \parens{\lnot B}
     \semicolon \forall A, B \]
   }
 
-  \Exercise{We know, from one of the laws
+  \Exercise{По одному из законов мы знаем, что
 
     \[ \parens{A \implies B} \implies \parens{\lnot A \impliedby \lnot B} \sfall A,B \]
 
-    Is the following true?
+    Следующее выражение верно?
 
     \[ \parens{A \implies B} \iff \parens{\lnot A \impliedby \lnot B} \sfall A,B \]
 
-    In the future, I won't put ``is the following true\ldots'', mostly because
-    I'm lazy, but it also means that you, the reader, might have a difficult
-    time trying to figure out what the point of controversy is. So, in the
-    future, I'll instead write:
+    В будущем, я не буду вставлять ``следующее выражение верно\ldots''. Большей частю
+    потому, что я ленивый, но так же потому, что вы, читатель, можете потратить много времени,
+    пытаясь понять цель данной фразы. Так что в будущем я буду писать:
 
     \[ \parens{A \implies B} \Qiff \parens{\lnot A \impliedby \lnot B} \sfall A,B \]
 
-    (Notice the ? over $\iff$). Now you know exactly what the question is, and I
-    don't have to write as much.
+    (Заметили ? после $\iff$). Теперь вы знаете точно, о чем этот вопрос, и я могу писать
+    поменьше.
 
   }
-  \Answer{Yes, by just applying the law again. Let's restate the law:
+  \Answer{Да, просто применяем закон еще раз. Давайте переформулируем закон:
 
     \[ \parens{A \implies B} \implies \parens{\lnot A \impliedby \lnot B} \sfall A, B\]
     \[ \parens{\lnot A \impliedby \lnot B} \impliedby \parens{A \implies B} \sfall A,B \]
     \[ \parens{\lnot B \implies \lnot A} \impliedby \parens{B \impliedby A} \sfall A,B \]
     \[ \parens{\lnot B \implies \lnot A} \impliedby \parens{B \impliedby A} \sfall A,B \]
 
-    Let $C := \lnot B$, $D := \lnot A$
+    Пусть $C := \lnot B$, $D := \lnot A$
 
     \[ \parens{C \implies D} \impliedby \parens{\lnot C \impliedby \lnot D} \sfall C,D \]
 
-    We know, from the law,
+    Мы знаем из закона, что
 
     \[ \parens{C \implies D} \implies \parens{\lnot C \impliedby \lnot D} \sfall C,D \]
 
-    Therefore,
+    Следовательно,
 
     \[ \parens{C \implies D} \iff \parens{\lnot C \impliedby \lnot D} \sfall C,D \]
     \[ \parens{A \implies B} \iff \parens{\lnot A \impliedby \lnot B} \sfall A,B \]
 
-    Q.E.D.
+    Ч.Т.Д.
   }
 \end{ExcList}
