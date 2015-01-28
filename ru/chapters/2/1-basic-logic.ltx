@@ -68,45 +68,44 @@ $A$ является \truenm.'' Так что в математике они и�
 Так что предложение в начале абзаца будет выглядеть как $\forall A,B,C \ldots$
 
 \begin{itemize}
-\item Alright, time for some notation:
+\item Окей, время для правил:
 
   \[\forall A,B,C \semicolon \parens{\parens{A \implies B} \land \parens{B \implies C}}
   \implies \parens{A \implies C} \]
 
-  For this reason, we can write things like $A \implies B \implies C$.
-  \footnote{A common critique of this practice has to do with
-    associativity. That is, many people read $A \implies B \implies C$ as
-    $\parens{A \implies B} \implies C$. This translates to ``if $A$ implies $B$,
-    then $C$ is \truenm'', which isn't \xti{quite} what we want. The solution is
-    to not try to group the operators like that, or use parentheses when you do
-    want to group them.}
+  Для этого мы можем использовать такое выражение, как $A \implies B \implies C$.
+  \footnote{Обычная критика для такой записи относится к ассоциативности.
+    Так как многие люди читают $A \implies B \implies C$ как
+    $\parens{A \implies B} \implies C$. И это переводится как ``если $B$ следует
+    из $A$, то $C$ – \truenm'', что \xti{не совсем} то, что мы хотим. Решение в том,
+    чтобы не пытаться группировать операторы как выше, или использовать скобки, когда
+    вы хотите их сгруппировать.}
 
-  You were probably really confused by that last glob of math. Let me read it
-  out for you. ``for all $A$, $B$, and $C$, if we know that $A \implies B$, and
-  $B \implies C$, then it's true that $A \implies C$.'' Sometimes, I'll write
-  the $\forall\ldots$ part after the statement. So, I should have written the
-  above as
+  Вы наверное смущены таким куском математики. Давайте я прочитаю его для вас.
+  ``для всех $A$, $B$ и $C$, если мы знаем что $A \implies B$ и $B \implies C$,
+  то правдой является выражение $A \implies C$.'' Иногда я пишу часть $\forall\ldots$
+  после выражения. То есть я мог написать выражение выше, как
 
   \[\parens{\parens{A \implies B} \land \parens{B \implies C}} \implies \parens{A \implies C} \semicolon \forall A,B,C\]
 
-\item If you know that $A \implies B$, then $\lnot A \impliedby \lnot B$.
+\item Если вы знаете, что $A \implies B$, то $\lnot A \imliedby \lnot B$.
 \end{itemize}
 
-Be careful. If two independent statements happen to be \truenm, it doesn't mean
-that one implies the other. Thus, the values $A$, $B$, and $C$ are not
-themselves the values \truenm\ and \falsenm, but are instead statements, that,
-when evaluated, happen to be \truenm\ or \falsenm.
+Будьте остороны. Если два независимых выражения являются \truenm, это не значит,
+что из одного следуюет другое. Так, значения $A$, $B$ и $C$ сами по себе не
+\truenm и \falsenm, но при вычислении выражений, в которых они участвуют,
+результатом является \truenm или \falsenm.
 
 \begin{ExcList}
-  \Exercise{Given $A$, is it always the case that $A \iff A$?}  \Answer{Yes. We
-    know that $A \implies A$. Remember, $A \iff A$ is just saying that
-    $\parens{A \implies A} \land \parens{A \impliedby A}$. Also recall that
-    $A \impliedby B$ is the lazyman's way of writing $B \implies A$. Thus, if
-    you know $A \implies A$, then it must be true that $A \impliedby A$, and
-    therefore $A \iff A$. }
+  \Exercise{Дано $A$, правда ли, что $A \iff A$?}  \Answer{Да. мы знаем,
+    что $A \implies A$. Помните, что $A \iff A$ просто говорит нам
+    $\parens{A \implies A} \land \parens{A \impliedby A}$. Так же помните, что
+    $A \impliedby B$ это $B \implies A$ для ленивых. Итак, если вы знаете, что
+    $A \implies A$, то должно быть правдой $A \impliedby A$ и, следовательно,
+    $A \iff A$. }
 
-  \Exercise{Given $A$, is it the case that $A \land A \iff A$?}
-  \Answer{Yes. There are two cases we need to deal with here:
+  \Exercise{Дано $A$, верно ли, что $A \land A \iff A$?}
+  \Answer{Да. Здесь есть два случая, с которыми мы можем иметь дело:
     \[
     \left\{
       \begin{array}{rrcl}
@@ -115,7 +114,7 @@ when evaluated, happen to be \truenm\ or \falsenm.
       \end{array}
     \right.
     \]
-    In both cases, $A \land A \iff A$. Q.E.D. This technique is called ``proof
+    В обоих случаях $A \land A \iff A$. Ч.Т.Д. Эта техника называется This technique is called ``proof
     by exhaustion''. We named every possible case --- in this case, there were
     only two --- and proved the theorem for each of them.
 
