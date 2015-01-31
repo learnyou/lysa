@@ -151,6 +151,30 @@ you could add the instructions yourself, and ask me to merge your changes.
 
 \sss{Linux}
 
+\pg{Arch}
+
+You need the Haskell platform and the GNU Multiple-Precision (GMP) library.
+
+\begin{shellsession}
+  # pacman -S ghc cabal-install gmp
+  % \cabal update
+  % \cabal install -j cabal-install
+\end{shellsession}
+
+At this point, you'll want to add \terminal{\textasciitilde/.cabal/bin} to your
+\terminal{\$PATH} variable.
+
+\begin{shellsession}
+  % cabal install -j alex happy haddock hscolour idris
+\end{shellsession}
+
+Alex and Happy are Haskell packages required for many Haskell packages. However,
+due to a long-standing bug in cabal, they don't get pulled in when packages
+depend on them.
+
+If the installation doesn't work, please report the bug to
+\link{https://github.com/idris-lang/Idris-dev/issues/new}{the Idris people}.
+
 \pg{Gentoo}
 
 You will need the Haskell platform, along with the GNU Multiple Precision (GMP)
