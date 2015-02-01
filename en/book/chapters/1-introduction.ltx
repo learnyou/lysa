@@ -168,9 +168,10 @@ At this point, you'll want to add \terminal{\textasciitilde/.cabal/bin} to your
   % cabal install -j alex happy haddock hscolour idris
 \end{shellsession}
 
-Alex and Happy are Haskell packages required for many Haskell packages. However,
-due to a long-standing bug in cabal, they don't get pulled in when packages
-depend on them.
+\xtv{alex} and \xtv{happy} are dependencies for a number of Haskell
+packages. However, due to a
+\link{https://github.com/haskell/cabal/issues/220}{long-standing bug in
+  \xtv{cabal}}, they don't get pulled in when packages depend on them.
 
 If the installation doesn't work, please report the bug to
 \link{https://github.com/idris-lang/Idris-dev/issues/new}{the Idris people}.
