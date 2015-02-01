@@ -14,7 +14,7 @@ bitch_about_no_pdfs () {
     exit 1
 }
 for lang in $linguas ; do
-  cp -v ../$lang/lysa.pdf pdfs/$lang/`printf "lysa-%s.pdf" $datestamp` || bitch_about_no_pdfs
+  cp -v ../$lang/book/lysa.pdf pdfs/$lang/`printf "lysa-%s.pdf" $datestamp` || bitch_about_no_pdfs
 done
 
 cd pdfs
