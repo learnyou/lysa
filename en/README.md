@@ -19,13 +19,17 @@ number of packages. A list can be found in the
 [`docs/contributing.md` file](docs/contributing.md). I'm sure you can build the
 project on Windows, I just don't know how (most of us use Linux). 
 
+If you are reading this, you probably want the English version. In that case:
+
 ```
 git clone https://gitlab.com/lysa/lysa.git
-cd lysa
-./lysabuild LANG
+cd lysa/en/book
+./build
 ```
 
-Where `LANG` is one of the supported languages. Run `lysabuild help` for a list.
+Instructions for building the versions in other languages can be found in the
+respective languages' READMEs. (e.g. to build the Russian version, read
+`ru/README.md`).
 
 If you don't use git, you can get a tarball from
 <https://gitlab.com/lysa/lysa/repository/archive.tar.gz>. If you don't know what
