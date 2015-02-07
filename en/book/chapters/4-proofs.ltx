@@ -1,152 +1,79 @@
 \ch{Proofs}
 
-\s{Peano Axioms}
+By now you should be fairly familiar with the notions of institutionistic logic,
+sets, and functions: at least to the point where you could try to explain the
+concepts to your friends. 
 
-This section covers the Peano axioms. As I said in \cref{s: Motivation}, these
-are a way for mathematicians to understand arithmetic.
+In the introduction, I mentioned that there are 3 concepts with which you need
+to be relatively familiar in order to do anything interesting. The first two
+were sets and functions, respectively. This chapter covers the third concept:
+proofs.
 
-Arithmetic (hopefully) seems simple enough, and easy to understand. Maybe an
-expression like
+So, in case you forgot, what is a proof? Basically it's where you gather a bunch
+of known things, and string them together to learn something new.
 
-\[ (2048282 \times 33221) + (3254 \times 11) \]
-
-seems difficult to calculate, but you hopefully understand what each of the
-operators mean in concept. If you don't, well. In theory, reading this chapter
-alone will teach you arithmetic. However, I wrote this chapter assuming you
-already know arithmetic.
-
-So, why is it important that you read this chapter?
-
-Arithmetic is pretty simple and easy to understand. However, later on in this
-book, we're going to approach concepts that aren't so simple and easy to
-understand. Mathematicians have a systemic approach to these problems. This
-approach is called ``mathematical proof.'' We prove things
-mathematically. Instead of approaching new concepts with proofs, I'm instead
-going to use proofs to illustrate some (hopefully) familiar concepts.
-
-Alright, with all that out of the way, let's get started.
-
-The basic idea of proofs is, you take a small set of obvious facts, called {\it
-  axioms}, chain them together to make {\it theorems}. The following obvious
-facts, or axioms, are called the ``Peano Axioms.'' They describe what we call
-``natural numbers.'' Natural numbers are the numbers
-$\{0, 1, 2, 3, 4, 5, 6, \ldots\}$.
-
-%  I got these from Landau's book, but there's nowhere where it isn't awkward to
-%  cite him. So, instead, I'll use \nocite
-
-\nocite{landau-analysis}
-
-\begin{description}
-\item[Axiom 1] $0$ is a natural number. Again, obvious.
-
-  I'm going to use letters in the place of numbers right here. So, if I say
-  ``$x$ is a natural number,'' that means that $x$ is a placeholder for one of
-  the numbers in $\{0,1,2,3,4,5,6,\ldots\}$. I could use any letter, such as
-  $a$, $b$, $q$, $r$, $\theta$, $\Gamma$, or $\aleph$. If I use a letter instead
-  of a number, it usually means either
-
-  \begin{enumerate}
-  \item it doesn't matter which number I choose, or
-  \item it does matter which number I choose, but I don't know which number it
-    is yet.
-  \end{enumerate}
-
-\item[Axiom 2] If $x$ is a natural number, it is true that $x \equiv x$.
-
-  You can read that $\equiv$ sign as $=$, for the time being. There are some
-  subtle differences between the two, which I will get to in \cref{ch:
-    Functions}. You are supposed to read $a \equiv b$ as one of these:
-
-  \begin{enumerate}
-  \item ``$a$ is equivalent to $b$,''
-  \item ``$a$ is identically equivalent to $b$,''
-  \item ``$a$ is congruent to $b$.''
-  \end{enumerate}
-
-  $=$ should be read as ``$a$ is equal to $b$,'' or ``$a$ equals $b$.'' Again
-  the difference between $\equiv$ and $=$ isn't really important until \cref{ch:
-    Functions}.
-
-  If you don't know what either of those signs are, $a \equiv b$ or $a = b$
-  means ``$a$ is the same thing as $b$.'' The difference can be summarized as
-  $= = \equiv \not \equiv = $.
-  
-  So, in essence, this axiom says that each number is the same thing as
-  itself. This is hopefully very obvious.
-
-  A math person would state this axiom as ``congruence is reflexive.''
-  
-\item[Axiom 3] If $x$ and $y$ are both natural numbers, and $x \equiv y$, then
-  it's true that $y \equiv x$. You can phrase this axiom as ``if two numbers are
-  the same number, then they are the same number.'' A math person would state
-  this axiom as ``congruence is symmetric.''
-
-\item[Axiom 4] If $x$, $y$, and $z$ are all natural numbers, and $x \equiv y$,
-  and $y \equiv z$ then it's true that $x \equiv z$. You can phrase this axiom
-  as ``if three numbers are all the same number, then they are the same
-  number.'' A math person would state this axiom as ``congruence is
-  transitive.''
-  
-  These last three axioms mean that we can be lazy, and write things like
-  $a \equiv b \equiv c \equiv a$.
-  
-\item[Axiom 5] If $x$ is a natural number, and we know $x \equiv y$, then it's
-  also true that $y$ is a natural number. A math person would say ``congruence
-  forms a closure.''
-  
-\item[Axiom 6] If $x$ is a natural number, then there is another number,
-  $\suc(x)$, which is also a natural number. $\suc$ is short for ``successor.''
-  You should read $\suc(x)$ as ``the successor of $x$.''  You can think of the
-  successor as ``the next number.'' So, $\suc(0) \equiv 1$, $\suc(1) \equiv 2$,
-  and so on.
-  
-\item[Axiom 7] There isn't a number whose successor is $0$. Basically this means
-  ``$0$ is the lowest natural number.''
-  
-\item[Axiom 8] If $x$ and $y$ are both natural numbers, and we know
-  $\suc(x) \equiv \suc(y)$, then it's true that $x \equiv y$. This is what we
-  would call the ``converse'' of Axiom 6. That is, Axiom 6 tells us that we can
-  always go ``up'' a number. This axiom (almost) tells us that we can go
-  ``down'' a number. Axiom 7 defines the limit of this, meaning that $0$ is the
-  only number where you can't go down any further.
-  
-  Now, the previous 8 axioms have basically said ``these numbers are all natural
-  numbers.'' This next, and final axiom states ``these numbers are all {\it of}
-  the natural numbers.''
-  
-\item[Axiom 9] Let's say $K$ is a set of numbers (a bunch of numbers). If we
-  know that
-  \begin{enumerate}
-  \item if $0$ is in $K$, and
-  \item if some number $x$ is in $K$, then $\suc(x)$ is in $K$,
-  \item then $K$ contains every single natural number.
-  \end{enumerate}
-
-\end{description}
-
-\pg{Continue with...}
+The standard approach is to go over the \xti{Peano axioms}, which can be used to
+prove everything about the real numbers. As instructive as that is, it's also
+really boring. Most of math isn't boring. However, if you do want to go over the
+Peano axioms with rigor, \cite{landau-analysis} does a wonderful job. For now,
+I'll just define what all of the sets are:
 
 \begin{enumerate}
-\item $\N$ is a Monoid
-\item Quasigroups
-\item Loops
-\item Groups
-\item Abelian Groups
+\item $\N$ is the set of ``natural numbers''. That is,
+  $\mset{1,2,3,4, \ldots}$.\footnote{Some people assert that the natural
+    numbers start with $0$, not $1$. It doesn't matter a lot. }
+\item $\Z$ is the set of ``integers''. So,
+  $\mset{\ldots, \ng 4, \ng 3, \ng 2, \ng 1, 0, 1, 2, 3, 4}$.
+
+\item $\Q$ is the set of ``rational numbers''. These are the numbers that are
+  \xti{ratios} of other numbers. Specifically:
+
+  \[ \Q = \mset{ \frac{x}{y} \mid \parens{x \in \Z} \land \parens{y \in \N}}\]
+
+\item $\R$ is the set of ``real numbers''. You can write any number down and
+  it's a real number. Examples:
+
   \begin{enumerate}
-   \item $\Z$
-    \begin{enumerate}
-    \item $\Z$ is an Abelian Group
-    \item $\Z$ is a ring
-    \end{enumerate}
+  \item 3151.5158196818196
+  \item 516818641
+  \item 231
+  \item 7455468765.4198160685198196064864984514514451031784158
   \end{enumerate}
-\item Fields
-  \begin{enumerate}
-  \item $\R$
-    \begin{enumerate}
-    \item $\R$ is a field
-    \end{enumerate}
-  \end{enumerate}
-\item Categories
-\item Groupoids
+
+  These are all real numbers.
+
 \end{enumerate}
+
+Now, I've conveniently set these up so that each succeeding set is a strict
+superset of the previous set. That is,
+
+\[ \N \subof \Z \subof \Q \subof \R \]
+
+\xtb{Why is $\R$ called the set of ``real numbers''? Why isn't it called the set
+  of ``numbers''? If $\R$ is the set of real numbers, are there some numbers
+  that aren't real? Preposterous, I say!}
+
+Well, actually, yes, there are numbers that aren't real. We'll get to that
+later, though. I actually lied, we are going to go through the Peano axioms. But
+not in a boring way, or in a super rigorous pull-your-hair-out way. Just in a
+way so that I can talk about non-real numbers, and you'll know what the hell I'm
+talking about.
+
+Okay, first of all, how do we define $\N$? Well, we know that $1$ is a natural
+number. Yay! this is the first axiom.
+
+\[ 1 \in \N \]
+
+Now, we know for each number $x \in \N$, that the next number is in $\N$. For
+example, for $1$, $2$ is the next number, and $2$ is a natural number. Likewise,
+for $2$, there is a next number, and that number is $3$. I think you get the
+point. If our number is $x$, we'll call the next number ``the successor of
+$x$'', and denote it as $\succ{x}$. So, this axiom we just described can be
+stated as:
+
+\[ \forall x \in \N\comma \succ{x} \in \N \]
+
+In this case, we would say that $\N$ is ``closed under $\mathrm{succ}$'', or
+that ``$\mlist{\N, \mathrm{succ}}$ forms a closure''.
+
+
