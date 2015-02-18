@@ -32,6 +32,144 @@ together in three basic ways:
 
 \end{itemize}  
 
+\sss{Idris}
+
+Alright, let's pop open an \terminal{idris} shell, and try this out! 
+
+\newpage
+\begin{plainfile}
+% idris
+     ____    __     _                                          
+    /  _/___/ /____(_)____                                     
+    / // __  / ___/ / ___/     Version 0.9.16
+  _/ // /_/ / /  / (__  )      http://www.idris-lang.org/      
+ /___/\__,_/_/  /_/____/       Type :? for help               
+
+Idris is free software with ABSOLUTELY NO WARRANTY.            
+For details type :warranty.
+Idris>
+\end{plainfile}
+
+\pg{Exploring And}
+
+First things first, let's see what ``type'' of thing \truenm\ and \falsenm\ are.
+
+\begin{plainfile}
+Idris> :type True
+Prelude.Bool.True : Bool
+Idris> :type False
+Prelude.Bool.False : Bool
+\end{plainfile}
+
+Since we are mathematicians, and we are lazy, instead of typing \code{:type
+  True}, or \code{:type False}, we can instead type \code{:t True} or \code{:t
+  False}.
+
+\begin{plainfile}
+Idris> :t True
+Prelude.Bool.True : Bool
+Idris> :t False
+Prelude.Bool.False : Bool
+\end{plainfile}
+
+Okay, let's look at $\land$ and $\lor$. As stated above, $A \land B$ is \truenm\
+if and only if both $A$ and $B$ are \truenm. $\land$ isn't on many standard
+keyboards, so, in most programming languages, $\land$ is replaced with
+\code{\&\&}.
+
+\begin{plainfile}
+Idris> True && False
+False : Bool
+Idris> False && True
+False : Bool
+Idris> False && False
+False : Bool
+Idris> True && True
+True : Bool
+\end{plainfile}
+
+\pg{Idris's syntax}
+
+So, before going much further, let's go over some of Idris's weird
+notation. \code{Bool} is short for ``Boolean'', as stated above. You should have
+already figured that out.
+
+Okay, then what the hell is \code{Prelude.Bool.True}? Why not just \code{True}?
+This is actually reasonably complicated. Idris allows for \term{context-based
+  overloading}, which basically means that \code{True} could (in theory) mean
+something different if you used it in some other context. With that in mind,
+Idris feels the need to tell you the \term{fully qualified} name of \code{True}
+so you know that \code{True} refers to \code{Prelude.Bool.True}, and not some
+other version of \code{True}.
+
+However, when we type something like \code{True \&\& True}, there's enough
+context to unambiguously determine which version of \code{True} we are talking
+about, so Idris doesn't feel the need to tell us that we're using
+\code{Prelude.Bool.True}.
+
+I should note that use of commands preceded by a \code{:} are only to be used in
+the shell (the interactive environment). That is, you can't use them in actual
+code. You can do most of the \code{:} things in the code through other means,
+but the \code{:} commands are limited to the interactive environment.
+
+\pg{Comprehension notation}
+
+Before I go much further, I'm going to take this opportunity to talk about
+\term{set comprehensions}. Set comprehensions, like most things in mathematics,
+are just a means through which mathematicians can be lazy. Instead of writing
+out each of the cases for \code{\&\&} manually, why don't we have Idris do it
+for us?
+
+First of all, let's define all of the possible Boolean values:
+
+\begin{plainfile}
+Idris> :let bools = [True, False]
+\end{plainfile}
+
+\begin{plainfile}
+Idris> [(x, y) | x <- bools, y <- bools]
+[(True, True),
+ (True, False),
+ (False, True),
+ (False, False)] : List (Bool, Bool)
+\end{plainfile}
+
+% Note that the \code{-} in \code{<-} is a hyphen (-), not an underbar (\_). The
+% font we use for code listings is terrible, and we can't figure out how to change
+% it.
+% 
+% NEVER MIND; FIXED IT - pharpend
+
+Let's write this out in mathematical notation:
+
+\begin{alignedmath}
+  \text{Let }Bool = \mset{\true,\false} \\
+  \mset{\parens{x,y} \mid x \in Bool \comma y \in Bool }
+\end{alignedmath}
+
+This should be read ``the set of all pairs $\parens{x,y}$ such that $x$ and $y$
+are both Booleans.'' That $\in$ symbol just means ``is in the list''. \code{<-}
+is just a poor man's way of writing $\in$. 
+
+Well, okay, hopefully, you understand. \code{[(x, y) | x <- bools, y <- bools]}
+gives us all possible pairs of Boolean values.
+
+This weird thing where you list all possible values that satisfy some condition
+is called a \term{set comprehension}. It sort of seems weird, but you'll get
+used to it really quickly.
+
+Okay, back to business, we have the set of all possible pairs of Booleans. Let's
+store that in another variable, called \code{boolPairs}:
+
+\begin{plainfile}
+Idris> :let boolPairs = [(x, y) | x <- bools, y <- bools]
+\end{plainfile}
+
+% Pairs are okay to deal with for small little one-off tasks. However, if we are
+% going to be using the data a lot, it's much easier to create our own data
+% type. We do that in Idris with a \code{data} declaration.
+% 
+
 \ss{Logic}
 
 Mathematicians are too lazy to write things like ``if $A$ is \truenm, then $B$
