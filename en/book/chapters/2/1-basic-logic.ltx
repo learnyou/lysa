@@ -96,21 +96,14 @@ the shell (the interactive environment). That is, you can't use them in actual
 code. You can do most of the \code{:} things in the code through other means,
 but the \code{:} commands are limited to the interactive environment.
 
-\pg{Comprehension notation}
+\pg{Back to Business}
 
-Before I go much further, I'm going to take this opportunity to talk about
-\term{set comprehensions}. Set comprehensions, like most things in mathematics,
-are just a means through which mathematicians can be lazy. Instead of writing
-out each of the cases for \code{\&\&} manually, why don't we have Idris do it
-for us?
-
-First of all, let's define all of the possible Boolean values:
+If you saw up there, we had to type out every single instance of which we could
+concieve. That's annoying. Let's figure out how to do this on our own. This will
+be a good segue to introduce \term{comprehension notation}
 
 \begin{plainfile}
 Idris> :let bools = [True, False]
-\end{plainfile}
-
-\begin{plainfile}
 Idris> [(x, y) | x <- bools, y <- bools]
 [(True, True),
  (True, False),
@@ -118,41 +111,105 @@ Idris> [(x, y) | x <- bools, y <- bools]
  (False, False)] : List (Bool, Bool)
 \end{plainfile}
 
-% Note that the \code{-} in \code{<-} is a hyphen (-), not an underbar (\_). The
-% font we use for code listings is terrible, and we can't figure out how to change
-% it.
-% 
-% NEVER MIND; FIXED IT - pharpend
+Okay, what the hell is that? Let's go over this step-by-step
 
-Let's write this out in mathematical notation:
+\begin{enumerate}
+\item I made the list \code{[True, False]}, and bound it to the name
+  \code{bools} using the \code{:let} command.
+\item The next line is a \term{list comprehension}. Basically, it's a way of
+  making a list of items that satisfy some conditions. The pipe in the middle is
+  the key thing. The stuff to the right of the pipe is the conditions, and the
+  stuff to the left is what each item looks like. Let's look at that comprehension again.
 
-\begin{alignedmath}
-  \text{Let }Bool = \mset{\true,\false} \\
-  \mset{\parens{x,y} \mid x \in Bool \comma y \in Bool }
-\end{alignedmath}
+  \begin{plainfile}
+[(x, y) | x <- bools, y <- bools]
+  \end{plainfile}
 
-This should be read ``the set of all pairs $\parens{x,y}$ such that $x$ and $y$
-are both Booleans.'' That $\in$ symbol just means ``is in the list''. \code{<-}
-is just a poor man's way of writing $\in$. 
+  So, the stuff on the left says that each item will look something like
+  \code{(x,y)}. \code{x} and \code{y} are each described on the right side of
+  the pipe.
 
-Well, okay, hopefully, you understand. \code{[(x, y) | x <- bools, y <- bools]}
-gives us all possible pairs of Boolean values.
+  We'll encounter the $\in$ operator a lot. Basically, when you have a set $A$,
+  $x \in A$ means that ``$x$ is an element of $A$''. You should read the $\in$
+  as a really crappy E, for ``element of''. \code{<-} is a silly way of trying
+  to replicate a $\in$.
 
-This weird thing where you list all possible values that satisfy some condition
-is called a \term{set comprehension}. It sort of seems weird, but you'll get
-used to it really quickly.
+  So, on the right-hand side of the pipe, \code{x <- bools} just means
+  ``\code{x} is an element of \code{bools}''. Ditto for \code{y}. Note that
+  currently we are dealing with lists, which are slightly different than sets.
 
-Okay, back to business, we have the set of all possible pairs of Booleans. Let's
-store that in another variable, called \code{boolPairs}:
+  So, we have a set of items that look like \code{(x,y)}, where \code{x} and
+  \code{y} are both elements of \code{bools}. Indeed, that's the result:
+  \begin{plainfile}
+[(True, True),
+ (True, False),
+ (False, True),
+ (False, False)] : List (Bool, Bool)
+  \end{plainfile}
+\end{enumerate}
+
+Alright, so we've listed all pairs of booleans. This is kind of boring. Also,
+pairs suck, and are hard to deal with.
+
+We're going to make a \term{truth table}. Basically, we are going to have two
+booleans, \code{a} and \code{b}. We are then going to show the result of \code{a
+  \&\& b} and \code{a || b}.
+
+We're going to have to move over to a file, call it \terminal{truthtable.idr}:
 
 \begin{plainfile}
-Idris> :let boolPairs = [(x, y) | x <- bools, y <- bools]
+module Main
+
+main : IO ()
+main = return ()
 \end{plainfile}
 
-% Pairs are okay to deal with for small little one-off tasks. However, if we are
-% going to be using the data a lot, it's much easier to create our own data
-% type. We do that in Idris with a \code{data} declaration.
-% 
+\code{main = return ()} just says that the function \code{main} does nothing. If
+you compile and run this program, nothing interesting is going to happen.
+
+Let's put our list of Booleans in:
+
+\begin{plainfile}
+bools : List Bool
+bools = [True, False]
+\end{plainfile}
+
+It's important to periodically compile your program to make sure there aren't
+any errors. Run \code{idris truthtable.idr} (don't include \code{-o
+  truthtable}). \
+
+\begin{plainfile}
+% idris truthtable.idr
+     ____    __     _                                          
+    /  _/___/ /____(_)____                                     
+    / // __  / ___/ / ___/     Version 0.9.16
+  _/ // /_/ / /  / (__  )      http://www.idris-lang.org/      
+ /___/\__,_/_/  /_/____/       Type :? for help               
+
+Idris is free software with ABSOLUTELY NO WARRANTY.            
+For details type :warranty.
+*truthtable>   
+\end{plainfile}
+
+We've loaded the file \code{truthtable} into the interactive environment, and we
+can examine it interactively.
+
+\begin{plainfile}
+*truthtable> bools
+[True, False] : List Bool
+\end{plainfile}
+
+Cool!
+
+If you've programmed in other languages, you're probably used to dealing mostly
+with primitive types (integers, strings, booleans). In a language like Idris,
+abstraction is lexically very cheap, and is thus encouraged. We're going to make
+a new data type for our row:
+
+\begin{plainfile}
+record TruthRow : Bool -> Bool -> Bool -> Bool -> Type where
+  MkRow : (a : Bool) -> (b : Bool) -> TruthTable a b (a && b) (a || b)
+\end{plainfile}
 
 \ss{Logic}
 
