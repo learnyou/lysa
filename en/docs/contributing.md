@@ -45,7 +45,7 @@ Credit: xkcd
 
 To get the bare minimum for the English version:
 
-    # pacman -S texlive-core texlive-latexextra texlive-bibtexextra
+    # pacman -S texlive-core texlive-latexextra texlive-bibtexextra texlive-fontsextra
 
 Alternatively, you can just get every TeXLive package under the sun so you don't
 have to worry about having the right package every time we change something.
