@@ -5,11 +5,12 @@
 Sets, proofs, functions introduction
 
 ### §1.1 How to read the book
-### §1.2 Conventions used throughout
+### §1.2 Actual introduction
 ### §1.3 The community
 ### §1.4 Idris
 ### §1.5 Target audience
 ### §1.6 Licensing
+### §1.7 Conventions used throughout
 
 ## §2 Simple logic
 
