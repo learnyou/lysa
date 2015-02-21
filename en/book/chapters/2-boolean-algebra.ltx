@@ -127,6 +127,64 @@ have notation for it.
 \end{enumerate}
 
 
+\s{And and or}
+
+So, sometimes we need to combine two pieces of logic together. There are two
+ways we can do this - logical-or and logical-and.
+
+I put logical- in front of them, because the mathematical meaning is slightly
+different than the colloquial meaning.
+
+Mathematicians are lazy, so we don't like to write ``logical-and'' whenever we
+want to say it, so instead we use the symbol $\land$.
+
+$A \land B$ is true if (and only if) both $A$ and $B$ are true. If one of them
+is false, then the entire thing is false.
+
+On the other side, we have logical-or. The symbol for logical-or is $\lor$.
+$A \lor B$ is true if either $A$ or $B$ is true, or if both of them are
+true. You could think of logical-or as being equivalent to the colloquial
+``and/or''.
+
+This monstrosity is called a ``truth table''.
+
+\begin{tabular}{|c|c||c||c|}
+  \hline \\
+  $\mathbf{A}$ & $\mathbf{B}$ & $\mathbf{A \land B}$ & $\mathbf{A \lor B}$ \\
+  \hline \\
+  $\true$ & $\true$ & $\true$ & $\true$ \\
+  $\true$ & $\false$ & $\false$ & $\true$ \\
+  $\false$ & $\true$ & $\false$ & $\true$ \\
+  $\false$ & $\false$ & $\false$ & $\false$ \\
+  \hline
+\end{tabular}
+
+This is pretty simple. If you're having trouble remembering which symbol is
+logical-and and which one is logical-or, remember that the logical-and symbol
+--- $\land$ --- looks vaguely like an A.
+
+I'm going to introduce some new notation: the $\iff$ symbol.
+
+\[ \parens{A \iff B} = \parens{A \implies B} \land \parens{A \impliedby B} \]
+
+In practice, $\iff$ is logically equivalent to $=$. That is, all of the
+properties of $=$ hold.\cite{landau-analysis}
+
+\begin{enumerate}
+\item For all $a$, $a = a$.
+\item For all $a$ and $b$, $\parens{a = b} \implies \parens{b = a}$.
+\item For all $a$ and $b$, and $c$,
+  $\parens{\parens{a = b} \land \parens{b = c}} \implies \parens{a = c}$.
+\end{enumerate}
+
+You should go over those properties, and verify that they are true for $=$, and
+then verify that they are true for $\iff$.
+
+Alright, cool, this was a pretty easy chapter. Only 240 lines of \LaTeX! More
+importantly, I'm confident that this stuff is so easy, I won't even give you
+exercises!\footnote{The real reason is, I can't come up with any exercises that
+  aren't tedious.}
+
 % TODO:
 % * Explain more stuff about \lor and \land
 % * Explain the first few peano axioms (about equality)
