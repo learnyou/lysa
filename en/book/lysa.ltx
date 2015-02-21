@@ -24,8 +24,10 @@
 \usepackage[backend=bibtex]{biblatex}
 \usepackage[scaled]{beramono}
 \usepackage{centernot}
+% \usepackage{color}
 \usepackage[answerdelayed]{exercise}
 \usepackage[T1]{fontenc}
+\usepackage{graphics}
 \usepackage[utf8]{inputenc}
 \usepackage{listings}
 \usepackage{mathtools}
@@ -226,6 +228,40 @@
 
 \newcommand{\filepath}{\texttt}
 
+% ASIDE BOX, stolen from https://github.com/jambonrose/latex-code-example/blob/master/0_preamble.tex
+% 
+% Copyright 2013, Andrew Pinkham
+%
+\usepackage[framemethod=TikZ]{mdframed}
+\definecolor{light-gray}{gray}{0.85}
+\newmdenv[ %
+		usetwoside=false,%
+    font=\footnotesize\it,
+		nobreak=false,%
+		roundcorner=0pt,%
+		outerlinewidth=0.2pt,%
+		linecolor=lightgray,%
+		skipabove=12pt,%
+		skipbelow=12pt,%
+		% topmargin=24pt,%
+		% bottommargin=24pt,%
+		rightmargin=10pt,%
+		leftmargin=10pt,%
+		% innertopmargin=\baselineskip,%
+		% innerbottommargin=\baselineskip,%
+		innerrightmargin=10pt,%
+		innerleftmargin=10pt,%  
+		backgroundcolor=light-gray,%
+		]{asidebox}
+
+% End of ASIDE BOX
+
+\newenvironment{aside}[1][Default]
+    { %
+      \begin{samepage} %
+      \begin{asidebox}[frametitle=Aside - {#1}] %
+    }
+    {\end{asidebox}\end{samepage}}
 
 \title{Learn You Some Algebras for Glorious Good!}
 \begin{document}
