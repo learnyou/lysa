@@ -82,6 +82,61 @@ Only if we put parentheses or braces around $2$ or $6$.
 
 That's confusing, don't do that (yet).
 
+There's one more thing I need to go over, which is the null set - it's the
+simplest set, as it contains no elements. ``Null set'' takes too long to write,
+so we use $\emptyset$ instead.
+
+\s{Subsets and Supersets}
+
+Remember when I said $\mset{2, 6} \in Q$, and we were really confused? In case
+you don't remember, $Q = \mset{1, 2, 5, 6, 7, 9, 10}$. $\mset{2,6}$ is obviously
+not an element of $Q$. However, $\mset{2, 6}$ is \xti{in} $Q$ but it's not an
+element. It's weird. How do we express this notion?
+
+The answer is with \term{subsets}. ``Sub'' means ``smaller'', so a ``subset''
+would be a ``smaller set''. $A$ is a subset of $B$ is all of the elements in $A$
+are also in $B$. The notation is $A \subeq B$. Some people will read that as
+``$A$ is contained in $B$''.
+
+Referring to the previous example,
+
+\[ \mset{2,6} \subeq Q \]
+
+\xtb{Wait, what is with the little line under the round half circley thing?}
+
+So, actually, there are two types of subsets - \term{proper} and
+\term{improper}. $A \subeq B$ is for improper subsets. $A \subof B$ is for
+proper subsets. What's the difference, then?
+
+$A \subeq B$ allows for the possibility that $A = B$. $A \subof B$ means that
+$B$ is \xti{strictly larger} than $A$; there are some elements in $B$ that are
+not in $A$.
+
+Before I go on, I'm going to define a couple of other symbols. We're constantly
+saying ``this thing exists'' and ``for all'', so I'm going to add a couple of
+symbols. $\exists$ is for ``there exists'' --- notice the backwards E, as in
+``exists''. $\forall$ is for ``for all'' --- notice the upside-down A, as in
+``all''.
+
+So, now that you've got all of this down (hopefully), I'll give you some exercises. 
+
+\begin{ExcList}
+  \Exercise{$\Qexists A \semic A \subof \nil$}
+  \Answer{
+    \nilnm, by definition, has no elements. For there to exist a proper subset
+    of \nilnm, there would need to be a set with fewer elements. There cannot be
+    fewer than zero elements, hence there is no proper subset of \nilnm.
+  }
+
+  \Exercise{$\forall A \semic \nil \Qsubeq A$}
+  \Answer{
+    Yes. It's obvious that $\nil \subof A$ if $A \ne \nil$. The only thing left
+    is, $\nil \Qsubeq \nil$. $\nil \subeq \nil$ allows for $\nil = \nil$, which
+    is obviously true.
+  }
+  
+\end{ExcList}
+
 % \begin{asidebox}
 %   $\in$ was invented by Georg Cantor. It was later revealed
 % \end{asidebox}
