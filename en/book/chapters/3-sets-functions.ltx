@@ -168,10 +168,112 @@ above definition instead of $\lor$. Can you guess what the symbol for
 
 \[ A \cap B = \mset{x \semic \parens{x \in A} \land \parens{x \in B}} \]
 
-% \begin{asidebox}
-%   $\in$ was invented by Georg Cantor. It was later revealed
-% \end{asidebox}
-% \input{3/1-elements-subsets.ltx}
-% \input{3/2-operators-functions.ltx}
-% \input{3/3-unions-intersections.ltx}
-% \input{3/4-categories.ltx}
+The standard example is to use ``Venn diagrams''. 
+
+FIXME: Add venn diagrams explaining $\cup$ and $\cap$.
+
+\ss{Technically incorrect}
+
+Remember when I said that the set comprehension was ``technically incorrect''?
+Well, the reason is Russell's paradox.\cite{expeditions,jech-set-theory} There's
+a colloquial version of Russell's paradox called the ``Barber paradox'', and it
+is as follows:
+
+\begin{quote}
+  There's a barber in a small town - he cuts everybody's hair, but only if a
+  given person person doesn't cut his own hair. Does the barber cut is own hair?
+\end{quote}
+
+If the answer is ``yes'', we run into a problem -- if the barber cuts his own
+hair, he doesn't cut his own hair, because he only cuts someone's hair if he
+don't cut his own hair.
+
+If the answer is ``no'', then we run into the same problem -- the barber cuts
+someone's hair if he doesn't cut it themselves. Since the barber doesn't cut his
+own hair, he therefore cuts his own hair.
+
+Let's put this in mathematical notation
+
+\[
+\text{People whose hair barber cuts} =
+\mset{
+  \text{Person} \in \text{Town}
+  \semic
+  \text{Person doesn't cut his own hair}
+}
+\]
+
+The question is
+
+\[
+\text{Barber} \Qin \text{People whose hair barber cuts}
+\]
+
+The paradox is
+
+\[
+\text{Barber} \in \text{People whose hair barber cuts}
+\iff
+\text{Barber} \notin \text{People whose hair barber cuts}
+\]
+
+The version with sets is:
+
+\begin{alignedmath}
+  \text{let } \Set = \mset{
+    x \semic
+    x \text{ is a set}
+  } \\
+  \text{let } A = \mset{
+    x \in \Set \semic
+    x \notin x
+  } \\
+  A \Qin A
+\end{alignedmath}
+
+That is, $A$ is the set of all sets $x$ such that $x$ is not an element of
+itself. Is $A$ an element of itself?
+
+If $A$ is an element of itself, then $A$ is not an element of itself, because
+$A$ is the set of all sets in which the set is not an element of itself.
+
+If $A$ is not an element of itself, then $A$ must be an element of itself,
+because $A$ is the set of all sets for which that assertion holds true.
+
+That is:
+
+\[ A \in A \iff A \notin A \]
+
+The solution is to not allow the question $A \Qin A$. The larger lesson is,
+given some condition, (such as $x \notin x$), you can't always form a set of
+objects for which the condition holds true.
+
+This paradox was first proposed by a mathematician-stroke-philosopher named
+Bertrand Russell, in the early 20\textsuperscript{th} century. 
+
+Okay, hopefully that was a nice little mind-bender. In these exercises, you're
+going to look at some properties of $\cup$ and $\cap$.
+
+\begin{ExcList}
+  \Exercise{Is the following true:
+    \[ A \cup \nil = A \sfall A : \Set \]
+
+    Note that, from now on, we're going to consider \nm\Set\ as a \xti{type} of
+    thing, rather than a \xti{set}. Hence, I used a colon instead of \nm\in.
+
+  }
+  \Answer{
+    Yes - the union is the set of elements in either set. Since \nm\nil\ has no
+    elements, $A \cup \nil$ would just be $A$, no matter what $A$ is.
+  }
+
+  \Exercise{What about the following:
+    \[ A \cap \nil = \nil \sfall A \in \Set \]
+  }
+  \Answer{
+    Yes - the intersection of two sets is the set of objects in \xti{both}
+    sets. Because \nilnm\ has no elements, there wouldn't be any objects in both
+    sets --- the intersection would have no elements, which would make the
+    intersection equal to \nilnm.
+  }
+\end{ExcList}
