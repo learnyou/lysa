@@ -268,7 +268,7 @@ going to look at some properties of $\cup$ and $\cap$.
   }
 
   \Exercise{What about the following:
-    \[ A \cap \nil = \nil \sfall A \in \Set \]
+    \[ A \cap \nil = \nil \sfall A : \Set \]
   }
   \Answer{
     Yes - the intersection of two sets is the set of objects in \xti{both}
@@ -277,3 +277,111 @@ going to look at some properties of $\cup$ and $\cap$.
     intersection equal to \nilnm.
   }
 \end{ExcList}
+
+\s{Special kinds of sets}
+
+Hopefully those last two exercises sparked a little lightbulb in your brain. If
+not, I'll try to lay it out for you:
+
+\begin{alignedmath}
+  A \cup \nil = A \sfall A : \Set \\
+  A \cap \nil = \nil \sfall A : \Set \\
+\end{alignedmath}
+
+Let's look at the set \nm\Z\, the set of integers:
+\[
+\Z = \mset{\dots `6, `5, `4, `3, `2, `1, 0, 1, 2, 3, 4, 5, 6 \dots}
+\]
+
+Most people use $-$ instead of $`$ to indicate that something is
+negative. However, that becomes confusing, because $-$ is also used for
+subtraction (which requires two numbers).
+
+\begin{alignedmath}
+  a + 0 = a \sfall a \in \Z \\
+  a \times 0 = 0 \sfall a \in \Z \\
+  A \cup \nil = A \sfall A : \Set \\
+  A \cap \nil = \nil \sfall A : \Set \\
+\end{alignedmath}
+
+Don't those look really similar? It's aggravating, isn't it - there's some
+property they both share, but you can't articulate it! Luckily, you're a
+mathematician, so you can abstract things.
+
+Fortunately for you, someone else recognized this pattern a long time ago, so
+they abstracted it away for you. This is called a \term{semirng} - specifically,
+a \term{commutative semirng}. Semirng is a joke term originated from
+``semiring'' - it's ``semiring'' without the `i' - for ``identity''.
+
+Namely there's no fixed element $q : \Set$ for which
+
+\[ A \cap q = A \sfall A : Set \]
+
+(otherwise it would be a semiring)
+
+\xtb{Okay, what the hell are you talking about?}
+
+Mathematicians have invented all sorts of structures for these things which
+share properties. All of the structures are slightly different. I'll start with
+$\Set$ and $\cup$, and compare it to $\Z$ and $+$:
+
+\begin{enumerate}
+\item First, we have to define \nm\cup. It takes 2 sets, and spits out another set
+
+  \begin{alignedmath}
+    \cup : \mvec{\Set,\Set} \to \Set \\
+    + : \mvec{\Z, \Z} \to \Z \\
+  \end{alignedmath}
+
+  This properties is called ``closure'', as in, ``it's closed''. Sets can't use
+  $\cup$ to escape $\Set$! The same is true with $\Z$.
+
+\item We know that \nm\cup\ is ``associative'', which means that you can group
+  operations weirdly.
+
+  \begin{alignmath}{rl}
+    A \cup \parens{B \cup C} = \parens{A \cup B} \cup C & \sfall A,B,C : \Set \\
+    a + \parens{b + c} = \parens{a + b} + c             & \sfall a,b,c \in \Z \\
+  \end{alignmath}
+
+  For this reason, we can write $a + b + c + d + e$ without ambiguity.
+
+\item We also know that \nm\cup\ is ``commutative'', which means order doesn't
+  matter:
+
+  \begin{alignmath}{rl}
+    A \cup B = B \cup A & \sfall A,B : \Set \\
+    a + b = b + a       & \sfall a,b \in \Z \\
+  \end{alignmath}
+
+  Think of ``commutative'' as meaning ``it commutes'', where ``commutes'' means
+  ``moves''.
+
+\item We also know that \nm\cup\ has an ``identity'' - meaning that there is an
+  element in $\Set$ where $\cup$ doesn't have any effect:
+
+  \begin{alignmath}{rl}
+    A \cup \nil = A & \sfall A : \Set \\
+    a + 0 = a       & \sfall a \in \Z\\
+  \end{alignmath}
+\end{enumerate}
+
+These qualities make $\mvec{\Z, +}$ and $\mvec{\Set, \cup}$ \term{commutative
+  monoids}. It's one of those fancy structures mathematicians invented. Nobody
+can remember the names for each one. Just Google it if you don't know. I
+personally use this chart from Wikipedia: \cref{fig:groupstructures}.
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=0.8\textwidth]{group-structures.png}
+  \caption{I have to use this table every time. Source: \cite{w-cats} .}
+  \label{fig:groupstructures}
+\end{figure}
+
+That chart doesn't even cover all of them. Anyway, we have our commutative
+monoids. I can't really go over much more without also talking about
+functions. So, the next chapter focuses on functions. We'll revisit this in
+Chapter 5.
+
+\nocite{w-cats}
+
