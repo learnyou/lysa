@@ -137,6 +137,37 @@ So, now that you've got all of this down (hopefully), I'll give you some exercis
   
 \end{ExcList}
 
+\s{Combining sets together}
+
+Okay, hopefully those exercises weren't too bad (\emailme\ if they were too
+hard). Next, we're going to talk about ways to combine two sets together. There
+are any number of ways to combine two sets. The two most common ways are through
+\term{unions} and \term{intersections}.
+
+The union symbol is pretty easy to memorize --- it looks like a giant U:
+$\cup$. Think ``$\cup$nion''.\footnote{You don't have to remember it this way,
+  because $\cup$ is already aligned reasonably well with the letters. Thus I
+  didn't have to spend 30 minutes getting the alignment correct. (See
+  \cref{30minalign}.)}.
+
+If $A$ and $B$ are sets, then $A \cup B$ is the set of elements that are in
+either $A$ or in $B$. That is:
+
+\[ A \cup B = \mset{x \semic \parens{x \in A} \lor \parens{x \in B}} \]
+
+This informal notation is called a ``set comprehension''. It's technically
+incorrect, but it works for intuitive purposes. That above is the set of all $x$
+such that $x \in A$ logical-or $x \in B$
+
+You might also remember this by the fact that the union symbol $\cup$ looks
+vaguely like the or symbol $\lor$.
+
+The intersection is, you guessed it - what happens when we use $\land$ in the
+above definition instead of $\lor$. Can you guess what the symbol for
+``intersection'' is? If you guessed $\cap$, then you are right!
+
+\[ A \cap B = \mset{x \semic \parens{x \in A} \land \parens{x \in B}} \]
+
 % \begin{asidebox}
 %   $\in$ was invented by Georg Cantor. It was later revealed
 % \end{asidebox}
