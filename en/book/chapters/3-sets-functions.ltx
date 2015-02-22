@@ -254,13 +254,161 @@ Bertrand Russell, in the early 20\textsuperscript{th} century.
 Okay, hopefully that was a nice little mind-bender. In these exercises, you're
 going to look at some properties of $\cup$ and $\cap$.
 
+I should remind you of the fundamental rule of algebra - what you do to one side
+of $=$, you need to do to the other.
+
 \begin{ExcList}
+  \Exercise{Given that
+
+    \[ A \land \parens{B \lor C} = \parens{A \land B} \lor \parens{A \land C} \]
+
+    Show that
+
+    \[ A \lor \parens{B \land C} = \parens{A \lor B} \land \parens{A \lor C}\]
+
+    Use these results to figure out
+    \[ A \cap \parens{B \cup C} \]
+    \[ A \cup \parens{B \cap C} \]
+  }
+  \Answer{
+    
+    Let's do this.
+
+    \begin{alignmath}{rcl}
+      A \land \parens{B \lor C} & = & \parens{A \land B} \lor \parens{A \land C} \\
+      \text{Let } P & = & B\lor C \\
+                  Q & = & A\land B \\
+                  R & = & A\land C \\
+      A \land P & = & Q \lor R \\
+      \text{Use the definition of $\lnot$} & & \\
+
+      \lnot\parens{A \land P} & = & \lnot\parens{Q \lor R} \\
+      \lnot A \lor \lnot P & = & \lnot Q \land \lnot R \\
+
+      \text{Expand out the definitions of $P$, $Q$, and $R$.} & & \\
+
+      \lnot A \lor \lnot\parens{B \lor C} & = & \lnot\parens{A \land B} \land \lnot\parens{A \land C} \\
+      \lnot A \lor \parens{\lnot B \land \lnot C} & = & \parens{\lnot A \lor \lnot B} \land \parens{\lnot A \lor \lnot C} \\
+      \text{Let } X & = & \lnot A \\
+                  Y & = & \lnot B \\
+                  Z & = & \lnot C \\
+      X \lor \parens{Y \land Z} & = & \parens{X \lor Y} \land \parens{X \lor Z} \\
+    \end{alignmath}
+
+    Okay, we proved the first thing (yes, this is a proof).
+
+    Now, on to the other thing:
+
+    \[ A \cap \parens{B \cup C} \]
+
+    Let's write this out in comprehension notation:
+
+    \[
+    A \cap \parens{B \cup C} =
+    \mset{
+      x \semic
+      \parens{
+        x \in A
+      } \lor
+      \parens{
+        x \in \mset {
+          y \semic
+          \parens{
+            y \in B
+          } \lor
+          \parens{
+            y \in C
+          }
+        }
+      }
+    }
+    \]
+
+    That probably looks horrifying to you. Trust me, it's just as bad typed out:
+
+    \begin{plainfile}
+\begin{displaymath}
+  A \cap \parens{B \cup C} =
+  \mset{
+    x \semic
+    \parens{
+      x \in A
+    } \land
+    \parens{
+      x \in \mset {
+        y \semic
+        \parens{
+          y \in B
+        } \lor
+        \parens{
+          y \in C
+        }
+      }
+    }
+  }
+\end{displaymath}
+    \end{plainfile}
+
+    We can simplify it a bit
+
+    \[
+    A \cap \parens{B \cup C} =
+    \mset{
+      x \semic
+      \parens{
+        x \in A
+      } \land
+      \parens{
+        \parens{
+          x \in B
+        } \lor
+        \parens{
+          x \in C
+        }
+      }
+    }
+    \]
+
+    That's marginally less horrible
+
+    So we have some \nm\land s and \nm\lor s hanging around. Let's use that rule
+    from above!
+
+    \[
+    A \cap \parens{B \cup C} =
+    \mset{
+      x \semic
+      \parens{
+        \parens{
+          x \in A
+        } \land
+        \parens{
+          x \in B
+        }
+      } \lor
+      \parens{
+        \parens{
+          x \in A
+        } \land
+        \parens{
+          x \in C
+        }
+      }
+    }
+    \]
+
+    But notice what we've done:
+    
+    \[
+    A \cap \parens{B \cup C} =
+    \parens{A \cap B} \cup \parens{A \cap C}
+    \]
+
+    That result is totally worth 2 pages of math.
+  }
+
   \Exercise{Is the following true:
-    \[ A \cup \nil = A \sfall A : \Set \]
-
-    Note that, from now on, we're going to consider \nm\Set\ as a \xti{type} of
-    thing, rather than a \xti{set}. Hence, I used a colon instead of \nm\in.
-
+    \[ A \cup \nil = A \sfall A \in \Set \]
   }
   \Answer{
     Yes - the union is the set of elements in either set. Since \nm\nil\ has no
@@ -268,7 +416,7 @@ going to look at some properties of $\cup$ and $\cap$.
   }
 
   \Exercise{What about the following:
-    \[ A \cap \nil = \nil \sfall A : \Set \]
+    \[ A \cap \nil = \nil \sfall A \in \Set \]
   }
   \Answer{
     Yes - the intersection of two sets is the set of objects in \xti{both}
@@ -284,8 +432,8 @@ Hopefully those last two exercises sparked a little lightbulb in your brain. If
 not, I'll try to lay it out for you:
 
 \begin{alignedmath}
-  A \cup \nil = A \sfall A : \Set \\
-  A \cap \nil = \nil \sfall A : \Set \\
+  A \cup \nil = A \sfall A \in \Set \\
+  A \cap \nil = \nil \sfall A \in \Set \\
 \end{alignedmath}
 
 Let's look at the set \nm\Z\, the set of integers:
@@ -300,8 +448,8 @@ subtraction (which requires two numbers).
 \begin{alignedmath}
   a + 0 = a \sfall a \in \Z \\
   a \times 0 = 0 \sfall a \in \Z \\
-  A \cup \nil = A \sfall A : \Set \\
-  A \cap \nil = \nil \sfall A : \Set \\
+  A \cup \nil = A \sfall A \in \Set \\
+  A \cap \nil = \nil \sfall A \in \Set \\
 \end{alignedmath}
 
 Don't those look really similar? It's aggravating, isn't it - there's some
@@ -361,7 +509,7 @@ $\Set$ and $\cup$, and compare it to $\Z$ and $+$:
   element in $\Set$ where $\cup$ doesn't have any effect:
 
   \begin{alignmath}{rl}
-    A \cup \nil = A & \sfall A : \Set \\
+    A \cup \nil = A & \sfall A \in \Set \\
     a + 0 = a       & \sfall a \in \Z\\
   \end{alignmath}
 \end{enumerate}
