@@ -210,12 +210,14 @@
 \newcommand{\emailme}{email me at \code{peter@harpending.org}}
 
 \lstnewenvironment{plainfile}[1][]
-  {\lstset{
+{\noindent\minipage{\linewidth}\medskip
+  \lstset{
       numbers=none,
       basicstyle=\small\ttfamily,
+      % float=top,
       #1
     }}
-  {}
+  {\endminipage}
 
 \lstnewenvironment{shellsession}[1][]
   {\lstset{
