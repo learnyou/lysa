@@ -14,7 +14,7 @@ faildie () {
 }
 
 en () {
-  cd en
+  cd en/book
   ./build
 }
 
