@@ -69,6 +69,8 @@ Sets, proofs, functions introduction
 4. Axiom of choices
 5. ZF vs ZFC
 
+### §5.3 Special types of sets
+
 ## §6 Basic algebra
 
 ### §6.1 Proof techniques
