@@ -22,9 +22,9 @@
 \usepackage{amsthm}
 \usepackage[toc,page]{appendix}
 \usepackage[backend=bibtex]{biblatex}
+% \usepackage[english]{babel}
 \usepackage[scaled]{beramono}
 \usepackage{centernot}
-% \usepackage{color}
 \usepackage[answerdelayed]{exercise}
 \usepackage[T1]{fontenc}
 \usepackage{graphics}
@@ -144,7 +144,7 @@
 \newcommand{\bool}{\mathbb{B}}
 \newcommand{\boolnm}{$\mathrm{\bool}$}
 \newcommand{\bracketset}[1]{\brackets{ #1 }}
-\newcommand{\evalat}[2]{#1 _{\,\bracketset{#2}}}
+\newcommand{\evalat}[2]{#1 \mvec{#2}}
 \newenvironment{alignmath}[1]
   {\begin{displaymath}\begin{array}{#1}}
   {\end{array}\end{displaymath}}
@@ -233,6 +233,8 @@
 \newcommand{\Qexists}{\stackrel{?}{\exists}}
 \newcommand{\nilnm}{$\nil$}
 \newcommand{\nm}[1]{${#1}$}
+\newcommand{\fn}[2]{\ld{#1} {#2}}
+\let\n\eta
 
 
 % ASIDE BOX, stolen from https://github.com/jambonrose/latex-code-example/blob/master/0_preamble.tex
@@ -307,6 +309,7 @@
 \input{1-introduction.ltx}
 \input{2-boolean-algebra.ltx}
 \input{3-sets.ltx}
+\input{4-functions.ltx}
 % \input{4-programming.ltx}
  
 % Citations

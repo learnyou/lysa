@@ -1,0 +1,155 @@
+\ch{Functions}
+
+As promised, this chapter discusses functions.
+
+So, what is a function? 
+
+So far, we've been dealing with \xti{values} - like $2$, $\mset{3,2,5}$, and
+$90$. They are static. Static things are fine, but they aren't very
+interesting. It's much more interesting to examine \xti{changing things} ---
+more specifically, things that change \xti{predictably} and \xti{transparently}.
+
+Enter the \term{function}. It's a mathematical construct. A function takes some
+input, and maps it to an output. Functions are sometimes referred to as
+\term{mappings} or \term{morphisms}.
+
+Let's look at a simple function, which takes a number and adds $2$ to it
+
+\begin{alignedmath}
+  f : \Z \to \Z \\
+  f = \fn{x}{x + 2}
+\end{alignedmath}
+
+Pretty simple, right? Okay, so what happens when we send $28$ to $f$?
+
+\begin{alignmath}{rcl}
+  \evalat{f}{x=28} & = & \fn{x=28}{28 + 2} \\
+                   & = & 30 \\
+\end{alignmath}
+
+Alternatively, since it's obvious we're working with $x$:
+
+\begin{alignmath}{rcl}
+  \evalat{f}{28} & = & 28 + 2 \\
+                 & = & 30 \\
+\end{alignmath}
+
+Using the lambda --- $\lambda$ --- is common when I am using a function without
+giving it a name. However, usually I will use this notation:
+
+\begin{alignedmath}
+  f : \Z \to \Z \\
+  \evalat{f}{x} =  x + 2
+\end{alignedmath}
+
+The whole $f : \Z \to \Z$ thing should be pretty obvious. If not, it means that
+$f$ is a function that takes a member of $\Z$ (the whole numbers, both negative
+and positive), and takes it to another member of $\Z$. Other people might use
+the notation
+
+\[ \Z \stackrel{f}{\to} \Z \]
+
+That notation is undoubtedly easier to understand. However, as we'll see, that
+notation quickly becomes unfeasible.
+
+\ss{Functions with multiple arguments}
+
+Remember my explanation of vectors earlier? If not, vectors are like sets,
+but order and repetition matter.
+
+Here's a function that takes two arguments, and adds them to each other.
+
+\begin{alignedmath}
+  f : \mvec{\Z, \Z} \to \Z \\
+  \evalat{f}{x,y} = x + y \\
+\end{alignedmath}
+
+Pretty easy to understand, right?
+
+
+If you haven't figured it out from the context, the inputs to the function are
+called the \term{arguments}.
+
+Here's a similar function that takes three arguments and adds them to each other
+
+\begin{alignedmath}
+  f : \mvec{\Z, \Z, \Z} \to \Z \\
+  \evalat{f}{x,y,z} = x + y + z \\
+\end{alignedmath}
+
+You can name your function anything you want, same with the arguments (it
+doesn't have to be $f$). It's just a common convention, which you don't have to
+follow.
+
+\xtb{What if I want to add a bunch of things together?}
+
+Good idea! 
+
+\begin{alignedmath}
+  f : \mvec{\Z, \Z, \dots, \Z} \to \Z \\
+  \evalat{f}{x_1, x_2, x_3, \dots, x_n} = x_1 + x_2 + x_3 + \dots + x_n
+\end{alignedmath}
+
+That however isn't ideal, because we have no guarantee that the arguments in the
+\dots are actually integers. How about we have a \xti{set} of integers, and we
+just take the sum? This has the added benefit of less typing
+
+
+\begin{alignedmath}
+  f : \evalat{\Set}{\Z} \to \Z \\
+  \evalat{f}{s} = \sum s
+\end{alignedmath}
+
+So,
+
+\begin{alignmath}{rcl}
+  \evalat{f}{\mset{1,2,3,4,5}} & = & \sum \mset{1,2,3,4,5} \\
+                               & = & 1 + 2 + 3 + 4 + 5\\
+                               & = & 15 \\
+\end{alignmath}
+
+\ss{Eta-reductions}
+
+Mathematicians like to make themselves look smart. One such way is to invent
+fancy terms for simple things. One such term is the $\eta$-reduction.
+
+Let's look at that function we just had
+
+\begin{alignedmath}
+  f : \evalat{\Set}{\Z} \to \Z \\
+  \evalat{f}{s} = \sum s
+\end{alignedmath}
+
+Notice that we are repeating $s$ on both sides of the equation. It would seem
+much simpler, and just as clear, to write:
+
+\begin{alignedmath}
+  f : \evalat{\Set}{\Z} \to \Z \\
+  f = \sum
+\end{alignedmath}
+
+That's all an $\n$-reduction is: if you see an extraneous argument, you remove
+it to make things simpler.  As long as we have the signature --- the
+$f : \evalat{\Set}{\Z} \to \Z$ thing -- it's pretty clear what $f$ does. This is
+a prime example of mathematicians being both lazy and pretentious at the same
+time: a practice designed to allow us to be lazier, to which mathematicians have
+assigned a ridiculous name to make it sound hard.
+
+\xtb{What the hell is $\n$?}
+
+$\n$ is the Greek letter eta; it's pronounced ``eight-uh''.
+
+The ancient Greeks were too dumb to comprehend the concept of ``eight''. Every
+time someone brought it up, they said ``uh'' immediately thereafter. The sound
+``eight-uh'' became so common that they decided to make it a letter.
+
+The Greeks' poor comprehension of simple mathematics remains to this day, and
+is largely the reason for their current financial
+crisis.\cite{w-greek-finance}
+
+If you ever take a physics course, you will undoubtedly notice that Greek
+letters are used frequently in physics. This is the physicists way of subtly
+hinting that they actually have no idea what they are talking about, and
+pleading for help from the mathematicians. 
+
+% \s{Currying}
