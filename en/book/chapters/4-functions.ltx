@@ -110,6 +110,8 @@ So,
 
 \ss{Eta-reductions}
 
+\nocite{eta-conversion}
+
 Mathematicians like to make themselves look smart. One such way is to invent
 fancy terms for simple things. One such term is the $\eta$-reduction.
 
@@ -152,4 +154,93 @@ letters are used frequently in physics. This is the physicists way of subtly
 hinting that they actually have no idea what they are talking about, and
 pleading for help from the mathematicians. 
 
-% \s{Currying}
+\s{Currying}
+
+We sort of got side-tracked by toying around with sets and making fun of
+physicists. Hopefully that introduction introduced you to the basic concept of a
+function, and let you know that they can take multiple arguments
+
+Let's look at that function again:
+
+\begin{alignedmath}
+  f : \mvec{\Z, \Z, \Z} \to \Z \\
+  \evalat{f}{x,y,z} = x + y + z \\
+\end{alignedmath}
+
+What if you wanted to bind $x = 3$, but leave the rest ``free''?
+
+\begin{alignedmath}
+  f : \mvec{\Z, \Z, \Z} \to \Z \\
+  \evalat{f}{x=3,y,z} = 3 + y + z \\
+\end{alignedmath}
+
+Okay, cool. We now have another function:
+
+\begin{alignedmath}
+  \evalat{f}{3} : \mvec{\Z, \Z} \to \Z \\
+  \evalat{f}{3,y,z} = 3 + y + z \\
+\end{alignedmath}
+
+So, actually, instead of needing 3 integers to do its job, $f$ only needed
+one. However, instead of spitting out another integer, it spit out a
+function. So, we could write $f$'s signature as:
+
+\begin{alignedmath}
+  f : \Z \to \parens{\mvec{\Z, \Z} \to \Z }\\
+  \evalat{f}{x,y,z} = x + y + z \\
+\end{alignedmath}
+
+Okay, that's sort of weird and unintuitive. Let's try writing $f$ differently:
+
+\begin{alignedmath}
+  f : \Z \to \parens{\mvec{\Z, \Z} \to \Z }\\
+  f = \ld{x}\parens{\ld{y,z} x + y + z} \\
+\end{alignedmath}
+
+Let's look at the second half of that:
+
+\begin{alignedmath}
+  \ld{y,z} x + y + z : \mvec{\Z,\Z} \to \Z \\
+\end{alignedmath}
+
+(This assumes that we know what $x$ is)
+
+Let's try splitting this up again:
+
+\begin{alignedmath}
+  \ld{y}\parens{\ld{z} x + y + z} : \Z \to \parens{\Z \to \Z} \\
+\end{alignedmath}
+
+You give this function a value for $y$, and instead of giving you a value, it
+gives you another function, hence the signature \nm{\Z \to \parens{\Z \to \Z}}.
+
+Let's plug this back into $f$:
+
+\begin{alignedmath}
+  f : \Z \to \parens{\Z \to \parens{\Z \to \Z}}\\
+  f = \ld{x}\parens{\ld{y}\parens{\ld{z} x + y + z} }  \\
+\end{alignedmath}
+
+So, instead of $f$ taking three integers, it now only takes one, but spits out a
+function, which in turn spits out a function, which spits out an integer.
+
+This idea of making a function into a chain of functions is called
+``Currying''.\cite{w-currying} It's named after a dead mathematician named
+Haskell Curry (ca. 1900-1982), who developed the technique. The programming
+language Haskell is also named after Mr. Curry.
+
+Getting back to that function, those parentheses are somewhat burdensome, let's
+get rid of them
+
+\begin{alignmath}{rcl}
+  f & : & \Z \to \Z \to \Z \to \Z\\
+  f & = & \ld{x} \ld{y} \ld{z} x + y + z  \\
+  \evalat{f}{x,y,z} & = & x + y + z  \\
+\end{alignmath}
+
+That's much easier to read. It should be understood that the parentheses are
+right-associative: the parentheses ``associate'' rightward --- i.e. it's
+$a \to \parens{b \to \parens{c \to d}}$, not
+$\parens{\parens{a \to b} \to c} \to d$.\cite{w-operator-associativity}
+
+That's Currying for you.
