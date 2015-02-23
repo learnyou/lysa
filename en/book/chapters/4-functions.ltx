@@ -244,3 +244,70 @@ $a \to \parens{b \to \parens{c \to d}}$, not
 $\parens{\parens{a \to b} \to c} \to d$.\cite{w-operator-associativity}
 
 That's Currying for you.
+
+\s{Vocabulary}
+
+This is important vocabulary that I'm going to use later:
+
+\begin{enumerate}
+\item All functions are \term{transparent} ---
+  $a = b \implies \evalat{f}{a} = \evalat{f}{b}$
+
+\item If $f : A \to B$, then $A$ is the \term{domain} of $f$ and $B$ is the
+  \term{codomain} of $f$.
+
+\item If $f : A \to B$, and there are no two distinct elements of $A$ that map
+  to the same thing in $B$, then $f$ is \term{injective}.
+
+  \begin{alignedmath}
+    f : A \to B \\
+    \notexists \mvec{a,b} \semic a,b \in A \land a \ne b \land \evalat{f}{a} = \evalat{f}{b}
+    \iff \text{$f$ is injective}
+  \end{alignedmath}
+
+\item If $f : A \to B$, then the elements in $B$ that can be expressed as
+  $\evalat{f}{x}\semic x \in A$ form the \term{image}.
+
+  \begin{alignedmath}
+    f : A \to B \\
+    \im{f} = \mset{\evalat{f}{x} \in B\semic x \in A} \\
+  \end{alignedmath}
+
+\item If the image of a function is equal to its codomain, then the function is
+  \term{surjective}.
+
+  \begin{alignedmath}
+    f : A \to B \\
+    B = \mset{\evalat{f}{x} \in B\semic x \in A} \iff \text{$f$ is surjective} \\
+  \end{alignedmath}
+
+\item If a function is both injective and surjective, then it is
+  \term{bijective}.
+
+\item Some functions have \term{inverses}. That is, if
+  \[ f : A \to B \]
+  \begin{alignedmath}
+    \arc{f} : B \to A \\
+    \arc{f, x} = x \sfall x \in A
+  \end{alignedmath}
+
+  Remember that, because of currying, $\arc{f,x} = \evalat{\arc{f}}{x}$. That is:
+
+  \begin{alignmath}{rcl}
+    f & : & A \to B \\
+    \mathbf{arc} & : & \parens{A \to B} \to B \to A \\
+    \arc{f} & : & B \to A \\
+  \end{alignmath}
+
+  If a function has an inverse, it is said to be \term{invertible}.
+
+\item If a function is invertible, then the image of the inverse is called the
+  \term{preimage}.
+\end{enumerate}
+
+\begin{ExcList}
+  \Exercise{I knew you were going to just gloss over those, so I made a really
+    hard (i.e. fun) problem: prove that a function is invertible if (and only
+    if) it is bijective. This is a very difficult proof, but you really need to
+    understand it.}
+\end{ExcList}

@@ -152,9 +152,9 @@
   {\begin{alignmath}{l}}
   {\end{alignmath}}
 \newcommand{\lto}{\lambda\to}
-\newcommand{\arc}[1]  {{^{\mathrm{arc}}\brackets{#1}}}
-\newcommand{\im}[1]   {{^{\mathrm{im}}\brackets{#1}}}
-\newcommand{\preim}[1]{{^{\mathrm{preim}}\brackets{#1}}}
+\newcommand{\arc}[1]  {\evalat{\mathbf{arc}}{#1}}
+\newcommand{\im}[1]   {\evalat{\mathbf{im}}{#1}}
+\newcommand{\preim}[1]{\evalat{\mathbf{preim}}{#1}}
 \newcommand{\Set}{\mathbf{Set}}
 \newcommand{\Qsubof}{\stackrel{?}{\subof}}
 \newcommand{\Qsubeq}{\stackrel{?}{\subeq}}
@@ -235,7 +235,7 @@
 \newcommand{\nm}[1]{${#1}$}
 \newcommand{\fn}[2]{\ld{#1} {#2}}
 \let\n\eta
-
+\newcommand{\notexists}{\centernot\exists}
 
 % ASIDE BOX, stolen from https://github.com/jambonrose/latex-code-example/blob/master/0_preamble.tex
 % 
