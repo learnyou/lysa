@@ -153,20 +153,27 @@ $\cup$. Think ``$\cup$nion''.\footnote{You don't have to remember it this way,
 If $A$ and $B$ are sets, then $A \cup B$ is the set of elements that are in
 either $A$ or in $B$. That is:
 
-\[ A \cup B = \mset{x \semic \parens{x \in A} \lor \parens{x \in B}} \]
-
-This informal notation is called a ``set comprehension''. It's technically
-incorrect, but it works for intuitive purposes. That above is the set of all $x$
-such that $x \in A$ logical-or $x \in B$
+\[ A \cup B = \mset{x \in \amb \semic \parens{x \in A} \lor \parens{x \in B}} \]
 
 You might also remember this by the fact that the union symbol $\cup$ looks
 vaguely like the or symbol $\lor$.
+
+\xtb{What the hell is that notation ?}
+
+Let's go over it.
+
+\nm\amb\ is the ``ambient set'' -- it's a set such that $A, B \subeq \amb$. I
+can't quite explain it right now, but if we don't have an ambient set, then
+things go horribly wrong. \nm\amb\ is supposed to be a cursive 'A', but the font
+is terrible.
+
+\xtb{Back to business -- the intersection}
 
 The intersection is, you guessed it - what happens when we use $\land$ in the
 above definition instead of $\lor$. Can you guess what the symbol for
 ``intersection'' is? If you guessed $\cap$, then you are right!
 
-\[ A \cap B = \mset{x \semic \parens{x \in A} \land \parens{x \in B}} \]
+\[ A \cap B = \mset{x \in \amb \semic \parens{x \in A} \land \parens{x \in B}} \]
 
 The standard example is to use ``Venn diagrams''. 
 
@@ -225,13 +232,13 @@ of $=$, you need to do to the other.
     \[
     A \cap \parens{B \cup C} =
     \mset{
-      x \semic
+      x \inamb \semic
       \parens{
         x \in A
       } \lor
       \parens{
         x \in \mset {
-          y \semic
+          y \inamb \semic
           \parens{
             y \in B
           } \lor
@@ -249,13 +256,13 @@ of $=$, you need to do to the other.
 \begin{displaymath}
   A \cap \parens{B \cup C} =
   \mset{
-    x \semic
+    x \inamb \semic
     \parens{
       x \in A
     } \land
     \parens{
       x \in \mset {
-        y \semic
+        y \inamb \semic
         \parens{
           y \in B
         } \lor
@@ -273,7 +280,7 @@ of $=$, you need to do to the other.
     \[
     A \cap \parens{B \cup C} =
     \mset{
-      x \semic
+      x \inamb \semic
       \parens{
         x \in A
       } \land
@@ -296,7 +303,7 @@ of $=$, you need to do to the other.
     \[
     A \cap \parens{B \cup C} =
     \mset{
-      x \semic
+      x \inamb \semic
       \parens{
         \parens{
           x \in A
