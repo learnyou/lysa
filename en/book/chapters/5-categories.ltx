@@ -1,120 +1,120 @@
-\ch{Categories}
+% \ch{Categories}
 
-I'm briefly going to go over the history of set theory, bringing us up to date
-with modern research. We're then going to discuss the notion of a
-\term{category}, and explain how they can be used to model other parts of math.
+% I'm briefly going to go over the history of set theory, bringing us up to date
+% with modern research. We're then going to discuss the notion of a
+% \term{category}, and explain how they can be used to model other parts of math.
 
-\s{Technically incorrect}\cref{technically-incorrect}
+% \s{Technically incorrect}\cref{technically-incorrect}
 
-Remember when I said that the set comprehension was ``technically incorrect''?
-Well, the reason is Russell's paradox.\cite{expeditions,jech-set-theory} There's
-a colloquial version of Russell's paradox called the ``Barber paradox'', and it
-is as follows:
+% Remember when I said that the set comprehension was ``technically incorrect''?
+% Well, the reason is Russell's paradox.\cite{expeditions,jech-set-theory} There's
+% a colloquial version of Russell's paradox called the ``Barber paradox'', and it
+% is as follows:
 
-\begin{quote}
-  There's a barber in a small town - he cuts everybody's hair, but only if a
-  given person person doesn't cut his own hair. Does the barber cut is own hair?
-\end{quote}
+% \begin{quote}
+%   There's a barber in a small town - he cuts everybody's hair, but only if a
+%   given person person doesn't cut his own hair. Does the barber cut is own hair?
+% \end{quote}
 
-If the answer is ``yes'', we run into a problem -- if the barber cuts his own
-hair, he doesn't cut his own hair, because he only cuts someone's hair if he
-don't cut his own hair.
+% If the answer is ``yes'', we run into a problem -- if the barber cuts his own
+% hair, he doesn't cut his own hair, because he only cuts someone's hair if he
+% don't cut his own hair.
 
-If the answer is ``no'', then we run into the same problem -- the barber cuts
-someone's hair if he doesn't cut it themselves. Since the barber doesn't cut his
-own hair, he therefore cuts his own hair.
+% If the answer is ``no'', then we run into the same problem -- the barber cuts
+% someone's hair if he doesn't cut it themselves. Since the barber doesn't cut his
+% own hair, he therefore cuts his own hair.
 
-Let's put this in mathematical notation
+% Let's put this in mathematical notation
 
-\[
-\text{People whose hair barber cuts} =
-\mset{
-  \text{Person} \in \text{Town}
-  \semic
-  \text{Person doesn't cut his own hair}
-}
-\]
+% \[
+% \text{People whose hair barber cuts} =
+% \mset{
+%   \text{Person} \in \text{Town}
+%   \semic
+%   \text{Person doesn't cut his own hair}
+% }
+% \]
 
-The question is
+% The question is
 
-\[
-\text{Barber} \Qin \text{People whose hair barber cuts}
-\]
+% \[
+% \text{Barber} \Qin \text{People whose hair barber cuts}
+% \]
 
-The paradox is
+% The paradox is
 
-\[
-\text{Barber} \in \text{People whose hair barber cuts}
-\iff
-\text{Barber} \notin \text{People whose hair barber cuts}
-\]
+% \[
+% \text{Barber} \in \text{People whose hair barber cuts}
+% \iff
+% \text{Barber} \notin \text{People whose hair barber cuts}
+% \]
 
-The version with sets is:
+% The version with sets is:
 
-\begin{alignedmath}
-  \text{let } \Set = \mset{
-    x \semic
-    x \text{ is a set}
-  } \\
-  \text{let } A = \mset{
-    x \in \Set \semic
-    x \notin x
-  } \\
-  A \Qin A
-\end{alignedmath}
+% \begin{alignedmath}
+%   \text{let } \Set = \mset{
+%     x \semic
+%     x \text{ is a set}
+%   } \\
+%   \text{let } A = \mset{
+%     x \in \Set \semic
+%     x \notin x
+%   } \\
+%   A \Qin A
+% \end{alignedmath}
 
-That is, $A$ is the set of all sets $x$ such that $x$ is not an element of
-itself. Is $A$ an element of itself?
+% That is, $A$ is the set of all sets $x$ such that $x$ is not an element of
+% itself. Is $A$ an element of itself?
 
-If $A$ is an element of itself, then $A$ is not an element of itself, because
-$A$ is the set of all sets in which the set is not an element of itself.
+% If $A$ is an element of itself, then $A$ is not an element of itself, because
+% $A$ is the set of all sets in which the set is not an element of itself.
 
-If $A$ is not an element of itself, then $A$ must be an element of itself,
-because $A$ is the set of all sets for which that assertion holds true.
+% If $A$ is not an element of itself, then $A$ must be an element of itself,
+% because $A$ is the set of all sets for which that assertion holds true.
 
-That is:
+% That is:
 
-\[ A \in A \iff A \notin A \]
+% \[ A \in A \iff A \notin A \]
 
-This paradox was first proposed by a mathematician-stroke-philosopher named
-Bertrand Russell, in the early 20\textsuperscript{th} century. 
+% This paradox was first proposed by a mathematician-stroke-philosopher named
+% Bertrand Russell, in the early 20\textsuperscript{th} century. 
 
-Well, sets are still around in 2015, so someone must have solved this paradox,
-right? Indeed!
+% Well, sets are still around in 2015, so someone must have solved this paradox,
+% right? Indeed!
 
-The solution is actually quite simple - comprehensions don't necessarily form
-\xti{sets}, they instead form \term{classes}. Classes don't have things like
-$\in$ or $\subof$. Some classes are sets. Classes that are not sets are called
-\term{proper classes}.
+% The solution is actually quite simple - comprehensions don't necessarily form
+% \xti{sets}, they instead form \term{classes}. Classes don't have things like
+% $\in$ or $\subof$. Some classes are sets. Classes that are not sets are called
+% \term{proper classes}.
 
-In order for a class to be a set, the class must draw elements from an ambient
-set.
+% In order for a class to be a set, the class must draw elements from an ambient
+% set.
 
-\[ \mset{x \in Z \semic x \ge 3} \]
+% \[ \mset{x \in Z \semic x \ge 3} \]
 
-I sort of spoiled the ending for you. A much more riveting explanation of this
-can be found in \cite{expeditions}.
+% I sort of spoiled the ending for you. A much more riveting explanation of this
+% can be found in \cite{expeditions}.
 
-\sss{Axiomizing equality}
+% \sss{Axiomizing equality}
 
 
-Before we can go any further, we have to make some rules about the $=$ sign. I
-mentioned these in \cref{2-boolean-algebra}.
+% Before we can go any further, we have to make some rules about the $=$ sign. I
+% mentioned these in \cref{2-boolean-algebra}.
 
-\begin{enumerate}
-\item $a = a \sfall a$. This is called the \term{reflexive
-    property}. ``Reflective property'' would be a better name, because if you
-  put $a$ in front of the $=$ mirror, $a$ is there.
-\item $a = b \implies b = a \sfall a,b$. This is called the \term{commutative
-    property}. ``Commute'' means ``move'', so the ``commutative property'' is
-  the property of moving things around.
-\item $\parens{a = b} \land \parens{b = c} \implies a = c \sfall a,b,c$. This is
-  called the \term{transitive property}. "Transition" is what happens when
-  things change. so ``transitive'' property is what happens when you change the
-  variable name.
-\end{enumerate}
+% \begin{enumerate}
+% \item $a = a \sfall a$. This is called the \term{reflexive
+%     property}. ``Reflective property'' would be a better name, because if you
+%   put $a$ in front of the $=$ mirror, $a$ is there.
+% \item $a = b \implies b = a \sfall a,b$. This is called the \term{commutative
+%     property}. ``Commute'' means ``move'', so the ``commutative property'' is
+%   the property of moving things around.
+% \item $\parens{a = b} \land \parens{b = c} \implies a = c \sfall a,b,c$. This is
+%   called the \term{transitive property}. "Transition" is what happens when
+%   things change. so ``transitive'' property is what happens when you change the
+%   variable name.
+% \end{enumerate}
 
-Good? You don't have to remember the names of the properties, but you do have to
-remember what the properties are.
+% Good? You don't have to remember the names of the properties, but you do have to
+% remember what the properties are.
 
 
