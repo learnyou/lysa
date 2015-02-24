@@ -55,19 +55,18 @@ Sets, proofs, functions introduction
 
 ## §5 Some more interesting stuff with sets
 
-### §5.1 Paradoxes
-
+1. ℕ and ℝ
+1. Cardinalities
+2. ℵ
+3. Continuum hypothesis
+5. ZF vs ZFC
+4. Axiom of choice
 1. Barber's paradox
 2. Russell's Paradox
 3. Need for an ambient set
 
 ### §5.2 Cantor's work
 
-1. Cardinalities
-2. ℵ
-3. Continuum hypothesis
-4. Axiom of choices
-5. ZF vs ZFC
 
 ### §5.3 Special types of sets
 
