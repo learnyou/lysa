@@ -137,9 +137,10 @@
 \newcommand{\mlist}[1]{\left(\,#1\,\right)}
 \newcommand{\sfall}{\semicolon\forall}
 \newcommand{\ld}[1]{\lambda\mlist{#1} \to}
-\newcommand{\domain}[1]{^{\mathrm{dom}}\brackets{#1}}
+\newcommand{\evalbf}[2]{\evalat{\mathbf{#1}}{#2}}
+\newcommand{\domain}{\evalbf{dom}}
 \let\dom\domain
-\newcommand{\codomain}[1]{^{\mathrm{codom}}\brackets{#1}}
+\newcommand{\codomain}{\evalbf{codom}}
 \let\codom\codomain
 \newcommand{\bool}{\mathbb{B}}
 \newcommand{\boolnm}{$\mathrm{\bool}$}
