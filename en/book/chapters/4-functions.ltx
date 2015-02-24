@@ -310,4 +310,64 @@ This is important vocabulary that I'm going to use later:
     hard (i.e. fun) problem: prove that a function is invertible if (and only
     if) it is bijective. This is a very difficult proof, but you really need to
     understand it.}
+
+  \Answer{ Let's look at $f : A \to B$. If $f$ is surjective, then $B = \im{f}$,
+    so we can write
+
+    \[ f : A \to \im{f} \]
+
+    In other words
+
+    \[ f : \dom{f} \to \im{f} \]
+
+    It must be true that $f$ is a surjection for $f$ to be invertible. Else
+    there would be elements in the codomain of $f$ that were not in the domain
+    of $\arc{f}$.
+
+    We've established
+
+    \begin{alignedmath}
+      \arc{f} : \im{f} \to \dom{f}
+    \end{alignedmath}
+
+    Let's assume $f$ is invertible. Then $\dom{f} = \preim{f}$. Thus
+
+    \begin{alignedmath}
+      \arc{f} : \im{f} \to \dom{f}
+    \end{alignedmath}
+
+    For $\arc{f}$ to be a function --- i.e. for $f$ to be invertible, then it
+    must be true that
+
+    \begin{alignedmath}
+      \notexists a,b \in \im{f} \semic a = b \semic \arc{f,a} \ne \arc{f,b}
+    \end{alignedmath}
+
+    If we flip this around
+
+    \begin{alignedmath}
+      \notexists a,b \in \preim{f} \semic a \ne b \semic \evalat{f}{a} = \evalat{f}{b}
+    \end{alignedmath}
+
+    That is, the definition of injectivity. Thus we have proven
+
+    \[
+    \text{$f$ is invertible}
+    \iff
+    \parens{\text{$f$ is an injection}}
+    \land
+    \parens{\text{$f$ is a surjection}}
+    \iff
+    \text{$f$ is a bijection}
+    \]
+
+    We just need to show that 
+
+    \[
+    \text{$f$ is a bijection}
+    \implies
+    \text{$f$ is invertible}
+    \]
+
+  }
 \end{ExcList}
