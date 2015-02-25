@@ -175,13 +175,17 @@ above definition instead of $\lor$. Can you guess what the symbol for
 
 \[ A \cap B = \mset{x \in \amb \semic \parens{x \in A} \land \parens{x \in B}} \]
 
-The standard example is to use ``Venn diagrams''. 
+The standard example is to use ``Venn diagrams''. I drew some myself in
+\cref{fig:venns}.\footnote{It's a tradition from Learn You a Haskell that each
+  book include poorly-drawn explanatory graphics by the author.}
 
-FIXME: Add venn diagrams explaining $\cup$ and $\cap$.
-
-
-I should remind you of the fundamental rule of algebra - what you do to one side
-of $=$, you need to do to the other.
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=0.8\textwidth]{venn-union.png}
+  \includegraphics[width=0.8\textwidth]{venn-intersect.png}
+  \caption{The Venn diagrams.}
+  \label{fig:venns}
+\end{figure}
 
 \begin{ExcList}
   \Exercise{Given that
