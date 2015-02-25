@@ -139,6 +139,7 @@
 \newcommand{\sfall}{\semicolon\forall}
 \newcommand{\ld}[1]{\lambda\mlist{#1} \to}
 \newcommand{\evalbf}[2]{\evalat{\mathbf{#1}}{#2}}
+\newcommand{\evalrm}[2]{\evalat{\mathrm{#1}}{#2}}
 \newcommand{\domain}{\evalbf{dom}}
 \let\dom\domain
 \newcommand{\codomain}{\evalbf{codom}}
@@ -154,9 +155,9 @@
   {\begin{alignmath}{l}}
   {\end{alignmath}}
 \newcommand{\lto}{\lambda\to}
-\newcommand{\arc}[1]  {\evalat{\mathbf{arc}}{#1}}
-\newcommand{\im}[1]   {\evalat{\mathbf{im}}{#1}}
-\newcommand{\preim}[1]{\evalat{\mathbf{preim}}{#1}}
+\newcommand{\arc}  {\evalrm{arc}}
+\newcommand{\im}   {\evalrm{im}}
+\newcommand{\preim}{\evalrm{preim}}
 \newcommand{\Set}{\mathbf{Set}}
 \newcommand{\Qsubof}{\stackrel{?}{\subof}}
 \newcommand{\Qsubeq}{\stackrel{?}{\subeq}}
