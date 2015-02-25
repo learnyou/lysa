@@ -164,73 +164,54 @@ I'm going to introduce some new notation: the $\iff$ symbol.
 
 \[ \parens{A \iff B} = \parens{A \implies B} \land \parens{A \impliedby B} \]
 
-In practice, $\iff$ is logically equivalent to $=$. That is, all of the
-properties of $=$ hold.\cite{landau-analysis}
+\nm\iff\ should be read as ``if (and only if)''. Sometimes I'll write the word
+iff - that's the same as ``if (and only if)''.
+
+In order to do the exercises (yes, there are exercises), you need to know these
+properties of \nm\implies .
 
 \begin{enumerate}
-\item For all $a$, $a = a$.
-\item For all $a$ and $b$, $\parens{a = b} \implies \parens{b = a}$.
+\item For all $a$, $a \implies a$.
 \item For all $a$ and $b$, and $c$,
-  $\parens{\parens{a = b} \land \parens{b = c}} \implies \parens{a = c}$.
+  $\parens{\parens{a \implies b} \land \parens{b \implies c}} \implies \parens{a
+    \implies c}$.
 \end{enumerate}
 
-You should go over those properties, and verify that they are true for $=$, and
-then verify that they are true for $\iff$.
+I'm too lazy to type ``For all'' each time, so I'm going to use the $\forall$
+symbol; it's a common symbol in math that means ``for all''. $\forall$ looks
+like an upside-down A, so it should be easy to remember.
 
-Alright, cool, this was a pretty easy chapter. Only 240 lines of \LaTeX! More
-importantly, I'm confident that this stuff is so easy, I won't even give you
-exercises!\footnote{The real reason is, I can't come up with any exercises that
-  aren't tedious.}
+There are two more rules about $\land$ and $\lor$:
 
-% TODO:
-% * Explain more stuff about \lor and \land
-% * Explain the first few peano axioms (about equality)
-% * Explain the transition of logic.
-% * Exercises
+\begin{enumerate}
+\item $A \land A = A \sfall A$
+\item $A \lor A = A \sfall A$
+\item $A \land \parens{B \land C} = \parens{A \land B} \land C \sfall A,B,C$
 
-% \item $A \notiff B$ means ``Saying $A$ is not the same as saying $B$.'' Remember
-%   that $A \iff B$ means $\parens{A \implies B} \land \parens{A \impliedby
-%     B}$.
-%   Well, $A \notiff B$ means that one of the aforementioned conditions is
-%   \falsenm. Remember, when dealing with $\land$, if one of the conditions is
-%   \falsenm, the greater condition is \falsenm.
+  Okay, even this is too difficult. Instead of saying $P = Q \sfall P,Q$, I'm
+  going to write $P \equiv Q$. Yes, mathematicians are that lazy.
 
-% Note that in this case, $X$ and $Y$ are whole expressions, like $A = B$. They
-% are technically Boolean values, but, as we'll see, that intuition tends to fail
-% pretty quickly.
+\item $A \land \parens{B \land C} \equiv \parens{A \land B} \land C$
+\item $A \lor \parens{B \lor C} \equiv \parens{A \lor B} \lor C$
+\item $A \land \parens{B \lor C} \equiv \parens{A\land B} \lor \parens{A \land C}$
+\item $\lnot\parens{A \land B} \equiv \lnot A \lor \lnot B$
+\end{enumerate}
 
-% \sss{Equality}
+Alright, cool, this was a pretty easy chapter. Only 200 or so lines of \LaTeX!
+These exercises are somewhat tedious, as they require you to prove pretty
+obvious (i.e. tedious) things. However, you need to learn these techniques in
+order to be able to go on and prove less obvious things.
 
-% Before we go much further, I have to make some remarks about equality of
-% things. That is, the use of the $=$ sign, and of the $\ne$ sign. Those signs
-% should be read as `equals' and `not equals', respectively. These statements are
-% true for things that aren't Booleans, such as numbers. However, in this chapter,
-% we are only going to be talking about Booleans.
+\begin{ExcList}
+  \Exercise{I'm going to give you this one only in mathematical notation:
 
-% \begin{itemize}
-% \item For every $A$, it is always true that $A = A$.
-% \item For every $A$ and $B$, if $A = B$, then it's true that $B = A$. Using the
-%   notation above,
+    \[ A \lor \parens{B \land C} \Qequiv \parens{A \lor B} \land \parens{A \lor
+      C} \] }
 
-%   \[ A = B \implies B = A\]
+% FIXME add proof
 
-% \item For every $A$ and $B$, and $C$, if $A = B$ and $B = C$, then it's true
-%   that $A = C$. Using the notation above,
-  
-%   \[\mset{A = B, B = C} \implies A = C\]
+  \Exercise{$\lnot\parens{A \lor B} \Qequiv \lnot A \land \lnot B$ }
 
-%   Because of this, I can write things like $A = B = C$ without
-%   ambiguity.\footnote{A common critique of this practice has to do with
-%     associativity. That is, many people read $A = B = C$ as
-%     $\parens{A = B} = C$. This translates to $A = B \implies C$, which isn't
-%     what we want. The solution is to not try to group the operators like that,
-%     or use parentheses when you do want to group them.}
-% \end{itemize}
+% FIXME add proof
 
-% \begin{itemize}
-% \item See if you can decipher this: $\forall A \comma \lnot\parens{A \ne A}$.
-  
-%   You should read that as ``for all $A$, $A \ne A$ is \falsenm.''
-
-% \item $\forall A,B \comma \parens{A = B} \iff \not \parens{A \ne B}$
-% \end{itemize}
+\end{ExcList}
