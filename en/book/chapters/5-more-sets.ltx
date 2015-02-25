@@ -1,0 +1,44 @@
+\ch{More stuff about sets}
+
+By now, you hopefully have some idea into the basic intuition behind sets and
+functions. Moreover, you've proven some cool stuff about them -- for instance,
+you proved that a function is invertible iff it is bijective.
+
+That's kind of cool, right? It's much easier to verify that a function is
+bijective than it is to find its inverse. So, right off the bat, you can see if
+a function is invertible without trying to invert it. Despite what you may
+think, a common problem in math is to find inverse functions.
+
+Speaking of functions, I'm going to define a really simple function:
+
+\begin{alignedmath}
+  \id : a \to a \\
+  \evalat{\id}{x} = x
+\end{alignedmath}
+
+That function is about as simple as functions get. It's not a very interesting
+function, but it's handy when defining things.
+
+This is a slightly less simple function, but nonetheless important
+
+\begin{alignedmath}
+  flip : \parens{a \to b \to c} \to b \to a \to c \\
+  \eva{flip}{f, x, y} = \eva{f}{y,x}
+\end{alignedmath}
+
+It takes a function, $f$, which takes an $a$ and a $b$, and then returns another
+function with the arguments flipped. You won't usually see
+$\eva{flip}{\ld{x, y} x-y, 3, 5}$ floating around. Instead
+
+\begin{alignmath}{rcl}
+  f & : & p \to q \to r \\
+  \eva{flip}{f} & : & q \to p \to r \\
+\end{alignmath}
+
+Here's an infix operator:
+
+\begin{alignedmath}
+  \circ : \parens{b \to c} \to \parens{a \to b} \to a \to c \\
+  \eva{\parens{f \circ g}}{x} = \eva{f}{\eva{g}{x}}
+\end{alignedmath}
+
