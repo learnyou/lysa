@@ -186,7 +186,7 @@
 \newcommand{\pharpend}{\anauthor{Peter Harpending}{peter@harpending.org}}
 \let\xti\textit %italicize
 \let\xtb\textbf %boldface
-\newcommand{\code}[1]{{\footnotesize\tt #1}} %boldface
+\newcommand{\code}[1]{{\footnotesize\ttfamily #1}}
 \let\crappycode\code %boldface
 \let\terminal\code
 \let\term\xti
@@ -221,6 +221,16 @@
     }}
   {\endminipage}
 
+\lstnewenvironment{haskell}[1][]
+{\noindent\minipage{\linewidth}\medskip
+  \lstset{
+      numbers=none,
+      basicstyle=\small\ttfamily,
+      language=Haskell,
+      #1
+    }}
+  {\endminipage}
+
 \lstnewenvironment{shellsession}[1][]
   {\lstset{
       numbers=none,
@@ -230,7 +240,7 @@
           }}
   {}
 
-\newcommand{\filepath}{\texttt}
+\let\filepath\code
 \newcommand{\Qforall}{\stackrel{?}{\forall}}
 \newcommand{\Qexists}{\stackrel{?}{\exists}}
 \newcommand{\nilnm}{$\nil$}
