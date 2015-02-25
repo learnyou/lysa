@@ -115,7 +115,7 @@ visit \link{https://gitlab.com/lysa/lysa}{our GitLab page}. We also have a
 \link{http://learnyou.org}{woefully incomplete website} and a
 \link{https://lysa.reddit.com/}{community on Reddit}.
 
-\s{Idris}\label{intro-idris}
+\s{Haskell}\label{intro-idris}
 
 In this book, I cover a lot of hard stuff.\footnote{This isn't actually
   true. Math isn't hard, stupid!} Sometimes, it's useful to program your way
@@ -146,16 +146,11 @@ math is about.
 
 Programming and math go hand-in-hand. Programmers and mathematicians will attest
 to this; I certainly can. For that reason, throughout this book, there will be
-coding exercises in the programming language Idris. Idris is an interesting
-programming language for many reasons. The chief of which is that it can be used
-to prove things mathematically. Most programming languages can't do this. Idris
-can, which is why it is special.\footnote{There are other programming languages
-  that can prove things, namely Coq and Agda. However, I'm most familiar with
-  Idris, and Idris is probably the most useful, so I'm using Idris. Deal with
-  it.}
+coding exercises in the programming language Haskell.\footnote{I was originally
+  going to use another language called Idris, but Idris is, at the time of this
+  writing, so buggy that it is unusable.}
 
-
-\ss{Installing Idris}
+\ss{Installing Haskell}
 
 This is something that is actually rather difficult to summarize, because it
 varies from operating system to operating system. I will put down the
@@ -168,8 +163,6 @@ you could add the instructions yourself, and ask me to merge your changes.
 
 \pg{Arch}
 
-You need the Haskell platform and the GNU Multiple-Precision (GMP) library.
-
 \begin{shellsession}
   # pacman -S ghc cabal-install gmp
   % \cabal update
@@ -180,7 +173,7 @@ At this point, you'll want to add \terminal{\textasciitilde/.cabal/bin} to your
 \terminal{\$PATH} variable.
 
 \begin{shellsession}
-  % cabal install -j alex happy haddock hscolour idris
+  % cabal install -j alex happy haddock hscolour
 \end{shellsession}
 
 \xtv{alex} and \xtv{happy} are dependencies for a number of Haskell
@@ -188,17 +181,13 @@ packages. However, due to a
 \link{https://github.com/haskell/cabal/issues/220}{long-standing bug in
   \xtv{cabal}}, they don't get pulled in when packages depend on them.
 
-If the installation doesn't work, please report the bug to
-\link{https://github.com/idris-lang/Idris-dev/issues/new}{the Idris people}.
-
 \pg{Gentoo}
 
-You will need the Haskell platform, along with the GNU Multiple Precision (GMP)
-library. As of 5 January 2015, the Haskell platform is only available on
-\code{\tilde ARCH}, where \code{ARCH} is your processor architecture
-(e.g. \code{amd64}, \code{x86}). If you use \code{ARCH}, you can enable these by
-adding the following to \filepath{/etc/portage/package.keywords}:\footnote{If
-  you already use \code{\tilde ARCH}, you can ignore this}
+As of 5 January 2015, the Haskell platform is only available on \code{\tilde
+  ARCH}, where \code{ARCH} is your processor architecture (e.g. \code{amd64},
+\code{x86}). If you use \code{ARCH}, you can enable these by adding the
+following to \filepath{/etc/portage/package.keywords}:\footnote{If you already
+  use \code{\tilde ARCH}, you can ignore this}
 
 \begin{plainfile}
 dev-lang/ghc
@@ -215,7 +204,8 @@ dev-lang/ghc binary
 Otherwise, you have to compile GHC (the Haskell compiler) from scratch, and that
 takes forever.
 
-Once you have that all out of the way, you'll want to run the following command as root:
+Once you have that all out of the way, you'll want to run the following command
+as root:
 
 \begin{shellsession}
 # emerge -jav dev-lang/ghc dev-haskell/cabal-install
@@ -231,10 +221,7 @@ normal user:
 \begin{shellsession}
 % cabal update
 % cabal install alex happy haddock hscolour
-% cabal install idris
 \end{shellsession}
-
-You can then get at the Idris shell by running \terminal{idris}.
 
 \ss{Install a text editor}
 
@@ -291,75 +278,6 @@ Total Installed Size:  178.32 MiB
   insane learning curve, but is a wonderful editor once you spend 3 years
   learning how to use it.
 \end{enumerate}
-
-\ss{Hello World in Idris}
-
-Pretty much every programmer in the world is familiar with the ``Hello, World!''
-program. It's a program that exists in every language that just prints out
-\code{hello, world}.\footnote{Prints it in the terminal, not on a
-  printer. Seriously, who uses paper these days?}
-
-Access the Idris shell by running \code{idris} in a terminal. Here's what mine
-looks like:
-
-\begin{plainfile}
-% idris
-     ____    __     _                                          
-    /  _/___/ /____(_)____                                     
-    / // __  / ___/ / ___/     Version 0.9.16-git:fca8309
-  _/ // /_/ / /  / (__  )      http://www.idris-lang.org/      
- /___/\__,_/_/  /_/____/       Type :? for help               
-
-Idris is free software with ABSOLUTELY NO WARRANTY.            
-For details type :warranty.
-Idris> 
-\end{plainfile}
-
-Note that the \code{\%} is there to indicate that the rest of the line should
-typed in a terminal. You shouldn't type the \code{\%}.
-
-There will be a flashing cursor after \code{Idris>}. That's where you type
-stuff.\footnote{Note that, during the writing of this book, I've encountered a
-  number of bugs in Idris. Trying to fix these bugs requires that I use the same
-  version of Idris as the Idris developers, hence my using version
-  \code{0.9.16-git:fca8309}. Your version will probably be different.} Here's
-hello, world!
-
-\begin{plainfile}
-Idris> "hello, world"
-"hello, world" : String
-\end{plainfile}
-
-That was pretty simple.  Note that you only have to type the thing following
-\code{Idris> }, then hit \code{Return}. You shouldn't type \code{Idris> } The
-stuff below it is what \terminal{idris} prints. By the way, it's incredibly
-important that you type this stuff out yourself, rather than just reading it (or
-copying \& pasting).
-
-If things are preceded by \code{Idris>}, that means that it's run in the
-interactive environment.\footnote{In case you forgot, the way you access the
-  interactive environment is to run \terminal{idris} in a terminal.} If you see
-a bunch of Idris code, without \code{Idris>} in front of each line, that means
-you should put the code in a file.
-
-Speaking of files, let's make an actual program that you can run on the command
-line. Write this in an editor, and save it to a file called
-\code{helloworld.idr}:
-
-\lstinputlisting{helloworld.idr}
-
-The computer can't understand the code; the code exists for the benefit of
-humans. With that in mind, we need to turn the code into binary language, which
-the computer can understand. Doing this by hand would be a nightmare. Luckily,
-we have a program to do it for us. To compile the program we wrote, run
-\terminal{idris helloworld.idr -o helloworld}. To run it, run
-\terminal{./helloworld}.
-
-\begin{shellsession}
-% idris helloworld.idr -o helloworld
-% ./helloworld
-hello, world
-\end{shellsession}
 
 \s{Target audience}
 
