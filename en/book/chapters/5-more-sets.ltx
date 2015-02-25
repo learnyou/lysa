@@ -22,17 +22,17 @@ function, but it's handy when defining things.
 This is a slightly less simple function, but nonetheless important
 
 \begin{alignedmath}
-  flip : \parens{a \to b \to c} \to b \to a \to c \\
-  \eva{flip}{f, x, y} = \eva{f}{y,x}
+  \flip : \parens{a \to b \to c} \to b \to a \to c \\
+  \eva{\flip}{f, x, y} = \eva{f}{y,x}
 \end{alignedmath}
 
 It takes a function, $f$, which takes an $a$ and a $b$, and then returns another
 function with the arguments flipped. You won't usually see
-$\eva{flip}{\ld{x, y} x-y, 3, 5}$ floating around. Instead
+$\eva{\flip}{\ld{x, y} x-y, 3, 5}$ floating around. Instead
 
 \begin{alignmath}{rcl}
   f & : & p \to q \to r \\
-  \eva{flip}{f} & : & q \to p \to r \\
+  \eva{\flip}{f} & : & q \to p \to r \\
 \end{alignmath}
 
 Here's an infix operator:
