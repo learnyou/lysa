@@ -42,3 +42,106 @@ Here's an infix operator:
   \eva{\parens{f \circ g}}{x} = \eva{f}{\eva{g}{x}}
 \end{alignedmath}
 
+We're going to look at some stuff with sets.
+
+\s{Set subtraction}
+
+First off, we have ``set subtraction''. This is sometimes called the ``relative
+complement''.
+
+\[ P \setminus Q = \mset{x \in P \semic x \notin Q} \]
+
+$P \bs Q$ is all of the elements in $P$ that are not in $Q$.
+
+\begin{figure}[ht]
+  \centering
+  \inclgraph{setminus.png}
+  \caption{Set subtraction}
+  \label{fig:setminus}
+\end{figure}
+
+What would $P \bs P$ be, then? Well, $\nil$, of course, right! 
+
+\[ P \setminus P = \mset{x \in P \semic x \notin P} = \nil \]
+
+Well, that looks like a contradiction, doesn't it? Well, sort of. It's a
+contradiction if you think of it as ``$x$ has to be both in $P$ and not in $P$,
+so it can't be a set.'' But, if you realize that the comprehension is the ``set
+of objects satisfying the condition'', then you don't encounter a
+contradiction. $P \setminus P$ is the set of all objects in $P$ that are not in
+$P$: there are no elements satisfying this condition, thus $P \bs P \equiv \nil$.
+
+\Cref{fig:setminus} explains this idea graphically.
+
+\ss{Complement}
+
+If $P \subof \amb$, then $\amb \setminus P$ is called the ``\term{complement} of
+$P$ with respect to $\amb$''. Yes, that's compl\xti{e}ment with an 'e', not
+compl\xti{i}ment, with an 'i'. Given a set $P$, and another set $\amb$, such
+that $P \subeq \amb$,
+
+$P^c$ is the complement of $P$ with respect to an unknown ambient set.
+
+I drew another diagram to illustrate the complement in \cref{fig:complement}.
+
+\begin{figure}[ht]
+  \centering
+  \inclgraph{venn-complement-2.png}
+  \caption{The complement, illustrated graphically. I tried to draw an $\amb$ in
+    the upper right corner. It turned out terribly.}
+  \label{fig:complement}
+\end{figure}
+
+
+\begin{ExcList}
+  \Exercise{
+    $\compl{\compl{P}} \Qequiv P$
+  }
+  \Answer{Yes.
+
+    \begin{rclmath}
+      \compl{P}         & \equiv & \mset{x \in \amb \semic x \notin P} \\
+                        & \equiv & \mset{x \in \amb \semic \lnot\parens{x \in P}} \\
+      \compl{\compl{P}} & \equiv & \mset{x \in \amb \semic \lnot\lnot\parens{x \in P}} \\
+                        & \equiv & \mset{x \in \amb \semic x \in P} \\
+                        & \equiv & P \\
+    \end{rclmath}
+
+  }
+
+  \Exercise{
+    $C \bs \parens{A \cup B} \Qequiv \parens{C \bs A} \cap \parens{C \bs B}$
+
+    What about
+    $$C \bs \parens{A \cap B} \Qequiv \parens{C \bs A} \cup \parens{C \bs B}$$
+  }
+
+  \Exercise{
+    $A \bs \parens{B \bs C} \Qequiv \parens{A \bs B} \bs C$
+  }
+
+  \Exercise{
+    $A \cap \parens{B \bs C} \Qequiv \parens{A \cap B} \bs C$
+  }
+  \Exercise{
+    $A \bs \parens{B \cap C} \Qequiv \parens{A \bs B} \cap C$
+  }
+\end{ExcList}
+
+% \s{Various sets}
+
+% $\N$, $\Z$, $\Q$, and $\R$.
+
+% $\Set$ is a commutative monoid
+% $\Z$ is a ring
+% $\R$ is a field, 
+% et cetera
+
+% \s{A brief history of set theory}
+
+% $\aleph_0$, cardinalities, ordinal numbers, continuum hypothesis
+
+% ZFC set theory
+
+% Axiom of choice, why its so controversial
+
