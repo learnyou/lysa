@@ -74,7 +74,7 @@ But that's too cumbersome, so instead we'll write
 
 \[ 2, 6 \in Q \]
 
-\xtb{But won't that get confusing?}
+\pg{But won't that get confusing?}
 
 Only if we put parentheses or braces around $2$ or $6$.
 
@@ -102,7 +102,7 @@ Referring to the previous example,
 
 \[ \mset{2,6} \subeq Q \]
 
-\xtb{Wait, what is with the little line under the round half circley thing?}
+\pg{Wait, what is with the little line under the round half circley thing?}
 
 So, actually, there are two types of subsets - \term{proper} and
 \term{improper}. $A \subeq B$ is for improper subsets. $A \subof B$ is for
@@ -112,11 +112,10 @@ $A \subeq B$ allows for the possibility that $A = B$. $A \subof B$ means that
 $B$ is \xti{strictly larger} than $A$; there are some elements in $B$ that are
 not in $A$.
 
-Before I go on, I'm going to define a couple of other symbols. We're constantly
-saying ``this thing exists'' and ``for all'', so I'm going to add a couple of
-symbols. $\exists$ is for ``there exists'' --- notice the backwards E, as in
-``exists''. $\forall$ is for ``for all'' --- notice the upside-down A, as in
-``all''.
+\label{exists}
+I've already defined $\forall$ in \cref{forall}. I'm now going to add another
+symbol, $\exists$, which means ``exists''. I mention $\forall$, because
+$\exists$ is used in the same context.
 
 So, now that you've got all of this down (hopefully), I'll give you some exercises. 
 
@@ -158,16 +157,38 @@ either $A$ or in $B$. That is:
 You might also remember this by the fact that the union symbol $\cup$ looks
 vaguely like the or symbol $\lor$.
 
-\xtb{What the hell is that notation ?}
+\pg{What the hell is that notation?}
 
-Let's go over it.
+\label{comprehensions}
+That's called a \term{class comprehension}. It's a hacky way to describe a
+set. Technically, it describes a \term{class}, which is different than a
+set. That said, at least until chapter 5, they only describe sets!
 
-\nm\amb\ is the ``ambient set'' -- it's a set such that $A, B \subeq \amb$. I
-can't quite explain it right now, but if we don't have an ambient set, then
-things go horribly wrong. \nm\amb\ is supposed to be a cursive 'A', but the font
-is terrible.
+You should look at it in two pieces: before the semicolon and after the
+semicolon. The term before the semicolon explains what each element looks like,
+and defines it to be a member of an ambient set. In this case --- and in most
+cases --- the element will just be $x$, or $a$, or something of the like.
 
-\xtb{Back to business -- the intersection}
+\[ A \cup B = \mset{x \in \amb \semic \parens{x \in A} \lor \parens{x \in B}} \]
+
+Okay, cool. The right side of the semicolon lists conditions that must be true
+about the thing on the left. In this case, $x$ must be in $A$, logical-or it
+must be in $B$.
+
+The $\amb$ is shorthand for ``ambient set''. It's a set such that
+$A, B \subeq \amb$. For reasons I can't quite explain yet, you need to specify
+that the element variable ($x$ in this case) is an element of another set. The
+consequence of this is, a set comprehension can only be used to make a
+\xti{subset} of another set. $\amb$ is the shorthand for ``there's another set
+out there, but I don't care what it is (and you shouldn't either)''.
+
+Can you think of another consequence?
+
+Well, since we are defining the union using a notation which can only be used to
+describe subsets, we can only take the union of two sets if they are both
+subsets of some larger set! That's annoying. Oh well.
+
+\pg{Back to business -- the intersection}
 
 The intersection is, you guessed it - what happens when we use $\land$ in the
 above definition instead of $\lor$. Can you guess what the symbol for
@@ -187,6 +208,27 @@ The standard example is to use ``Venn diagrams''. I drew some myself in
     Q. My handwriting sucks, deal with it.}
   \label{fig:venns}
 \end{figure}
+
+\ss{More on the comprehension}
+
+I use the comprehension quite a lot (other books do as well), so I should at
+least take a subsubsection to explain it.
+
+I'm going to list some \xti{axioms} about comprehensions, which you would do
+well to remember:
+
+Let $p$ be a \text{unary predicate}. Basically, it takes the $x$, and determines
+whether or not that $x$ is to be included in the comprehended set.
+
+\begin{enumerate}
+\item
+  $\mset{x \in A \semic x \in \mset{y \in B; \evalat{p}{y}}} \equiv \mset{x \in
+    A \semic x \in B \land \evalat{p}{x}}$
+\item
+  $\mset{x \in A \semic x \notin \mset{y \in B; \evalat{p}{y}}} \equiv \mset{x \in
+    A \semic x \notin B \lor \lnot\evalat{p}{x}}$
+\end{enumerate}
+
 
 \begin{ExcList}
   \Exercise{Given that
@@ -398,7 +440,7 @@ Namely there's no fixed element $q : \Set$ for which
 
 (otherwise it would be a semiring)
 
-\xtb{Okay, what the hell are you talking about?}
+\pg{Okay, what the hell are you talking about?}
 
 Mathematicians have invented all sorts of structures for these things which
 share properties. All of the structures are slightly different. I'll start with
