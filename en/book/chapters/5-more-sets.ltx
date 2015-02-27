@@ -65,11 +65,12 @@ What would $P \bs P$ be, then? Well, $\nil$, of course, right!
 \[ P \setminus P = \mset{x \in P \semic x \notin P} = \nil \]
 
 Well, that looks like a contradiction, doesn't it? Well, sort of. It's a
-contradiction if you think of it as ``$x$ has to be both in $P$ and not in $P$,
-so it can't be a set.'' But, if you realize that the comprehension is the ``set
-of objects satisfying the condition'', then you don't encounter a
-contradiction. $P \setminus P$ is the set of all objects in $P$ that are not in
-$P$: there are no elements satisfying this condition, thus $P \bs P \equiv \nil$.
+contradiction if you assume that $P$ is nonempty --- if you assume that there is
+some element in $P$ --- if an element is both in $P$ and not in $P$, that would
+be madness! But, if you realize that the comprehension is the ``set of objects
+satisfying the condition'', then you don't encounter a contradiction.
+$P \setminus P$ is the set of all objects in $P$ that are not in $P$: there are
+no elements satisfying this condition, thus $P \bs P \equiv \nil$.
 
 \Cref{fig:setminus} explains this idea graphically.
 
