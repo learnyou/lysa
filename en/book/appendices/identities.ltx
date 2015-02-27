@@ -44,3 +44,45 @@ reference, not for reading.
   \item[DeMorgan's property] $a \land \parens{b \lor c} \equiv \parens{a \land b} \lor \parens{b \land c}$  
   \item[Derived property] $a \lor \parens{b \land c} \equiv \parens{a \lor b} \land \parens{b \lor c}$  
 \end{description}
+
+\s{Sets}
+
+\ss{Definitions}
+
+\begin{description}
+  \item[Unions] $a \cup b = \mset{x \in \amb \semic x \in a \lor x \in b}$
+  \item[Intersects] $a \cap b = \mset{x \in a \semic x \in b}$
+  \item[Set subtraction (or relative complement)] $a \bs b = \mset{x \in a \semic x \notin b}$
+  \item[Complement (sometimes absolute complement)] $A^c = \amb \bs A = \mset{x \in \amb \semic x \notin A}$
+\end{description}
+
+\ss{Identities}
+
+\sss{Unions}
+
+\begin{description}
+  \item[Reflexive property] $a \union a \equiv a$ 
+  \item[Associative property] $a \union \parens{b \union c} \equiv \parens{a \union b} \union c$ 
+  \item[Commutative property] $a \union b \equiv b \union a$ 
+\end{description}
+
+\sss{Intersects}
+
+\begin{description}
+  \item[Reflexive property] $a \intersect a \equiv a$ 
+  \item[Associative property] $a \intersect \parens{b \intersect c} \equiv \parens{a \intersect b} \intersect c$ 
+  \item[Commutative property] $a \intersect b \equiv b \intersect a$ 
+\end{description}
+
+\sss{Set subtraction}
+
+\begin{itemize}
+\item $A \bs \parens{B \cap C} \equiv \parens{A \bs B} \union \parens{A \bs C}$
+\item $A \bs \parens{B \union C} \equiv \parens{A \bs B} \intersect \parens{A \bs C}$
+\item $A \bs \parens{B \bs C} \equiv \parens{A \bs B} \union \parens{A \intersect C}$
+\item $\parens{A \bs B} \intersect C \equiv \parens{A \cap C} \bs B \equiv A \intersect \parens{C \bs B}$
+\item $\parens{A \bs B} \union C \equiv \parens{A \union C} \bs \parens{B \bs C}$
+\item $A \bs A \equiv \nil$
+\item $A \bs \nil \equiv A$
+\item $\nil \bs A \equiv \nil$
+\end{itemize}
