@@ -87,3 +87,19 @@ reference, not for reading.
 \item $A \bs \nil \equiv A$
 \item $\nil \bs A \equiv \nil$
 \end{itemize}
+
+\s{Functions}
+
+\ss{Vocabulary}
+
+\begin{description}
+\item[Referential transparency] $a = b \implies \evalat{f}{a} = \evalat{f}{b}$
+\item[Domain] If $f : A \to B$, then $A$ is the \term{domain} of $f$.
+\item[Codomain] If $f : A \to B$, then $B$ is the \term{codomain} of $f$.
+\item[Image] $\im{f} = \mset{\evalat{f}{x} \in B\semic x \in A}$
+\item[Injectivity] $\notexists \mvec{a,b} \semic a,b \in A \land a \ne b \land \evalat{f}{a} = \evalat{f}{b}$
+\item[Surjectivity] $\codom{f} = \im{f}$
+\item[Bijectivity] A function is \term{bijective} if it is both injective and surjective.
+\item[Invertibility] A function is invertible iff it is bijective. The inverse of $f$ is $\arc{f}$
+\item[Preimage] $\mathrm{preim} = \mathrm{codom} \circ \mathrm{arc}$
+\end{description}
