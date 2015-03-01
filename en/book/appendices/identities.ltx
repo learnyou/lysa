@@ -249,15 +249,81 @@ reference, not for reading.
   \end{proof}
 
 \item $\mathbf{A \bs \parens{B \bs C} \equiv \parens{A \bs B} \union \parens{A \intersect C}}$
-  % \begin{proof}
-  %   \begin{rclmath}
-  %     A \bs \parens{B \bs C}
-  %   \end{rclmath}
-  %   % A \bs \parens{B \bs C}
-  %   % \parens{A \bs B} \union \parens{A \intersect C}
-  % \end{proof}
+  \begin{proof}
+    \begin{rclmath}
+      A \bs \parens{B \bs C}
+      & \ce & \mset{
+        x \in A \semic
+        x \notin \mset {
+          y \in B \semic
+          y \notin C
+        }
+      } \\
+      & \ce & \mset{
+        x \in A \semic
+        x \notin B \lor
+        x \in C
+      } \\
+      \parens{A \bs B} \union \parens{A \intersect C}
+      & \ce & \mset{
+        x \in \amb \semic
+        x \in \mset{ y \in A \semic y \notin B } \lor
+        x \in \mset{ z \in A \semic z \in C }
+      } \\
+      & \ce & \mset{
+        x \in A \semic
+        x \notin B  \lor
+        x \in C
+      } \\
+    \end{rclmath}
+    % A \bs \parens{B \bs C}
+    % \parens{A \bs B} \union \parens{A \intersect C}
+  \end{proof}
 
 \item $\mathbf{\parens{A \bs B} \intersect C \equiv \parens{A \cap C} \bs B \equiv A \intersect \parens{C \bs B}}$
+
+  \begin{proof}
+    \begin{rclmath}
+      \parens{A \bs B} \intersect C
+      & \ce & \mset{
+        x \in \amb \semic
+        x \in \mset{
+          y \in A \semic
+          y \notin B
+        } \land
+        x \in C
+      } \\
+      & \ce & \mset{
+        x \in A \semic
+        x \notin B \land
+        x \in C
+      } \\
+
+      \parens{A \cap C} \bs B 
+      & \ce & \mset{
+        x \in \amb \semic
+        x \in \mset{
+          y \in A \semic
+          y \in C
+        } \land
+        x \notin B
+      } \\
+      & \ce & \mset{
+        x \in A \semic
+        x \notin B \land
+        x \in C
+      } \\
+      A \intersect \parens{C \bs B}
+      & \ce & \mset{
+        x \in A \semic
+        x \notin B \land
+        x \in C
+      } \\
+    \end{rclmath}
+    % \parens{A \bs B} \intersect C
+    % \parens{A \cap C} \bs B \equiv A \intersect \parens{C \bs B}
+  \end{proof}
+  
 \item $\mathbf{\parens{A \bs B} \union C \equiv \parens{A \union C} \bs \parens{B \bs C}}$
 \item $\mathbf{A \bs A \equiv \nil}$
 \item $\mathbf{A \bs \nil \equiv A}$
