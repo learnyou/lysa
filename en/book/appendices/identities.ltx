@@ -90,8 +90,6 @@ reference, not for reading.
 
 \s{Functions}
 
-\ss{Vocabulary}
-
 \begin{description}
 \item[Referential transparency] $a = b \implies \evalat{f}{a} = \evalat{f}{b}$
 \item[Domain] If $f : A \to B$, then $A$ is the \term{domain} of $f$.
@@ -102,4 +100,35 @@ reference, not for reading.
 \item[Bijectivity] A function is \term{bijective} if it is both injective and surjective.
 \item[Invertibility] A function is invertible iff it is bijective. The inverse of $f$ is $\arc{f}$
 \item[Preimage] $\mathrm{preim} = \mathrm{codom} \circ \mathrm{arc}$
+\end{description}
+
+\s{Lambda calculus}
+
+\begin{description}
+\item[$\lambda$ abstraction] A way to write a function: $\ld{x,y} x + y$
+\item[$\alpha$ conversion] Changing the names of the arguments. For instance,
+  you can write the above function as
+
+  \[ \ld{a,b} a + b \]
+
+\item[$\beta$ reduction] Partially calculating a result. For instance
+
+  \[ \ld{2,y} 2 + y \]
+
+  Can be $\beta$ reduced to 
+
+  \[ \ld{y} 2 + y \]
+
+\item[$\eta$ conversion] Removing or adding extraneous free arguments. The last
+  function
+
+  \[ \ld{2,y} 2 + y \]
+
+  Can be $\eta$ \xti{reduced} to
+
+  \[ 2 + \]
+
+  Which could then be $\eta$ \xti{abstracted} to 
+
+  \[ \ld{2,\kappa} 2 + \kappa \]
 \end{description}
