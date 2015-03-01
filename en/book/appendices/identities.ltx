@@ -1,9 +1,9 @@
-\ch{Identities, theorems, and the like}
+\ch{Identities, theorems, and the like}\label{appendix-d}
 
 This appendix just lists identities, theorems, and stuff like that. It's for
 reference, not for reading.
 
-\s{Equality}
+\s{Equality}\label{d-equality}
 
 \begin{description}
   \item[Reflexive property] $a \equiv a$
@@ -11,7 +11,7 @@ reference, not for reading.
   \item[Transitive property] $\parens{a = b} \land \parens{b = c} \implies \parens{a = c} \sfall a,b,c$
 \end{description}
 
-\s{Implications}
+\s{Implications}\label{d-implications}
 
 \begin{description}
   \item[Reflexive property] $a \implies a \sfall a$
@@ -19,9 +19,9 @@ reference, not for reading.
   \item[Negation] $\parens{a \implies b} \iff \parens{\lnot a \impliedby \lnot b} \sfall a,b$
 \end{description}
 
-\s{Booleans}
+\s{Booleans}\label{d-booleans}
 
-\ss{Logical-and}
+\ss{Logical-and}\label{d-booleans-land}
 
 \begin{description}
   \item[Reflexive property] $a \land a \equiv a$
@@ -30,7 +30,7 @@ reference, not for reading.
   \item[Distribution] $\lnot\parens{a \land b} \equiv \lnot a \lor \lnot b \sfall a,b$
 \end{description}
 
-\ss{Logical-or}
+\ss{Logical-or}\label{d-booleans-lor}
 
 \begin{description}
   \item[Reflexive property] $a \lor a \equiv a$
@@ -39,16 +39,16 @@ reference, not for reading.
   \item[Distribution] $\lnot\parens{a \lor b} \equiv \lnot a \land \lnot b \sfall a,b$
 \end{description}
 
-\ss{Some combination thereof}
+\ss{DeMorgan's Laws}\label{d-booleans-demorgan}
 
 \begin{description}
   \item[DeMorgan's property] $a \land \parens{b \lor c} \equiv \parens{a \land b} \lor \parens{b \land c}$
   \item[Derived property] $a \lor \parens{b \land c} \equiv \parens{a \lor b} \land \parens{b \lor c}$
 \end{description}
 
-\s{Sets}
+\s{Sets}\label{d-sets}
 
-\ss{Definitions}
+\ss{Definitions}\label{d-set-definitions}
 
 \begin{description}
   \item[Unions] $a \cup b \ce \mset{x \in \amb \semic x \in a \lor x \in b}$
@@ -57,9 +57,9 @@ reference, not for reading.
   \item[Complement (sometimes absolute complement)] $a^c \ce \mset{x \in \amb \semic x \notin a}$
 \end{description}
 
-\ss{Identities}
+\ss{Identities}\label{d-set-identities}
 
-\sss{Unions}
+\sss{Unions}\label{d-unions}
 
 \begin{description}
   \item[Reflexive property] $a \union a \equiv a$
@@ -67,7 +67,7 @@ reference, not for reading.
   \item[Commutative property] $a \union b \equiv b \union a$
 \end{description}
 
-\sss{Intersects}
+\sss{Intersects}\label{d-interects}
 
 \begin{description}
   \item[Reflexive property] $a \intersect a \equiv a$
@@ -75,7 +75,7 @@ reference, not for reading.
   \item[Commutative property] $a \intersect b \equiv b \intersect a$
 \end{description}
 
-\sss{Set subtraction}
+\sss{Set subtraction}\label{d-set-subtraction}
 
 \begin{itemize}
 \item $A \bs \parens{B \cap C} \equiv \parens{A \bs B} \union \parens{A \bs C}$
@@ -88,9 +88,10 @@ reference, not for reading.
 \item $\nil \bs A \equiv \nil$
 \end{itemize}
 
-\s{Functions}
+\s{Functions}\label{d-functions}
 
 \begin{description}
+\item[Function] A mathematical construct mapping an input to an output.
 \item[Referential transparency] $a = b \implies \evalat{f}{a} = \evalat{f}{b}$
 \item[Domain] If $f : A \to B$, then $A$ is the \term{domain} of $f$.
 \item[Codomain] If $f : A \to B$, then $B$ is the \term{codomain} of $f$.
