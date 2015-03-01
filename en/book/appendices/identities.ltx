@@ -209,6 +209,11 @@ reference, not for reading.
   This doesn't change the behavior of the function, only the semantics.
 
   Likewise, \term{uncurrying} is to undo the currying.
+\item[Composition] We can smush two functions together with $\of$:
+  \begin{alignedmath}
+    \of : \parens{b \to c} \to \parens{a \to b} \to a \to c \\
+    \evalat{\parens{f \of g}}{x} \ce \evalat{f}{\evalat{g}{x}} \\
+  \end{alignedmath}
 \end{description}
 
 \s{Lambda calculus}\label{d-lambda-calculus}
