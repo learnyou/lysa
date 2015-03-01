@@ -159,7 +159,7 @@ reference, not for reading.
 \sss{Set subtraction identities}\label{d-set-subtraction}
 
 \begin{enumerate}
-\item $A \bs \parens{B \cap C} \equiv \parens{A \bs B} \union \parens{A \bs C}$
+\item $\mathbf{A \bs \parens{B \cap C} \equiv \parens{A \bs B} \union \parens{A \bs C}}$
 
   \begin{proof}
     Let $A,B,C \subeq \amb$.
@@ -213,13 +213,55 @@ reference, not for reading.
     \end{rclmath}
   \end{proof}
 
-\item $A \bs \parens{B \union C} \equiv \parens{A \bs B} \intersect \parens{A \bs C}$
-\item $A \bs \parens{B \bs C} \equiv \parens{A \bs B} \union \parens{A \intersect C}$
-\item $\parens{A \bs B} \intersect C \equiv \parens{A \cap C} \bs B \equiv A \intersect \parens{C \bs B}$
-\item $\parens{A \bs B} \union C \equiv \parens{A \union C} \bs \parens{B \bs C}$
-\item $A \bs A \equiv \nil$
-\item $A \bs \nil \equiv A$
-\item $\nil \bs A \equiv \nil$
+\item $\mathbf{A \bs \parens{B \union C} \equiv \parens{A \bs B} \intersect \parens{A \bs C}}$
+
+  \begin{proof}
+    \begin{rclmath}
+      A \bs \parens{B \union C}
+      & \ce & \mset{
+        x \in A \semic
+        x \notin B \land
+        x \notin C
+      } \\
+      
+      \parens{A \bs B} \intersect \parens{A \bs C}
+      & \ce & \mset{
+        x \in \amb \semic
+        x \in \mset{
+          y \in A \semic
+          y \notin B
+        } \land
+        x \in \mset {
+          z \in A \semic
+          z \notin C
+        }
+      } \\
+      & \ce & \mset{
+        x \in A \semic
+        x \notin B
+        \land
+        x \notin C
+      }
+      \\
+    \end{rclmath}
+      % A \bs \parens{B \union C}
+      % \parens{A \bs B} \intersect \parens{A \bs C}
+  \end{proof}
+
+\item $\mathbf{A \bs \parens{B \bs C} \equiv \parens{A \bs B} \union \parens{A \intersect C}}$
+  % \begin{proof}
+  %   \begin{rclmath}
+  %     A \bs \parens{B \bs C}
+  %   \end{rclmath}
+  %   % A \bs \parens{B \bs C}
+  %   % \parens{A \bs B} \union \parens{A \intersect C}
+  % \end{proof}
+
+\item $\mathbf{\parens{A \bs B} \intersect C \equiv \parens{A \cap C} \bs B \equiv A \intersect \parens{C \bs B}}$
+\item $\mathbf{\parens{A \bs B} \union C \equiv \parens{A \union C} \bs \parens{B \bs C}}$
+\item $\mathbf{A \bs A \equiv \nil}$
+\item $\mathbf{A \bs \nil \equiv A}$
+\item $\mathbf{\nil \bs A \equiv \nil}$
 \end{enumerate}
 
 \s{Functions}\label{d-functions}
