@@ -2,7 +2,7 @@
 
 As promised, this chapter discusses functions.
 
-So, what is a function? 
+So, what is a function?
 
 So far, we've been dealing with \xti{values} - like $2$, $\mset{3,2,5}$, and
 $90$. They are static. Static things are fine, but they aren't very
@@ -112,7 +112,7 @@ follow.
 
 \xtb{What if I want to add a bunch of things together?}
 
-Good idea! 
+Good idea!
 
 \begin{alignedmath}
   f : \mvec{\Z, \Z, \dots, \Z} \to \Z \\
@@ -181,7 +181,47 @@ crisis.\cite{w-greek-finance}
 If you ever take a physics course, you will undoubtedly notice that Greek
 letters are used frequently in physics. This is the physicists way of subtly
 hinting that they actually have no idea what they are talking about, and
-pleading for help from the mathematicians. 
+pleading for help from the mathematicians.
+
+\ss{Other lambda calculi}
+
+This entire idea where you take simple concepts and make them sound really fancy
+is called \termref{$\lambda$ calculus}{d-lambda-calculus}. If you hear people
+talk about ``calculus'', they are talking about something else, not this. Nobody
+is pretentious enough to actually talk about $\lambda$ calculus.
+
+Anyway, here's a brief summary of $\lambda$ calculus. You can find this in
+\cref{d-lambda-calculus}, too. You might want to brush up on your Greek
+alphabet. I have a nice table of Greek letters in \cref{d-greek-alphabet}.
+
+\begin{description}
+\item[$\lambda$ abstraction] A way to write a function: $\ld{x,y} x + y$
+\item[$\alpha$ conversion] Changing the names of the arguments. For instance,
+  you can write the above function as
+
+  \[ \ld{a,b} a + b \]
+
+\item[$\beta$ reduction] Partially calculating a result. For instance
+
+  \[ \ld{2,y} 2 + y \]
+
+  Can be $\beta$ reduced to
+
+  \[ \ld{y} 2 + y \]
+
+\item[$\eta$ conversion] Removing or adding extraneous free arguments. The last
+  function
+
+  \[ \ld{2,y} 2 + y \]
+
+  Can be $\eta$ \xti{reduced} to
+
+  \[ 2 + \]
+
+  Which could then be $\eta$ \xti{abstracted} to
+
+  \[ \ld{2,\kappa} 2 + \kappa \]
+\end{description}
 
 \s{Currying}
 
