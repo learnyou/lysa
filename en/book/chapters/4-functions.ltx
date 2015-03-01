@@ -35,7 +35,16 @@ Alternatively, since it's obvious we're working with $x$:
 \end{alignmath}
 
 This highlights an important property of functions: \termref{referential
-  transparency}{d-functions}.
+  transparency}{d-functions}. If you send a function the same input twice, you
+should get the same output both times. That is,
+
+\[ a = b \implies \evalat{f}{a} = \eva{f}{b} \]
+
+Note that the opposite is not always true:
+
+\[ a = b \notimpliedby \evalat{f}{a} = \eva{f}{b} \]
+
+(If that is true, then the function is \term{injective}).
 
 Using the lambda --- $\lambda$ --- is common when I am using a function without
 giving it a name. However, usually I will use this notation:
