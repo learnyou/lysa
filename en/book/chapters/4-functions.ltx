@@ -64,6 +64,23 @@ the notation
 That notation is undoubtedly easier to understand. However, as we'll see, that
 notation quickly becomes unfeasible.
 
+With this in mind, if $f : A \to B$, then $A$ is the \term{domain} of $f$,
+written $\dom{f}$, and $B$ is the \term{codomain} of $f$, written $\codom{f}$.
+
+With regard to the function we were just discussing
+
+\begin{alignedmath}
+  f : \Z \to \Z \\
+  \evalat{f}{x} =  x + 2
+\end{alignedmath}
+
+$\Z$ is both the domain and the codomain. If this is the case, then we say that
+$f$ is a \term{closure}.\footnote{There's a programming language called Clojure,
+  whose name is a pun on this concept.} $f$ is ``closed under $\Z$'', meaning
+that things can't use $f$ to escape from $\Z$. $f$ is closed.
+
+If you can't remember all of these terms, don't worry, they are all listed in
+\cref{d-functions}.
 
 \ss{Functions with multiple arguments}
 
@@ -78,7 +95,6 @@ Here's a function that takes two arguments, and adds them to each other.
 \end{alignedmath}
 
 Pretty easy to understand, right?
-
 
 If you haven't figured it out from the context, the inputs to the function are
 called the \term{arguments}.
