@@ -117,13 +117,29 @@ reference, not for reading.
 \item[Invertibility] A function is invertible iff it is bijective. The inverse of $f$ is $\arc{f}$
 \item[Preimage] $\mathrm{preim} \ce \mathbf{codom} \circ \mathrm{arc}$
 \item[Argument] The specific input values to a function.
+\item[Signature] If $f : A \to B$ is a function, then $A \to B$ is its
+  signature.
 \end{description}
 
 \ss{Notation}
 
 \begin{description}
-\item $f : A \to B$ means that $f$ takes an item from $A$, and outputs an item
+\item[: notation] $f : A \to B$ means that $f$ takes an item from $A$, and outputs an item
   to $B$, where $A$ and $B$ are types.
+\item[Currying] Taking a function of multiple arguments, and transforming it
+  into a chain of functions each taking one argument.
+
+  Normal signature
+  
+  $+ : \mvec{\C,\C} \to \C$
+
+  Curried signature:
+  
+  $+ : \C \to \C \to \C$
+
+  This doesn't change the behavior of the function, only the semantics.
+
+  Likewise, \term{uncurrying} is to undo the currying.
 \end{description}
 
 \s{Lambda calculus}\label{d-lambda-calculus}
