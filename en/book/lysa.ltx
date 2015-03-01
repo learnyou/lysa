@@ -90,10 +90,11 @@
 }
 
 % Print-friendly links
-\newcommand{\anauthor}[2]
-{#1 {\href{mailto:#2}<{\tt #2}>} \\
-}
-\newcommand{\aneditor}[2]{#1 & {\href{mailto:#2}{<{#2}>}} \\ }
+% \newcommand{\anauthor}[2]
+% {#1 {\href{mailto:#2}<{\tt #2}>} \\
+% }
+\newcommand{\aneditor}[2]{#1 {\href{mailto:#2}{<{#2}>}}}
+\let\anauthor\aneditor
 \newcommand{\link}[2]{#2 ({\footnotesize \url{#1}})}
 
 % Section & Chapter he
