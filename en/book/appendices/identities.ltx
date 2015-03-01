@@ -33,13 +33,33 @@ reference, not for reading.
 
 \s{Booleans}\label{d-booleans}
 
+\nocite{w-boolean-algebra}
+
+\begin{description}
+\item[Definition] A \term{Boolean} is a value of either true or false. The study
+  of Booleans is called \term{Boolean algebra}. The rules for Booleans also work
+  for propositions. The set of Booleans is often referred to as $\bool = \mset{\true,\false}$
+\item[Logical-and] $a \land b$ is pronounced ``$a$ logical-and $b$''. It is true
+  iff $a$ and $b$ are both true.
+  \[ \land : \bool \to \bool \to \bool \]
+\item[Logical-or] $a \lor b$ is pronounced ``$a$ logical-or $b$''. It is true if
+  one or more of $a$ and $b$ are true.
+  \[ \lor : \bool \to \bool \to \bool \]
+\item[Logical-not] $\lnot a$ is pronounced ``logical-not $a$''. $\lnot$ takes
+  true to false, and false to true.
+  \[ \lnot : \bool \to \bool \]
+\item[Cancellative property] $\lnot \circ \lnot \equiv \id$
+\item[Nomenclature] Booleans are named after George Boole, who was the first to
+  study them to any extent.
+\end{description}
+
 \ss{Logical-and}\label{d-booleans-land}
 
 \begin{description}
   \item[Reflexive property] $a \land a \equiv a$
   \item[Associative property] $a \land \parens{b \land c} \equiv \parens{a \land b} \land c$
   \item[Commutative property] $a \land b \equiv b \land a$
-  \item[Distribution] $\lnot\parens{a \land b} \equiv \lnot a \lor \lnot b \sfall a,b$
+  \item[Distributive property] $a \land \parens{b \lor c} \equiv \parens{a \land b} \lor \parens{b \land c}$
 \end{description}
 
 \ss{Logical-or}\label{d-booleans-lor}
