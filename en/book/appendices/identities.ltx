@@ -156,10 +156,63 @@ reference, not for reading.
   \item[Commutative property] $a \intersect b \equiv b \intersect a$
 \end{description}
 
-\sss{Set subtraction}\label{d-set-subtraction}
+\sss{Set subtraction identities}\label{d-set-subtraction}
 
 \begin{itemize}
 \item $A \bs \parens{B \cap C} \equiv \parens{A \bs B} \union \parens{A \bs C}$
+
+  \begin{proof}
+    Let $A,B,C \subeq \amb$.
+
+    \begin{rclmath}
+      A \bs \parens{B \cap C} & \ce & \mset{x \in A\semic x \notin \mset{y \in B \semic y \in C}} \\
+                              & \ce & \mset{x \in A\semic x \notin B \lor y \notin C} \\
+    \end{rclmath}
+
+    \begin{rclmath}
+      \parens{A \bs B} \union \parens{A \bs C}
+      & \ce & \mset{
+        x \in \amb \semic
+        x \in \mset{
+          y \in A \semic
+          y \notin B
+        }
+        \lor
+        x \in \mset{
+          z \in A \semic
+          z \notin C
+        }
+      } \\
+      & \ce & \mset{
+        x \in \amb \semic
+        \parens{
+          x \in A \land
+          x \notin B
+        }
+        \lor
+        \parens{
+          x \in A \land
+          x \notin C          
+        }
+      } \\
+    \end{rclmath}
+
+    \[ x \in A \implies x \in \amb \]
+
+    Therefore
+    \begin{rclmath}
+      \parens{A \bs B} \union \parens{A \bs C}
+      & \ce & \mset{
+        x \in A \semic
+        x \notin B
+        \lor
+          x \notin C          
+      } \\
+      A \bs \parens{B \cap C} & \ce & \mset{x \in A\semic x \notin B \lor y \notin C} \\
+      A \bs \parens{B \cap C} & \equiv & \parens{A \bs B} \union \parens{A \bs C} \\
+    \end{rclmath}
+  \end{proof}
+
 \item $A \bs \parens{B \union C} \equiv \parens{A \bs B} \intersect \parens{A \bs C}$
 \item $A \bs \parens{B \bs C} \equiv \parens{A \bs B} \union \parens{A \intersect C}$
 \item $\parens{A \bs B} \intersect C \equiv \parens{A \cap C} \bs B \equiv A \intersect \parens{C \bs B}$
