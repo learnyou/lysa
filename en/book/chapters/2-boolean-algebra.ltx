@@ -144,18 +144,15 @@ $A \lor B$ is true if either $A$ or $B$ is true, or if both of them are
 true. You could think of logical-or as being equivalent to the colloquial
 ``and/or''.
 
-This monstrosity is called a ``truth table''.
-
-\begin{tabular}{|c|c||c||c|}
-  \hline \\
-  $\mathbf{A}$ & $\mathbf{B}$ & $\mathbf{A \land B}$ & $\mathbf{A \lor B}$ \\
-  \hline \\
-  $\true$ & $\true$ & $\true$ & $\true$ \\
-  $\true$ & $\false$ & $\false$ & $\true$ \\
-  $\false$ & $\true$ & $\false$ & $\true$ \\
-  $\false$ & $\false$ & $\false$ & $\false$ \\
-  \hline
-\end{tabular}
+\begin{center}
+  \begin{tabu}{|c|c||c||c|} \hline
+    $\mathbf{A}$ & $\mathbf{B}$ & $\mathbf{A \land B}$ & $\mathbf{A \lor B}$ \\ \hline
+    $\true$ & $\true$ & $\true$ & $\true$ \\ \hline
+    $\true$ & $\false$ & $\false$ & $\true$ \\ \hline
+    $\false$ & $\true$ & $\false$ & $\true$ \\ \hline
+    $\false$ & $\false$ & $\false$ & $\false$ \\ \hline
+  \end{tabu}
+\end{center}
 
 This is pretty simple. If you're having trouble remembering which symbol is
 logical-and and which one is logical-or, remember that the logical-and symbol
