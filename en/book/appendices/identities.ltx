@@ -703,9 +703,37 @@ Despite my informal notation, these are all sets
 \item $\N = \mset{0,1,2,3,4,5,\dots}$
 \item $\Z = \mset{\dots, `5, `4, `3, `2, `1, 0,1,2,3,4,5,\dots}$
 \item $\R$ any given number on the number line.
-\item $\Q = \mset{\frac{x}{y} \in \R \st x \in \Z\land x \in \parens{\Z \bs \mset{0}}}$
+\item $\Q = \mset{\frac{x}{y} \in \R \st x,y \in \Z \land y \ne 0}$
 \item $\C = \mset{a + bi \st \mvec{a,b} \in \R\times\R, i = \sqrt{`1}}$
+\item $\I = \R \bs \Q$
 \end{description}
+
+% \ss{Properties and identities}
+
+% \sss{Addition}
+
+% \begin{description}
+% \item[Definition] Two parts:
+%   \begin{rclmath}
+%     a + 0 & \ce & a \\
+%     a + \succ{b} & \ce & \succ{a + b} \\
+%   \end{rclmath}
+% \item[Associative theorem] \nm{a + \parens{b + c} \equiv \parens{a + b} + c}
+% \item[Commutative theorem] \nm{a + b \equiv b + a}
+% \item[Cancellative theorem] \nm{a + b = a + c \implies b = c}
+% \item[Negative theorem] \nm{\forall a \in \C \st \exists \ng a \in C \st a + \ng a = 0}
+% \item[Distribution] \nm{\ng{\parens{a + b}} \equiv \ng a + \ng b}
+% \end{description}
+
+% \sss{Subtraction}
+
+% \begin{description}
+% \item[Definition] \nm{a - b \ce a + \ng b}
+% \item[Associative property] \nm{a - \parens{b - c} \equiv \parens{a - b} - c}
+% \item[Subtractive identity] \nm{a - 0 \equiv a}
+% \item[Negative property] \nm{a - b \equiv a + \ng b}
+% \item[Distribution theorem] \nm{a - \parens{b + c} \equiv a - b - c}
+% \end{description}
 
 % More formally
 
