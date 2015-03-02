@@ -432,6 +432,89 @@ reference, not for reading.
 
 \end{enumerate}
 
+\ss{De Morgan's laws applied to sets}
+
+\begin{description}
+\item \mtb{A \cap \parens{B \cup C} \equiv \parens{A \cap B} \cup \parens{A \cap C}} 
+
+  \begin{proof}
+    \begin{rclmath}
+      A \cap \parens{B \cup C}
+      & \ce & \mset{
+        x \in A \st
+        x \in B \lor
+        x \in C
+      } \\
+      \parens{A \cap B} \cup \parens{A \cap C}
+      & \ce & \mset{
+        x \in \amb \st
+        \parens{
+          x \in A \land
+          x \in B
+        }\lor
+        \parens{
+          x \in A \land
+          x \in C
+        }
+      } \\
+      & \ce & \mset{
+        x \in \amb \st
+        x \in A \land
+        \parens{
+          x \in B \lor
+          x \in C
+        }
+      } \\
+      & \ce & \mset{
+        x \in A \st
+        x \in B \lor
+        x \in C
+      } \\
+
+    \end{rclmath}
+    % A \cap \parens{B \cup C}
+    % \parens{A \cap B} \cup \parens{A \cap C} 
+  \end{proof}
+
+\item \mtb{A \cup \parens{B \cap C} \equiv \parens{A \cup B} \cap \parens{A \cup C}} 
+
+  \begin{proof}
+    \begin{rclmath}
+      A \cup \parens{B \cap C}
+      & \ce & \mset {
+        x \in \amb \st
+        x \in A \lor
+        \parens{
+          x \in B \land
+          x \in C
+        }
+      } \\
+      \parens{A \cup B} \cap \parens{A \cup C} 
+      & \ce & \mset {
+        x \in \amb \st
+        \parens{
+          x \in A \lor
+          x \in C
+        }\land
+        \parens{
+          x \in A \lor
+          x \in C
+        }
+      } \\
+      & \ce & \mset {
+        x \in \amb \st
+        x \in A \lor
+        \parens{
+          x \in B \land
+          x \in C
+        }
+      } \\
+    \end{rclmath}
+    % A \cup \parens{B \cap C}
+    % \parens{A \cup B} \cap \parens{A \cup C} 
+  \end{proof}
+\end{description}
+
 \ss{ZFC}\label{d-zfc}
 
 \nocite{w-zfc,jech-set-theory}
