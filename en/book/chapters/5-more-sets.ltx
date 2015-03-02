@@ -112,8 +112,118 @@ So, I'm actually not going to post solutions here. They can all be found in
 \cref{d-sets}. This wastes less hard disk space. Also, if I find a mistake, I
 only have to fix it once.
 
-% \s{Various sets}
-% $\N$, $\Z$, $\Q$, and $\R$.
+\s{Cartesian products}
+
+This is actually a pretty simple thing:
+
+\begin{alignedmath}
+  \times : \Setof{a} \to \Setof{b} \to \Classof{a,b} \\
+  A \times B = \mset{\mvec{x,y} \st x \in A \land y \in B} \\
+\end{alignedmath}
+
+It's the \sout{set} class of all pairs of the elements in either set.
+
+\xtb{When are you going to tell me what a class is?}
+
+We'll get there later in the chapter, don't worry.
+
+\s{Numeric sets}
+
+There are a number of sets with which we commonly deal. The first of them is the
+``natural numbers'', or $\N$. $\N \ce \mset{0,1,2,3,4,5,\dots}$. Some people will
+say that $\N \ce \mset{1,2,3,4,5,\dots}$. It doesn't matter a whole lot.
+
+The best way to explain the natural numbers --- more importantly, to reason
+about them --- is to do so rigorously. These are called the \term{Peano
+  axioms}. They rigorously define $\N$.\cite{landau-analysis}
+
+\begin{enumerate}
+\item $0 \in \N$
+\item $\parens{a = b} \land \parens{a \in \N} \implies b \in \N$
+\item $\suc : \N \to \N$. \nm\suc\ is the ``successor function''. It just bumps
+  every number up by $1$. $\succ{0} = 1$, etc.
+\item \nm\suc\ is injective.
+\item $\forall x \in \N, \succ{x} \ne 0$
+\end{enumerate}
+
+I'm not going to make you do it, because it's really boring. But we can define
+everything about $\N$ from these axioms. For instance, you can define addition
+this way:
+
+\begin{alignedmath}
+  + : \N \to \N \to \N \\
+  \succ{a + b} \ce a + \succ{b}
+\end{alignedmath}
+
+The next set is $\Z$, which is the integers.
+
+\begin{displaymath}
+  \Z \ce \mset{\dots,\ng{5},\ng{4},\ng{3},\ng{2},\ng{1},0,1,2,3,4,5,\dots}
+\end{displaymath}
+
+I think I've said this before: most people use $-5$ to say ``negative 5''. I
+don't like this, because $-$ is also used for subtraction. Given that I use
+$\beta$ and $\eta$ reduction quite a bit, this will get really confusing. So, in
+this book, \nm{\ng{x}} refers to negative $x$.
+
+The next set is $\R$, which is the ``real numbers''. If you write down a digit,
+say $8$, write down a bunch of digits next to it, and maybe stick a decimal
+point in there, it's guaranteed to be a real number.
+
+\[ 8.28302382881883842048276545678943223689076 \in \R \]
+
+These can even go on infinitely:
+
+\begin{alignedmath}
+  \frac{1}{3} \ce 0.33333\dots \\
+  e \ce 2.71828182845905\dots \\
+\end{alignedmath}
+The next set is $\Q$, which is the ``rational numbers'': numbers which can be
+expressed as a ratio.
+
+\begin{displaymath}
+  \Q \ce \mset{\frac{x}{y} \in \R \st x, y \in \Z \land y \ne 0 }
+\end{displaymath}
+
+All real numbers that follow a pattern, or terminate at some point are rational
+numbers. So $\frac{1}{3}$ is a rational number, because it is a ratio. Also,
+$0.333333\dots$ follows a pretty recognizable pattern.
+
+$e$ on the other hand is \term{irrational}: it doesn't follow any pattern nor
+does it terminate. $\pi$ is much more widely known than $e$, and is also
+irrational.\footnote{If you don't know why $\pi$ is significant, it's the ratio
+  of the circumference of a circle (the distance around it) to its diameter (the
+  distance across the circle).}
+
+Irrational numbers are the non-rational numbers:
+
+\begin{displaymath}
+  \I \ce \R \bs \Q
+\end{displaymath}
+
+The next set is the ``complex numbers'':
+
+\begin{displaymath}
+  \C \ce \R \times \R
+\end{displaymath}
+
+$\C$ is the Cartesian product of \nm\R\ with itself. The rules for addition,
+division, and multiplication are a bit different. We'll get there later.
+
+% Alright, I'm going to go over some properties of addition, subtraction,
+% multiplication, what-have-you:
+
+% \sss{Addition}
+% \begin{description}
+% \item[Commutative property] 
+% \end{description}
+
+% \begin{figure}[ht]
+%   \centering
+%   \inclgraph{group-structures.png}
+%   \caption{Group-like structures}
+%   \label{fig:groupstructs}
+% \end{figure}
 
 % $\Set$ is a commutative monoid
 % $\Z$ is a ring
