@@ -97,7 +97,8 @@
 % }
 \newcommand{\aneditor}[2]{#1 {\href{mailto:#2}{<{#2}>}}}
 \let\anauthor\aneditor
-\newcommand{\link}[2]{#2 ({\footnotesize \url{#1}})}
+\newcommand{\btrurl}[1]{{\footnotesize \url{#1}}}
+\newcommand{\link}[2]{#2 (\btrurl{#1})}
 
 % Section & Chapter he
 \newcommand{\ch}[1]{\chapter{#1}\label{ch: #1}}
