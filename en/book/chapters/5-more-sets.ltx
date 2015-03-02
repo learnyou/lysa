@@ -124,78 +124,8 @@ I drew another diagram to illustrate the complement in \cref{fig:complement}.
 
   \Exercise{
     $C \bs \parens{A \cup B} \Qequiv \parens{C \bs A} \cap \parens{C \bs B}$
-
   }
 
-  \Answer{I could explain it with math, but I think this picture is better:
-    \begin{center}
-      \inclgraph{SetSubtractionUnion.png}
-    \end{center}
-  }
-
-  \Exercise {
-    What about
-    $$C \bs \parens{A \cap B} \Qequiv \parens{C \bs A} \cup \parens{C \bs B}$$
-  }
-
-  \Answer{If you look at the graph from the previous problem, it should be
-    pretty obvious that this is true.}
-
-
-  \Exercise{
-    $A \bs \parens{B \bs C} \Qequiv \parens{A \bs B} \bs C$
-  }
-
-  % \Answer{Once again, a diagram is better:
-  %   \answergraph{Exercise12.png}
-  % }
-
-  \Exercise{
-    $A \cap \parens{B \bs C} \Qequiv \parens{A \cap B} \bs C$
-  }
-
-  \Answer{Alright, I'm tired of drawing graphs, so we are going to do this one
-    the right way.
-
-    \begin{rclmath}
-      A \cap \parens{B \setminus C} & \equiv & \mset{x \in A \semic x \in \parens{B \bs C}} \\
-                                    & \equiv & \mset{x \in A \semic x \in \mset{y \in B \semic y \notin C}} \\
-                                    & \equiv & \mset{x \in A \semic x \in B \land x \notin C} \\
-      \parens{A \cap B} \bs C       & \equiv & \mset{y \in \mset{x \in A \semic x \in B} \semic y \notin C} \\
-                                    & \equiv & \mset{y \in \mset{x \in A \semic x \in B} \semic y \notin C} \\
-                                    & \equiv & \mset{y \in A \semic y \in B \land y \notin C} \\
-      \parens{A \cap B} \bs C       & \equiv & A \cap \parens{B \setminus C} \\
-    \end{rclmath}
-
-    Yay! QED, or whatever.
-  }
-
-  \Exercise{
-    $A \bs \parens{B \cap C} \Qequiv \parens{A \bs B} \cap C$
-  }
-
-  \Answer{As painful as it must be for you, it's much easier for me solve the
-    right way; I have handy-dandy cut \& paste.
-
-    \begin{rclmath}
-      A \bs \parens{B \cap C} & \Qequiv & \parens{A \bs B} \cap C \\
-      A \bs \parens{B \cap C} & \equiv  & \mset{x \in A \semic x \notin \mset{y \in B \semic y \in C} } \\
-                              & \equiv  & \mset{x \in A \semic \lnot\parens{x \in B \land x \in C}} \\
-                              & \equiv  & \mset{x \in A \semic x \notin B \lor x \notin C} \\
-      \parens{A \bs B} \cap C & \equiv  & \mset{x \in \mset{y \in A \semic y \notin B} \semic x \in C}\\
-                              & \equiv  & \mset{x \in A \semic x \notin B \land x \in C}\\
-                \text{Let } X & =       & A \bs \parens{B \cap C} \\
-                \text{Let } Y & =       & \parens{A \bs B} \cap C \\
-    \end{rclmath}
-
-    Let $p \in A \land p \notin B \land p \notin C$.
-
-    \begin{rclmath}
-      p & \in & X \\
-      p & \notin & Y \\
-      \therefore X & \notequiv & Y \\
-    \end{rclmath}
-  }
 \end{ExcList}
 
 % \s{Various sets}
