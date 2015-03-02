@@ -173,13 +173,16 @@ vaguely like the or symbol $\lor$.
 
 \label{comprehensions}
 That's called a \term{class comprehension}. It's a hacky way to describe a
-set. Technically, it describes a \term{class}, which is different than a
-set. That said, at least until chapter 5, they only describe sets!
+set. Technically, it describes a \term{class}, which is different than a set.
+That said, at least until chapter 5, they only describe sets!
 
-You should look at it in two pieces: before the semicolon and after the
-semicolon. The term before the semicolon explains what each element looks like,
-and defines it to be a member of an ambient set. In this case --- and in most
-cases --- the element will just be $x$, or $a$, or something of the like.
+Remember earlier when I would show you the mechanics for defining arbitrary
+subsets of a set? Well, this is a common way to do it.
+
+You should look at the expression in two pieces: before the semicolon and after
+the semicolon. The term before the semicolon explains what each element looks
+like, and defines it to be a member of an ambient set. In this case --- and in
+most cases --- the element will just be $x$, or $a$, or something of the like.
 
 \[ A \cup B = \mset{x \in \amb \semic \parens{x \in A} \lor \parens{x \in B}} \]
 
