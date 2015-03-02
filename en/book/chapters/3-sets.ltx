@@ -200,7 +200,26 @@ Well, since we are defining the union using a notation which can only be used to
 describe subsets, we can only take the union of two sets if they are both
 subsets of some larger set! That's annoying. Oh well.
 
-\pg{Back to business -- the intersection}
+\ss{Back to business}
+
+Let's look at that definition of the union again:
+
+\[ A \cup B = \mset{x \in \amb \semic \parens{x \in A} \lor \parens{x \in B}} \]
+
+You know already that $\lor$ is commutative (the order doesn't matter), so you
+can write this
+
+\[ A \cup B = \mset{x \in \amb \semic \parens{x \in B}} \lor \parens{x \in A} \]
+
+You've probably figured out, any property of $\lor$ is also true of $\cup$
+
+\begin{description}
+\item[Reflexive property] $a \union a \equiv a$
+\item[Associative property] $a \union \parens{b \union c} \equiv \parens{a \union b} \union c$
+\item[Commutative property] $a \union b \equiv b \union a$
+\end{description}
+
+\ss{The intersection}
 
 The intersection is, you guessed it - what happens when we use $\land$ in the
 above definition instead of $\lor$. Can you guess what the symbol for
@@ -208,9 +227,25 @@ above definition instead of $\lor$. Can you guess what the symbol for
 
 \[ A \cap B = \mset{x \in \amb \semic \parens{x \in A} \land \parens{x \in B}} \]
 
-The standard example is to use ``Venn diagrams''. I drew some myself in
-\cref{fig:venns}.\footnote{It's a tradition from Learn You a Haskell that each
-  book include poorly-drawn explanatory graphics by the author.}
+Since $\land$ is also reflexive, associative, and commutative, the same
+properties exist for $\cap$.
+
+\begin{description}
+\item[Reflexive property] $a \intersect a \equiv a$
+\item[Associative property] $a \intersect \parens{b \intersect c} \equiv \parens{a \intersect b} \intersect c$
+\item[Commutative property] $a \intersect b \equiv b \intersect a$
+\end{description}
+
+You can actually reduce the definition of $\cap$ to 
+
+\[ A \cap B = \mset{x \in A \st \parens{x \in B}} \]
+
+(I do this in the proofs a lot)
+
+The standard example of unions and intersections is to use ``Venn diagrams''. I
+drew some myself in \cref{fig:venns}.\footnote{It's a tradition from Learn You a
+  Haskell that each book include poorly-drawn explanatory graphics by the
+  author.}
 
 \begin{figure}[ht]
   \centering
