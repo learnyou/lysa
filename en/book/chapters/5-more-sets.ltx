@@ -90,43 +90,29 @@ I drew another diagram to illustrate the complement in \cref{fig:complement}.
   \label{fig:complement}
 \end{figure}
 
+In these exercises, you are going to prove every identity there is about sets.
 
 \begin{ExcList}
-  \Exercise{
-    $\compl{\compl{P}} \Qequiv P$
-  }
-  \Answer{Yes.
-
-    \begin{rclmath}
-      \compl{P}         & \equiv & \mset{x \in \amb \semic x \notin P} \\
-                        & \equiv & \mset{x \in \amb \semic \lnot\parens{x \in P}} \\
-      \compl{\compl{P}} & \equiv & \mset{x \in \amb \semic \lnot\lnot\parens{x \in P}} \\
-                        & \equiv & \mset{x \in \amb \semic x \in P} \\
-                        & \equiv & P \\
-    \end{rclmath}
-
-    I drew a picture to help.
-
-    \begin{center}
-      \inclgraph{PAc1.png}
-      % \caption{A subset of an ambient set, such that $P \subeq \amb$. The
-      %   complement of $P$ would be everything outside the circle. The second
-      %   complement would be everything inside the circle, hence $P$.}
-      \label{fig:pac1}
-    \end{center}
-
-    $P^c$ would be everything outside the circle. ${P^c}^c$ would be everything
-    not outside the circle. So, inside the circle, and thus
-    $\compl{\compl{P}} \equiv P$. }
-
-  \Exercise{
-    $C \bs \parens{A \cup B} \Qequiv \parens{C \bs A} \cap \parens{C \bs B}$
-  }
-
+  \Exercise{$A \bs \parens{B \cap C} \equiv \parens{A \bs B} \union \parens{A \bs C}$}
+  \Exercise {$A \bs \parens{B \union C} \equiv \parens{A \bs B} \intersect \parens{A \bs C}$}
+  \Exercise {$A \bs \parens{B \bs C} \equiv \parens{A \bs B} \union \parens{A \intersect C}$}
+  \Exercise {$\parens{A \bs B} \intersect C \equiv \parens{A \cap C} \bs B \equiv A \intersect \parens{C \bs B}$}
+  \Exercise {$\parens{A \bs B} \union C \equiv \parens{A \union C} \bs \parens{B \bs C}$}
+  \Exercise {$A \bs A \equiv \nil$}
+  \Exercise {$A \bs \nil \equiv A$}
+  \Exercise {$\nil \bs A \equiv \nil$}
+  \Exercise {$A \cap \parens{B \cup C} \equiv \parens{A \cap B} \cup \parens{A \cap C}$}
+  \Exercise {$A \cup \parens{B \cap C} \equiv \parens{A \cup B} \cap \parens{A \cup C}$}
+  \Exercise {$\parens{A^c}^c \equiv A$}
+  \Exercise{\nm{\parens{A \cap B}^c \equiv A^c \cup B^c}} 
+  \Exercise{\nm{\parens{A \union B}^c \equiv A^c \cap B^c}}
 \end{ExcList}
 
-% \s{Various sets}
+So, I'm actually not going to post solutions here. They can all be found in
+\cref{d-sets}. This wastes less hard disk space. Also, if I find a mistake, I
+only have to fix it once.
 
+% \s{Various sets}
 % $\N$, $\Z$, $\Q$, and $\R$.
 
 % $\Set$ is a commutative monoid
