@@ -325,9 +325,111 @@ reference, not for reading.
   \end{proof}
   
 \item $\mathbf{\parens{A \bs B} \union C \equiv \parens{A \union C} \bs \parens{B \bs C}}$
+
+  \begin{proof}
+    \begin{rclmath}
+      \parens{A \bs B} \union C
+      & \ce & \mset{
+        x \in \amb \st
+        x \in \mset{
+          y \in A \st
+          y \notin B
+        } \lor
+        x \in C
+      } \\
+      & \ce & \mset{
+        x \in \amb \st
+        \parens{
+          x \in A \land
+          x \notin B
+        } \lor
+        x \in C
+      } \\
+      \parens{A \union C} \bs \parens{B \bs C}
+      & \ce & \mset{
+        x \in \amb \st
+        x \in \mset{
+          y \in \amb \st
+          y \in A \lor
+          y \in C
+        } \land
+        x \notin \mset{
+          z \in B \st
+          z \notin C
+        } 
+      } \\
+      & \ce & \mset{
+        x \in \amb \st
+        \parens{
+          x \in A \lor
+          x \in C
+        } \land
+        \lnot\parens{
+          x \in B \land
+          x \notin C
+        } 
+      } \\
+      & \ce & \mset{
+        x \in \amb \st
+        \parens{
+          x \in A \lor
+          x \in C
+        } \land
+        \parens{
+          x \notin B \lor
+          x \in C
+        } 
+      } \\
+      & \ce & \mset{
+        x \in \amb \st
+          x \in C \lor
+        \parens{
+          x \in A \land
+          x \notin B
+        } 
+      } \\
+    \end{rclmath}
+    % \parens{A \bs B} \union C
+    % \parens{A \union C} \bs \parens{B \bs C}
+  \end{proof}
+
 \item $\mathbf{A \bs A \equiv \nil}$
+
+  \begin{proof}
+    \begin{displaymath}
+      A \setminus A \ce \mset{x \in A \st x \notin A}
+    \end{displaymath}
+
+    There are no elements in $A$ that are also not in $A$, and the set with no
+    elements is $\nil$.
+  \end{proof}
+  
 \item $\mathbf{A \bs \nil \equiv A}$
+
+  \begin{proof}
+    \begin{displaymath}
+      A \bs \nil \ce \mset{x \in A \bs x \notin \nil}
+    \end{displaymath}
+
+    $\nil$, by definition has no elements, so all elements in $A$ satisfy the
+    condition $x \notin \nil$. Thus, 
+
+    \begin{displaymath}
+      A \bs \nil \equiv A
+    \end{displaymath}
+  \end{proof}
+
 \item $\mathbf{\nil \bs A \equiv \nil}$
+
+  \begin{proof}
+    \begin{displaymath}
+      \nil \bs A \ce \mset{x \in \nil \st x \notin A}
+    \end{displaymath}
+
+    There are no elements in $\nil$, so everything fails the condition on the
+    left-hand-side of the $\st$, hence $\nil \bs A \equiv \nil$.
+  \end{proof}
+
 \end{enumerate}
 
 \ss{ZFC}\label{d-zfc}
