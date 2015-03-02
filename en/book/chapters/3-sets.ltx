@@ -279,23 +279,57 @@ whether or not that $x$ is to be included in the comprehended set.
     A \semic x \notin B \lor \lnot\evalat{p}{x}}$
 \end{enumerate}
 
+\ss{Back to unions and intersects}
 
-\begin{ExcList}
-  \Exercise{Is the following true:
-    \[ A \cup \nil = A \sfall A \in \Set \]
-  }
-  \Answer{
-    Yes - the union is the set of elements in either set. Since \nm\nil\ has no
-    elements, $A \cup \nil$ would just be $A$, no matter what $A$ is.
-  }
+The final piece of the puzzle is this:
 
-  \Exercise{What about the following:
-    \[ A \cap \nil = \nil \sfall A \in \Set \]
-  }
-  \Answer{
-    Yes - the intersection of two sets is the set of objects in \xti{both}
-    sets. Because \nilnm\ has no elements, there wouldn't be any objects in both
-    sets --- the intersection would have no elements, which would make the
-    intersection equal to \nilnm.
-  }
-\end{ExcList}
+\begin{description}
+\item \mtb{A \cap \parens{B \cup C} \equiv \parens{A \cap B} \cup \parens{A \cap C}} 
+
+  \begin{proof}
+    \begin{rclmath}
+      A \cap \parens{B \cup C}
+      & \ce & \mset{
+        x \in A \st
+        x \in B \lor
+        x \in C
+      } \\
+      \parens{A \cap B} \cup \parens{A \cap C}
+      & \ce & \mset{
+        x \in \amb \st
+        \parens{
+          x \in A \land
+          x \in B
+        }\lor
+        \parens{
+          x \in A \land
+          x \in C
+        }
+      } \\
+      & \ce & \mset{
+        x \in \amb \st
+        x \in A \land
+        \parens{
+          x \in B \lor
+          x \in C
+        }
+      } \\
+      & \ce & \mset{
+        x \in A \st
+        x \in B \lor
+        x \in C
+      } \\
+    \end{rclmath}
+  \end{proof}
+\end{description}
+
+You're probably wondering what that white box is. It's mathematical shorthand
+for ``I'm done proving stuff''.
+
+I can't faithfully discuss sets any more without talking about functions. So,
+you get a lucky break! No exercises (because the fun exercises require that you
+know about functions.)
+
+I would tell you to look in \cref{d-sets} if you don't remember stuff. However,
+\cref{d-sets} assumes you have read both \cref{ch:functions} and
+\cref{ch:more-sets}. So, in conclusion, don't look at \cref{d-sets} quite yet.
