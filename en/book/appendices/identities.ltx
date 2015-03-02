@@ -514,6 +514,45 @@ reference, not for reading.
   \end{proof}
 \end{description}
 
+\sss{Complements}
+
+\begin{description}
+\item \mtb{\parens{A^c}^c \equiv A} 
+  \begin{proof}
+    \begin{rclmath}
+      A \setminus \parens{A \setminus B}
+        & \equiv & \parens{A \setminus A} \union \parens{A \intersect B} \\
+        & \equiv & \nil \union \parens{A \intersect B} \\
+        & \equiv & A \intersect B \\
+      \parens{A^c}^c
+        & \ce & \amb \setminus \parens{\amb \setminus A} \\
+        & \ce & \amb \intersect A \\
+        & \ce & A \\
+    \end{rclmath}
+  \end{proof}
+\item[De Morgan's law] \mtb{\parens{A \cap B}^c \equiv A^c \cup B^c} 
+  \begin{proof}
+    \begin{rclmath}
+      A \setminus \parens{B \cap C}
+        & \equiv & \parens{A \setminus B} \cup \parens{A \setminus C} \\
+      \amb \setminus \parens{A \union B}
+        & \equiv & \parens{\amb \setminus A} \cup \parens{\amb \setminus B} \\
+        & \equiv & \compl{A} \cup \compl{B} \\
+    \end{rclmath}
+  \end{proof}
+
+\item[De Morgan's derived law] \mtb{\parens{A \union B}^c \equiv A^c \cap B^c} 
+  \begin{proof}
+    \begin{rclmath}
+      A \setminus \parens{B \union C}
+        & \equiv & \parens{A \setminus B} \intersect \parens{A \setminus C} \\
+      \amb \setminus \parens{A \union B}
+        & \equiv & \parens{\amb \setminus A} \intersect \parens{\amb \setminus B} \\
+        & \equiv & \compl{A} \intersect \compl{B} \\
+    \end{rclmath}
+  \end{proof}
+\end{description}
+
 \ss{ZFC}\label{d-zfc}
 
 \nocite{w-zfc,jech-set-theory}
