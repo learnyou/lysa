@@ -217,11 +217,14 @@ extent.\cite{w-boolean-algebra}
 
       \[ \lnot\parens{a \land b} \equiv \lnot a \lor \lnot b \]
 
-      Let $p = \lnot a$, $q = \lnot b$
+      Let $p = \lnot a$, $q = \lnot b$. One of the rules of algebra is, if
+      $x = y$, then you can substitute one in for the other.
 
       \[ p \lor q \equiv \lnot\parens{\lnot p \land \lnot q} \]
 
-      Apply $\lnot$ to both sides of $\equiv$
+      Another rule is, if you have an equation, and you do something to one side
+      of the =, you have to do the same thing to the other side. Here, we're
+      going to apply $\lnot$ to both sides of $\equiv$
 
       \[ \lnot\parens{p \lor q} \equiv {\lnot p \land \lnot q} \]
   }
@@ -258,7 +261,7 @@ extent.\cite{w-boolean-algebra}
       \lnot a \lor \lnot\parens{b \lor c} \equiv \lnot\parens{a \land b} \land \lnot\parens{b \land c}
     \end{displaymath}
 
-    Do it again
+    Do it again (inside the parentheses).
 
     \begin{displaymath}
       \lnot a \lor \parens{\lnot b \land \lnot c} \equiv \parens{\lnot a \lor \lnot b} \land \parens{\lnot b \lor \lnot c}
