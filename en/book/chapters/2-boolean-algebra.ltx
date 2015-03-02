@@ -15,6 +15,9 @@ about things. You need to know these rules to do really cool stuff. Although, as
 you will (hopefully) see, these rules can be fun to toy around with on their
 own.
 
+It's okay if you don't remember all of these rules. You can always find a list
+in \cref{d-booleans}.
+
 \s{Implications}
 
 The first thing you need to understand is the notion that ``if x is true, then y
@@ -120,9 +123,7 @@ have notation for it.
   \end{alignedmath}
 
   This is basically just the rule mentioned in \#3. Yay, we learned something!
-
 \end{enumerate}
-
 
 \s{And and or}
 
@@ -143,18 +144,15 @@ $A \lor B$ is true if either $A$ or $B$ is true, or if both of them are
 true. You could think of logical-or as being equivalent to the colloquial
 ``and/or''.
 
-This monstrosity is called a ``truth table''.
-
-\begin{tabular}{|c|c||c||c|}
-  \hline \\
-  $\mathbf{A}$ & $\mathbf{B}$ & $\mathbf{A \land B}$ & $\mathbf{A \lor B}$ \\
-  \hline \\
-  $\true$ & $\true$ & $\true$ & $\true$ \\
-  $\true$ & $\false$ & $\false$ & $\true$ \\
-  $\false$ & $\true$ & $\false$ & $\true$ \\
-  $\false$ & $\false$ & $\false$ & $\false$ \\
-  \hline
-\end{tabular}
+\begin{center}
+  \begin{tabu}{|c|c||c||c|} \hline
+    $\mathbf{A}$ & $\mathbf{B}$ & $\mathbf{A \land B}$ & $\mathbf{A \lor B}$ \\ \hline
+    $\true$ & $\true$ & $\true$ & $\true$ \\ \hline
+    $\true$ & $\false$ & $\false$ & $\true$ \\ \hline
+    $\false$ & $\true$ & $\false$ & $\true$ \\ \hline
+    $\false$ & $\false$ & $\false$ & $\false$ \\ \hline
+  \end{tabu}
+\end{center}
 
 This is pretty simple. If you're having trouble remembering which symbol is
 logical-and and which one is logical-or, remember that the logical-and symbol
@@ -165,7 +163,7 @@ I'm going to introduce some new notation: the $\iff$ symbol.
 \[ \parens{A \iff B} = \parens{A \implies B} \land \parens{A \impliedby B} \]
 
 \nm\iff\ should be read as ``if (and only if)''. Sometimes I'll write the word
-iff - that's the same as ``if (and only if)''.
+iff --- with two 'f's --- that's the same as ``if (and only if)''.
 
 In order to do the exercises (yes, there are exercises), you need to know these
 properties of \nm\implies .
@@ -182,37 +180,94 @@ I'm too lazy to type ``For all'' each time, so I'm going to use the $\forall$
 symbol; it's a common symbol in math that means ``for all''. $\forall$ looks
 like an upside-down A, so it should be easy to remember.
 
-There are two more rules about $\land$ and $\lor$:
+Here are some properties you need to remember:
 
-\begin{enumerate}
-\item $A \land A = A \sfall A$
-\item $A \lor A = A \sfall A$
-\item $A \land \parens{B \land C} = \parens{A \land B} \land C \sfall A,B,C$
+\begin{description}
+\item[Cancellative property] $\lnot\lnot a = a \sfall a$
 
-  Okay, even this is too difficult. Instead of saying $P = Q \sfall P,Q$, I'm
-  going to write $P \equiv Q$. Yes, mathematicians are that lazy.
+  You know what, that's too hard. Instead from now on, instead of saying
+  $a = b \sfall a,b$, I'm just going to write $a \equiv b$. Good?
+\item[Reflexive property] $a \land a \equiv a$
+\item[Associative property] $a \land \parens{b \land c} \equiv \parens{a \land b} \land c$
+\item[Commutative property] $a \land b \equiv b \land a$
+\item[Distributive property] $a \land \parens{b \lor c} \equiv \parens{a \land b} \lor \parens{b \land c}$
+\item[De Morgan's first law] $\lnot\parens{a \land b} \equiv \lnot a \lor \lnot b$
+\item[Reflexive property] $a \lor a \equiv a$
+\item[Associative property] $a \lor \parens{b \lor c} \equiv \parens{a \lor b} \lor c$
+\item[Commutative property] $a \lor b \equiv b \lor a$
+\end{description}
 
-\item $A \land \parens{B \land C} \equiv \parens{A \land B} \land C$
-\item $A \lor \parens{B \lor C} \equiv \parens{A \lor B} \lor C$
-\item $A \land \parens{B \lor C} \equiv \parens{A\land B} \lor \parens{A \land C}$
-\item $\lnot\parens{A \land B} \equiv \lnot A \lor \lnot B$
-\end{enumerate}
-
-Alright, cool, this was a pretty easy chapter. Only 200 or so lines of \LaTeX!
-These exercises are somewhat tedious, as they require you to prove pretty
-obvious (i.e. tedious) things. However, you need to learn these techniques in
-order to be able to go on and prove less obvious things.
+These values, true and false, are called \term{Booleans}. They are named after a
+mathematician named George Boole who studied them to
+extent.\cite{w-boolean-algebra}
 
 \begin{ExcList}
-  \Exercise{I'm going to give you this one only in mathematical notation:
+  \Exercise[label={demorgan2}]{
+    I'm going to give you this one only in mathematical notation:
 
-    \[ A \lor \parens{B \land C} \Qequiv \parens{A \lor B} \land \parens{A \lor
-      C} \] }
+    \begin{displaymath}
+      \lnot\parens{A \lor B} \Qequiv \lnot A \land \lnot B
+    \end{displaymath}
 
-% FIXME add proof
+    I'll spoil it for you. This is called \term{De Morgan's second law}, and
+    it's true. You can prove it using the cancellative property and the first
+    law.  }
+  \Answer{
+      Start with the first law
 
-  \Exercise{$\lnot\parens{A \lor B} \Qequiv \lnot A \land \lnot B$ }
+      \[ \lnot\parens{a \land b} \equiv \lnot a \lor \lnot b \]
 
-% FIXME add proof
+      Let $p = \lnot a$, $q = \lnot b$
 
+      \[ p \lor q \equiv \lnot\parens{\lnot p \land \lnot q} \]
+
+      Apply $\lnot$ to both sides of $\equiv$
+
+      \[ \lnot\parens{p \lor q} \equiv {\lnot p \land \lnot q} \]
+  }
+
+  \Exercise{
+    Here's another one for you.
+
+    \begin{displaymath}
+       a \lor \parens{b \land c} \Qequiv \parens{a \lor b} \land \parens{b \lor c}
+    \end{displaymath}
+
+    You need the distributive property, as well as the proof from
+    \cref{demorgan2}.
+
+    While we are at it, these proofs can be found in \cref{d-booleans}, as well
+    as the solutions to these problems.  }
+
+  \Answer{
+    Start with the first property
+
+    \begin{displaymath}
+      a \land \parens{b \lor c} \equiv \parens{a \land b} \lor \parens{b \land c}
+    \end{displaymath}
+
+    Apply $\lnot$ to both sides
+
+    \begin{displaymath}
+      \lnot\parens{a \land \parens{b \lor c}} \equiv \lnot\parens{\parens{a \land b} \lor \parens{b \land c}}
+    \end{displaymath}
+
+    Apply DeMorgan's laws
+
+    \begin{displaymath}
+      \lnot a \lor \lnot\parens{b \lor c} \equiv \lnot\parens{a \land b} \land \lnot\parens{b \land c}
+    \end{displaymath}
+
+    Do it again
+
+    \begin{displaymath}
+      \lnot a \lor \parens{\lnot b \land \lnot c} \equiv \parens{\lnot a \lor \lnot b} \land \parens{\lnot b \lor \lnot c}
+    \end{displaymath}
+
+    Let $p,q,r = \lnot a, \lnot b, \lnot c$, respectively.
+
+    \begin{displaymath}
+      p \lor \parens{q \land r} \equiv \parens{p \lor q} \land \parens{q \lor r}
+    \end{displaymath}
+  }
 \end{ExcList}
