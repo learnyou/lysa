@@ -743,9 +743,17 @@ Despite my informal notation, these are all sets
     \arc{0} & \ce & 1 \\
     \arc{n} & \ce & \recip{n} \\
   \end{rclmath}
-\item[Distribution] \nm{\recip{a \ntimes b} \equiv \recip a \ntimes \recip b}
+\item[Distribution] \nm{\frac{a}{b \ntimes c} \equiv \frac{a}{b} \ntimes \frac{a}{c}}
 \item[Distribution over +] \nm{a \ntimes \parens{b + c} \equiv \parens{a \ntimes b} + \parens{a \ntimes c}}
 \item[Notation] \nm{ab = a\ntimes b} if $a$ and $b$ are two separate things.
+\end{description}
+
+\sss{Division}
+
+\begin{description}
+\item[Divisive identity] \nm{a \div 1 \equiv a}
+\item[Separative property] \nm{a \div b \equiv a \ntimes\recip{b}}
+\item[Antiassociative property] \nm{a \div \parens{b \div c} \equiv a \ntimes \parens{c \div b}}
 \end{description}
 
 % More formally
