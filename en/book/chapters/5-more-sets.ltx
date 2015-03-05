@@ -219,7 +219,85 @@ The next set is the ``complex numbers'':
 $\C$ is the Cartesian product of \nm\R\ with itself. The rules for addition,
 division, and multiplication are a bit different. We'll get there later.
 
-It's assumed that you already know the basic properties of addition,
-subtraction, multiplication, and division. It's also assumed that you know what
-exponentiation is. If not, see \cref{d-special-sets}.
 
+\s{Cardinalities}
+
+This is the fun part of math.
+
+This all starts with Galileo's paradox. If you pair every natural number up with
+its square:
+
+\begin{alignmath}{ccccccc}
+  1 & 2 & 3 & 4 & \dots & n & \dots \\
+  \updownarrow & \updownarrow & \updownarrow & \updownarrow & \updownarrow & \updownarrow & \updownarrow \\
+  1 & 4 & 9 & 16 & \dots & n^2 & \dots \\
+\end{alignmath}
+
+you will come to the seemingly unreasonable conclusion that there are as many
+perfect squares as there are natural numbers. This is odd, because the perfect
+squares are a strict subset of the natural numbers. How can a strict subset of a
+set have as many elements as the original set? It defies all intuition.
+
+Galileo decided that the terms ``larger'' and ``smaller'' had no place when
+discussing infinite sets.\cite{expeditions} Instead, if there is a bijection
+between two sets, as we saw with the perfect squares, then we say that the sets
+have the same \term{cardinality}, or size.
+
+I'm going to use the symbol \nm\ae\ to mean ``cardinally equal to'': it means
+two things have the same cardinality.
+
+\begin{rclmath}
+  \nil & \ae & \nil \\
+  \mset{1,2,3} & \ae & \mset{3,4,5} \\
+\end{rclmath}
+
+$\N$ is infinite. Cantor called $\N$'s cardinality $\alnull$. $\aleph$ is the
+Hebrew letter ``aleph''.\footnote{Some old math textbooks accidentally printed
+  the \rotatebox[origin=c]{180}{$\aleph$} upside-down.\cite{w-aleph-null} What a
+  bunch of idiots.} $\alnull$ should be read ``aleph null''.
+
+By the above definition, any set with a bijective relation to $\N$ has the
+cardinality $\alnull$.
+
+As a random aside, I'm going to introduce you to the \term{piecewise
+  function}. It's a function whose definition changes based on the input.
+
+\begin{rclmath}
+  q & : & \N \to \Z \\
+  \eva{q}{x} & \ce &
+    \left\{
+      \begin{array}{rcc}
+        \text{$x$ is even} & \to & \frac{x}{2} \\
+        \text{$x$ is odd} & \to & \ngp{\frac{x+1}{2}} \\
+      \end{array}
+    \right.
+\end{rclmath}
+
+Let's look at $\eva{q}{0}$: $0$ is even, so $\eva{q}{0} = \frac{0}{2} = 0$.
+
+Let's make a table:
+
+\begin{displaymath}
+  \begin{tabu}{|c|c|c|} \hline
+    x & \eva{q}{x} & \text{$\eva{q}{x}$ reduced}  \\ \hline
+    0 & \fracil{0}{2}     & 0 \\
+    1 & \ngfracilpf{1+1}{2} & \ng 1 \\
+    2 & \fracil{2}{2}     & 1 \\
+    3 & \ngfracilpf{3+1}{2} & \ng 2 \\
+    4 & \fracil{4}{2}     & 2 \\
+    5 & \ngfracilpf{5+1}{2} & \ng 3 \\
+    6 & \fracil{6}{2}     & 3 \\
+    7 & \ngfracilpf{7+1}{2} & \ng 4 \\
+    8 & \fracil{8}{2}     & 4 \\
+    \hline
+  \end{tabu}
+\end{displaymath}
+
+\xtb{Woah woah woah! Hold the phone!}
+
+It looks like we just found a bijection from $\N$ to $\Z$! What the hell is
+going on?! $\N \subof \Z$, so it can't have the same number of elements, it has
+to have fewer\ldots oh wait no it doesn't. Remember $n$ and $n^2$? So, we've
+just found a bijection from $\N$ to $\Z$, so therefore $\N$ and $\Z$ have the
+same cardinality: $\aleph_0$. That's kind of cool. There are just as many
+integers as there are natural numbers.
