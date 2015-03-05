@@ -139,11 +139,18 @@ about them --- is to do so rigorously. These are called the \term{Peano
 
 \begin{enumerate}
 \item $0 \in \N$
-\item $\parens{a = b} \land \parens{a \in \N} \implies b \in \N$
 \item $\suc : \N \to \N$. \nm\suc\ is the ``successor function''. It just bumps
   every number up by $1$. $\succ{0} = 1$, etc.
 \item \nm\suc\ is injective.
 \item $\forall x \in \N, \succ{x} \ne 0$
+\item Let $\psi$ be a function
+  \begin{alignedmath}
+    \psi : \N \to \bool \\
+    \eva{\psi}{0} = \true \\
+  \end{alignedmath}
+
+  If $\eva{\psi}{n} = \true \implies \eva{\psi}{\succ{n}} = \true$, then $\eva{\psi}{n}$
+  holds true for all $n \in \N$.
 \end{enumerate}
 
 I'm not going to make you do it, because it's really boring. But we can define
