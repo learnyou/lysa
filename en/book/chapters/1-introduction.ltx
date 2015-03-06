@@ -226,13 +226,42 @@ Most of these computer algebra systems are proprietary and very expensive
 (hundreds of dollars a year). However, there is one which is gratis and libre:
 Sage. It's just as good as any of the others. I won't provide an in-depth
 tutorial for using Sage; it's far too complicated. However, I will occasionally
-use Sage to generate graphs, or something. With every graph, I'll include the
-Sage code to generate the graph.
+use Sage to generate graphs, or something.
 
-You can find instructions for installing Sage on
+The way you generate graphs in Sage is by inputting a number of commands to do
+so. You can put these commands into a file, and make programs with them.
+Any non-trivial use of Sage requires that you know a programming language called
+Python. I am not so cruel as to force you to learn two programming languages.
+
+You don't need to have Sage installed, unlike Haskell, although I do recommend
+it.  You can find instructions for installing Sage on
 \link{http://wiki.sagemath.org/DownloadAndInstallationGuide}{their website}.
 
-You don't need to have Sage installed, unlike Haskell.
+With every graph, I'll include the Sage code to generate the graph. To run the
+code, copy the code into a file (the file name will be at the bottom of the code
+listing), and then run \terminal{sage filename} in a terminal. (You'll need to
+be in the same working  directory).
+
+\sageinput{SageHelloWorld.sage}
+
+To run this (on Linux/BSD/OS X), you would save the file to
+\filepath{SageHelloWorld.sage}, then run \terminal{sage SageHelloWorld.sage} in
+a terminal to run it.
+
+\begin{plainfile}
+% sage SageHelloWorld.sage
+Hello, LYSA readers!
+\end{plainfile}
+
+To be more specific, I have that file saved to
+
+\filepath{/home/pete/prj/lysa/en/book/graphs/SageHelloWorld.sage}
+
+To run the file, I use the \terminal{cd} command (cd = change directory) to
+change my working directory to \filepath{/home/pete/prj/lysa/en/book/graphs},
+then run the above command.
+
+If you are on Windows, good luck!
 
 \s{Target audience}
 
