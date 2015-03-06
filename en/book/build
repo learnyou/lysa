@@ -18,6 +18,10 @@ mkdir tmp
 cp -rvf lysa.ltx appendices/* chapters/* code/* graphs/* bibliographies/* images/* tmp/
 cd tmp
 
+for i in *.sage ; do
+    sage $i || clean_and_die 1
+done
+
 pdflatex lysa.ltx || clean_and_die 1
 bibtex lysa
 pdflatex lysa.ltx && pdflatex lysa.ltx
