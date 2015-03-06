@@ -299,5 +299,49 @@ It looks like we just found a bijection from $\N$ to $\Z$! What the hell is
 going on?! $\N \subof \Z$, so it can't have the same number of elements, it has
 to have fewer\ldots oh wait no it doesn't. Remember $n$ and $n^2$? So, we've
 just found a bijection from $\N$ to $\Z$, so therefore $\N$ and $\Z$ have the
-same cardinality: $\aleph_0$. That's kind of cool. There are just as many
-integers as there are natural numbers.
+same cardinality: $\aleph_0$. That's kind of cool.
+
+\[ \N \ae \Z\]
+
+\ss{Vector-valued functions and derivatives}
+
+Next thing we are going to look at is a \term{vector-valued function}. The name
+pretty much says it all. It's a function that takes some input, and spits out a
+vector as an output.
+
+\begin{alignedmath}
+  f : \N \to \mvec{\N,\N} \\
+  \eva{f}{x} \ce \mvec{x,x} \\
+\end{alignedmath}
+
+That's a pretty simple vector-valued function. It could spit out a 3-vector:
+
+\begin{alignedmath}
+  f : \N \to \mvec{\N,\N,\N} \\
+  \eva{f}{x} \ce \mvec{x,x,x} \\
+\end{alignedmath}
+
+Or take two inputs:
+
+\begin{alignedmath}
+  f : \N \to \N \to \mvec{\N,\N,\N} \\
+  \eva{f}{x,y} \ce \mvec{x,y,x+y} \\
+\end{alignedmath}
+
+Alright, let's try something. We're going to ``plot'' some vectors. See
+\cref{fig:ccp}. The graph in question represents $\Z \times \Z$. If you don't
+remember, $\Z \times \Z$ is the Cartesian product of $\Z$ with itself. It's the
+set of all 2-vectors where both entries in the vector are in $\Z$.
+$\Z \times \Z \ce \mset{\mvec{x,y} \st x,y \in \Z}$. It's sometimes the
+convention, when given a set $S$, to say $S^2 \ce S \times S$. So
+$\Z^2 \ce \Z \times \Z$.
+
+\begin{figure}[ht]
+  \centering
+  \inclgraph{VectorGraph1.png}
+  \caption{Some vectors plotted on a Cartesian coordinate plane.}
+  \label{fig:ccp}
+\end{figure}
+
+So, from that graph, you'll see that
+$\mvec{\ng 3, 4}, \mvec{2,4}, \mvec{\ng 5, \ng 1}, \mvec{5, \ng 3} \in \Z^2$.
