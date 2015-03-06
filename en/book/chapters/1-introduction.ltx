@@ -150,78 +150,8 @@ coding exercises in the programming language Haskell.\footnote{I was originally
   going to use another language called Idris, but Idris is, at the time of this
   writing, so buggy that it is unusable.}
 
-\ss{Installing Haskell}
-
-This is something that is actually rather difficult to summarize, because it
-varies from operating system to operating system. I will put down the
-instructions for the operating systems I use. If you come upon this and don't
-see your operating system, please report this on
-\link{https://gitlab.com/lysa/lysa/issues/new}{the issue tracker}. Better yet,
-you could add the instructions yourself, and ask me to merge your changes.
-
-\sss{Linux}
-
-\pg{Arch}
-
-\begin{shellsession}
-  # pacman -S ghc cabal-install gmp
-  % \cabal update
-  % \cabal install -j cabal-install
-\end{shellsession}
-
-At this point, you'll want to add \terminal{\tilde /.cabal/bin} to your
-\terminal{\$PATH} variable.
-
-\begin{shellsession}
-  % cabal install -j alex happy haddock hscolour
-\end{shellsession}
-
-\xtv{alex} and \xtv{happy} are dependencies for a number of Haskell
-packages. However, due to a
-\link{https://github.com/haskell/cabal/issues/220}{long-standing bug in
-  \xtv{cabal}}, they don't get pulled in when packages depend on them.
-
-\pg{Gentoo}
-
-As of 5 January 2015, the Haskell platform is only available on \code{\tilde ARCH},
-where \code{ARCH} is your processor architecture (e.g. \code{amd64},
-\code{x86}). If you use \code{ARCH}, you can enable these by adding the
-following to \filepath{/etc/portage/package.keywords}:\footnote{If you already
-  use \code{\tilde ARCH}, you can ignore this}
-
-\begin{plainfile}
-dev-lang/ghc
-dev-haskell/cabal-install
-\end{plainfile}
-
-Regardless of your \code{ACCEPT\_KEYWORDS} variable, you should add the
-following to \filepath{/etc/portage/package.use}:
-
-\begin{plainfile}
-dev-lang/ghc binary
-\end{plainfile}
-
-Otherwise, you have to compile GHC (the Haskell compiler) from scratch, and that
-takes forever.
-
-Once you have that all out of the way, you'll want to run the following command
-as root:
-
-\begin{shellsession}
-# emerge -jav dev-lang/ghc dev-haskell/cabal-install
-\end{shellsession}
-
-\xtb{Warning}: \terminal{-j} will make the installation a lot faster, but is
-more resource-intensive. If your power usage is precious, omit it (i.e. use
-\terminal{-av} instead).
-
-Once GHC and cabal-install are installed, you'll want to run the following as a
-normal user:
-
-\begin{shellsession}
-% cabal update
-% cabal install alex happy haddock hscolour
-\end{shellsession}
+Instructions for installing Haskell can be found on
+\link{https://www.haskell.org/platform/}{their website}.
 
 \ss{Install a text editor}
 
