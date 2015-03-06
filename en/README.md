@@ -23,6 +23,7 @@ If you are reading this, you probably want the English version. In that case:
 
 ```
 git clone https://gitlab.com/lysa/lysa.git
+git submodule init
 cd lysa/en/book
 ./build
 ```
