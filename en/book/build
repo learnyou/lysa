@@ -15,7 +15,8 @@ clean_and_die() {
 orig_dir=$(pwd)
 mkdir tmp
 
-cp -rvf lysa.ltx appendices/* chapters/* code/* graphs/* bibliographies/* images/* tmp/
+cp -rvf lysa.ltx appendices/* chapters/* code/* graphs/* \
+   bibliographies/* images/* tex/latex-solarized/* tmp/
 cd tmp
 
 for i in *.sage ; do
