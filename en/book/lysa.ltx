@@ -39,6 +39,7 @@
 \usepackage{tabu}
 \usepackage{ulem}
 \usepackage{url}
+\usepackage{xkeyval}
 \usepackage[hidelinks]{hyperref}
 \usepackage{cleveref}
 
@@ -278,9 +279,24 @@
 \newcommand{\fracil}[2]{#1 \div #2}
 \newcommand{\ngfracil}[2]{\ngp{\fracil{#1}{#2}}}
 \newcommand{\ngfracilpf}[2]{\ngp{\fracil{\parens{#1}}{#2}}}
-\newcommand{\sageinput}{\lstinputlisting[float=h, language=Python]}
 \renewcommand{\sin}[1]{\eva{\mathrm{sin}}{#1}}
 \renewcommand{\cos}[1]{\eva{\mathrm{cos}}{#1}}
+% Sage graphs
+\newcommand{\sageinput}{\lstinputlisting[float=h, language=Python]}
+% \define@key{sagegraph}{source}{\sageinput{#1}}
+% \define@key{sagegraph}{caption}{\caption{#1}}
+% \define@key{sagegraph}{label}[\null]{\label{#1}}
+% \define@key{sagegraph}{position}[ht]{#1}
+% \newcommand{\sagegraph}[1]{
+%   \begin{figure}[\KV@sagegraph@position]
+%     \centering
+%     \inclgraph{#1}
+%     \KV@sagegraph@caption
+%     \KV@sagegraph@label
+%   \end{figure}
+%   \KV@sagegraph@source
+% }
+
 
 % ASIDE BOX, stolen from https://github.com/jambonrose/latex-code-example/blob/master/0_preamble.tex
 % 
