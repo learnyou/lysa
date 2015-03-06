@@ -1,3 +1,4 @@
 deploy_rsa
 deploy_rsa.pub
 changes.md
+*.sage.py
