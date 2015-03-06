@@ -19,9 +19,9 @@ cp -rvf lysa.ltx appendices/* chapters/* code/* graphs/* \
    bibliographies/* images/* tex/latex-solarized/* tmp/
 cd tmp
 
-for i in *.sage ; do
-    sage $i || clean_and_die 1
-done
+# for i in *.sage ; do
+#     sage $i || clean_and_die 1
+# done
 
 pdflatex lysa.ltx || clean_and_die 1
 bibtex lysa
