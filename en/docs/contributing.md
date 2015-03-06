@@ -31,11 +31,12 @@ Here is the required software you need to contribute:
 
 TeX is the markup language in which LYSA is written, so you need a TeX
 distribution to compile it. Note that if you are only interested in the PDF
-file, we publish regular builds [here](http://184.164.72.39/lysa/). The target
-TeX distribution is [TeXLive][texlive], but it probably works on other TeX
-distributions. Below you can find installation instructions for select operating
-systems. If you don't see your operating system there, but know what software is
-needed, please add it and send a pull request.
+file, we publish regular builds
+[here](https://gitlab.com/lysa/pdfs/tree/master). The target TeX distribution is
+[TeXLive][texlive], but it probably works on other TeX distributions. Below you
+can find installation instructions for select operating systems. If you don't
+see your operating system there, but know what software is needed, please add it
+and send a pull request.
 
 ![Trustworthiness by file extension. Credit: xkcd](http://imgs.xkcd.com/comics/file_extensions.png)
 Credit: xkcd
