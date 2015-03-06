@@ -1,0 +1,105 @@
+\ch{ZFC}
+
+\s{Russell's paradox}
+
+You know how whenever we make a set comprehension, like
+$\mset{x \in A \st \eva{p}{x}}$, we always have to specify the $x \in A$ part?
+Why can't we just leave it at $x$?
+
+For a long time, set theorists did this. It worked fine, everyone was
+happy. But, oh no, someone of course had to ruin the fun. In 1901, some jerk
+named Bertrand Russell found a paradox. Consider the set of all sets. (Hint:
+this isn't a set, actually).
+
+\[ \mset{x \st x : \Set }\]
+
+Okay, let's consider the set of all sets, where any given set is not an element
+of itself:
+
+\[ A = \mset{x : \Set \st x \notin x }\]
+
+Okay... what's the point. Well, is $A$ an element of itself?  In order for $A$
+to be an element of itself, $A$ would have to not be an element of itself. So,
+if $A$ is an element of itself, then it's not an element of itself. Likewise, if
+$A \notin A$, then $A \in A$.
+
+\begin{figure}[ht]
+  \centering
+  \inclgraph{russell.png}
+  \caption{Said turdbucket. Doesn't he just look really smug? Source: \cite{russellpic}.}
+  \label{fig:russell}
+\end{figure}
+
+Because of this little turdbucket, we can only use set comprehensions to make
+\xti{subsets} of other sets.
+
+\xtb{However}
+
+We can use the set comprehension notation to make collections, with no guarantee
+that the collection is a set. Said collections are called
+\term{classes}. Because of Russell's paradox, given a class $C$ and an object
+$x$, we can no longer ask $x \Qin C$. Oh well. Well now you know what classes
+are.
+
+If a class is not also a set, then it's called a \term{proper class}.
+
+\ss{ZFC}
+
+Russell's paradox highlighted a more important issue: we can't use a lax
+interpretation of set theory, or feces start to hit the fan. So, what do we do?
+
+Luckily enough, someone else figured out a rigorous interpretation of set
+theory. That guy was named Ernst Zermelo. Another guy, named Abraham Fraenkel,
+later came on by and significantly improved Zermelo's work. The result is the
+modern version of set theory, called \term{Zermelo-Fraenkel set theory}, or just
+ZFC.
+
+\xtb{Wait, ZFC? I get the ZF part, where'd that C come from?}
+
+You caught me. To explain this, I need to give you a bit of a history lesson.
+
+Cantor (the guy who first studied sets) came up with the bizarre result that
+there are multiple kinds of infinities. One such infinity was called $\aleph_0$,
+which is ``countably infinite''.\footnote{$\aleph$ is the Hebrew letter
+  ``aleph''.} $\N$, $\Q$, and $\Z$ all have the infinity $\aleph_0$. The next
+infinity was the ``continuous infinity''. Namely, Cantor claimed that every
+nonempty subset of $\R$ was in one-to-one correspondence with
+$\mset{x \in \R \st 0 < x < 1}$. This was called the ``continuum
+hypothesis''.\footnote{\xtb{Spoiler alert}, the continuum hypothesis is true.}
+
+Zermelo's version of set theory came about in an effort to prove Georg Cantor's
+continuum hypothesis. Zermelo came up with eight axioms for sets, and used them
+to prove the continuum hypothesis, along with a bunch of other cool
+stuff.\footnote{\cite{expeditions} has a wonderful account, I highly recommend you read
+  it.}
+
+In his proofs, Zermelo made an assumption: given a nonempty subset of an
+infinite set, it's always possible to pick a member of the subset. This
+assumption was being made all over mathematics at the time, but nobody realized
+it. Zermelo's proof hinged on this assumption. This assumption later became
+known as its own axiom: \term{the Axiom of Choice}.
+
+Now, this axiom itself is not too controversial. It seems reasonable, doesn't
+it? Well, sure. However, some of the results it produces are just bizarre. For
+instance, someone proved, using the axiom of choice: if you have a finitely
+large sphere, and cut it up into a bunch of smaller spheres, you can then
+combine those smaller spheres up into an arbitrarily large sphere. That's just
+weird.
+
+You need the axiom of choice to do a lot of interesting stuff: namely, to prove
+the continuum hypothesis. So, ZF set theory with the axiom of choice is called
+ZFC. Set theory without the axiom of choice is called ZF. The axioms are really
+boring, and they aren't really needed for our purposes, so I put them in
+\cref{d-sets} instead of listing them here.
+
+\begin{figure}[ht]
+  \centering
+  \inclgraph{pumpkin_carving.png}
+  \caption{Source: xkcd}
+  \label{fig:pumpkin-carving}
+\end{figure}
+
+At a certain point, mathematicians stopped caring whether or not their work was
+true, and only cared whether or not it was rigorous. ZFC is rigorous, even if it
+isn't true. So, who cares? ZFC is a lot easier than ZF, so we're going to use
+ZFC. All good?

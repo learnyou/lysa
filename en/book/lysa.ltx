@@ -58,7 +58,7 @@
 \usepackage{listings}
 \usepackage{color}
 
-\definecolor{mygreen}{rgb}{0,0.6,0}
+\definecolor{mygreen}{rgb}{0.3,0.6,0.3}
 \definecolor{mygray}{rgb}{0.8,0.8,0.8}
 \definecolor{mymauve}{rgb}{0.58,0,0.82}
 
@@ -66,9 +66,9 @@
   % backgroundcolor=\color{white},   % choose the background color; you must add \usepackage{color} or \usepackage{xcolor}
   basicstyle=\footnotesize\ttfamily,     % the size of the fonts that are used for the code
   breakatwhitespace=false,         % sets if automatic breaks should only happen at whitespace
-  breaklines=true,                 % sets automatic line breaking
+  breaklines=false,                 % sets automatic line breaking
   captionpos=b,                    % sets the caption-position to bottom
-  % commentstyle=\color{mygreen},    % comment style
+  commentstyle=\color{mygreen},    % comment style
   deletekeywords={...},            % if you want to delete keywords from the given language
   escapeinside={\%*}{*)},          % if you want to add LaTeX within your code
   extendedchars=true,              % lets you use non-ASCII characters; for 8-bits encodings only, does not work with UTF-8
@@ -277,6 +277,13 @@
 \newcommand{\Classof}{\eva{\Class}}
 \let\ntimes\cdot                %ntimes= ``numeric times''
 \newcommand{\recip}{\frac{1}}
+\renewcommand{\ae}{\stackrel{\mathrm{c}}{=}}
+\newcommand{\alnull}{\aleph_0}
+\newcommand{\ngp}[1]{\ng{\parens{#1}}}
+\newcommand{\ngfrac}[2]{\ngp{\frac{#1}{#2}}}
+\newcommand{\fracil}[2]{#1 \div #2}
+\newcommand{\ngfracil}[2]{\ngp{\fracil{#1}{#2}}}
+\newcommand{\ngfracilpf}[2]{\ngp{\fracil{\parens{#1}}{#2}}}
 
 % ASIDE BOX, stolen from https://github.com/jambonrose/latex-code-example/blob/master/0_preamble.tex
 % 

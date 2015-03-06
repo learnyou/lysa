@@ -139,11 +139,18 @@ about them --- is to do so rigorously. These are called the \term{Peano
 
 \begin{enumerate}
 \item $0 \in \N$
-\item $\parens{a = b} \land \parens{a \in \N} \implies b \in \N$
 \item $\suc : \N \to \N$. \nm\suc\ is the ``successor function''. It just bumps
   every number up by $1$. $\succ{0} = 1$, etc.
 \item \nm\suc\ is injective.
 \item $\forall x \in \N, \succ{x} \ne 0$
+\item Let $\psi$ be a function
+  \begin{alignedmath}
+    \psi : \N \to \bool \\
+    \eva{\psi}{0} = \true \\
+  \end{alignedmath}
+
+  If $\eva{\psi}{n} = \true \implies \eva{\psi}{\succ{n}} = \true$, then $\eva{\psi}{n}$
+  holds true for all $n \in \N$.
 \end{enumerate}
 
 I'm not going to make you do it, because it's really boring. But we can define
@@ -152,7 +159,8 @@ this way:
 
 \begin{alignedmath}
   + : \N \to \N \to \N \\
-  \succ{a + b} \ce a + \succ{b}
+  a + 0 \ce a \\
+  \succ{a + b} \ce a + \succ{b} \\
 \end{alignedmath}
 
 The next set is $\Z$, which is the integers.
@@ -211,31 +219,147 @@ The next set is the ``complex numbers'':
 $\C$ is the Cartesian product of \nm\R\ with itself. The rules for addition,
 division, and multiplication are a bit different. We'll get there later.
 
-% Alright, I'm going to go over some properties of addition, subtraction,
-% multiplication, what-have-you:
 
-% \sss{Addition}
-% \begin{description}
-% \item[Commutative property] 
-% \end{description}
+\s{Cardinalities}
 
-% \begin{figure}[ht]
-%   \centering
-%   \inclgraph{group-structures.png}
-%   \caption{Group-like structures}
-%   \label{fig:groupstructs}
-% \end{figure}
+This is the fun part of math.
 
-% $\Set$ is a commutative monoid
-% $\Z$ is a ring
-% $\R$ is a field, 
-% et cetera
+This all starts with Galileo's paradox. If you pair every natural number up with
+its square:
 
-% \s{A brief history of set theory}
+\begin{alignmath}{ccccccc}
+  1 & 2 & 3 & 4 & \dots & n & \dots \\
+  \updownarrow & \updownarrow & \updownarrow & \updownarrow & \updownarrow & \updownarrow & \updownarrow \\
+  1 & 4 & 9 & 16 & \dots & n^2 & \dots \\
+\end{alignmath}
 
-% $\aleph_0$, cardinalities, ordinal numbers, continuum hypothesis
+you will come to the seemingly unreasonable conclusion that there are as many
+perfect squares as there are natural numbers. This is odd, because the perfect
+squares are a strict subset of the natural numbers. How can a strict subset of a
+set have as many elements as the original set? It defies all intuition.
 
-% ZFC set theory
+Galileo decided that the terms ``larger'' and ``smaller'' had no place when
+discussing infinite sets.\cite{expeditions} Instead, if there is a bijection
+between two sets, as we saw with the perfect squares, then we say that the sets
+have the same \term{cardinality}, or size.
 
-% Axiom of choice, why its so controversial
+I'm going to use the symbol \nm\ae\ to mean ``cardinally equal to'': it means
+two things have the same cardinality.
 
+\begin{rclmath}
+  \nil & \ae & \nil \\
+  \mset{1,2,3} & \ae & \mset{3,4,5} \\
+\end{rclmath}
+
+$\N$ is infinite. Cantor called $\N$'s cardinality $\alnull$. $\aleph$ is the
+Hebrew letter ``aleph''.\footnote{Some old math textbooks accidentally printed
+  the \rotatebox[origin=c]{180}{$\aleph$} upside-down.\cite{w-aleph-null} What a
+  bunch of idiots.} $\alnull$ should be read ``aleph null''.
+
+By the above definition, any set with a bijective relation to $\N$ has the
+cardinality $\alnull$.
+
+\ss{Piecewise functions}
+
+As a random aside, I'm going to introduce you to the \term{piecewise
+  function}. It's a function whose definition changes based on the input.
+
+\begin{rclmath}
+  q & : & \N \to \Z \\
+  \eva{q}{x} & \ce &
+    \left\{
+      \begin{array}{rcc}
+        \text{$x$ is even} & \to & \frac{x}{2} \\
+        \text{$x$ is odd} & \to & \ngp{\frac{x+1}{2}} \\
+      \end{array}
+    \right.
+\end{rclmath}
+
+Let's look at $\eva{q}{0}$: $0$ is even, so $\eva{q}{0} = \frac{0}{2} = 0$.
+
+Let's make a table:
+
+\begin{displaymath}
+  \begin{tabu}{|c|c|c|} \hline
+    x & \eva{q}{x} & \text{$\eva{q}{x}$ reduced}  \\ \hline
+    0 & \fracil{0}{2}     & 0 \\
+    1 & \ngfracilpf{1+1}{2} & \ng 1 \\
+    2 & \fracil{2}{2}     & 1 \\
+    3 & \ngfracilpf{3+1}{2} & \ng 2 \\
+    4 & \fracil{4}{2}     & 2 \\
+    5 & \ngfracilpf{5+1}{2} & \ng 3 \\
+    6 & \fracil{6}{2}     & 3 \\
+    7 & \ngfracilpf{7+1}{2} & \ng 4 \\
+    8 & \fracil{8}{2}     & 4 \\
+    \hline
+  \end{tabu}
+\end{displaymath}
+
+\xtb{Woah woah woah! Hold the phone!}
+
+It looks like we just found a bijection from $\N$ to $\Z$! What the hell is
+going on?! $\N \subof \Z$, so it can't have the same number of elements, it has
+to have fewer\ldots oh wait no it doesn't. Remember $n$ and $n^2$? So, we've
+just found a bijection from $\N$ to $\Z$, so therefore $\N$ and $\Z$ have the
+same cardinality: $\aleph_0$. That's kind of cool.
+
+\[ \N \ae \Z\]
+
+\ss{Vector-valued functions and derivatives}
+
+Next thing we are going to look at is a \term{vector-valued function}. The name
+pretty much says it all. It's a function that takes some input, and spits out a
+vector as an output.
+
+\begin{alignedmath}
+  f : \N \to \mvec{\N,\N} \\
+  \eva{f}{x} \ce \mvec{x,x} \\
+\end{alignedmath}
+
+That's a pretty simple vector-valued function. It could spit out a 3-vector:
+
+\begin{alignedmath}
+  f : \N \to \mvec{\N,\N,\N} \\
+  \eva{f}{x} \ce \mvec{x,x,x} \\
+\end{alignedmath}
+
+Or take two inputs:
+
+\begin{alignedmath}
+  f : \N \to \N \to \mvec{\N,\N,\N} \\
+  \eva{f}{x,y} \ce \mvec{x,y,x+y} \\
+\end{alignedmath}
+
+Alright, let's try something. We're going to ``plot'' some vectors. See
+\cref{fig:ccp}. The graph in question represents $\Z \times \Z$. If you don't
+remember, $\Z \times \Z$ is the Cartesian product of $\Z$ with itself. It's the
+set of all 2-vectors where both entries in the vector are in $\Z$.
+$\Z \times \Z \ce \mset{\mvec{x,y} \st x,y \in \Z}$. It's sometimes the
+convention, when given a set $S$, to say $S^2 \ce S \times S$. So
+$\Z^2 \ce \Z \times \Z$.
+
+\begin{figure}[ht]
+  \centering
+  \inclgraph{VectorGraph1.png}
+  \caption{Some vectors plotted on a Cartesian coordinate plane.}
+  \label{fig:ccp}
+\end{figure}
+
+So, from that graph, you'll see that
+$\mvec{\ng 3, 4}, \mvec{2,4}, \mvec{\ng 5, \ng 1}, \mvec{5, \ng 3} \in \Z^2$.
+
+At this point, I think my crappy graphs drawn by hand are failing us. So, I'll
+generate one with a computer.
+
+\dots and 5 hours of wrestling with Sage, here's the graph:
+
+\begin{figure}[ht]
+  \centering
+  \inclgraph{VectorGraph2.png}
+  \caption{The above graph made with a computer.}
+  \label{fig:vg2}
+\end{figure}
+
+And here's the code that generated it:
+
+\lstinputlisting[float=h,language=Python]{VectorGraph2.sage}
