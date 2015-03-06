@@ -216,17 +216,12 @@
 \lstnewenvironment{plainfile}[1][]
 {\noindent\minipage{\linewidth}\medskip
   \lstset{
-      % numbers=none,
-      basicstyle=\small\ttfamily,
-      % float=top,
       #1
     }}
   {\endminipage}
 \lstnewenvironment{haskell}[1][]
 {\noindent\minipage{\linewidth}\medskip
   \lstset{
-      numbers=none,
-      basicstyle=\small\ttfamily,
       language=Haskell,
       #1
     }}
@@ -234,8 +229,6 @@
 \lstnewenvironment{shellsession}[1][]
   {\lstset{
       numbers=none,
-      % language=bash,
-      basicstyle=\small\ttfamily,
       #1
           }}
   {}
