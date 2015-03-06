@@ -347,3 +347,19 @@ $\Z^2 \ce \Z \times \Z$.
 
 So, from that graph, you'll see that
 $\mvec{\ng 3, 4}, \mvec{2,4}, \mvec{\ng 5, \ng 1}, \mvec{5, \ng 3} \in \Z^2$.
+
+At this point, I think my crappy graphs drawn by hand are failing us. So, I'll
+generate one with a computer.
+
+\dots and 5 hours of wrestling with Sage, here's the graph:
+
+\begin{figure}[ht]
+  \centering
+  \inclgraph{VectorGraph2.png}
+  \caption{The above graph made with a computer.}
+  \label{fig:vg2}
+\end{figure}
+
+And here's the code that generated it:
+
+\lstinputlisting[float=h,language=Python]{VectorGraph2.sage}
