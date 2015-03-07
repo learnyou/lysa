@@ -1,3 +1,6 @@
 [submodule "en/book/tex/latex-solarized"]
 	path = en/book/tex/latex-solarized
 	url = git://github.com/jez/latex-solarized.git
+[submodule "pdf/pdfs"]
+	path = pdf/pdfs
+	url = ssh://git@gitlab.com/lysa/pdfs.git
