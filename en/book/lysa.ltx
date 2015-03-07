@@ -27,14 +27,16 @@
 \usepackage{centernot}
 \usepackage[mathcal,mathscr]{euscript}
 \usepackage[answerdelayed]{exercise}
+% \usepackage[sfdefault]{FiraSans} %If you want to print the book, comment out
+%                                  %this line.
+% \renewcommand*\oldstylenums[1]{{\firaoldstyle #1}}
 \usepackage[T1]{fontenc}
 \usepackage{graphics}
 \usepackage[utf8]{inputenc}
 \usepackage{listings}
 \usepackage{mathtools}
 \usepackage{relsize}
-\usepackage[sfdefault]{FiraSans}
-\renewcommand*\oldstylenums[1]{{\firaoldstyle #1}}
+\usepackage{mathptmx}
 \usepackage{scrextend}
 \usepackage{setspace}
 \usepackage{solarized-light}
@@ -101,7 +103,7 @@
 % }
 \newcommand{\aneditor}[2]{#1 {\href{mailto:#2}{<{#2}>}}}
 \let\anauthor\aneditor
-\newcommand{\btrurl}[1]{{\footnotesize \url{#1}}}
+\newcommand{\btrurl}[1]{{\url{#1}}}
 \newcommand{\link}[2]{#2 (\btrurl{#1})}
 
 % Section & Chapter he
@@ -193,7 +195,7 @@
 \newcommand{\pharpend}{\anauthor{Peter Harpending}{peter@harpending.org}}
 \let\xti\textit %italicize
 \let\xtb\textbf %boldface
-\newcommand{\code}[1]{{\footnotesize\ttfamily #1}}
+\newcommand{\code}[1]{{\ttfamily #1}}
 \let\crappycode\code %boldface
 \let\terminal\code
 \let\term\xti
