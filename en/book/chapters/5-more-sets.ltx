@@ -361,72 +361,21 @@ Okay, convention time! The horizontal axis is typically labeled the
 $x$-axis. The vertical axis is labeled the \nm{y}-axis. There's no rule
 that this has to be the case, it's just a convention.
 
-Instead of vectors listed on a plane, it's much more common to see the
-horizontal axis represent inputs to a function, and the vertical axis to
-represent the output. 
-
-Let's make a non vector-valued function
+Okay, remember that bijection $q : \N \to \Z$ from earlier? If not:
 
 \begin{rclmath}
-  r & : & \Z \to \N \\
-  \eva{r}{x} & = & x^2 \\
+  q & : & \N \to \Z \\
+  \eva{q}{x} & \ce &
+    \left\{
+      \begin{array}{rcc}
+        \text{$x$ is even} & \to & \frac{x}{2} \\
+        \text{$x$ is odd} & \to & \ngp{\frac{x+1}{2}} \\
+      \end{array}
+    \right.
 \end{rclmath}
 
-So, given some $x$, it returns the square of $x$. Let's make the table
-again, shall we?
+I used it to show that $\N \ae \Z$. Let's plot the vectors
 
 \begin{displaymath}
-  \begin{tabu}{|c|c|c|} \hline
-    x  & \eva{q}{x} & \text{$\eva{q}{x}$ reduced}  \\ \hline
-    {\ng{10}} & \parens{\ng{10}}^2 & {100} \\
-    {\ng{9}}  & \parens{\ng{9}}^2  & {81} \\
-    {\ng{8}}  & \parens{\ng{8}}^2  & {64} \\
-    {\ng{7}}  & \parens{\ng{7}}^2  & {49} \\
-    {\ng{6}}  & \parens{\ng{6}}^2  & {36} \\
-    {\ng{5}}  & \parens{\ng{5}}^2  & {25} \\
-    {\ng{4}}  & \parens{\ng{4}}^2  & {16} \\
-    {\ng{3}}  & \parens{\ng{3}}^2  & {9} \\
-    {\ng{2}}  & \parens{\ng{2}}^2  & {4} \\
-    {\ng{1}}  & \parens{\ng{1}}^2  & {1} \\
-    0       & 0^2       & 0 \\
-    1       & 1^2       & 1 \\
-    2       & 2^2       & 4 \\
-    3       & 3^2       & 9 \\
-    4       & 4^2       & 16 \\
-    5       & 5^2       & 25 \\
-    6       & 6^2       & 36 \\
-    7       & 7^2       & 49 \\
-    8       & 8^2       & 64 \\
-    9       & 9^2       & 81 \\
-    10      & 10^2      & 100 \\
-    \hline
-  \end{tabu}
+\mset{\mvec{x, \eva{q}{x}} \in \Z^2}
 \end{displaymath}
-
-Instead of outputting vectors, $r$ just takes an input value, squares it, and
-makes an output value. The typical way you see graphs of functions is, the input
-values are on the horizontal axis, and the output values are on the vertical
-axis:
-
-Let's plot these points on the graph, the way they might typically be plotted:
-
-\answergraph{x-squared.png}
-
-The source for these next few graphs can be found in \cref{src:x-squared}.
-
-Well that looks like crap. Let's take the labels away?
-
-\answergraph{x-squared-nolabels.png}
-
-That's better, but only slightly. You can definitely see the trend: It's an
-upward sloping curve away from $\mvec{0,0}$. Between any two points, the change
-in the vertical direction is much greater than the change in the horizontal
-direction.
-
-The trend might be more clear if we add lines between the points:
-
-\answergraph{x-squared-joined}
-
-Alright, that's a bit blocky, but nonetheless clear.
-
-Let's go over what we have so far
