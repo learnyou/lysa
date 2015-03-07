@@ -51,17 +51,26 @@ Sets, proofs, functions introduction
 * Need more examples
 ### §4.3 Piecewise functions
 
-## §5 Special kinds of sets
+## §5 Proofs
 
-### §5.1 Equivalence classes
+### §5.1 Proof techniques
+### §5.2 Peano axioms
 
-### §5.2 Common sets
+Prove everything about arithmetic
+
+## §6 ZFC
+
+### §6.1 Cartesian products
+### §6.5 Function plots
+### §6.3 Equivalence classes
+### §6.4 Peano axioms, basic arithmetic
+### §6.5 Common sets
 
 1. Definition of N, Z, Q, and R
 2. Definition of continuity
 3. R is continuous, N and Z are discrete.
   
-### §5.3 Cardinalities
+### §6.6 Cardinalities
 
 4. N's cardinality, aleph-null, should be the cardinality for discrete
    sets. 
@@ -80,12 +89,9 @@ Sets, proofs, functions introduction
 7. Let's look at Q? Is Q a continuum, like R, or is Q a discrete set like Z or
    N?
 
-### §5.3 Special types of sets
+### §6.7 Continuum hypothesis
 
-## §6 Basic algebra
-
-### §6.1 Proof techniques
-### §6.2 What you do to one side you have to do the other
+8. Barber paradox
 
 ## §A FDL 
 ## §B How to learn math
