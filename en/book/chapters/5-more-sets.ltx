@@ -307,16 +307,17 @@ same cardinality: $\aleph_0$. That's kind of cool.
 
 \ss{Vector-valued functions and derivatives}
 
-Next thing we are going to look at is a \term{vector-valued function}. The name
-pretty much says it all. It's a function that takes some input, and spits out a
-vector as an output.
+Next thing we are going to look at is a \term{vector-valued
+  function}. The name pretty much says it all. It's a function that
+takes some input, and spits out a vector as an output.
 
 \begin{alignedmath}
   f : \N \to \mvec{\N,\N} \\
   \eva{f}{x} \ce \mvec{x,x} \\
 \end{alignedmath}
 
-That's a pretty simple vector-valued function. It could spit out a 3-vector:
+That's a pretty simple vector-valued function. It could spit out a
+3-vector:
 
 \begin{alignedmath}
   f : \N \to \mvec{\N,\N,\N} \\
@@ -331,12 +332,12 @@ Or take two inputs:
 \end{alignedmath}
 
 Alright, let's try something. We're going to ``plot'' some vectors. See
-\cref{fig:ccp}. The graph in question represents $\Z \times \Z$. If you don't
-remember, $\Z \times \Z$ is the Cartesian product of $\Z$ with itself. It's the
-set of all 2-vectors where both entries in the vector are in $\Z$.
-$\Z \times \Z \ce \mset{\mvec{x,y} \st x,y \in \Z}$. It's sometimes the
-convention, when given a set $S$, to say $S^2 \ce S \times S$. So
-$\Z^2 \ce \Z \times \Z$.
+\cref{fig:ccp}. The graph in question represents $\Z \times \Z$. If you
+don't remember, $\Z \times \Z$ is the Cartesian product of $\Z$ with
+itself. It's the set of all 2-vectors where both entries in the vector
+are in $\Z$.  $\Z \times \Z \ce \mset{\mvec{x,y} \st x,y \in \Z}$. It's
+sometimes the convention, when given a set $S$, to say
+$S^2 \ce S \times S$. So $\Z^2 \ce \Z \times \Z$.
 
 \begin{figure}[ht]
   \centering
@@ -346,39 +347,33 @@ $\Z^2 \ce \Z \times \Z$.
 \end{figure}
 
 So, from that graph, you'll see that
-$\mvec{\ng 3, 4}, \mvec{2,4}, \mvec{\ng 5, \ng 1}, \mvec{5, \ng 3} \in \Z^2$.
+$\mvec{\ng 3, 4}, \mvec{2,4}, \mvec{\ng 5, \ng 1}, \mvec{5, \ng 3} \in
+\Z^2$.
 
-At this point, I think my crappy graphs drawn by hand are failing us. So, I'll
-generate one with a computer.
+At this point, I think my crappy graphs drawn by hand are failing
+us. So, I'll generate one with a computer.
 
 \dots and 5 hours of wrestling with Sage, here's the graph:
 
-\begin{figure}[ht]
-  \centering
-  \inclgraph{VectorGraph2.png}
-  \caption{The above graph made with a computer. Source: \cref{src:vg2}}
-  \label{fig:vg2}
-\end{figure}
-\lstinputlisting[style=sage, caption={blah}, label={src:vg2}]{VectorGraph2.sage}
+\answergraph{VectorGraph2.png}
 
 Okay, convention time! The horizontal axis is typically labeled the
-$x$-axis. The vertical axis is labeled the \nm{y}-axis. There's no rule that
-this has to be the case, it's just a convention.
+$x$-axis. The vertical axis is labeled the \nm{y}-axis. There's no rule
+that this has to be the case, it's just a convention.
 
 Instead of vectors listed on a plane, it's much more common to see the
 horizontal axis represent inputs to a function, and the vertical axis to
-represent the output. So, if you go to any given place on the horizontal axis,
-the vertical coordinate of the 
+represent the output. 
 
 Let's make a non vector-valued function
 
 \begin{rclmath}
-  f & : & \Z \to \N \\
-  \eva{f}{x} & = & x^2 \\
+  r & : & \Z \to \N \\
+  \eva{r}{x} & = & x^2 \\
 \end{rclmath}
 
-So, given some $x$, it returns the square of $x$. Let's make the table again,
-shall we?
+So, given some $x$, it returns the square of $x$. Let's make the table
+again, shall we?
 
 \begin{displaymath}
   \begin{tabu}{|c|c|c|} \hline
@@ -408,11 +403,30 @@ shall we?
   \end{tabu}
 \end{displaymath}
 
-% \begin{figure}[ht]
-%   \centering
-%   \inclgraph{VectorGraph3.png}
-%   \caption{Graph of the sine function.}
-%   \label{fig:vg3}
-% \end{figure}
-% \sageinput{VectorGraph3.sage}
+Instead of outputting vectors, $r$ just takes an input value, squares it, and
+makes an output value. The typical way you see graphs of functions is, the input
+values are on the horizontal axis, and the output values are on the vertical
+axis:
 
+Let's plot these points on the graph, the way they might typically be plotted:
+
+\answergraph{x-squared.png}
+
+The source for these next few graphs can be found in \cref{src:x-squared}.
+
+Well that looks like crap. Let's take the labels away?
+
+\answergraph{x-squared-nolabels.png}
+
+That's better, but only slightly. You can definitely see the trend: It's an
+upward sloping curve away from $\mvec{0,0}$. Between any two points, the change
+in the vertical direction is much greater than the change in the horizontal
+direction.
+
+The trend might be more clear if we add lines between the points:
+
+\answergraph{x-squared-joined}
+
+Alright, that's a bit blocky, but nonetheless clear.
+
+Let's go over what we have so far
