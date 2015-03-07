@@ -13,7 +13,7 @@ for point in points:
     newpoint = (point[0] + 0.1, point[1])
     # This label will just have the coordinate listed, with some
     # styling.
-    this_label = text("$"+str(point)+"$", newpoint, fontsize=15,
+    this_label = text("$"+str(point)+"$", newpoint, fontsize=25,
                       rgbcolor=(0,0,0), horizontal_alignment="left")
 
     # Add this label to the list.
@@ -21,9 +21,13 @@ for point in points:
 labels = sum(labels)
 
 # A plot of the points
-pts = list_plot(
-        points, ticks=[range(-8,8), range(-8,8)], pointsize=50
-    ) + labels
+myticks = [range(-100,100)] * 2
+pts = list_plot(points, 
+                ticks=myticks,
+                tick_formatter="latex",
+                pointsize=25
+               ) + labels
 pts.set_axes_range(-6,6,-4,5)
+pts.fontsize(20)
 # Save it to a file
 pts.save("VectorGraph2.png")
