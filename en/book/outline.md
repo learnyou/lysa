@@ -88,4 +88,7 @@ Sets, proofs, functions introduction
 ### §6.2 What you do to one side you have to do the other
 
 ## §A FDL 
-## §B Philosophy
+## §B How to learn math
+## §C Philosophy
+## §D Identities
+## §E Graph source code
