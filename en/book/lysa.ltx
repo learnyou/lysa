@@ -205,16 +205,16 @@
 \setlength{\parskip}{2ex}
 \newenvironment{ExcList}
 {
-  \newpage
+  % \newpage
   \ss{Exercises}
   \begin{ExerciseList}
 }
 {
   \end{ExerciseList}
-  \newpage
-  \sss{Answers}
-  \shipoutAnswer
-  \newpage
+  % \newpage
+  % \sss{Answers}
+  % \shipoutAnswer
+  % \newpage
 }
 \newenvironment{iquote}{\begin{quote}\it}{\end{quote}}
 \newcommand{\bugtracker}{\link{https://gitlab.com/lysa/lysa/issues/new}{bug tracker}}
@@ -403,6 +403,10 @@
 \input{c-philosophy.ltx}
 \input{d-identities.ltx}
 \input{e-graph-listings.ltx}
+
+% Appendix F
+\ch{Answers to the exercises}
+\shipoutAnswer
 \end{appendices}
 
 \newpage
