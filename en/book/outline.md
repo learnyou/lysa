@@ -42,19 +42,14 @@ Sets, proofs, functions introduction
 
 ## §4 Functions
 
-### §4.1 Properties of equality
-### §4.2 First functions
-
 1. Functions of one variable
-2. ≡
-3. ! as a function
+2. Functions of two variables
+3. Lambda calculus
 
-### §4.3 Functions of two variables
-### §4.4 Partially applied functions
-### §4.5 Currying
-### §4.6 Vector-valued functions
-### §4.7 Piecewise functions
-### §4.8 Function plots
+### §4.1 Currying
+### §4.2 Function vocabulary
+* Need more examples
+### §4.3 Piecewise functions
 
 ## §5 Special kinds of sets
 
