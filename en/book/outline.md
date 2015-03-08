@@ -61,7 +61,7 @@ Sets, proofs, functions introduction
 ## §6 ZFC
 
 ### §6.1 Cartesian products
-### §6.5 Function plots
+### §6.2 Function plots
 ### §6.3 Equivalence classes
 ### §6.4 Peano axioms, basic arithmetic
 ### §6.5 Common sets
