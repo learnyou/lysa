@@ -255,53 +255,17 @@ Hebrew letter ``aleph''.\footnote{Some old math textbooks accidentally printed
 By the above definition, any set with a bijective relation to $\N$ has the
 cardinality $\alnull$.
 
-\ss{Piecewise functions}
+% \xtb{Woah woah woah! Hold the phone!}
 
-As a random aside, I'm going to introduce you to the \term{piecewise
-  function}. It's a function whose definition changes based on the input.
+% It looks like we just found a bijection from $\N$ to $\Z$! What the hell is
+% going on?! $\N \subof \Z$, so it can't have the same number of elements, it has
+% to have fewer\ldots oh wait no it doesn't. Remember $n$ and $n^2$? So, we've
+% just found a bijection from $\N$ to $\Z$, so therefore $\N$ and $\Z$ have the
+% same cardinality: $\aleph_0$. That's kind of cool.
 
-\begin{rclmath}
-  q & : & \N \to \Z \\
-  \eva{q}{x} & \ce &
-    \left\{
-      \begin{array}{rcc}
-        \text{$x$ is even} & \to & \frac{x}{2} \\
-        \text{$x$ is odd} & \to & \ngp{\frac{x+1}{2}} \\
-      \end{array}
-    \right.
-\end{rclmath}
+% \[ \N \ae \Z\]
 
-Let's look at $\eva{q}{0}$: $0$ is even, so $\eva{q}{0} = \frac{0}{2} = 0$.
-
-Let's make a table:
-
-\begin{displaymath}
-  \begin{tabu}{|c|c|c|} \hline
-    x & \eva{q}{x} & \text{$\eva{q}{x}$ reduced}  \\ \hline
-    0 & \fracil{0}{2}     & 0 \\
-    1 & \ngfracilpf{1+1}{2} & \ng 1 \\
-    2 & \fracil{2}{2}     & 1 \\
-    3 & \ngfracilpf{3+1}{2} & \ng 2 \\
-    4 & \fracil{4}{2}     & 2 \\
-    5 & \ngfracilpf{5+1}{2} & \ng 3 \\
-    6 & \fracil{6}{2}     & 3 \\
-    7 & \ngfracilpf{7+1}{2} & \ng 4 \\
-    8 & \fracil{8}{2}     & 4 \\
-    \hline
-  \end{tabu}
-\end{displaymath}
-
-\xtb{Woah woah woah! Hold the phone!}
-
-It looks like we just found a bijection from $\N$ to $\Z$! What the hell is
-going on?! $\N \subof \Z$, so it can't have the same number of elements, it has
-to have fewer\ldots oh wait no it doesn't. Remember $n$ and $n^2$? So, we've
-just found a bijection from $\N$ to $\Z$, so therefore $\N$ and $\Z$ have the
-same cardinality: $\aleph_0$. That's kind of cool.
-
-\[ \N \ae \Z\]
-
-$\N$ has exactly the same number of elements as $\Z$.
+% $\N$ has exactly the same number of elements as $\Z$.
 
 \ss{Vector-valued functions and derivatives}
 
