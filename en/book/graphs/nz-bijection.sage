@@ -13,7 +13,7 @@ points = []                     # Empty list of points
 labels = []                     # Empty list of labels
 point_color='blue'
 label_color='black'
-line_color='green'
+line_color='red'
 font_size=15
 
 # We're going to use a pretty limited set of inputs, from 0 to 10,
@@ -35,9 +35,9 @@ for x in range(0, 11):
 
 # Next, we need to plot the points
 plt = list_plot(points,
-                pointsize=45,                 # Larger points
+                pointsize=100,                 # Larger points
                 ticks=[1,1],
-                tick_formatter=1,             # The ticks should be pretty
+                # tick_formatter=1,             # The ticks should be pretty
                 color=point_color,            # Red points
                 axes_labels=['$x$', '$q(x)$'] # Labels for the axes
                )
@@ -46,7 +46,7 @@ plt = plt + sum(labels)         # add the labels
 plt.fontsize(font_size)
 plt.save("nz-bijection.png")    # Save the graph to a file
 
-joins = list_plot(points, color=line_color, plotjoined=True)
+joins = list_plot(points, color=line_color, plotjoined=True, thickness=2, linestyle="--")
 joined_plot = plt + joins
 joined_plot.fontsize(font_size)
 joined_plot.save("nz-bijection-joined.png")
