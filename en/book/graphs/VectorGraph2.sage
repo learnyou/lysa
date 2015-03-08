@@ -25,9 +25,10 @@ myticks = [range(-100,100)] * 2
 pts = list_plot(points, 
                 ticks=myticks,
                 tick_formatter="latex",
-                pointsize=25
+                pointsize=25,
+                axes_labels = ['$x$', '$y$']
                ) + labels
 pts.set_axes_range(-6,6,-4,5)
-pts.fontsize(20)
+pts.fontsize(25)
 # Save it to a file
 pts.save("VectorGraph2.png")
