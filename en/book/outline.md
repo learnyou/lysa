@@ -51,12 +51,12 @@ Sets, proofs, functions introduction
 * Need more examples
 ### §4.3 Piecewise functions
 
-## §5 Proofs
+## §5 More set stuff
 
-### §5.1 Proof techniques
-### §5.2 Peano axioms
-
-Prove everything about arithmetic
+* id, flip, compose
+* Set subtraction
+* complements
+* Cartesian product
 
 ## §6 ZFC
 
@@ -98,3 +98,8 @@ Prove everything about arithmetic
 ## §C Philosophy
 ## §D Identities
 ## §E Graph source code
+## §G Proofs
+### §5.1 Proof techniques
+### §5.2 Peano axioms
+
+Prove everything about arithmetic
