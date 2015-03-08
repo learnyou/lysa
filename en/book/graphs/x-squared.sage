@@ -37,3 +37,12 @@ pts_with_conn.save("x-squared-joined.png")
 x=var('x')
 pts_with_curve = pts + plot(x^2, (x, -11, 11), color='green')
 pts_with_curve.save("x-squared-withcurve-nolabels.png")
+
+curve = plot(x^2, (x, -11, 11),
+             color='green',
+             ticks=[list(arange(-20,20,2)), list(arange(0,140,20))],
+             thickness=5,
+             axes_labels=['$x$', '$y$'])
+             # legend_label='$\\lambda (x) \\to x^2$')
+curve.fontsize(25)
+curve.save("x-squared-curve.png")
