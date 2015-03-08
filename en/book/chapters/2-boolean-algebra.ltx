@@ -127,7 +127,20 @@ have notation for it.
   This is basically just the rule mentioned in \#3. Yay, we learned something!
 \end{enumerate}
 
-\s{And and or}
+\begin{ExcList}
+  \Exercise{\nm{A \notimplies B}
+
+    \begin{displaymath}
+      A \Qimplies \lnot B
+    \end{displaymath}
+  }
+
+  \Answer{No. $A \notimplies B$ means that $A$ doesn't imply $B$. It doesn't
+    necessarily mean that $\lnot B$ is false --- although that could very well
+    be the case.}
+\end{ExcList}
+
+\ss{And and or}
 
 So, sometimes we need to combine two pieces of logic together. There are two
 ways we can do this - logical-or and logical-and.
@@ -175,6 +188,7 @@ properties of \nm\implies .
 \item For all $a$ and $b$, and $c$,
   $\parens{\parens{a \implies b} \land \parens{b \implies c}} \implies \parens{a
     \implies c}$.
+  For this reason, we can write $a \implies b \implies c$ without any ambiguity.
 \end{enumerate}
 
 \label{forall}
@@ -190,12 +204,16 @@ Here are some properties you need to remember:
   You know what, that's too hard. Instead from now on, instead of saying
   $a = b \sfall a,b$, I'm just going to write $a \equiv b$. Good?
 \item[Reflexive property] $a \land a \equiv a$
-\item[Associative property] $a \land \parens{b \land c} \equiv \parens{a \land b} \land c$
+\item[Associative property]
+  $a \land \parens{b \land c} \equiv \parens{a \land b} \land c$
 \item[Commutative property] $a \land b \equiv b \land a$
-\item[Distributive property] $a \land \parens{b \lor c} \equiv \parens{a \land b} \lor \parens{b \land c}$
-\item[De Morgan's first law] $\lnot\parens{a \land b} \equiv \lnot a \lor \lnot b$
+\item[Distributive property]
+  $a \land \parens{b \lor c} \equiv \parens{a \land b} \lor \parens{b \land c}$
+\item[De Morgan's first law]
+  $\lnot\parens{a \land b} \equiv \lnot a \lor \lnot b$
 \item[Reflexive property] $a \lor a \equiv a$
-\item[Associative property] $a \lor \parens{b \lor c} \equiv \parens{a \lor b} \lor c$
+\item[Associative property]
+  $a \lor \parens{b \lor c} \equiv \parens{a \lor b} \lor c$
 \item[Commutative property] $a \lor b \equiv b \lor a$
 \end{description}
 
@@ -205,11 +223,7 @@ extent.\cite{w-boolean-algebra}
 
 \begin{ExcList}
   \Exercise[label={demorgan2}]{
-    I'm going to give you this one only in mathematical notation:
-
-    \begin{displaymath}
-      \lnot\parens{A \lor B} \Qequiv \lnot A \land \lnot B
-    \end{displaymath}
+    $\lnot\parens{A \lor B} \Qequiv \lnot A \land \lnot B$
 
     I'll spoil it for you. This is called \term{De Morgan's second law}, and
     it's true. You can prove it using the cancellative property and the first
@@ -274,5 +288,102 @@ extent.\cite{w-boolean-algebra}
     \begin{displaymath}
       p \lor \parens{q \land r} \equiv \parens{p \lor q} \land \parens{q \lor r}
     \end{displaymath}
+  }
+
+  \Exercise{$\lnot A \implies B \implies \lnot C$
+
+    \begin{displaymath}
+      C \Qimplies A
+    \end{displaymath}
+  }
+
+  \Answer{Yes.
+
+    \begin{proof}
+        By transition,
+
+      \begin{alignmath}{ccccc}
+        \lnot A & \implies & B & \implies & \lnot C \\
+        \lnot A &          &   & \implies & \lnot C \\
+      \end{alignmath}
+
+      By the reversal property:
+      \begin{displaymath}
+        A \impliedby C
+      \end{displaymath}
+    \end{proof}
+  }
+
+  \Exercise{$A \notimplies B \implies \lnot C$
+
+    \begin{displaymath}
+      A \Qimplies C
+    \end{displaymath}
+  }
+
+  \Answer{Not by necessity.
+    \begin{proof}
+      By transition:
+      \begin{alignmath}{ccccc}
+        A & \notimplies & B & \implies & \lnot C \\
+        A & \notimplies &   &          & \lnot C \\
+      \end{alignmath}
+
+      This does not imply
+
+      \begin{displaymath}
+        A \implies C
+      \end{displaymath}
+      
+      To put it another way
+      \begin{rclmath}
+        A & \notimplies & \lnot C \\
+          & \centernot\Downarrow &  \\
+        A & \implies & C
+      \end{rclmath}
+    \end{proof}
+  }
+
+  \Exercise{$A \implies B \impliedby C$
+
+    \begin{displaymath}
+      A \Qiff C
+    \end{displaymath}
+  }
+
+  \Answer{No, there's nothing to indicate that $A$ and $C$ have any relation
+    whatsoever.}
+
+  \Exercise{$A \land \lnot\parens{B \land \parens{C \lor D}} \Qequiv A
+    \land \parens{B \lor C} \land \parens{B \lor D}$ }
+
+  \Answer{No
+    \begin{proof}
+      Let's assume that it's true.
+      \begin{rclmath}
+        A \land \lnot\brackets{B \land \parens{C \lor D}}
+          & \equiv & A \land \parens{B \lor C} \land \parens{B \lor D} \\
+      \end{rclmath}
+      Let $B, C, D$ all be true. Then:
+
+      \begin{rclmath}
+        A \land \lnot\brackets{\true \land \parens{\true \lor \true}}
+          & \equiv & A \land \parens{\true \lor \true} \land \parens{\true \lor \true} \\
+        A \land \lnot\brackets{\true \land \parens{\true \lor \true}}
+          & \equiv & A \land \true \land \true \\
+        A \land \lnot\brackets{\true \land \parens{\true \lor \true}}
+          & \equiv & A \land \true \\
+        A \land \lnot\brackets{\true \land \true}
+          & \equiv & A \land \true \\
+        A \land \lnot\true
+          & \equiv & A \land \true \\
+        A \land \lnot\true
+          & \equiv & A \land \true \\
+        \false
+          & \equiv & \true \\
+      \end{rclmath}
+
+      Which is obviously false.
+    \end{proof}
   }
 \end{ExcList}
