@@ -45,10 +45,10 @@ points = []                     # Empty list of points
 labels = []                     # Empty list of labels
 point_color='red'
 label_color='black'
-line_color='darkblue'
+line_color='blue'
 font_size=15
 my_ticks=[range(-100,100)] * 2
-my_pointsize=50
+my_pointsize=100
 my_x_arrowcut=0.0
 my_y_arrowcut=0.0
 my_arrowcut=0.2
@@ -84,39 +84,37 @@ print(points)
 
 # Next, we need to plot the points
 plt = list_plot(points,
-                pointsize=my_pointsize,                 # Larger points
+                pointsize=my_pointsize,
                 ticks=[1,1],
-                # tick_formatter='latex',         # The ticks should be pretty
-                color=point_color,            # Red points
-                axes_labels=['x', 'y'] # Labels for the axes
+                color=point_color,
+                axes_labels=['x', 'y']
                )
 
-lines = []
-for a in range(1, len(points)):
-    thispoint = points[a]
-    prevpoint = points[a-1]
-    x_difference = thispoint[0] - prevpoint[0] 
-    y_difference = thispoint[1] - prevpoint[1]
-    new_prevpoint,new_thispoint = list(prevpoint),list(thispoint)
+lines = list_plot(points, plotjoined=True, color=line_color)
+# for a in range(1, len(points)):
+#     thispoint = points[a]
+#     prevpoint = points[a-1]
+#     x_difference = thispoint[0] - prevpoint[0] 
+#     y_difference = thispoint[1] - prevpoint[1]
+#     new_prevpoint,new_thispoint = list(prevpoint),list(thispoint)
 
-    if x_difference < 0:
-        new_prevpoint[0] = prevpoint[0] - my_x_arrowcut
-        new_thispoint[0] = thispoint[0] + my_x_arrowcut
-    elif x_difference > 0:
-        new_prevpoint[0] = prevpoint[0] + my_x_arrowcut
-        new_thispoint[0] = thispoint[0] - my_x_arrowcut
-    elif y_difference < 0:
-        new_prevpoint[1] = prevpoint[1] - my_y_arrowcut
-        new_thispoint[1] = thispoint[1] + my_y_arrowcut
-    elif y_difference > 0:
-        new_prevpoint[1] = prevpoint[1] + my_y_arrowcut
-        new_thispoint[1] = thispoint[1] - my_y_arrowcut
-    lines.append(arrow(new_prevpoint, new_thispoint, **my_arrowparams))
+#     if x_difference < 0:
+#         new_prevpoint[0] = prevpoint[0] - my_x_arrowcut
+#         new_thispoint[0] = thispoint[0] + my_x_arrowcut
+#     elif x_difference > 0:
+#         new_prevpoint[0] = prevpoint[0] + my_x_arrowcut
+#         new_thispoint[0] = thispoint[0] - my_x_arrowcut
+#     elif y_difference < 0:
+#         new_prevpoint[1] = prevpoint[1] - my_y_arrowcut
+#         new_thispoint[1] = thispoint[1] + my_y_arrowcut
+#     elif y_difference > 0:
+#         new_prevpoint[1] = prevpoint[1] + my_y_arrowcut
+#         new_thispoint[1] = thispoint[1] - my_y_arrowcut
+#     lines.append(arrow(new_prevpoint, new_thispoint,
+#                        **my_arrowparams))
 
-lines = sum(lines)
-# lines=list_plot(points, plotjoined=True, color=line_color, thickness=3)
 plt.fontsize(font_size)
-(plt+lines).save("nq-bijection.png")    # Save the graph to a file
+(plt+lines).save("nq-bijection.png")
 plt.save("nq-bijection-nolines.png")
 
 t = var('t')
