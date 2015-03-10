@@ -1,116 +1,112 @@
-\s{Basic Logic}\label{2.1-basic-logic}
+\s{Базовая логика}\label{2.1-basic-logic}
 
-\ss{True and False}
+\ss{True и False}
 
-True or False - in your education, you've been faced with questions where the
-answer is ``True'' or ``False''? Well, hopefully the answer is ``True''. In
-math, we're going to deal with things where we have to decide whether something
-is true or not. Moreover, there are going to be a bunch of statements that may
-or may not be true, and we'll have to figure out how they relate to each
-other. With that in mind, this section has some rules for dealing with truth and
-falsehood.
+``Правда`` или ``Ложь`` – за время вашего обучения вы наверняка сталкивались 
+с вопросами, ответами на которые были ``Правда`` или ``Ложь``.
+Надеюсь, это ``правда`` так. В математике мы будем иметь дело с задачами,
+где нам нужно будет решить, что нечто является правдой или нет. Более того,
+мы встретим кучу выражений, которые могут быть или не быть правдой, и нам нужно будет
+понять, как они связаны друг с другом. Помните об этом, пока читаете этот раздел,
+в нем представлены некоторые правила о том, как решать такие вопросы.
 
-We're going to create two ``values'', and they are called \truenm\ and \falsenm,
-respectively. These values are called ``Booleans''. They are named after a
-mathematician named George Boole, who studied them rather extensively.
+Мы создадим два ``значения`` и назовем их \truenm\ и \falsenm соответственно.
+Эти значения называются ``Булевы''. Они названы вчесть математика Джорджа Буля,
+который довольно долго их изучал.
 
-\truenm\ and \falsenm\ are not very interesting on their own. However, when we
-have a bunch of things that are either \truenm\ or \falsenm, we can combine them
-together in three basic ways:
-
-\begin{itemize}  
-\item $A \land B$ should be read as ``$A$ logical-and $B$.'' Both have to be
-  \truenm. If one of them is \falsenm, than $A \land B$ is \falsenm. Likewise,
-  if $A$ and $B$ are both \truenm, then $A \land B$ is \truenm.
-
-\item $A \lor B$ should be read as ``$A$ logical-or $B$.'' With $A \lor B$, if
-  one of $A$ and $B$ is \truenm, then $A \lor B$ is \truenm. It's okay if both
-  of them are \truenm.
-\item Sometimes we are going to want to say `$A$ is not \truenm'. Instead of
-  writing that out each time, I'm instead going to use the symbol $\lnot$. So,
-  $\lnot A$ should be read `logical-not $A$'.
-
-\end{itemize}  
-
-\ss{Logic}
-
-Mathematicians are too lazy to write things like ``if $A$ is \truenm, then $B$
-is \truenm, but if $B$ is \truenm, it doesn't necessarily imply that $A$ is
-\truenm.'' So, in math, they use these symbols. I'm also lazy, so I'm going to
-use these symbols.
+\truenm\ и \falsenm\ не очень интересны сами по себе. Но когда у нас есть куча
+вещей, которые являются \truenm\ или \falsenm, мы можем комбинировать их вместе
+тремя основными способами:
 
 \begin{itemize}
-\item $A \implies B$ means that ``if $A$ is \truenm, that means that $B$ must be
-  \truenm.'' Note that this \xtb{does not} mean that ``if $B$ is \truenm, then
-  $A$ is \truenm.'' Always follow the arrow. $A \implies B$ should be read as
-  ``$A$ implies $B$.''
+\item $A \land B$ нужно читать как ``$A$ логическое-и $B$.'' Оба должны быть \truenm.
+  Если один из них \falsenm, значит $A \land B$ является \falsenm. Таким образом,
+  если $A$ и $B$ оба \truenm, тогда $A \land B$ является \truenm.
 
-\item $A \impliedby B$ is the same thing as writing $B \implies A$. It's often
-  convenient to write $A \impliedby B$ though. $A \impliedby B$ should be read
-  ``$A$ is implied by $B$.''
+\item $A \lor B$ нужно читать как ``$A$ логическое-или $B$.'' Если $A$ или $B$ \truenm,
+  то $A \lor B$ тоже \truenm. Такой же результат если они оба \truenm.
 
-\item $A \iff B$ means that $A \implies B$ and $B \implies A$. You can think of
-  $A \iff B$ as meaning ``Saying $A$ is the same thing as saying $B$.'' You
-  should read $\iff$ as ``if (and only if).'' ``If (and only if)'' takes a while
-  to write, and $\iff$ is often contextually inappropriate. So, I'll sometimes
-  use iff (with two `f's) in the place of ``if (and only if)''.
-
-\item $A \notimplies B$ means ``$A$ does not imply $B$.'' \xtb{However}, this
-  does not mean, $A$ implies that $B$ is false. It simply means that knowing
-  something about $A$ doesn't tell you anything about $B$. Got it? The analog is
-  what you'd expect for $A \notimpliedby B$.
-
-\item For any $A$, it is always true that $A \implies A$.
-
-\item For any $A$, it's always true that $A \notimplies \lnot A$
+\item Иногда мы хотим сказать `$A$ не является \truenm'. Вместо того, чтобы писать
+  так каждый раз, я буду использовать символ $\lnot$. Таким образом,
+  $\lnot A$ нужно читать как `логическое-не $A$'.
 
 \end{itemize}
 
-Now, I'm very lazy, so I'm going to quit writing ``for every $A$,$B$, and $C$
-\ldots'' Instead, I'm going to use the symbol $\forall$. It's an upside-down A,
-and it stands for `all'. You should read it as `for all'. So, the above
-statement is $\forall A,B,C \ldots$
+\ss{Логика}
+
+Математики слишком ленивы, чтобы писать штуки типа ``если $A$ является \truenm, то
+$B$ тоже \truenm, но если $B$ является \truenm, это не обязательно значит, что
+$A$ является \truenm.'' Так что в математике они используют символы. Я тоже ленивый и
+тоже буду использовать эти символы.
 
 \begin{itemize}
-\item Alright, time for some notation:
-  
+\item $A \implies B$ означает, что ``если $A$ является \truenm, то $B$ тоже должно быть
+  \truenm.'' Всегда следуйте за стрелкой. $A \implies B$ нужно читать как ``из $A$ следует $B$.''
+
+\item $A \impliedby B$ это то же самое, что написать $B \implies A$. Часто удобнее написать
+  именно $A \impliedby B$. $A \impliedby B$ нужно читать как ``$A$ следует из $B$.''
+
+\item $A \iff B$ означает, что $A \implies B$ и $B \implies A$. Вы можете подумать, что
+  $A \iff B$ равносильно ``Сказать $A$ то же самое, что сказать $B$.'' Однако, нужно читать $\iff$ как
+  ``если (и только если).'' ``Если (и только если)'' довольно долго писать, и $\iff$ часто
+  не очень подходит по контексту. Так что я иногда буду использовать ессли (с двумя `f')
+  вместо ``если (и только если)''.
+
+\item $A \notimplies B$ означает ``из $A$ не следует $B$.'' \xtb{Не смотря на это}, это не
+  означает, что из $A$ следует что $B$ ложно. Это попросту означает, что информация о
+  $A$ не говорит вам ничего о $B$. Поняли? Аналогичное значение имеет выражение $A \notimpliedby B$.
+
+\item Для любого $A$ всегда является правдой, что $A \implies A$.
+
+\item Для любого $A$ всегда является правдой, что $A \notimplies \lnot A$.
+
+\end{itemize}
+
+Итак, я слишком ленив, так что я заканчиваю писать ``для каждого $A$, $B$, и $C$\ldots''
+Вместо этого я буду использовать символ $\forall$. Это перевернутая буква А, и
+она служит для обозначения `для всех'. Нужно читать её именно как `для всех'.
+Так что предложение в начале абзаца будет выглядеть как $\forall A,B,C \ldots$
+
+\begin{itemize}
+\item Окей, время поупражняться в чтении записи:
+
   \[\forall A,B,C \semicolon \parens{\parens{A \implies B} \land \parens{B \implies C}}
   \implies \parens{A \implies C} \]
 
-  For this reason, we can write things like $A \implies B \implies C$.
-  \footnote{A common critique of this practice has to do with
-    associativity. That is, many people read $A \implies B \implies C$ as
-    $\parens{A \implies B} \implies C$. This translates to ``if $A$ implies $B$,
-    then $C$ is \truenm'', which isn't \xti{quite} what we want. The solution is
-    to not try to group the operators like that, or use parentheses when you do
-    want to group them.}
+  Для этого мы можем использовать такое выражение, как $A \implies B \implies C$.
+  \footnote{Обычная критика для такой записи относится к ассоциативности.
+    Так как многие люди читают $A \implies B \implies C$ как
+    $\parens{A \implies B} \implies C$. И это переводится как ``если $B$ следует
+    из $A$, то $C$ – \truenm'', что \xti{не совсем} то, что мы хотим. Решение в том,
+    чтобы не пытаться группировать операторы как выше, или использовать скобки, когда
+    вы хотите их сгруппировать.}
 
-  You were probably really confused by that last glob of math. Let me read it
-  out for you. ``for all $A$, $B$, and $C$, if we know that $A \implies B$, and
-  $B \implies C$, then it's true that $A \implies C$.'' Sometimes, I'll write
-  the $\forall\ldots$ part after the statement. So, I should have written the
-  above as
+  Вы наверное смущены таким куском математики. Давайте я прочитаю его для вас.
+  ``для всех $A$, $B$ и $C$, если мы знаем что $A \implies B$ и $B \implies C$,
+  то правдой является выражение $A \implies C$.'' Иногда я пишу часть $\forall\ldots$
+  после выражения. То есть я мог написать выражение выше, как
 
   \[\parens{\parens{A \implies B} \land \parens{B \implies C}} \implies \parens{A \implies C} \semicolon \forall A,B,C\]
 
-\item If you know that $A \implies B$, then $\lnot A \impliedby \lnot B$.
+\item Если вы знаете, что $A \implies B$, то $\lnot A \imliedby \lnot B$.
 \end{itemize}
 
-Be careful. If two independent statements happen to be \truenm, it doesn't mean
-that one implies the other. Thus, the values $A$, $B$, and $C$ are not
-themselves the values \truenm\ and \falsenm, but are instead statements, that,
-when evaluated, happen to be \truenm\ or \falsenm.
+Будьте остороны. Если два независимых выражения являются \truenm, это не значит,
+что из одного следуюет другое. Так, значения $A$, $B$ и $C$ сами по себе не
+\truenm и \falsenm, а выражения, при вычислении которых результатом является
+\truenm или \falsenm.
 
 \begin{ExcList}
-  \Exercise{Given $A$, is it always the case that $A \iff A$?}  \Answer{Yes. We
-    know that $A \implies A$. Remember, $A \iff A$ is just saying that
-    $\parens{A \implies A} \land \parens{A \impliedby A}$. Also recall that
-    $A \impliedby B$ is the lazyman's way of writing $B \implies A$. Thus, if
-    you know $A \implies A$, then it must be true that $A \impliedby A$, and
-    therefore $A \iff A$. }
+  \Exercise{Дано $A$, правда ли, что $A \iff A$?}
+  \Answer{Да. мы знаем,
+    что $A \implies A$. Помните, что $A \iff A$ просто говорит нам
+    $\parens{A \implies A} \land \parens{A \impliedby A}$. Так же помните, что
+    $A \impliedby B$ это $B \implies A$ для ленивых. Итак, если вы знаете, что
+    $A \implies A$, то должно быть правдой $A \impliedby A$ и, следовательно,
+    $A \iff A$. }
 
-  \Exercise{Given $A$, is it the case that $A \land A \iff A$?}
-  \Answer{Yes. There are two cases we need to deal with here:
+  \Exercise{Дано $A$, верно ли, что $A \land A \iff A$?}
+  \Answer{Да. Здесь есть два случая, с которыми мы можем иметь дело:
     \[
     \left\{
       \begin{array}{rrcl}
@@ -119,98 +115,97 @@ when evaluated, happen to be \truenm\ or \falsenm.
       \end{array}
     \right.
     \]
-    In both cases, $A \land A \iff A$. Q.E.D. This technique is called ``proof
-    by exhaustion''. We named every possible case --- in this case, there were
-    only two --- and proved the theorem for each of them.
+    В обоих случаях $A \land A \iff A$. ч.т.д. Эта техника называется ``доказательство
+    перебором''. Мы взяли все возможные случаи --- в данном случае их всего два ---
+    и доказали теорему для каждого из них.
 
-    You might be wondering what $A := \true \to \ldots$ is. It should be read
-    ``let $A$ be \truenm; then, \ldots'' }
+    Если вам незнакома запись $A := \true \to \ldots$, то ее нужно читать как
+    ``допустим $A$ будет \truenm, тогда \ldots'' }
 
-  \Exercise{Given $A$ and $B$, is it always the case that
+  \Exercise{Даны $A$ и $B$, всегда ли для них верно, что
     $A \land B \iff B \land A$?}
+  \Answer{Да. В предыдущем упражнении мы показали, что $A \land A \iff A$. Таким
+    образом, если $A$ и $B$ оба \truenm, или оба из них \falsenm, ответ – да.
+    И получается, что единственный случай, который мы должны рассмотреть, это
+    когда $A$ является \truenm и $B$ – \falsenm.\footnote{Вы наверное гадаете,
+      почему я не рассматриваю случай, когда $A$ является \falsenm и $B$ является \truenm.
+      Из случаев, что мы рассмотрели ранее, видно, что если $A \iff B$, то $B \iff A$.
+      Так что если $A \land B \iff B \land A$, то $B \land A \iff A \land B$}
 
-  \Answer{Yes. In the previous problem, we showed that $A \land A \iff A$. Thus,
-    if $A$ and $B$ are both \truenm, or are both \falsenm, the answer is
-    yes. Thus, the only case we need to consider is that in which $A$ is \truenm
-    and $B$ is \falsenm.\footnote{You may be wondering why I'm not considering
-      the case when $A$ is \falsenm, and $B$ is \truenm. However, as we showed
-      earlier, it's the case that if $A \iff B$, then $B \iff A$. Thus if
-      $A \land B \iff B \land A$, then $B \land A \iff A \land B$}
+    Если $\true \land \false \iff \false$, и $\false \land \true \iff \false$.}
 
-    If $\true \land \false \iff \false$, and $\false \land \true \iff \false$.}
-
-  \Exercise{Given $A$, $B$, and $C$, is it always the case that $\parens{A \land B} \land
+  \Exercise{Даны $A$, $B$, и $C$, всегда ли для них верно, что $\parens{A \land B} \land
     C \iff A \land \parens{B \land C}$?}
-  \Answer{Yes. }
+  \Answer{Да.}
 
-  \Exercise{Given $A$, is it the case that $A \lor A \iff A$?}
-  \Answer{Yes.}
+  \Exercise{Дано $A$, верно ли, что $A \lor A \iff A$?}
+  \Answer{Да.}
 
-  \Exercise{Given $A$ and $B$, which are both True/False values, is it always
-    the case that $A \lor B \iff B \lor A$?}
-  \Answer{Yes.}
+  \Exercise{Даны $A$ и $B$, оба являются значениями True/False, всегда ли для них
+    верно, что $A \lor B \iff B \lor A$?}
+  \Answer{Да.}
 
-  \Exercise{Given $A$, $B$, and $C$, is it always the case that $\parens{A \lor B} \lor
+  \Exercise{Даны $A$, $B$, и $C$, всегда ли верно, что $\parens{A \lor B} \lor
     C \iff A \lor \parens{B \lor C}$?}
-  \Answer{Yes.}
+  \Answer{Да.}
 
-  \Exercise{Given $A$, $B$, and $C$, what is the result of
+  \Exercise{Даны $A$, $B$, и $C$, каков будет результат выражения
     $A \land \parens{B \lor C}$?}
   \Answer{$A \land \parens{B \lor C} \iff \parens{A \land B} \lor \parens{A
       \land C}$}
 
-  \Exercise{What do you think the result of $\lnot\parens{A \land B}$ is?}
-  \Answer{I will explain in \cref{2.2-more-logic}, but the answer is
+  \Exercise{Как вы думаете, какой результат выражения $\lnot\parens{A \land B}$?}
+  \Answer{Я объясню подробнее в \cref{2.2-more-logic}, но ответ:
 
     \[\lnot\parens{A \land B} \iff \parens{\lnot A} \lor \parens{\lnot B}
     \semicolon \forall A,B \]
   }
-  \Exercise{What do you think the result of $\lnot\parens{A \lor B}$ is?}
-  \Answer{I will explain in \cref{2.2-more-logic}, but the answer is
+  
+  \Exercise{Как вы думаете, какой результат выражения $\lnot\parens{A \lor B}$?}
+  \Answer{Я объясню подробнее в \cref{2.2-more-logic}, но ответ:
 
     \[\lnot\parens{A \lor B} \iff \parens{\lnot A} \land \parens{\lnot B}
     \semicolon \forall A, B \]
   }
 
-  \Exercise{We know, from one of the laws
+  \Exercise{По одному из законов мы знаем, что
 
     \[ \parens{A \implies B} \implies \parens{\lnot A \impliedby \lnot B} \sfall A,B \]
 
-    Is the following true?
-    
+    Следующее выражение верно?
+
     \[ \parens{A \implies B} \iff \parens{\lnot A \impliedby \lnot B} \sfall A,B \]
 
-    In the future, I won't put ``is the following true\ldots'', mostly because
-    I'm lazy, but it also means that you, the reader, might have a difficult
-    time trying to figure out what the point of controversy is. So, in the
-    future, I'll instead write:
+    В будущем, я не буду вставлять ``следующее выражение верно\ldots''. Большей частю
+    потому, что я ленивый, но так же потому, что вы, читатель, можете потратить много времени,
+    пытаясь понять цель данной фразы. Так что в будущем я буду писать:
 
     \[ \parens{A \implies B} \Qiff \parens{\lnot A \impliedby \lnot B} \sfall A,B \]
 
-    (Notice the ? over $\iff$). Now you know exactly what the question is, and I
-    don't have to write as much.
+    (Заметили ? после $\iff$). Теперь вы знаете точно, о чем этот вопрос, и я могу писать
+    поменьше.
 
   }
-  \Answer{Yes, by just applying the law again. Let's restate the law:
+  \Answer{Да, просто применяем закон еще раз. Давайте переформулируем закон:
 
     \[ \parens{A \implies B} \implies \parens{\lnot A \impliedby \lnot B} \sfall A, B\]
     \[ \parens{\lnot A \impliedby \lnot B} \impliedby \parens{A \implies B} \sfall A,B \]
     \[ \parens{\lnot B \implies \lnot A} \impliedby \parens{B \impliedby A} \sfall A,B \]
     \[ \parens{\lnot B \implies \lnot A} \impliedby \parens{B \impliedby A} \sfall A,B \]
 
-    Let $C := \lnot B$, $D := \lnot A$
+    Пусть $C := \lnot B$, $D := \lnot A$
 
     \[ \parens{C \implies D} \impliedby \parens{\lnot C \impliedby \lnot D} \sfall C,D \]
 
-    We know, from the law,
+    Мы знаем из закона, что
 
     \[ \parens{C \implies D} \implies \parens{\lnot C \impliedby \lnot D} \sfall C,D \]
 
-    Therefore,
+    Следовательно,
 
     \[ \parens{C \implies D} \iff \parens{\lnot C \impliedby \lnot D} \sfall C,D \]
     \[ \parens{A \implies B} \iff \parens{\lnot A \impliedby \lnot B} \sfall A,B \]
 
-    Q.E.D.
+    ч.т.д.
   }
 \end{ExcList}
