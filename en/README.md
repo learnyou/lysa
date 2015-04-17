@@ -1,9 +1,3 @@
-Copyright © 2014-2015 Peter Harpending. `<peter@harpending.org>`
-
-Copying and distribution of this file, with or without modification, are
-permitted in any medium without royalty provided the copyright notice and this
-notice are preserved.  This file is offered as-is, without any warranty.
-
 # Learn You Some Algebras for Glorious Good!
 
 This is a math book, licensed under the GNU FDL. It is written in English. There

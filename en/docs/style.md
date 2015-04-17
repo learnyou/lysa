@@ -1,9 +1,3 @@
-Copyright © 2014-2015, Peter Harpending. <pharpend2@gmail.com>
-
-Copying and distribution of this file, with or without modification, are
-permitted in any medium without royalty provided the copyright notice and this
-notice are preserved.  This file is offered as-is, without any warranty.
-
 # LaTeX Style Guide
 
 LaTeX is the markup language we use for LYSA. It's very good for math. This
