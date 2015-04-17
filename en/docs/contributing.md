@@ -106,6 +106,7 @@ git remote add upstream https://github.com/learnyou/lysa.git
 git remote update
 git diff upstream/master
 ```
+
 ### Committing
 
 Try to make sure that each commit only contains one change. It's a lot less

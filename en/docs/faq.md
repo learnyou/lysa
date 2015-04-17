@@ -1,16 +1,17 @@
 # Frequently Asked Questions
 
-1.  **Why is LYSA licensed under the GNU Free Documentation License, and not the
-    Creative Commons ShareAlike license?**
+1.  **Why is LYSA licensed under the GNU Free Documentation License, and
+    not the Creative Commons ShareAlike license?**
 
-    The FDL is designed specifically for textbooks and manuals, whereas the
-    CC-SA license is designed for any creative work. Thus, the wording in the
-    FDL, is much more specific to our situation, and therefore less
-    ambiguous. 
+    The FDL is designed specifically for textbooks and manuals, whereas
+    the CC-SA license is designed for any creative work. Thus, the
+    wording in the FDL, is much more specific to our situation, and
+    therefore less ambiguous.
 
-    For instance, the FDL requires that the document be made available in source
-    form. This is hugely important for a textbook, because otherwise you
-    wouldn't be able to edit it. The CC-SA license has no such requirement.
+    For instance, the FDL requires that the document be made available
+    in source form. This is hugely important for a textbook, because
+    otherwise you wouldn't be able to edit it. The CC-SA license has no
+    such requirement.
 
 2.  **Do you guys have a blog or something?**
 
@@ -30,16 +31,18 @@
     whatever reason, you can email `peter@harpending.org` with the
     issue.
 
-4.  **Why is LYSA only available as a PDF? Can I get it in some other format?**
+4.  **Why is LYSA only available as a PDF? Can I get it in some other
+    format?**
 
     In theory, yes. However, the only tool that can do this is
-    [Pandoc](http://johnmacfarlane.net/pandoc/). Unfortunately, Pandoc is really
-    buggy, so we can't convert it yet.
+    [Pandoc](http://johnmacfarlane.net/pandoc/). Unfortunately, Pandoc
+    is really buggy, so we can't convert it yet.
 
 5.  **How do I get in touch with you?**
 
-    You could email me, `peter@harpending.org`. We have an IRC channel, `#lysa`
-    on FreeNode. If you want a forum-type experience, we have a
+    You could email me, `peter@harpending.org`. We have an IRC channel,
+    `#lysa` on FreeNode, in which I go by the nick `pharpend`. If you
+    want a forum-type experience, we have a
     [subreddit](https://lysa.reddit.com/).
 
 

@@ -8,10 +8,11 @@ is an unofficial [Russian translation](https://github.com/gazay/lysa)
 If you want a pre-build PDF, see the
 [pdfs repository](https://github.com/learnyou/lysa-pdfs).
 
-To build a PDF from source, you'll need to have TeX installed, along with a
-number of packages. A list can be found in the
-[`docs/contributing.md` file](docs/contributing.md). I'm sure you can build the
-project on Windows, I just don't know how (most of us use Linux). 
+To build a PDF from source, you'll need to have TeX installed, along
+with a number of packages. Installation instructions can be found in
+[`docs/contributing.md` file](docs/contributing.md). I'm sure you can
+build the project on Windows, I just don't know how (most of us use
+Linux).
 
 If you are reading this, you probably want the English version. In that case:
 
@@ -34,9 +35,9 @@ know what a tarball is, you can get a Zip archive from
 
 # Community stuff
 
-If you like chatting on IRC, come see us in `#lysa` on FreeNode. If you don't
-know what IRC is, or you don't have a client set up, you can connect through
-[FreeNode's webchat][webchat].
+If you like chatting on IRC, come see us in `#lysa` on FreeNode. If you
+don't know what IRC is, or you don't have a client set up, you can
+connect through [FreeNode's webchat][webchat].
 
 If you notice any errors, don't be shy to report them in the
 [issue tracker](https://github.com/learnyou/lysa/issues). If you have
@@ -54,7 +55,7 @@ This project is hosted on GitHub, at https://github.com/learnyou/lysa .
 
 # License
 
-LYSA is licensed under the [GNU Free Documentation License][gfdl]. The license
-can be found in the LICENSE file in the project root.
+LYSA is licensed under the [GNU Free Documentation License][gfdl]. The
+license can be found in the LICENSE file in the project root.
 
 [gfdl]: https://gnu.org/licenses/fdl.html
