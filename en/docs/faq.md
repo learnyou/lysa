@@ -20,14 +20,15 @@
 
 3.  **I found an error, what do I do?**
 
-    If you know how to fix it, it would be best if you would clone the git repo,
-    fix the issue, and then send a merge request. If you don't want to do this,
-    the next best thing would be to
-    [open a bug](https://gitlab.com/lysa/lysa/issues/new).
+    If you know how to fix it, it would be best if you would clone the
+    git repo, fix the issue, and then send a merge request. If you don't
+    want to do this, the next best thing would be to
+    [open a bug](https://github.com/lysa/issues/new).
 
-    Unfortunately, opening a bug requires a GitLab account. GitLab accounts are
-    free. If you don't want to make a GitLab account for whatever reason, you
-    can email `peter@harpending.org` with the issue.
+    Unfortunately, opening a bug requires a GitHub account. GitHub
+    accounts are gratis. If you don't want to make a GitHub account for
+    whatever reason, you can email `peter@harpending.org` with the
+    issue.
 
 4.  **Why is LYSA only available as a PDF? Can I get it in some other format?**
 

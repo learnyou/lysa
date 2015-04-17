@@ -25,7 +25,7 @@ Here is the required software you need to contribute:
 TeX is the markup language in which LYSA is written, so you need a TeX
 distribution to compile it. Note that if you are only interested in the PDF
 file, we publish regular builds
-[here](https://gitlab.com/lysa/pdfs/tree/master). The target TeX distribution is
+[here](https://github.com/lysa/lysa-pdf). The target TeX distribution is
 [TeXLive][texlive], but it probably works on other TeX distributions. Below you
 can find installation instructions for select operating systems. If you don't
 see your operating system there, but know what software is needed, please add it
@@ -98,21 +98,11 @@ suggested changes, or made a number of trivial changes, add yourself to the
 
 ## Git
 
-The git repo is hosted on GitLab. If you have a GitLab account, the easiest
-thing to do is to fork the repo with GitLab, and then submit a merge request. If
-you have a Git**Hub** account, you can log into Git**Lab** with your Git**Hub**
-account.
-
-![](http://i.imgur.com/0IAINpq.png)
-
-If you don't use GitLab, and don't want to make a GitLab account, then you can
-host your git repository elsewhere (such as Gitorious or GitHub), and then email
-pharpend <<pharpend2@gmail.com>> with a link to the repository. It's recommended
-that you copy & paste the diff into the email, because pharpend will be less
-grumpy if you do. To generate the diff, run
+[Git](https://git-scm.com) is a program we use to keep track of revisions
+to files. If you want to use git, try this:
 
 ```
-git remote add upstream git@gitlab.com:lysa/lysa.git
+git remote add upstream https://github.com/learnyou/lysa.git
 git remote update
 git diff upstream/master
 ```
