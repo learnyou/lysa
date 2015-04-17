@@ -1,29 +1,29 @@
-\s{Combining not, and, and or}\label{2.2-more-logic}
+\s{Совмещаем не, и и или}\label{2.2-more-logic}
 
-In the previous section, we took a cursory look into the operators $\implies$,
-$\impliedby$, $\iff$, $\land$, $\lor$, and $\lnot$.
+В предыдущей секции мы поверхностно взглянули на операторы $\implies$,
+$\impliedby$, $\iff$, $\land$, $\lor$, и $\lnot$.
 
-I'm only going to introduce 2 new rules in this section, and here they are
+Я собираюсь представить лишь 2 новых правила в этой секции. Вот они:
 
 \begin{itemize}
 \item $\lnot\parens{\lnot A} \iff A$
 \item $\lnot\parens{A \land B} \iff \parens{\lnot A} \lor \parens{\lnot B}$
 
-  Intuitively you can think of this law this way: both $A$ and $B$ have to be
-  true for $A \land B$ to be true. So, if one of them isn't, the entire
-  condition is false. The way to say ``the entire condition isn't true'' is
-  $\lnot\parens{A \land B}$. The way to say ``one of them isn't true'' is
+  Интуитивно вы можете думать об этих законах следующее: оба $A$ и $B$ должны
+  быть правдой чтобы $A \land B$ было правдой. Так образом, если одно из них
+  правдой не является, все выражение – ложь. Сказать, что ``все выражение – ложь''
+  можно так: $\lnot\parens{A \land B}$. Сказать ``одно из них – ложь'' так:
   $\parens{\lnot A} \lor \parens{\lnot B}$.
 \end{itemize}
 
-The last rule is
+Последнее правило:
 
 \[\lnot\parens{A \lor B} \iff \parens{\lnot A} \land \parens{\lnot B} \semicolon
 \forall A,B\]
 
 
 \begin{proof}
-  This can be derived from the last law. Let $C = \lnot A$, and $D = \lnot B$.
+  Его можно вывести из последнего закона. Пусть $C = \lnot A$, и $D = \lnot B$.
   \[
   \begin{array}{rcll}
     \lnot\parens{A \land  B}                              & \iff & \parens{\lnot A} \lor \parens{\lnot B}                              & \semicolon \forall C,D \\
@@ -35,6 +35,7 @@ The last rule is
   \]
 \end{proof}
 
+Так и что это все за чертовщина? Ну, это ваш первый
 So what the hell is all that? Well, this is your first taste of a
 \xti{mathematical proof}. Basically, we start with a set of rules which we know
 are true (the \xti{laws} or \xti{axioms}). We build them together to form
