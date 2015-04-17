@@ -116,7 +116,6 @@
 \newcommand{\R}{\mathbb{R}}
 \newcommand{\Z}{\mathbb{Z}}
 \renewcommand{\emptyset}{\varnothing}
-% \newcommand{\nil}{\varnothing}
 \newcommand{\nil}{\emptyset}
 \newcommand{\subof}{\subset}
 \newcommand{\subeq}{\subseteq}
@@ -209,10 +208,6 @@
 }
 {
   \end{ExerciseList}
-  % \newpage
-  % \sss{Answers}
-  % \shipoutAnswer
-  % \newpage
 }
 \newenvironment{iquote}{\begin{quote}\it}{\end{quote}}
 \newcommand{\bugtracker}{\link{https://gitlab.com/lysa/lysa/issues/new}{bug tracker}}
@@ -251,7 +246,6 @@
 \newcommand{\id}{\mathrm{id}}
 \newcommand{\inclgraph}{\includegraphics[width=0.8\textwidth]}
 \newcommand{\flip}{\mathrm{flip}}
-% \newcommand{\comp}{\mathrm{comp}}
 \newcommand{\compl}[1]{{#1}^c}
 \let\bs\setminus
 \newenvironment{rclmath}{\begin{alignmath}{rcl}}{\end{alignmath}}
@@ -283,22 +277,8 @@
 \newcommand{\ngfracilpf}[2]{\ngp{\fracil{\parens{#1}}{#2}}}
 \renewcommand{\sin}[1]{\eva{\mathrm{sin}}{#1}}
 \renewcommand{\cos}[1]{\eva{\mathrm{cos}}{#1}}
-% Sage graphs
 \lstdefinestyle{sage}{float=h, language=Python}
 \newcommand{\sageinput}{\lstinputlisting[style=sage]}
-% \define@key{sagegraph}{source}{\sageinput{#1}}
-% \define@key{sagegraph}{caption}{\caption{#1}}
-% \define@key{sagegraph}{label}[\null]{\label{#1}}
-% \define@key{sagegraph}{position}[ht]{#1}
-% \newcommand{\sagegraph}[1]{
-%   \begin{figure}[\KV@sagegraph@position]
-%     \centering
-%     \inclgraph{#1}
-%     \KV@sagegraph@caption
-%     \KV@sagegraph@label
-%   \end{figure}
-%   \KV@sagegraph@source
-% }
 \let\cleardoublepage\clearpage
 \newenvironment{rclproof}
   {\begin{proof}\begin{rclmath}}
