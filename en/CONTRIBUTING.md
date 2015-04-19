@@ -1,68 +1,67 @@
 # Contributing
 
-This document is for people who want to contribute.
+This document is for people who want to contribute. If you have any questions,
+you can bring them up in the IRC channel, open a bug, or email
+`peter@harpending.org`.
 
-## Software
+So, you like LYSA and want to contribute. Great! Here are instructions,
+separated by operating system:
 
-Here is the required software you need to contribute:
+## Getting set up
 
-* [git][gitscm] - we use git for version control. If you have never used git
-  before, I suggest reading [Pro Git][progit] by Scott Chacon.
+### Installing the needed software
 
-* Some text editor. [Emacs][emacs] is particularly good for LaTeX, although it
-  does have quite a bit of a learning curve.
-    + If you use Emacs, you may be interested in [Magit][magit]. Magit is an
-    Emacs interface to git, which, unsurprisingly, is much more pleasant than
-    the git command line interface.
+#### Linux
 
-[emacs]: https://www.gnu.org/software/emacs/
-[gitscm]: http://git-scm.com/
-[magit]: https://magit.github.io/
-[progit]: http://git-scm.com/book/en/v2
+*   **Arch**: Open a terminal, run the following command
 
-### TeXLive
+        sudo pacman -S texlive-most git
 
-TeX is the markup language in which LYSA is written, so you need a TeX
-distribution to compile it. Note that if you are only interested in the PDF
-file, we publish regular builds
-[here](https://github.com/lysa/lysa-pdf). The target TeX distribution is
-[TeXLive][texlive], but it probably works on other TeX distributions. Below you
-can find installation instructions for select operating systems. If you don't
-see your operating system there, but know what software is needed, please add it
-and send a pull request.
+*   **Gentoo**: Run this command in a terminal:
 
-![Trustworthiness by file extension. Credit: xkcd](http://imgs.xkcd.com/comics/file_extensions.png)
-Credit: xkcd
+        sudo emerge -jav dev-vcs/git dev-tex/biblatex \ 
+            dev-texlive/texlive-latexrecommended \
+            dev-texlive/texlive-xetex
 
+    **Warning**: this will spawn a ton of processes, but will make the
+    build a lot faster (from several hours to a few minutes). If your
+    memory is precious, use `-av` instead of `-jav`.
 
-#### Arch
+*   **Ubuntu 12.04**: Run this command in a terminal:
 
-To get the bare minimum for the English version:
+        sudo aptitude install biblatex texlive texlive-latex-extra \
+            texlive-bibtex-extra texlive-xetex texlive-math-extra \
+            texlive-latex3
 
-    # pacman -S texlive-core texlive-latexextra texlive-bibtexextra texlive-fontsextra
+    I'm sorry, but I couldn't come up with a longer command.
 
-Alternatively, you can just get every TeXLive package under the sun so you don't
-have to worry about having the right package every time we change something.
+*   **Ubuntu 14.04**: Run this in a terminal:
 
-    # pacman -S texlive-most
+        sudo aptitude install texlive-latex-extra texlive-bibtex-extra \
+            texlive-xetex texlive-latex3 texlive-fonts-recommended
 
-#### Gentoo
+*   **Debian**: Run this in a terminal:
 
-**Warning**: this will spawn a ton of processes, but will make the build a lot
-faster (from several hours to a few minutes). If your memory is precious, use
-`-av` instead of `-jav`.
+        sudo aptitude install texlive git
 
-    # emerge -jav dev-tex/biblatex dev-texlive/texlive-latexrecommended dev-texlive/texlive-xetex
+#### BSD
 
-#### Ubuntu 12.04
+*   **FreeBSD**: Open a terminal, run these commands:
 
-    # apt-get install biblatex texlive texlive-latex-extra texlive-bibtex-extra texlive-xetex texlive-math-extra texlive-latex3
+        sudo pkg install git texlive-full
 
-#### Ubuntu 14.04
+### Building and viewing
 
-    # apt-get install texlive-latex-extra texlive-bibtex-extra texlive-xetex texlive-latex3 texlive-fonts-recommended
+* **Linux, BSD, or Mac**: Run these commands in a terminal
 
-[texlive]: https://www.tug.org/texlive/
+        $ git clone https://github.com/learnyou/lysa.git
+        $ cd lysa/en/book
+        $ ./build
+
+I don't use Windows, so I don't know how to build LYSA on
+Windows. Sorry. If you know how, don't be shy to add instructions!
+
+TODO: Explain the file hierarchy.
 
 ## Content
 
@@ -129,3 +128,9 @@ are some suggested readings:
 * *[Linear Algebra Done Right](http://genes.mit.edu/burgelab/yarden/linear_algebra_done_right.pdf)*, by Sheldon Axler
 * *[Set Theory](https://logic.wikischolars.columbia.edu/file/view/Jech,+T.+J.+%282003%29.+Set+Theory+%28The+3rd+millennium+ed.%29.pdf)*, by Thomas Jech
 * *[Foundations of Analysis](http://www.lemiller.net/media/classfiles/notes.pdf)*, by Joe Taylor
+
+[emacs]: https://www.gnu.org/software/emacs/
+[gitscm]: http://git-scm.com/
+[magit]: https://magit.github.io/
+[progit]: http://git-scm.com/book/en/v2
+[texlive]: https://www.tug.org/texlive/
