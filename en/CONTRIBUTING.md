@@ -65,22 +65,29 @@ Windows. Sorry. If you know how, don't be shy to add instructions!
 
 TODO: Explain the file hierarchy.
 
-## Content
+## Adding Content
 
-If you add new *content* to the book, such as a new chapter, or a substantial
-portion of text, please feel free to add yourself to the `\author` field in
-`book/lysa.ltx` (you don't have to, if you don't want to). If you merely
-suggested changes, or made a number of trivial changes, add yourself to the
-`\editors` field.
+If you want to learn LaTeX, the markup language used, the
+[LaTeX Wikibook](https://en.wikibooks.org/wiki/LaTeX) is
+excellent. However, LaTeX is pretty easy, so you can probably just pick
+it up by looking at the source files.
+
+The program we use to track changes to files is called
+Git. [Chapter 2 of the Git book](https://git-scm.herokuapp.com/book/en/v2/Git-Basics-Getting-a-Git-Repository)
+is a good minimal introduction to using git. Ideally, you would read the
+entire book, but I don't think anyone is actually going to do that.
+
+If you add a substantial amount of new content, such as a new chapter,
+or a new section, please feel free to add yourself to the `\author`
+field in `book/lysa.ltx` (you don't have to, if you don't want to). If
+you suggested changes, or made a number of trivial changes, you can add
+yourself to the `\editors` field.
 
 ### Graphs and Code
 
 * For the time being, you can generate a graph with anything you want, as long
   as it's open-source. You just have to include the code to generate the graph
   (in case we want to change it). I recommend [Sage][sage].
-
-* We might use [Idris][idris] as an interactive proof assistant. The other
-  candidates are [Coq][coq] and [Agda][agda].
 
 * Turing-complete code examples should be written in [Haskell][hs]. 
     + If you want to learn Haskell, please see [bitemyapp's guide][learnhs]. 
@@ -97,23 +104,13 @@ suggested changes, or made a number of trivial changes, add yourself to the
 [learnhs]: https://github.com/bitemyapp/learnhaskell
 [sage]: http://www.sagemath.org/
 
-## Git
-
-[Git](https://git-scm.com) is a program we use to keep track of revisions
-to files. If you want to use git, try this:
-
-```
-git remote add upstream https://github.com/learnyou/lysa.git
-git remote update
-git diff upstream/master
-```
-
 ### Committing
 
-Try to make sure that each commit only contains one change. It's a lot less
-annoying to have to sift through 20 commits each with 1 different change than 1
-commit with 20 different changes. If the change is difficult to summarize in one
-line, then you should probably split up the commit with `git add -p`.
+Try to make sure that each commit only contains one change. It's a lot
+less annoying to have to sift through 20 commits each with 1 different
+change than 1 commit with 20 different changes. If the change is
+difficult to summarize in one line, then you should probably split up
+the commit with `git add -p`.
 
 When in doubt, follow the
 [Erlang OTP Git Commit Guide](https://github.com/erlang/otp/wiki/Writing-good-commit-messages).
