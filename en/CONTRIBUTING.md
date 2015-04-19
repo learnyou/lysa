@@ -56,6 +56,8 @@ separated by operating system:
 
         $ git clone https://github.com/learnyou/lysa.git
         $ cd lysa/en/book
+        $ git submodule init
+        $ git submodule update
         $ ./build
 
 I don't use Windows, so I don't know how to build LYSA on
