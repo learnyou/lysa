@@ -20,8 +20,7 @@ separated by operating system:
 *   **Gentoo**: Run this command in a terminal:
 
         sudo emerge -jav dev-vcs/git dev-tex/biblatex \ 
-            dev-texlive/texlive-latexrecommended \
-            dev-texlive/texlive-xetex
+         dev-texlive/texlive-latexrecommended \
 
     **Warning**: this will spawn a ton of processes, but will make the
     build a lot faster (from several hours to a few minutes). If your
@@ -30,19 +29,19 @@ separated by operating system:
 *   **Ubuntu 12.04**: Run this command in a terminal:
 
         sudo aptitude install biblatex texlive texlive-latex-extra \
-            texlive-bibtex-extra texlive-xetex texlive-math-extra \
-            texlive-latex3
+         texlive-bibtex-extra texlive-math-extra texlive-latex3
 
     I'm sorry, but I couldn't come up with a longer command.
 
 *   **Ubuntu 14.04**: Run this in a terminal:
 
         sudo aptitude install texlive-latex-extra texlive-bibtex-extra \
-            texlive-xetex texlive-latex3 texlive-fonts-recommended
+          texlive-latex3 texlive-fonts-recommended
 
 *   **Debian**: Run this in a terminal:
 
-        sudo aptitude install texlive git
+        sudo aptitude install texlive-latex-extra texlive-bibtex-extra \
+          texlive-latex3 texlive-fonts-extra
 
 #### BSD
 
