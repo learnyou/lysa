@@ -2,15 +2,15 @@
 \label{ch:booleans}
 \label{ch:bools}
 
-Before we get into interesting content, you have to understand some stuff. This
-stuff is pretty easy. This will likely be the shortest and easiest chapter in
-the book.
+Before we get into interesting content, you have to understand some
+stuff. This stuff is pretty easy. This will likely be the shortest and
+easiest chapter in the book.
 
 You might think math is about dealing with numbers and pumping out
-formulas. Well, that's not what math is about. As said in \cref{intro-idris},
-it's about using math as a language to express your thoughts. Most people don't
-think about numbers all day; thus, we deal with things in math that aren't
-numbers.
+formulas. Well, that's not what math is about. As said in \cref{intro},
+it's about using math as a language to express your thoughts. Most
+people don't think about numbers all day; thus, we deal with things in
+math that aren't numbers.
 
 In this next section, we're going to outline some basic rules for reasoning
 about things. You need to know these rules to do really cool stuff. Although, as
@@ -28,8 +28,11 @@ always, mathematicians are too lazy to write this stuff out by hand, so they
 have notation for it.
 
 \begin{enumerate}
-\item $a \implies b$ means that ``$a$ implies $b$''. It doesn't necessarily mean
-  that $b$ implies $a$. It means that if $a$ is true, then $b$ is also true.
+  \item $a \implies b$ means that ``$a$ implies $b$''. It doesn't
+    necessarily mean that $b$ implies $a$. It means that if $a$ is true,
+    then $b$ is also true.
+
+  Here's an example:
 
   If someone is decapitated, then they will die. So,
 
@@ -66,79 +69,53 @@ have notation for it.
   $\lnot\text{Decapitated}\impliedby\lnot\text{Dead}$ true?''.
 
   However, that quickly becomes difficult, usually when there are multiple
-  assertions in a mathematical expression, and you don't know which one I'm
-  asking about. Moreover, since I use the same font for text and math, if I have
-  both, it might be hard to tell which is math and which is text. So, to help
-  with ambiguity, I'll put a ? over the operator I'm asking about:
+  assertions in a mathematical expression, and you don't know which one
+  I'm asking about. Moreover, since I use the same font for text and math,
+  if I have both, it might be hard to tell which is math and which is
+  text. So, to help with ambiguity, I'll put a ? over the operator I'm
+  asking about:
 
   \[ \lnot \text{Decapitated} \Qimpliedby \lnot\text{Dead} \]
 
   See, that's much easier.
 
 \item Now, on to that question - Is ``not decapitated'' implied by ``not
-  dead''. Well, let's think about it. If someone is not dead, then they couldn't
-  have been decapitated, because if they were decapitated, then they would be
-  dead. Therefore, if someone is not dead, then they weren't decapitated.
+  dead''. Well, let's think about it. If someone is not dead, then they
+  couldn't have been decapitated, because if they were decapitated, then
+  they would be dead. Therefore, if someone is not dead, then they
+  weren't decapitated.
 
-  That word jumble was probably confusing. Mathematicians don't like to be
-  confused. I'll make it symbolic for you.
+  That word jumble was probably confusing. Mathematicians don't like to
+  be confused. I'll make it symbolic for you.
 
-  \begin{alignmath}{c}
-  \text{Decapitated} \implies \text{Dead} \\
-  \Downarrow \\
-  \lnot \text{Decapitated} \impliedby \lnot\text{Dead} \\
-  \end{alignmath}
-  
-  Okay, I just used a vertical arrow. I'm sure you can figure out what it means.
-
-\item So, hopefully you agree that
-  \begin{alignmath}{c}
-  \text{Decapitated} \implies \text{Dead} \\
-  \Downarrow \\
-  \lnot \text{Decapitated} \impliedby \lnot\text{Dead} \\
-  \end{alignmath}
-
-  However,
-
-  \begin{alignmath}{c}
-  \text{Decapitated} \implies \text{Dead} \\
-  \stackrel{?}{\Uparrow} \\
-  \lnot \text{Decapitated} \impliedby \lnot\text{Dead} \\
-  \end{alignmath}
-
-  Hm, the question mark doesn't work so well there. Oh well! Anyway, the answer
-  is actually yes. We can figure this out by learning a rule about $\lnot$. Namely, that
-
-  \[ \lnot\lnot a = a \]
-
-  In this case, we know
-
-  \[
-  \lnot \text{Decapitated} \impliedby \lnot\text{Dead}
-  \]
-
-  So, if we just ``not'' both sides, and flip $\implies$ to $\impliedby$,
-
-  \begin{alignedmath}
-  \lnot\lnot \text{Decapitated} \implies \lnot\lnot\text{Dead} \\
-  \text{Decapitated} \implies \text{Dead}
-  \end{alignedmath}
-
-  This is basically just the rule mentioned in \#3. Yay, we learned something!
-\end{enumerate}
-
-\begin{ExcList}
-  \Exercise{\nm{A \notimplies B}
+  \begin{textmath}
+    If
 
     \begin{displaymath}
-      A \Qimplies \lnot B
+      \text{Decapitated} \implies \text{Dead}
     \end{displaymath}
-  }
 
-  \Answer{No. $A \notimplies B$ means that $A$ doesn't imply $B$. It doesn't
-    necessarily mean that $\lnot B$ is false --- although that could very well
-    be the case.}
-\end{ExcList}
+    then
+
+    \begin{displaymath}
+      \lnot \text{Decapitated} \impliedby \lnot\text{Dead}
+    \end{displaymath}
+  \end{textmath}
+
+  This is another rule about propositional logic:
+
+  \begin{textmath}
+    If
+
+      \[ a \implies b \]
+
+    then
+
+      \[ \lnot b \implies \lnot a \]
+  \end{textmath}
+
+  \item What about the other
+\end{enumerate}
 
 \ss{And and or}
 
