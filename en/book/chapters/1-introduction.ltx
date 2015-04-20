@@ -85,7 +85,6 @@ straight through. However, if you don't remember the name of something,
 or want to know if some property is true, \cref{appendix-d} is the place
 to look.
 
-Please note that this book is far from finished. 
 
 My writing strategy involves writing the bare minimum information, with
 criminally few examples or exercises, so I can get the structure right,
@@ -109,6 +108,77 @@ with pragmatism in mind: here's what you need to learn to have a job
 doing X.  It completely zaps the intellectual curiosity of the
 students. I think that's a shame. I hope reading this book will rekindle
 your intellectual curiosity.
+
+\ss{Programming}
+
+In this book, I cover a lot of hard stuff.\footnote{This isn't actually
+true. Math isn't hard, stupid!} Sometimes, it's useful to program your
+way through a problem. You don't have to, but it helps. Every programmer
+will tell you that programming teaches a manner of thinking.
+
+Many programmers will cite Steve Jobs\footnote{For you youngsters, Steve Jobs is
+  the former CEO of Apple. He's dead now.} famous quote, regarding the use of
+programming in his job,
+
+\begin{iquote}
+[sic] \ldots much more importantly, it had nothing to do with using [the
+programs we wrote] for anything practical. It had to do with using them
+to be a mirror of your thought process; to actually learn how to
+think. I think everybody in this country should learn how to program a
+computer --- should learn a computer language --- because it teaches you
+how to think.
+\end{iquote}
+
+\nocite{jobs-programming}
+
+That first sentence or two is actually a pretty good description of
+mathematics (and programming). Both are incredibly useful, and have
+endless practical applications.
+
+That's not the point, though. The whole usefulness thing is a side
+gig. It's about learning how to think, and having a rigorous language
+through which to express your thoughts.
+
+Furthermore, the rigor of the language helps you build upon your current
+thoughts to find out even cooler things. That's what math (and
+programming) is about.
+
+\link{http://www.sagemath.org/}{Sage} is a mathematically-oriented
+programming language. I'll occasionally give some code examples in Sage.
+
+Back when I was in high school, we had these crappy little calculators
+from a company called Texas Instruments. We weren't allowed to use
+anything beyond a crappy 1980's-era calculator, because our overlords
+feared that we would become too reliant on the machines to do our work.
+
+They also tried to convince us that people in real life use these crappy
+TI calculators. Well, they're full of crap. No professional limits
+themselves to crappy 80's technology. Most people nowadays use computer
+algebra systems to do fancy calculations. These can generate graphs,
+solve equations, the whole 9 yards.
+
+Most of these computer algebra systems are proprietary and very
+expensive (hundreds of dollars a year). However, there is one which is
+gratis and libre: Sage. It's just as good as any of the others. I won't
+provide an in-depth tutorial for using Sage; it's far too
+complicated. However, I will occasionally use Sage to generate graphs,
+or something.
+
+You can find instructions for installing Sage on
+\link{http://wiki.sagemath.org/DownloadAndInstallationGuide}{their
+website}.
+
+With every graph, I'll include the Sage code to generate the graph. To
+run the code, copy the code into a file (the file name will be at the
+bottom of the code listing), and then run \terminal{sage filename} in a
+terminal. (You'll need to be in the same working directory).
+
+\sageinput{SageHelloWorld.sage}
+
+To run this (on Linux/BSD/OS X), you would save the file to
+\filepath{SageHelloWorld.sage}, then run \terminal{sage
+SageHelloWorld.sage} in a terminal to run it.
+\s{Inspiration}
 
 The inspiration for this book is
 \href{http://learnyouahaskell.com/}{{\it Learn You a Haskell for Great
@@ -140,102 +210,7 @@ you can visit \link{https://github.com/learnyou/lysa}{our GitHub
 page}. We also have a \link{http://learnyou.org}{woefully incomplete
 website} and a \link{https://lysa.reddit.com/}{community on Reddit}.
 
-\s{Haskell}\label{intro-idris}
-
-In this book, I cover a lot of hard stuff.\footnote{This isn't actually
-  true. Math isn't hard, stupid!} Sometimes, it's useful to program your way
-through a problem. Every programmer will tell you that programming teaches a
-manner of thinking.
-
-Many programmers will cite Steve Jobs\footnote{For you youngsters, Steve Jobs is
-  the former CEO of Apple. He's dead now.} famous quote, regarding the use of
-programming in his job,
-
-\begin{iquote}
-  [sic] \ldots much more importantly, it had nothing to do with using [the
-  programs we wrote] for anything practical. It had to do with using them to be
-  a mirror of your thought process; to actually learn how to think. I think
-  everybody in this country should learn how to program a computer --- should
-  learn a computer language --- because it teaches you how to think.
-\end{iquote}
-
-\nocite{jobs-programming}
-
-That first sentence or two is actually a pretty good description of mathematics
-(and programming). Both are incredibly useful, and have endless practical
-applications. That's not the point, though. The whole usefulness thing is a side
-gig. It's about learning how to think, and having a rigorous language through
-which to express your thoughts. Furthermore, the rigor of the language helps you
-build upon your current thoughts to find out even cooler things. That's what
-math is about.
-
-Programming and math go hand-in-hand. Programmers and mathematicians will attest
-to this; I certainly can. For that reason, throughout this book, there will be
-coding exercises in the programming language Haskell.\footnote{I was originally
-  going to use another language called Idris, but Idris is, at the time of this
-  writing, so buggy that it is unusable.}
-
-Instructions for installing Haskell can be found on
-\link{https://www.haskell.org/platform/}{their website}.
-
-\ss{Install a text editor}
-
-In order to edit Idris code, you need a plain-text editor (as opposed to a word
-processor).
-
-Some popular plain-text editors are:
-
-\begin{enumerate}
-\item \link{https://wiki.gnome.org/Apps/Gedit}{Gedit} - very easy to use. I
-  recommend either Gedit or Kate for beginners.
-\item \link{http://kate-editor.org/get-it/}{Kate} - marginally harder than
-  Gedit, but it has more features.
-
-  Linux/BSD users: If you are not a KDE user, then don't use Kate. It brings in
-  a ton of KDE dependencies. Here's the result of trying to install it on my
-  machine:
-
-\begin{plainfile}
-% sudo pacman -S kate
-[sudo] password for pete: 
-resolving dependencies...
-:: There are 2 providers available for phonon-qt5-backend:
-:: Repository extra
-   1) phonon-qt5-gstreamer  2) phonon-qt5-vlc
-
-Enter a number (default=1): 2
-looking for conflicting packages...
-
-Packages (54) attica-qt5-5.6.0-1  gamin-0.1.10-8  karchive-5.6.0-1  kauth-5.6.0-1  kbookmarks-5.6.0-1
-              kcodecs-5.6.0-1  kcompletion-5.6.0-1  kconfig-5.6.0-1  kconfigwidgets-5.6.0-1
-              kcoreaddons-5.6.0-1  kcrash-5.6.0-2  kdbusaddons-5.6.0-1  kded-5.6.0-1  kglobalaccel-5.6.0-1
-              kguiaddons-5.6.0-1  ki18n-5.6.0-1  kiconthemes-5.6.0-1  kinit-5.6.0-1  kio-5.6.0-1
-              kitemmodels-5.6.0-1  kitemviews-5.6.0-1  kjobwidgets-5.6.0-1  knewstuff-5.6.0-1
-              knotifications-5.6.0-1  kparts-5.6.0-1  kservice-5.6.0-1  ktexteditor-5.6.0-1
-              ktextwidgets-5.6.0-1  kwallet-5.6.0-1  kwidgetsaddons-5.6.0-1  kwindowsystem-5.6.0-3
-              kxmlgui-5.6.0-1  libdbusmenu-qt5-0.9.3+14.10.20140619-1  libgit2-1:0.21.5-1
-              libimobiledevice-1.1.7-1  libplist-1.11-1  libusbmuxd-1.0.9-1  libxkbcommon-x11-0.5.0-1
-              media-player-info-19-1  phonon-qt5-4.8.3-1  phonon-qt5-vlc-0.8.2-1  polkit-qt5-0.112-2
-              qt5-base-5.4.0-3  qt5-declarative-5.4.0-3  qt5-script-5.4.0-3  qt5-svg-5.4.0-3
-              qt5-x11extras-5.4.0-3  qt5-xmlpatterns-5.4.0-3  qtchooser-48-1  solid-5.6.0-1  sonnet-5.6.0-1
-              threadweaver-5.6.0-1  upower-0.99.2-1  kate-14.12.2-2
-
-Total Download Size:    33.42 MiB
-Total Installed Size:  178.32 MiB
-
-:: Proceed with installation? [Y/n] n
-
-\end{plainfile}
-
-\item \link{http://www.vim.org/}{Vim} - It has a sharp, but not steep learning
-  curve.
-\item \link{https://www.gnu.org/software/emacs/}{GNU Emacs} has an absolutely
-  insane learning curve, but is a wonderful editor once you spend 3 years
-  learning how to use it.
-\end{enumerate}
-
 \s{Sage}
-
 Back when I was in high school, we had these crappy little calculators
 from a company called Texas Instruments. We weren't allowed to use
 anything beyond a crappy 1980's-era calculator, because our overlords
