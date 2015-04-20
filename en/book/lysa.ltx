@@ -8,12 +8,12 @@
 }
 
 \newcommand{\editors}{
+  \aneditor{Alexander G Bauer}{sasha@crofter.org}
   \aneditor{Randy Brown}{randy@beingbrown.net}
   \aneditor{Nick Chambers}{DTSCode@gmail.com}
-  \aneditor{Anton Golov}{jesyspa@gmail.com}
   \aneditor{Ng Wei En}{wei2912.supp0rt@gmail.com}
+  \aneditor{Anton Golov}{jesyspa@gmail.com}
   \aneditor{Ben Z RF}{benzrf@benzrf.com}
-  \aneditor{Alexander G Bauer}{sasha@crofter.org}
 }
 
 \usepackage{amsmath}
@@ -98,7 +98,7 @@
 % \newcommand{\anauthor}[2]
 % {#1 {\href{mailto:#2}<{\tt #2}>} \\
 % }
-\newcommand{\aneditor}[2]{#1 {\href{mailto:#2}{<{#2}>}}}
+\newcommand{\aneditor}[2]{#1 {\href{mailto:#2}{<{#2}>}} \\}
 \let\anauthor\aneditor
 \newcommand{\btrurl}[1]{{\footnotesize\url{#1}}}
 \newcommand{\link}[2]{#2 (\btrurl{#1})}
@@ -347,13 +347,15 @@
   \end{center}
 }
 \vspace*{\fill}
-% \newpage
-% \section*{Editors \& Noted Contributors}
-% \begin{addmargin}[4em]{2em}
-%   \begin{tabular}{l l}
-%     \editors
-%   \end{tabular}
-% \end{addmargin}
+\newpage
+\vspace*{\fill}
+\section*{Editors \& Noted Contributors}
+\begin{addmargin}[4em]{2em}
+  \begin{tabular}{l l}
+    \editors
+  \end{tabular}
+\end{addmargin}
+\vspace*{\fill}
 
 \newpage
 \tableofcontents
