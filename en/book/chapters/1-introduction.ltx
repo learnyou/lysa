@@ -109,6 +109,16 @@ doing X.  It completely zaps the intellectual curiosity of the
 students. I think that's a shame. I hope reading this book will rekindle
 your intellectual curiosity.
 
+The inspiration for this book is
+\href{http://learnyouahaskell.com/}{{\it Learn You a Haskell for Great
+Good!}, by Miran Lipovača}. Haskell is a programming language, and LYAH
+is a great book for learning Haskell. If you are interested in a print
+copy of LYAH, see \cite{lyah}.
+
+There is also an incomplete and unofficial
+\link{https://github.com/gazay/lysa}{Russian translation}, courtesy of
+Alexey Gaziev.
+
 \ss{Programming}
 
 In this book, I cover a lot of hard stuff.\footnote{This isn't actually
@@ -144,51 +154,18 @@ thoughts to find out even cooler things. That's what math (and
 programming) is about.
 
 \link{http://www.sagemath.org/}{Sage} is a mathematically-oriented
-programming language. I'll occasionally give some code examples in Sage.
+programming language. If you're familiar with Mathematica or Maple, Sage
+is a libre alternative.
 
-Back when I was in high school, we had these crappy little calculators
-from a company called Texas Instruments. We weren't allowed to use
-anything beyond a crappy 1980's-era calculator, because our overlords
-feared that we would become too reliant on the machines to do our work.
+Sage is perhaps most useful in generating graphs transparently. Sage is
+also capable of solving your equations, finding holes in your logic, the
+whole 9 yards. 
 
-They also tried to convince us that people in real life use these crappy
-TI calculators. Well, they're full of crap. No professional limits
-themselves to crappy 80's technology. Most people nowadays use computer
-algebra systems to do fancy calculations. These can generate graphs,
-solve equations, the whole 9 yards.
-
-Most of these computer algebra systems are proprietary and very
-expensive (hundreds of dollars a year). However, there is one which is
-gratis and libre: Sage. It's just as good as any of the others. I won't
-provide an in-depth tutorial for using Sage; it's far too
-complicated. However, I will occasionally use Sage to generate graphs,
-or something.
-
-You can find instructions for installing Sage on
+I would include instructions for installing Sage. However, it takes up a
+lot of space, and my instructions would quickly be obselete. You can
+find better instructions for installing Sage on
 \link{http://wiki.sagemath.org/DownloadAndInstallationGuide}{their
 website}.
-
-With every graph, I'll include the Sage code to generate the graph. To
-run the code, copy the code into a file (the file name will be at the
-bottom of the code listing), and then run \terminal{sage filename} in a
-terminal. (You'll need to be in the same working directory).
-
-\sageinput{SageHelloWorld.sage}
-
-To run this (on Linux/BSD/OS X), you would save the file to
-\filepath{SageHelloWorld.sage}, then run \terminal{sage
-SageHelloWorld.sage} in a terminal to run it.
-\s{Inspiration}
-
-The inspiration for this book is
-\href{http://learnyouahaskell.com/}{{\it Learn You a Haskell for Great
-Good!}, by Miran Lipovača}. Haskell is a programming language, and LYAH
-is a great book for learning Haskell. If you are interested in a print
-copy of LYAH, see \cite{lyah}.
-
-There is also an incomplete and unofficial
-\link{https://github.com/gazay/lysa}{Russian translation}, courtesy of
-Alexey Gaziev.
 
 \s{The community}
 
@@ -209,63 +186,6 @@ some content, really anything having to do with the content of the book,
 you can visit \link{https://github.com/learnyou/lysa}{our GitHub
 page}. We also have a \link{http://learnyou.org}{woefully incomplete
 website} and a \link{https://lysa.reddit.com/}{community on Reddit}.
-
-\s{Sage}
-Back when I was in high school, we had these crappy little calculators
-from a company called Texas Instruments. We weren't allowed to use
-anything beyond a crappy 1980's-era calculator, because our overlords
-feared that we would become too reliant on the machines to do our work.
-
-They also tried to convince us that people in real life use these crappy
-TI calculators. Well, they're full of crap. No professional limits
-themselves to crappy 80's technology. Most people nowadays use computer
-algebra systems to do fancy calculations. These can generate graphs,
-solve equations, the whole 9 yards.
-
-Most of these computer algebra systems are proprietary and very
-expensive (hundreds of dollars a year). However, there is one which is
-gratis and libre: Sage. It's just as good as any of the others. I won't
-provide an in-depth tutorial for using Sage; it's far too
-complicated. However, I will occasionally use Sage to generate graphs,
-or something.
-
-The way you generate graphs in Sage is by inputting a number of commands
-to do so. You can put these commands into a file, and make programs with
-them.  Any non-trivial use of Sage requires that you know a programming
-language called Python. I am not so cruel as to force you to learn two
-programming languages.
-
-You don't need to have Sage installed, unlike Haskell, although I do
-recommend it.  You can find instructions for installing Sage on
-\link{http://wiki.sagemath.org/DownloadAndInstallationGuide}{their
-website}.
-
-With every graph, I'll include the Sage code to generate the graph. To
-run the code, copy the code into a file (the file name will be at the
-bottom of the code listing), and then run \terminal{sage filename} in a
-terminal. (You'll need to be in the same working directory).
-
-\sageinput{SageHelloWorld.sage}
-
-To run this (on Linux/BSD/OS X), you would save the file to
-\filepath{SageHelloWorld.sage}, then run \terminal{sage
-SageHelloWorld.sage} in a terminal to run it.
-
-\begin{plainfile}
-% sage SageHelloWorld.sage
-Hello, LYSA readers!
-\end{plainfile}
-
-To be more specific, I have that file saved to
-
-\filepath{/home/pete/prj/lysa/en/book/graphs/SageHelloWorld.sage}
-
-To run the file, I use the \terminal{cd} command (cd = change directory)
-to change my working directory to
-\filepath{/home/pete/prj/lysa/en/book/graphs}, then run the above
-command.
-
-If you are on Windows, good luck!
 
 \s{Target audience}
 
