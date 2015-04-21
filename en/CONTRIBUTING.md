@@ -43,6 +43,10 @@ separated by operating system:
         sudo aptitude install texlive-latex-extra texlive-bibtex-extra \
           texlive-latex3 texlive-fonts-extra
 
+*   **Fedora**: Run this in a terminal:
+
+        sudo yum install tex blah blah
+
 #### BSD
 
 *   **FreeBSD**: Open a terminal, run these commands:
