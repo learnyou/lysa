@@ -51,7 +51,7 @@ separated by operating system:
 
 ### Building and viewing
 
-* **Linux, BSD, or Mac**: Run these commands in a terminal
+*   **Linux, BSD, or Mac**: Run these commands in a terminal
 
         $ git clone https://github.com/learnyou/lysa.git
         $ cd lysa/en/book
