@@ -53,11 +53,11 @@ separated by operating system:
 
 *   **Linux, BSD, or Mac**: Run these commands in a terminal
 
-        $ git clone https://github.com/learnyou/lysa.git
-        $ cd lysa/en/book
-        $ git submodule init
-        $ git submodule update
-        $ ./build
+        git clone https://github.com/learnyou/lysa.git
+        cd lysa/en/book
+        git submodule init
+        git submodule update
+        ./build
 
 I don't use Windows, so I don't know how to build LYSA on
 Windows. Sorry. If you know how, don't be shy to add instructions!
