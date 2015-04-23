@@ -64,11 +64,11 @@ Windows. Sorry. If you know how, don't be shy to add instructions!
 
 ## If you've never used Git
 
-[git](http://git-scm.com) is a version control system. Basically, it
-allows us to have logs of the changes people make to LYSA. git has a
-legendarily poor interface, so don't feel bad if you have a hard time
-using it. Despite its poor interface, it is actually a very nice
-program, which is why everybody uses it.
+[git](https://git-scm.herokuapp.com) is a version control
+system. Basically, it allows us to have logs of the changes people make
+to LYSA. git has a legendarily poor interface, so don't feel bad if you
+have a hard time using it. Despite its poor interface, it is actually a
+very nice program, which is why everybody uses it.
 
 But, I digress. Git needs some configuration before you can use it. You
 can run these terminal commands to configure it:
