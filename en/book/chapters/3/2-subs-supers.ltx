@@ -1,0 +1,62 @@
+\s{Subsets and Supersets}
+
+Remember when I said $\mset{2, 6} \in Q$, and we were really confused? In case
+you don't remember, $Q = \mset{1, 2, 5, 6, 7, 9, 10}$. $\mset{2,6}$ is obviously
+not an element of $Q$. However, $\mset{2, 6}$ is \xti{in} $Q$ but it's not an
+element. It's weird. How do we express this notion?
+
+The answer is with \term{subsets}. ``sub'' means ``smaller'', so a ``subset''
+would be a ``smaller set''. $A$ is a subset of $B$ is all of the elements in $A$
+are also in $B$. The notation is $A \subeq B$. Some people will read that as
+``$A$ is contained in $B$''.
+
+Referring to the previous example,
+
+\[ \mset{2,6} \subeq Q \]
+
+\pg{Wait, what is with the little line under the round half circley thing?}
+
+So, actually, there are two types of subsets - \term{proper} and
+\term{improper}. $A \subeq B$ is for improper subsets. $A \subof B$ is for
+proper subsets. What's the difference, then?
+
+$A \subeq B$ allows for the possibility that $A = B$. $A \subof B$ means that
+$B$ is \xti{strictly larger} than $A$; there are some elements in $B$ that are
+not in $A$.
+
+\label{exists}
+I've already defined $\forall$ in \cref{forall}. I'm now going to add another
+symbol, $\exists$, which means ``exists''. I mention $\forall$, because
+$\exists$ is used in the same context.
+
+Anyway, back to business. I use $\subeq$ for improper subsets, and $\subof$ for
+proper subsets. However, some people will use $\subof$ for improper subsets, and
+something like $\subsetneq$ or $\subsetneqq$ for proper subsets. You have to
+look out.
+
+Here's something cool: $\nil$ has no elements, so it's a subset of every set.
+
+\[ \nil \subeq A \sfall A \]
+
+I'm sure you can figure this out, two sets are equal iff they have the same
+elements. $A \subeq B$ means that $B$ has all of the elements that $A$ has.
+$A \supeq B$ would mean that $A$ has all of the elements of $B$. So if both of
+those are true, then $A = B$. That is:
+
+\[ A = B \iff A \subeq B \land A \supeq B \]
+
+So, what did we learn?
+
+\begin{enumerate}
+\item There are unordered collections with no multiplicity, called \term{sets}.
+\item There are ordered collections with multiplicity, called \term{vectors}.
+\item Given an object $o$ and a set $A$, you can ask $o \Qin A$.
+\item You can pull smaller sets out of a set (I'll show you the mechanics
+  below). The way to express that a set is ``embedded'' in another set, without
+  being an element is with \term{subsets}. $A \Qsubeq B$ would be asking ``are
+  all of the elements in $A$ also in $B$?''. (The converse doesn't necessarily
+  have to be true).
+\item There's a pretty easy set which has no elements, called $\nil$. An
+  interesting property of $\nil$ is that it is a subset of all other sets.
+\item Two sets are equal iff they have the same elements.
+\end{enumerate}

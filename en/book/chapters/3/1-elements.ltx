@@ -1,0 +1,57 @@
+\s{Elements}
+
+Let's invent a set.
+
+\[ Q = \mset{7, 7, 9, 5, 10, 1, 6, 6, 2, 10} \]
+
+There we go. Remember, order and multiplicity don't matter. But, for the sake of
+clarity, let's put the elements in order, and deduplicate them.
+
+\[ Q = \mset{1, 2, 5, 6, 7, 9, 10} \]
+
+Yay! You may have noticed that I slipped in the word \term{element} into the
+previous sentence. Objects in the set are called \term{elements}. Yay, we
+figured out what that word means!
+
+It's too strenuous on our weak mathematical hands to write ``$10$ is an element
+of $Q$'', so instead we have the symbol $\in$. $\in$ is a very terrible attempt
+at drawing an E. If you can't remember what $\in$ is, think
+``\raisebox{1pt}{$\in$}\hspace{0pt}lement of''.\footnote{You better think this,
+  because it took me 30 minutes to get the alignment right. So, you know,
+  remember $\in$ this way, or else\dots\label{30minalign}}
+
+So, I'm going to ask you a question:
+
+\[ 11 \Qin Q \]
+
+(See, I used that thing from earlier with the question mark. I told you it would
+help.) Well, the answer is no, $11$ is not an element of $Q$. As always,
+mathematicians are too weak to write ``$11$ is not an element of $Q$'' every
+time they want to say it, so instead they write
+
+\[ 11 \notin Q \]
+
+By contrast,
+
+\[ 6 \in Q \]
+
+What if we want to say ``both $6$ and $2$ are elements of $Q$''? Well, again, we
+could write it out like:
+
+\[ \parens{6 \in Q} \land \parens{2 \in Q} \]
+
+But that's too cumbersome, so instead we'll write 
+
+\[ 2, 6 \in Q \]
+
+\pg{But won't that get confusing?}
+
+Only if we put parentheses or braces around $2$ or $6$.
+
+\[ \mset{2, 6} \in Q \]
+
+That's confusing, don't do that (yet).
+
+There's one more thing I need to go over, which is the null set - it's the
+simplest set, as it contains no elements. ``Null set'' takes too long to write,
+so we use $\emptyset$ instead.

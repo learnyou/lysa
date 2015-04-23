@@ -1,0 +1,184 @@
+\s{Combining sets together}
+
+Next, we're going to talk about ways to combine two sets together. There are any
+number of ways to do this. However, the two most common ways are through
+\term{unions} and \term{intersections}.
+
+The union symbol is pretty easy to memorize --- it looks like a giant U:
+$\cup$. Think ``$\cup$nion''.\footnote{You don't have to remember it this way,
+  because $\cup$ is already aligned reasonably well with the letters. Thus I
+  didn't have to spend 30 minutes getting the alignment correct. (See
+  \cref{30minalign}.)}.
+
+If $A$ and $B$ are sets, then $A \cup B$ is the set of elements that are in
+either $A$ or in $B$. That is:
+
+\[ A \cup B = \mset{x \in \amb \semic \parens{x \in A} \lor \parens{x \in B}} \]
+
+You might also remember this by the fact that the union symbol $\cup$ looks
+vaguely like the or symbol $\lor$.
+
+\pg{What the hell is that notation?}
+
+\label{comprehensions}
+That's called a \term{class comprehension}. It's a hacky way to describe a
+set. Technically, it describes a \term{class}, which is different than a set.
+That said, at least until chapter 5, they only describe sets!
+
+Remember earlier when I would show you the mechanics for defining arbitrary
+subsets of a set? Well, this is a common way to do it.
+
+You should look at the expression in two pieces: before the semicolon and after
+the semicolon. The term before the semicolon explains what each element looks
+like, and defines it to be a member of an ambient set. In this case --- and in
+most cases --- the element will just be $x$, or $a$, or something of the like.
+
+\[ A \cup B = \mset{x \in \amb \semic \parens{x \in A} \lor \parens{x \in B}} \]
+
+Okay, cool. The right side of the semicolon lists conditions that must be true
+about the thing on the left. In this case, $x$ must be in $A$, logical-or it
+must be in $B$.
+
+The $\amb$ is shorthand for ``ambient set''. It's a set such that
+$A, B \subeq \amb$. For reasons I can't quite explain yet, you need to specify
+that the element variable ($x$ in this case) is an element of another set. The
+consequence of this is, a set comprehension can only be used to make a
+\xti{subset} of another set. $\amb$ is the shorthand for ``there's another set
+out there, but I don't care what it is (and you shouldn't either)''.
+
+Can you think of another consequence?
+
+Well, since we are defining the union using a notation which can only be used to
+describe subsets, we can only take the union of two sets if they are both
+subsets of some larger set! That's annoying. Oh well.
+
+\ss{Back to business}
+
+Let's look at that definition of the union again:
+
+\[ A \cup B = \mset{x \in \amb \semic \parens{x \in A} \lor \parens{x \in B}} \]
+
+You know already that $\lor$ is commutative (the order doesn't matter), so you
+can write this
+
+\[ A \cup B = \mset{x \in \amb \semic \parens{x \in B}} \lor \parens{x \in A} \]
+
+You've probably figured out, any property of $\lor$ is also true of $\cup$
+
+\begin{description}
+\item[Reflexive property] $a \union a \equiv a$
+\item[Associative property] $a \union \parens{b \union c} \equiv \parens{a \union b} \union c$
+\item[Commutative property] $a \union b \equiv b \union a$
+\end{description}
+
+\ss{The intersection}
+
+The intersection is, you guessed it - what happens when we use $\land$ in the
+above definition instead of $\lor$. Can you guess what the symbol for
+``intersection'' is? If you guessed $\cap$, then you are right!
+
+\[ A \cap B = \mset{x \in \amb \semic \parens{x \in A} \land \parens{x \in B}} \]
+
+Since $\land$ is also reflexive, associative, and commutative, the same
+properties exist for $\cap$.
+
+\begin{description}
+\item[Reflexive property] $a \intersect a \equiv a$
+\item[Associative property] $a \intersect \parens{b \intersect c} \equiv \parens{a \intersect b} \intersect c$
+\item[Commutative property] $a \intersect b \equiv b \intersect a$
+\end{description}
+
+You can actually reduce the definition of $\cap$ to 
+
+\[ A \cap B = \mset{x \in A \st \parens{x \in B}} \]
+
+(I do this in the proofs a lot)
+
+The standard example of unions and intersections is to use ``Venn diagrams''. I
+drew some myself in \cref{fig:venns}.\footnote{It's a tradition from Learn You a
+  Haskell that each book include poorly-drawn explanatory graphics by the
+  author.}
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=0.8\textwidth]{venn-union.png}
+  \includegraphics[width=0.8\textwidth]{venn-intersect.png}
+  \caption{The Venn diagrams. That symbol in the left circle is supposed to be a
+    Q. My handwriting sucks, deal with it.}
+  \label{fig:venns}
+\end{figure}
+
+\ss{More on the comprehension}
+
+I use the comprehension quite a lot (other books do as well), so I should at
+least take a subsubsection to explain it.
+
+I'm going to list some \xti{axioms} about comprehensions, which you would do
+well to remember:
+
+Let $p$ be a \text{unary predicate}. Basically, it takes the $x$, and determines
+whether or not that $x$ is to be included in the comprehended set.
+
+\begin{enumerate}
+\item
+  $\mset{x \in A \semic x \in \mset{y \in B; \evalat{p}{y}}} \equiv \mset{x \in
+    A \semic x \in B \land \evalat{p}{x}}$
+\item
+  $\mset{x \in A \semic x \notin \mset{y \in B; \evalat{p}{y}}} \equiv \mset{x \in
+    A \semic x \notin B \lor \lnot\evalat{p}{x}}$
+\end{enumerate}
+
+\ss{Back to unions and intersects}
+
+The final piece of the puzzle is this:
+
+\begin{description}
+\item \mtb{A \cap \parens{B \cup C} \equiv \parens{A \cap B} \cup \parens{A \cap C}} 
+
+  \begin{proof}
+    \begin{rclmath}
+      A \cap \parens{B \cup C}
+      & \ce & \mset{
+        x \in A \st
+        x \in B \lor
+        x \in C
+      } \\
+      \parens{A \cap B} \cup \parens{A \cap C}
+      & \ce & \mset{
+        x \in \amb \st
+        \parens{
+          x \in A \land
+          x \in B
+        }\lor
+        \parens{
+          x \in A \land
+          x \in C
+        }
+      } \\
+      & \ce & \mset{
+        x \in \amb \st
+        x \in A \land
+        \parens{
+          x \in B \lor
+          x \in C
+        }
+      } \\
+      & \ce & \mset{
+        x \in A \st
+        x \in B \lor
+        x \in C
+      } \\
+    \end{rclmath}
+  \end{proof}
+\end{description}
+
+You're probably wondering what that white box is. It's mathematical shorthand
+for ``I'm done proving stuff''.
+
+I can't faithfully discuss sets any more without talking about functions. So,
+you get a lucky break! No exercises (because the fun exercises require that you
+know about functions.)
+
+I would tell you to look in \cref{d-sets} if you don't remember stuff. However,
+\cref{d-sets} assumes you have read both \cref{ch:functions} and
+\cref{ch:more-sets}. So, in conclusion, don't look at \cref{d-sets} quite yet.
