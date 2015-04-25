@@ -77,12 +77,73 @@ and finally for $\lnot$:
     \lnot & \true            & \ce & \false \\
 \end{alignmath}
 
+
+\ss{Properties of the Boolean operators}
+
+There are a lot of properties about $\lnot$, $\land$, and $\lor$. Most
+of them are pretty intuitive, so you won't have trouble memorizing
+them. You should try to remember the names of the properties, but it's
+not really that important.
+
+\begin{description}
+  \item[Cancellative property] For all Boolean values \(a\),
+
+    \begin{displaymath}
+        \lnot \lnot a = a
+    \end{displaymath}
+
+    I mentioned this before somewhere in \cref{props}. This is so simple
+    that it's impossible to prove. Thus, it's called an \term{axiom} or
+    \term{postulate}.
+
+  \item[Reflexive property] For all Boolean values \(a\),
+
+    \begin{displaymath}
+        a \land a = a
+    \end{displaymath}
+
+    Likewise, for all $a$,
+
+    \begin{displaymath}
+        a \lor a = a
+    \end{displaymath}
+
+    This is called the \term{reflexive property}.
+
+    \begin{proof}
+        
+    \end{proof}
+
+  \item[Associative property]
+    For all $a$, $b$, and $c$,
+
+    $$a \land \parens{b \land c} \equiv \parens{a \land b} \land c$$
+
+  \item [Commutative property]
+    For all $a$ and $b$:
+
+    $$a \land b \equiv b \land a$$
+  \item [Distributive property]
+    $a \land \parens{b \lor c} \equiv \parens{a \land b} \lor \parens{b
+      \land c}$
+  \item [De Morgan's first law]
+    $\lnot\parens{a \land b} \equiv \lnot a \lor \lnot b$
+  \item [Reflexive property] $a \lor a \equiv a$
+  \item [Associative property]
+    $a \lor \parens{b \lor c} \equiv \parens{a \lor b} \lor c$
+  \item [Commutative property] $a \lor b \equiv b \lor a$
+\end{description}
+
+These values, true and false, are called \term{Booleans}. They are named after a
+mathematician named George Boole who studied them to
+extent.\cite{w-boolean-algebra}
+
 \ss{If (and only if)}
 
 I'm going to introduce some new notation: the $\iff$ symbol.
 
 \[ \parens{A \iff B} \iff \parens{A \implies B} \land \parens{A
-      \impliedby B} \]
+  \impliedby B} \]
 
 Okay, what the hell is that?
 
@@ -155,66 +216,6 @@ know these properties of \nm\implies .
 
 Sometimes, mathematicians, such as myself, will use the symbol $\forall$
 in the place of ``for all''.
-
-\sss{Properties}
-
-There are a lot of properties about $\lnot$, $\land$, and $\lor$. Most
-of them are pretty intuitive, so you won't have trouble memorizing
-them. You should try to remember the names of the properties, but it's
-not really that important.
-
-\begin{description}
-  \item[Cancellative property] For all Boolean values \(a\),
-
-    \begin{displaymath}
-        \lnot \lnot a = a
-    \end{displaymath}
-
-    I mentioned this before somewhere in \cref{props}. This is so simple
-    that it's impossible to prove. Thus, it's called an \term{axiom} or
-    \term{postulate}.
-
-  \item[Reflexive property] For all Boolean values \(a\),
-
-    \begin{displaymath}
-        a \land a = a
-    \end{displaymath}
-
-    Likewise, for all $a$,
-
-    \begin{displaymath}
-        a \lor a = a
-    \end{displaymath}
-
-    This is called the \term{reflexive property}.
-
-    \begin{proof}
-        
-    \end{proof}
-
-  \item[Associative property]
-    For all $a$, $b$, and $c$,
-
-    $$a \land \parens{b \land c} \equiv \parens{a \land b} \land c$$
-
-  \item [Commutative property]
-    For all $a$ and $b$:
-
-    $$a \land b \equiv b \land a$$
-  \item [Distributive property]
-    $a \land \parens{b \lor c} \equiv \parens{a \land b} \lor \parens{b
-      \land c}$
-  \item [De Morgan's first law]
-    $\lnot\parens{a \land b} \equiv \lnot a \lor \lnot b$
-  \item [Reflexive property] $a \lor a \equiv a$
-  \item [Associative property]
-    $a \lor \parens{b \lor c} \equiv \parens{a \lor b} \lor c$
-  \item [Commutative property] $a \lor b \equiv b \lor a$
-\end{description}
-
-These values, true and false, are called \term{Booleans}. They are named after a
-mathematician named George Boole who studied them to
-extent.\cite{w-boolean-algebra}
 
 \begin{ExcList}
   \Exercise[label={demorgan2}]{
@@ -383,7 +384,7 @@ extent.\cite{w-boolean-algebra}
   }
 \end{ExcList}
 
-\sss{Wait, are you going to tell me what a monoid is?}
+\ss{Wait, are you going to tell me what a monoid is?}
 
 Okay, you got me!
 
