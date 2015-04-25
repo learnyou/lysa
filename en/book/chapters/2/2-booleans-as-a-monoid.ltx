@@ -45,6 +45,42 @@ If you're having trouble remembering which symbol is logical-and and
 which one is logical-or, remember that the logical-and symbol ---
 $\land$ --- looks vaguely like an A.
 
+\sss{More formally}
+
+There are formal ways to define $\lnot$, $\land$ and $\lor$
+
+I'm going to introduce a symbol: $\ce$. It means ``is defined to be
+equal to''.
+
+\[ x \ce y\]
+
+means ``$x$ is defined to be equal to $y$''.
+
+With that in mind, here is a more formal definition of $\land$:
+
+\begin{alignmath}{rclcl}
+    \false & \land & \_      & \ce & \false \\
+    \true  & \land & x       & \ce & x \\
+\end{alignmath}
+
+The $\_$ just means ``you can ignore whatever goes here''.
+
+Likewise, for $\lor$:
+
+\begin{alignmath}{rclcl}
+    \true   & \lor & \_       & \ce & \true \\
+    \false  & \lor & x        & \ce & x \\
+\end{alignmath}
+
+and finally for $\lnot$:
+
+\begin{alignmath}{rlcl}
+    \lnot & \parens{\lnot x} & \ce & x \\
+    \lnot & \true            & \ce & \false \\
+\end{alignmath}
+
+\ss{If (and only if)}
+
 I'm going to introduce some new notation: the $\iff$ symbol.
 
 \[ \parens{A \iff B} \iff \parens{A \implies B} \land \parens{A
