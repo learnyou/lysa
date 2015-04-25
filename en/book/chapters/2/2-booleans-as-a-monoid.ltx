@@ -19,64 +19,108 @@ Let's go over it:
 
     \xti{That doesn't help me.}
 
-    Well, let me explain it and the end of the chapter.
-
-
+    Well, let me explain it at the end of the chapter.
 \end{enumerate}
 
-So, sometimes we need to combine two pieces of logic together. There are two
-ways we can do this - logical-or and logical-and.
+So, sometimes we need to combine two pieces of logic together. There are
+two ways we can do this - logical-or and logical-and.
 
-I put logical- in front of them, because the mathematical meaning is slightly
-different than the colloquial meaning.
+I put logical- in front of them, because the mathematical meaning is
+slightly different than the colloquial meaning.
 
-Mathematicians are lazy, so we don't like to write ``logical-and'' whenever we
-want to say it, so instead we use the symbol $\land$.
+Mathematicians are lazy, so we don't like to write ``logical-and''
+whenever we want to say it, so instead we use the symbol $\land$.
 
-$A \land B$ is true if (and only if) both $A$ and $B$ are true. If one of them
-is false, then the entire thing is false.
+$A \land B$ is true if (and only if) both $A$ and $B$ are true. If one
+of them is false, then the entire thing is false.
 
-On the other side, we have logical-or. The symbol for logical-or is $\lor$.
-$A \lor B$ is true if either $A$ or $B$ is true, or if both of them are
-true. You could think of logical-or as being equivalent to the colloquial
-``and/or''.
 
-\begin{center}
-  \begin{tabu}{|c|c||c||c|} \hline
-    $\mathbf{A}$ & $\mathbf{B}$ & $\mathbf{A \land B}$ & $\mathbf{A \lor B}$ \\ \hline
-    $\true$ & $\true$ & $\true$ & $\true$ \\ \hline
-    $\true$ & $\false$ & $\false$ & $\true$ \\ \hline
-    $\false$ & $\true$ & $\false$ & $\true$ \\ \hline
-    $\false$ & $\false$ & $\false$ & $\false$ \\ \hline
-  \end{tabu}
-\end{center}
 
-This is pretty simple. If you're having trouble remembering which symbol is
-logical-and and which one is logical-or, remember that the logical-and symbol
---- $\land$ --- looks vaguely like an A.
+On the other side, we have logical-or. The symbol for logical-or is
+$\lor$.  $A \lor B$ is true if either $A$ or $B$ is true, or if both of
+them are true. You could think of logical-or as being equivalent to the
+colloquial ``and/or''.
+
+If you're having trouble remembering which symbol is logical-and and
+which one is logical-or, remember that the logical-and symbol ---
+$\land$ --- looks vaguely like an A.
 
 I'm going to introduce some new notation: the $\iff$ symbol.
 
-\[ \parens{A \iff B} = \parens{A \implies B} \land \parens{A \impliedby B} \]
+\[ \parens{A \iff B} \iff \parens{A \implies B} \land \parens{A
+      \impliedby B} \]
 
-\nm\iff\ should be read as ``if (and only if)''. Sometimes I'll write the word
-iff --- with two 'f's --- that's the same as ``if (and only if)''.
+Okay, what the hell is that?
 
-In order to do the exercises (yes, there are exercises), you need to know these
-properties of \nm\implies .
+\begin{textmath}
+    If
+
+    \[ A \implies B \]
+
+    and
+
+    \[ B \implies A \]
+
+    then
+
+    \[ A \iff B \]
+
+    Likewise, if
+
+    \[ A \iff B \]
+
+    then
+
+    \[ A \implies B \]
+
+    and
+
+    \[ B \implies A \]
+\end{textmath}
+
+The symbol \nm\iff\ should be read as ``if (and only if)''. Sometimes
+I'll write the word iff --- with two 'f's --- that's the same as ``if
+(and only if)''.
+
+In order to do the exercises (yes, there are exercises), you need to
+know these properties of \nm\implies .
 
 \begin{enumerate}
-\item For all $a$, $a \implies a$.
-\item For all $a$ and $b$, and $c$,
-  $\parens{\parens{a \implies b} \land \parens{b \implies c}} \implies \parens{a
-    \implies c}$.
-  For this reason, we can write $a \implies b \implies c$ without any ambiguity.
+  \item For all $a$
+
+    \begin{displaymath}
+        a \implies a
+    \end{displaymath}
+
+    So, if $a$ is true, that means that $a$ is true. Duh.
+
+  \item For all \(a\), \(b\), and \(c\),
+
+    If 
+
+    \begin{displaymath}
+        a \implies b
+    \end{displaymath}
+
+    and
+
+    \begin{displaymath}
+        b \implies c
+    \end{displaymath}
+
+    then
+
+    \begin{displaymath}
+        a \implies c
+    \end{displaymath}
+    
+    For this reason, we can write $a \implies b \implies c$ without any
+    ambiguity.
+
 \end{enumerate}
 
-\label{forall}
-I'm too lazy to type ``For all'' each time, so I'm going to use the $\forall$
-symbol; it's a common symbol in math that means ``for all''. $\forall$ looks
-like an upside-down A, so it should be easy to remember.
+Sometimes, mathematicians, such as myself, will use the symbol $\forall$
+in the place of ``for all''.
 
 Here are some properties you need to remember:
 
