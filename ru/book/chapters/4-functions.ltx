@@ -1,0 +1,476 @@
+\ch{Functions}\label{ch:functions}
+
+As promised, this chapter discusses functions.
+
+So, what is a function?
+
+So far, we've been dealing with \xti{values} - like $2$, $\mset{3,2,5}$, and
+$90$. They are static. Static things are fine, but they aren't very
+interesting. It's much more interesting to examine \xti{changing things} ---
+more specifically, things that change \xti{predictably} and \xti{transparently}.
+
+Enter the \termref{function}{d-functions}. It's a mathematical construct. A
+function takes some input, and maps it to an output. Functions are sometimes
+referred to as \term{mappings} or \term{morphisms}.
+
+Let's look at a simple function, which takes a number and adds $2$ to it
+
+\begin{alignedmath}
+  f : \Z \to \Z \\
+  f = \fn{x}{x + 2}
+\end{alignedmath}
+
+Pretty simple, right? Okay, so what happens when we send $28$ to $f$?
+
+\begin{alignmath}{rcl}
+  \evalat{f}{x=28} & = & \fn{x=28}{28 + 2} \\
+                   & = & 30 \\
+\end{alignmath}
+
+Alternatively, since it's obvious we're working with $x$:
+
+\begin{alignmath}{rcl}
+  \evalat{f}{28} & = & 28 + 2 \\
+                 & = & 30 \\
+\end{alignmath}
+
+This highlights an important property of functions: \termref{referential
+  transparency}{d-functions}. If you send a function the same input twice, you
+should get the same output both times. That is,
+
+\[ a = b \implies \evalat{f}{a} = \eva{f}{b} \]
+
+Note that the opposite is not always true:
+
+\[ a = b \notimpliedby \evalat{f}{a} = \eva{f}{b} \]
+
+(If that is true, then the function is \term{injective}).
+
+Using the lambda --- $\lambda$ --- is common when I am using a function without
+giving it a name. However, usually I will use this notation:
+
+\begin{alignedmath}
+  f : \Z \to \Z \\
+  \evalat{f}{x} =  x + 2
+\end{alignedmath}
+
+The whole $f : \Z \to \Z$ thing should be pretty obvious. If not, it means that
+$f$ is a function that takes a member of $\Z$ (the whole numbers, both negative
+and positive), and takes it to another member of $\Z$. Other people might use
+the notation
+
+\[ \Z \stackrel{f}{\to} \Z \]
+
+That notation is undoubtedly easier to understand. However, as we'll see, that
+notation quickly becomes unfeasible.
+
+With this in mind, if $f : A \to B$, then $A$ is the \term{domain} of $f$,
+written $\dom{f}$, and $B$ is the \term{codomain} of $f$, written $\codom{f}$.
+
+With regard to the function we were just discussing
+
+\begin{alignedmath}
+  f : \Z \to \Z \\
+  \evalat{f}{x} =  x + 2
+\end{alignedmath}
+
+$\Z$ is both the domain and the codomain. If this is the case, then we say that
+$f$ is a \term{closure}.\footnote{There's a programming language called Clojure,
+  whose name is a pun on this concept.} $f$ is ``closed under $\Z$'', meaning
+that things can't use $f$ to escape from $\Z$. $f$ is closed.
+
+If you can't remember all of these terms, don't worry, they are all listed in
+\cref{d-functions}.
+
+\ss{Functions with multiple arguments}
+
+Remember my explanation of vectors earlier? If not, vectors are like sets,
+but order and repetition matter.
+
+Here's a function that takes two arguments, and adds them to each other.
+
+\begin{alignedmath}
+  f : \mvec{\Z, \Z} \to \Z \\
+  \evalat{f}{x,y} = x + y \\
+\end{alignedmath}
+
+Pretty easy to understand, right?
+
+If you haven't figured it out from the context, the inputs to the function are
+called the \term{arguments}.
+
+Here's a similar function that takes three arguments and adds them to each other
+
+\begin{alignedmath}
+  f : \mvec{\Z, \Z, \Z} \to \Z \\
+  \evalat{f}{x,y,z} = x + y + z \\
+\end{alignedmath}
+
+You can name your function anything you want, same with the arguments (it
+doesn't have to be $f$). It's just a common convention, which you don't have to
+follow.
+
+\xtb{What if I want to add a bunch of things together?}
+
+Good idea!
+
+\begin{alignedmath}
+  f : \mvec{\Z, \Z, \dots, \Z} \to \Z \\
+  \evalat{f}{x_1, x_2, x_3, \dots, x_n} = x_1 + x_2 + x_3 + \dots + x_n
+\end{alignedmath}
+
+That however isn't ideal, because we have no guarantee that the arguments in the
+\dots are actually integers. How about we have a \xti{set} of integers, and we
+just take the sum? This has the added benefit of less typing
+
+
+\begin{alignedmath}
+  f : \evalat{\Set}{\Z} \to \Z \\
+  \evalat{f}{s} = \sum s
+\end{alignedmath}
+
+So,
+
+\begin{alignmath}{rcl}
+  \evalat{f}{\mset{1,2,3,4,5}} & = & \sum \mset{1,2,3,4,5} \\
+                               & = & 1 + 2 + 3 + 4 + 5\\
+                               & = & 15 \\
+\end{alignmath}
+
+\ss{Eta-reductions}
+
+\nocite{eta-conversion}
+
+Mathematicians like to make themselves look smart. One such way is to invent
+fancy terms for simple things. One such term is the $\eta$-reduction.
+
+Let's look at that function we just had
+
+\begin{alignedmath}
+  f : \evalat{\Set}{\Z} \to \Z \\
+  \evalat{f}{s} = \sum s
+\end{alignedmath}
+
+Notice that we are repeating $s$ on both sides of the equation. It would seem
+much simpler, and just as clear, to write:
+
+\begin{alignedmath}
+  f : \evalat{\Set}{\Z} \to \Z \\
+  f = \sum
+\end{alignedmath}
+
+That's all an $\n$-reduction is: if you see an extraneous argument, you remove
+it to make things simpler.  As long as we have the signature --- the
+$f : \evalat{\Set}{\Z} \to \Z$ thing -- it's pretty clear what $f$ does. This is
+a prime example of mathematicians being both lazy and pretentious at the same
+time: a practice designed to allow us to be lazier, to which mathematicians have
+assigned a ridiculous name to make it sound hard.
+
+\xtb{What the hell is $\n$?}
+
+$\n$ is the Greek letter eta; it's pronounced ``eight-uh''.
+
+The ancient Greeks were too dumb to comprehend the concept of ``eight''. Every
+time someone brought it up, they said ``uh'' immediately thereafter. The sound
+``eight-uh'' became so common that they decided to make it a letter.
+
+The Greeks' poor comprehension of simple mathematics remains to this day, and
+is largely the reason for their current financial
+crisis.\cite{w-greek-finance}
+
+If you ever take a physics course, you will undoubtedly notice that Greek
+letters are used frequently in physics. This is the physicists way of subtly
+hinting that they actually have no idea what they are talking about, and
+pleading for help from the mathematicians.
+
+\ss{Other lambda calculi}
+
+This entire idea where you take simple concepts and make them sound really fancy
+is called \termref{$\lambda$ calculus}{d-lambda-calculus}. If you hear people
+talk about ``calculus'', they are talking about something else, not this. Nobody
+is pretentious enough to actually talk about $\lambda$ calculus.
+
+Anyway, here's a brief summary of $\lambda$ calculus. You can find this in
+\cref{d-lambda-calculus}, too. You might want to brush up on your Greek
+alphabet. I have a nice table of Greek letters in \cref{d-greek-alphabet}.
+
+\begin{description}
+\item[$\lambda$ abstraction] A way to write a function: $\ld{x,y} x + y$
+\item[$\alpha$ conversion] Changing the names of the arguments. For instance,
+  you can write the above function as
+
+  \[ \ld{a,b} a + b \]
+
+\item[$\beta$ reduction] Partially calculating a result. For instance
+
+  \[ \ld{2,y} 2 + y \]
+
+  Can be $\beta$ reduced to
+
+  \[ \ld{y} 2 + y \]
+
+\item[$\eta$ conversion] Removing or adding extraneous free arguments. The last
+  function
+
+  \[ \ld{2,y} 2 + y \]
+
+  Can be $\eta$ \xti{reduced} to
+
+  \[ 2 + \]
+
+  Which could then be $\eta$ \xti{abstracted} to
+
+  \[ \ld{2,\kappa} 2 + \kappa \]
+\end{description}
+
+\s{Currying}
+
+We sort of got side-tracked by toying around with sets and making fun of
+physicists. Hopefully that introduction introduced you to the basic concept of a
+function, and let you know that they can take multiple arguments
+
+Let's look at that function again:
+
+\begin{alignedmath}
+  f : \mvec{\Z, \Z, \Z} \to \Z \\
+  \evalat{f}{x,y,z} = x + y + z \\
+\end{alignedmath}
+
+What if you wanted to bind $x = 3$, but leave the rest ``free''?
+
+\begin{alignedmath}
+  f : \mvec{\Z, \Z, \Z} \to \Z \\
+  \evalat{f}{x=3,y,z} = 3 + y + z \\
+\end{alignedmath}
+
+Okay, cool. We now have another function:
+
+\begin{alignedmath}
+  \evalat{f}{3} : \mvec{\Z, \Z} \to \Z \\
+  \evalat{f}{3,y,z} = 3 + y + z \\
+\end{alignedmath}
+
+So, actually, instead of needing 3 integers to do its job, $f$ only needed
+one. However, instead of spitting out another integer, it spit out a
+function. So, we could write $f$'s signature as:
+
+\begin{alignedmath}
+  f : \Z \to \parens{\mvec{\Z, \Z} \to \Z }\\
+  \evalat{f}{x,y,z} = x + y + z \\
+\end{alignedmath}
+
+Okay, that's sort of weird and unintuitive. Let's try writing $f$ differently:
+
+\begin{alignedmath}
+  f : \Z \to \parens{\mvec{\Z, \Z} \to \Z }\\
+  f = \ld{x}\parens{\ld{y,z} x + y + z} \\
+\end{alignedmath}
+
+Let's look at the second half of that:
+
+\begin{alignedmath}
+  \ld{y,z} x + y + z : \mvec{\Z,\Z} \to \Z \\
+\end{alignedmath}
+
+(This assumes that we know what $x$ is)
+
+Let's try splitting this up again:
+
+\begin{alignedmath}
+  \ld{y}\parens{\ld{z} x + y + z} : \Z \to \parens{\Z \to \Z} \\
+\end{alignedmath}
+
+You give this function a value for $y$, and instead of giving you a value, it
+gives you another function, hence the signature \nm{\Z \to \parens{\Z \to \Z}}.
+
+Let's plug this back into $f$:
+
+\begin{alignedmath}
+  f : \Z \to \parens{\Z \to \parens{\Z \to \Z}}\\
+  f = \ld{x}\parens{\ld{y}\parens{\ld{z} x + y + z} }  \\
+\end{alignedmath}
+
+So, instead of $f$ taking three integers, it now only takes one, but spits out a
+function, which in turn spits out a function, which spits out an integer.
+
+This idea of making a function into a chain of functions is called
+``Currying''.\cite{w-currying} It's named after a dead mathematician named
+Haskell Curry (ca. 1900-1982), who developed the technique. The programming
+language Haskell is also named after Mr. Curry.
+
+Getting back to that function, those parentheses are somewhat burdensome, let's
+get rid of them
+
+\begin{alignmath}{rcl}
+  f & : & \Z \to \Z \to \Z \to \Z\\
+  f & = & \ld{x} \ld{y} \ld{z} x + y + z  \\
+  \evalat{f}{x,y,z} & = & x + y + z  \\
+\end{alignmath}
+
+That's much easier to read. It should be understood that the parentheses are
+right-associative: the parentheses ``associate'' rightward --- i.e. it's
+$a \to \parens{b \to \parens{c \to d}}$, not
+$\parens{\parens{a \to b} \to c} \to d$.\cite{w-operator-associativity}
+
+That's Currying for you.
+
+\ss{Piecewise functions}
+\label{s:piecewise}
+
+As a random aside, I'm going to introduce you to the \term{piecewise
+  function}. It's a function whose definition changes based on the input.
+
+\begin{rclmath}
+  q & : & \N \to \Z \\
+  \eva{q}{x} & \ce &
+    \left\{
+      \begin{array}{rcc}
+        \text{$x$ is even} & \to & \frac{x}{2} \\
+        \text{$x$ is odd} & \to & \ngp{\frac{x+1}{2}} \\
+      \end{array}
+    \right.
+\end{rclmath}
+
+Let's look at $\eva{q}{0}$: $0$ is even, so $\eva{q}{0} = \frac{0}{2} = 0$.
+
+Let's make a table:
+
+\begin{displaymath}
+  \begin{tabu}{|c|c|c|} \hline
+    x & \eva{q}{x} & \text{$\eva{q}{x}$ reduced}  \\ \hline
+    0 & \fracil{0}{2}     & 0 \\
+    1 & \ngfracilpf{1+1}{2} & \ng 1 \\
+    2 & \fracil{2}{2}     & 1 \\
+    3 & \ngfracilpf{3+1}{2} & \ng 2 \\
+    4 & \fracil{4}{2}     & 2 \\
+    5 & \ngfracilpf{5+1}{2} & \ng 3 \\
+    6 & \fracil{6}{2}     & 3 \\
+    7 & \ngfracilpf{7+1}{2} & \ng 4 \\
+    8 & \fracil{8}{2}     & 4 \\
+    \hline
+  \end{tabu}
+\end{displaymath}
+
+Hopefully you get this. It's pretty simple.
+
+\ss{Vocabulary}
+
+I've been sort of dropping these vocabulary terms throughout the beginning of
+the chapter. That said, I'll list them here, so you know where they
+are. (They're also in \cref{d-functions}).
+
+\begin{enumerate}
+\item All functions are \term{transparent} ---
+  $a = b \implies \evalat{f}{a} = \evalat{f}{b}$
+
+\item If $f : A \to B$, then $A$ is the \term{domain} of $f$ and $B$ is the
+  \term{codomain} of $f$.
+
+\item If $f : A \to B$, and there are no two distinct elements of $A$ that map
+  to the same thing in $B$, then $f$ is \term{injective}.
+
+  \begin{alignedmath}
+    f : A \to B \\
+    \notexists \mvec{a,b} \semic a,b \in A \land a \ne b \land \evalat{f}{a} = \evalat{f}{b}
+    \iff \text{$f$ is injective}
+  \end{alignedmath}
+
+\item If $f : A \to B$, then the elements in $B$ that can be expressed as
+  $\evalat{f}{x}\semic x \in A$ form the \term{image}.
+
+  \begin{alignedmath}
+    f : A \to B \\
+    \im{f} = \mset{\evalat{f}{x} \in B\semic x \in A} \\
+  \end{alignedmath}
+
+\item If the image of a function is equal to its codomain, then the function is
+  \term{surjective}.
+
+  \begin{alignedmath}
+    f : A \to B \\
+    B = \mset{\evalat{f}{x} \in B\semic x \in A} \iff \text{$f$ is surjective} \\
+  \end{alignedmath}
+
+\item If a function is both injective and surjective, then it is
+  \term{bijective}.
+
+\item Some functions have \term{inverses}. That is, if
+  \[ f : A \to B \]
+  \begin{alignedmath}
+    \arc{f} : B \to A \\
+    \arc{f, x} = x \sfall x \in A
+  \end{alignedmath}
+
+  Remember that, because of currying, $\arc{f,x} = \evalat{\arc{f}}{x}$. That is:
+
+  \begin{alignmath}{rcl}
+    f & : & A \to B \\
+    \mathrm{arc} & : & \parens{A \to B} \to B \to A \\
+    \arc{f} & : & B \to A \\
+  \end{alignmath}
+
+  If a function has an inverse, it is said to be \term{invertible}.
+
+\item If a function is invertible, then the image of the inverse is called the
+  \term{preimage}.
+\end{enumerate}
+
+\begin{ExcList}
+  \Exercise{I knew you were going to just gloss over those, so I made a really
+    hard (i.e. fun) problem: prove that a function is invertible if (and only
+    if) it is bijective. This is a very difficult proof, but you really need to
+    understand it.}
+
+  \Answer{ Let's look at $f : A \to B$. If $f$ is surjective, then $B = \im{f}$,
+    so we can write
+
+    \[ f : A \to \im{f} \]
+
+    In other words
+
+    \[ f : \dom{f} \to \im{f} \]
+
+    It must be true that $f$ is a surjection for $f$ to be invertible. Else
+    there would be elements in the codomain of $f$ that were not in the domain
+    of $\arc{f}$.
+
+    We've established
+
+    \begin{alignedmath}
+      \arc{f} : \im{f} \to \dom{f}
+    \end{alignedmath}
+
+    Let's assume $f$ is invertible. Then $\dom{f} = \preim{f}$. Thus
+
+    \begin{alignedmath}
+      \arc{f} : \im{f} \to \dom{f}
+    \end{alignedmath}
+
+    For $\arc{f}$ to be a function --- i.e. for $f$ to be invertible, then it
+    must be true that
+
+    \begin{alignedmath}
+      \notexists a,b \in \im{f} \semic a = b \semic \arc{f,a} \ne \arc{f,b}
+    \end{alignedmath}
+
+    If we flip this around
+
+    \begin{alignedmath}
+      \notexists a,b \in \preim{f} \semic a \ne b \semic \evalat{f}{a} = \evalat{f}{b}
+    \end{alignedmath}
+
+    That is, the definition of injectivity. Thus we have proven
+
+    \[
+    \text{$f$ is invertible}
+    \iff
+    \parens{\text{$f$ is an injection}}
+    \land
+    \parens{\text{$f$ is a surjection}}
+    \iff
+    \text{$f$ is a bijection}
+    \]
+
+  }
+\end{ExcList}
+

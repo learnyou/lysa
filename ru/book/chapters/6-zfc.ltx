@@ -1,0 +1,337 @@
+\s{Numeric sets}
+
+There are a number of sets with which we commonly deal. The first of them is the
+``natural numbers'', or $\N$. $\N \ce \mset{0,1,2,3,4,5,\dots}$. Some people will
+say that $\N \ce \mset{1,2,3,4,5,\dots}$. It doesn't matter a whole lot.
+
+The best way to explain the natural numbers --- more importantly, to reason
+about them --- is to do so rigorously. These are called the \term{Peano
+  axioms}. They rigorously define $\N$.\cite{landau-analysis}
+
+\begin{enumerate}
+\item $0 \in \N$
+\item $\suc : \N \to \N$. \nm\suc\ is the ``successor function''. It just bumps
+  every number up by $1$. $\succ{0} = 1$, etc.
+\item \nm\suc\ is injective.
+\item $\forall x \in \N, \succ{x} \ne 0$
+\item Let $\psi$ be a function
+  \begin{alignedmath}
+    \psi : \N \to \bool \\
+    \eva{\psi}{0} = \true \\
+  \end{alignedmath}
+
+  If $\eva{\psi}{n} = \true \implies \eva{\psi}{\succ{n}} = \true$, then $\eva{\psi}{n}$
+  holds true for all $n \in \N$.
+\end{enumerate}
+
+I'm not going to make you do it, because it's really boring. But we can define
+everything about $\N$ from these axioms. For instance, you can define addition
+this way:
+
+\begin{alignedmath}
+  + : \N \to \N \to \N \\
+  a + 0 \ce a \\
+  \succ{a + b} \ce a + \succ{b} \\
+\end{alignedmath}
+
+The next set is $\Z$, which is the integers.
+
+\begin{displaymath}
+  \Z \ce \mset{\dots,\ng{5},\ng{4},\ng{3},\ng{2},\ng{1},0,1,2,3,4,5,\dots}
+\end{displaymath}
+
+I think I've said this before: most people use $-5$ to say ``negative 5''. I
+don't like this, because $-$ is also used for subtraction. Given that I use
+$\beta$ and $\eta$ reduction quite a bit, this will get really confusing. So, in
+this book, \nm{\ng{x}} refers to negative $x$.
+
+The next set is $\R$, which is the ``real numbers''. If you write down a digit,
+say $8$, write down a bunch of digits next to it, and maybe stick a decimal
+point in there, it's guaranteed to be a real number.
+
+\[ 8.28302382881883842048276545678943223689076 \in \R \]
+
+These can even go on infinitely:
+
+\begin{alignedmath}
+  \frac{1}{3} \ce 0.33333\dots \\
+  e \ce 2.71828182845905\dots \\
+\end{alignedmath}
+
+The next set is $\Q$, which is the ``rational numbers'': numbers which can be
+expressed as a ratio.
+
+\begin{displaymath}
+  \Q \ce \mset{\frac{x}{y} \in \R \st x, y \in \Z \land y \ne 0 }
+\end{displaymath}
+
+All real numbers that follow a pattern, or terminate at some point are rational
+numbers. So $\frac{1}{3}$ is a rational number, because it is a ratio. Also,
+$0.333333\dots$ follows a pretty recognizable pattern.
+
+$e$ on the other hand is \term{irrational}: it doesn't follow any pattern nor
+does it terminate. $\pi$ is much more widely known than $e$, and is also
+irrational.\footnote{If you don't know why $\pi$ is significant, it's the ratio
+  of the circumference of a circle (the distance around it) to its diameter (the
+  distance across the circle).}
+
+Irrational numbers are the non-rational numbers:
+
+\begin{displaymath}
+  \I \ce \R \bs \Q
+\end{displaymath}
+
+The next set is the ``complex numbers'':
+
+\begin{displaymath}
+  \C \ce \R \times \R
+\end{displaymath}
+
+$\C$ is the Cartesian product of \nm\R\ with itself. The rules for addition,
+division, and multiplication are a bit different. We'll get there later.
+
+
+\s{Cardinalities}
+
+This is the fun part of math.
+
+This all starts with Galileo's paradox. If you pair every natural number up with
+its square:
+
+\begin{alignmath}{ccccccc}
+  1 & 2 & 3 & 4 & \dots & n & \dots \\
+  \updownarrow & \updownarrow & \updownarrow & \updownarrow & \updownarrow & \updownarrow & \updownarrow \\
+  1 & 4 & 9 & 16 & \dots & n^2 & \dots \\
+\end{alignmath}
+
+you will come to the seemingly unreasonable conclusion that there are as many
+perfect squares as there are natural numbers. This is odd, because the perfect
+squares are a strict subset of the natural numbers. How can a strict subset of a
+set have as many elements as the original set? It defies all intuition.
+
+Galileo decided that the terms ``larger'' and ``smaller'' had no place when
+discussing infinite sets.\cite{expeditions} Instead, if there is a bijection
+between two sets, as we saw with the perfect squares, then we say that the sets
+have the same \term{cardinality}, or size.
+
+I'm going to use the symbol \nm\ae\ to mean ``cardinally equal to'': it means
+two things have the same cardinality.
+
+\begin{rclmath}
+  \nil & \ae & \nil \\
+  \mset{1,2,3} & \ae & \mset{3,4,5} \\
+\end{rclmath}
+
+$\N$ is infinite. Cantor called $\N$'s cardinality $\alnull$. $\aleph$ is the
+Hebrew letter ``aleph''.\footnote{Some old math textbooks accidentally printed
+  the \rotatebox[origin=c]{180}{$\aleph$} upside-down.\cite{w-aleph-null} What a
+  bunch of idiots.} $\alnull$ should be read ``aleph null''.
+
+By the above definition, any set with a bijective relation to $\N$ has the
+cardinality $\alnull$.
+
+% \xtb{Woah woah woah! Hold the phone!}
+
+% It looks like we just found a bijection from $\N$ to $\Z$! What the hell is
+% going on?! $\N \subof \Z$, so it can't have the same number of elements, it has
+% to have fewer\ldots oh wait no it doesn't. Remember $n$ and $n^2$? So, we've
+% just found a bijection from $\N$ to $\Z$, so therefore $\N$ and $\Z$ have the
+% same cardinality: $\aleph_0$. That's kind of cool.
+
+% \[ \N \ae \Z\]
+
+% $\N$ has exactly the same number of elements as $\Z$.
+
+\ss{Vector-valued functions and derivatives}
+
+Next thing we are going to look at is a \term{vector-valued
+  function}. The name pretty much says it all. It's a function that
+takes some input, and spits out a vector as an output.
+
+\begin{alignedmath}
+  f : \N \to \mvec{\N,\N} \\
+  \eva{f}{x} \ce \mvec{x,x} \\
+\end{alignedmath}
+
+That's a pretty simple vector-valued function. It could spit out a
+3-vector:
+
+\begin{alignedmath}
+  f : \N \to \mvec{\N,\N,\N} \\
+  \eva{f}{x} \ce \mvec{x,x,x} \\
+\end{alignedmath}
+
+Or take two inputs:
+
+\begin{alignedmath}
+  f : \N \to \N \to \mvec{\N,\N,\N} \\
+  \eva{f}{x,y} \ce \mvec{x,y,x+y} \\
+\end{alignedmath}
+
+Alright, let's try something. We're going to ``plot'' some vectors. See
+\cref{fig:ccp}. The graph in question represents $\Z \times \Z$. If you
+don't remember, $\Z \times \Z$ is the Cartesian product of $\Z$ with
+itself. It's the set of all 2-vectors where both entries in the vector
+are in $\Z$.  $\Z \times \Z \ce \mset{\mvec{x,y} \st x,y \in \Z}$. It's
+sometimes the convention, when given a set $S$, to say
+$S^2 \ce S \times S$. So $\Z^2 \ce \Z \times \Z$.
+
+\begin{figure}[ht]
+  \centering
+  \inclgraph{VectorGraph1.png}
+  \caption{Some vectors plotted on a Cartesian coordinate plane.}
+  \label{fig:ccp}
+\end{figure}
+
+So, from that graph, you'll see that
+$\mvec{\ng 3, 4}, \mvec{2,4}, \mvec{\ng 5, \ng 1}, \mvec{5, \ng 3} \in
+\Z^2$.
+
+At this point, I think my crappy graphs drawn by hand are failing
+us. So, I'll generate one with a computer.
+
+\dots and 5 hours of wrestling with Sage, here's the graph:
+
+\answergraph{VectorGraph2.png}
+
+Okay, convention time! The horizontal axis is typically labeled the
+$x$-axis. The vertical axis is labeled the \nm{y}-axis. There's no rule
+that this has to be the case, it's just a convention.
+
+Okay, remember that bijection $q : \N \to \Z$ from earlier? If not:
+
+\begin{rclmath}
+  q & : & \N \to \Z \\
+  \eva{q}{x} & \ce &
+    \left\{
+      \begin{array}{rcc}
+        \text{$x$ is even} & \to & \frac{x}{2} \\
+        \text{$x$ is odd} & \to & \ngp{\frac{x+1}{2}} \\
+      \end{array}
+    \right.
+\end{rclmath}
+
+I used it to show that $\N \ae \Z$. Let's plot the vectors
+
+\begin{displaymath}
+\mset{\mvec{x, \eva{q}{x}} \in \Z^2}
+\end{displaymath}
+
+\answergraph{nz-bijection.png}
+
+That's a bit hard to follow, let's put a line through the points
+
+\answergraph{nz-bijection-joined.png}
+
+That's a lot better. It sort of makes a zig-zag pattern.
+
+To every point in $\N$, there is exactly one corresponding point in $\Z$. That's
+what bijection means. We've found a bijection from $\N$ to $\Z$.
+
+I'm going to show you another graph. It's also a bijection, but it's represented
+a bit differently. See if you can guess what it is.
+\ch{ZFC}
+
+\s{Russell's paradox}
+
+You know how whenever we make a set comprehension, like
+$\mset{x \in A \st \eva{p}{x}}$, we always have to specify the $x \in A$ part?
+Why can't we just leave it at $x$?
+
+For a long time, set theorists did this. It worked fine, everyone was
+happy. But, oh no, someone of course had to ruin the fun. In 1901, some jerk
+named Bertrand Russell found a paradox. Consider the set of all sets. (Hint:
+this isn't a set, actually).
+
+\[ \mset{x \st x : \Set }\]
+
+Okay, let's consider the set of all sets, where any given set is not an element
+of itself:
+
+\[ A = \mset{x : \Set \st x \notin x }\]
+
+Okay... what's the point. Well, is $A$ an element of itself?  In order for $A$
+to be an element of itself, $A$ would have to not be an element of itself. So,
+if $A$ is an element of itself, then it's not an element of itself. Likewise, if
+$A \notin A$, then $A \in A$.
+
+\begin{figure}[ht]
+  \centering
+  \inclgraph{russell.png}
+  \caption{Said turdbucket. Doesn't he just look really smug? Source: \cite{russellpic}.}
+  \label{fig:russell}
+\end{figure}
+
+Because of this little turdbucket, we can only use set comprehensions to make
+\xti{subsets} of other sets.
+
+\xtb{However}
+
+We can use the set comprehension notation to make collections, with no guarantee
+that the collection is a set. Said collections are called
+\term{classes}. Because of Russell's paradox, given a class $C$ and an object
+$x$, we can no longer ask $x \Qin C$. Oh well. Well now you know what classes
+are.
+
+If a class is not also a set, then it's called a \term{proper class}.
+
+\ss{ZFC}
+
+Russell's paradox highlighted a more important issue: we can't use a lax
+interpretation of set theory, or feces start to hit the fan. So, what do we do?
+
+Luckily enough, someone else figured out a rigorous interpretation of set
+theory. That guy was named Ernst Zermelo. Another guy, named Abraham Fraenkel,
+later came on by and significantly improved Zermelo's work. The result is the
+modern version of set theory, called \term{Zermelo-Fraenkel set theory}, or just
+ZFC.
+
+\xtb{Wait, ZFC? I get the ZF part, where'd that C come from?}
+
+You caught me. To explain this, I need to give you a bit of a history lesson.
+
+Cantor (the guy who first studied sets) came up with the bizarre result that
+there are multiple kinds of infinities. One such infinity was called $\aleph_0$,
+which is ``countably infinite''.\footnote{$\aleph$ is the Hebrew letter
+  ``aleph''.} $\N$, $\Q$, and $\Z$ all have the infinity $\aleph_0$. The next
+infinity was the ``continuous infinity''. Namely, Cantor claimed that every
+nonempty subset of $\R$ was in one-to-one correspondence with
+$\mset{x \in \R \st 0 < x < 1}$. This was called the ``continuum
+hypothesis''.\footnote{\xtb{Spoiler alert}, the continuum hypothesis is true.}
+
+Zermelo's version of set theory came about in an effort to prove Georg Cantor's
+continuum hypothesis. Zermelo came up with eight axioms for sets, and used them
+to prove the continuum hypothesis, along with a bunch of other cool
+stuff.\footnote{\cite{expeditions} has a wonderful account, I highly recommend you read
+  it.}
+
+In his proofs, Zermelo made an assumption: given a nonempty subset of an
+infinite set, it's always possible to pick a member of the subset. This
+assumption was being made all over mathematics at the time, but nobody realized
+it. Zermelo's proof hinged on this assumption. This assumption later became
+known as its own axiom: \term{the Axiom of Choice}.
+
+Now, this axiom itself is not too controversial. It seems reasonable, doesn't
+it? Well, sure. However, some of the results it produces are just bizarre. For
+instance, someone proved, using the axiom of choice: if you have a finitely
+large sphere, and cut it up into a bunch of smaller spheres, you can then
+combine those smaller spheres up into an arbitrarily large sphere. That's just
+weird.
+
+You need the axiom of choice to do a lot of interesting stuff: namely, to prove
+the continuum hypothesis. So, ZF set theory with the axiom of choice is called
+ZFC. Set theory without the axiom of choice is called ZF. The axioms are really
+boring, and they aren't really needed for our purposes, so I put them in
+\cref{d-sets} instead of listing them here.
+
+\begin{figure}[ht]
+  \centering
+  \inclgraph{pumpkin_carving.png}
+  \caption{Source: xkcd}
+  \label{fig:pumpkin-carving}
+\end{figure}
+
+At a certain point, mathematicians stopped caring whether or not their work was
+true, and only cared whether or not it was rigorous. ZFC is rigorous, even if it
+isn't true. So, who cares? ZFC is a lot easier than ZF, so we're going to use
+ZFC. All good?

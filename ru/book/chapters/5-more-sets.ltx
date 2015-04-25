@@ -1,0 +1,697 @@
+\ch{More stuff about sets (and functions)}
+\label{ch:more-sets}
+
+By now, you hopefully have some idea into the basic intuition behind sets and
+functions. Moreover, you've proven some cool stuff about them -- for instance,
+you proved that a function is invertible iff it is bijective.
+
+That's kind of cool, right? It's much easier to verify that a function is
+bijective than it is to find its inverse. So, right off the bat, you can see if
+a function is invertible without trying to invert it. Despite what you may
+think, a common problem in math is to find inverse functions.
+
+Speaking of functions, I'm going to define a really simple function:
+
+\begin{alignedmath}
+  \id : a \to a \\
+  \evalat{\id}{x} = x
+\end{alignedmath}
+
+That function is about as simple as functions get. It's not a very interesting
+function, but it's handy when defining things.
+
+This is a slightly less simple function, but nonetheless important
+
+\begin{alignedmath}
+  \flip : \parens{a \to b \to c} \to b \to a \to c \\
+  \eva{\flip}{f, x, y} = \eva{f}{y,x}
+\end{alignedmath}
+
+It takes a function, $f$, which takes an $a$ and a $b$, and then returns another
+function with the arguments flipped. You won't usually see
+$\eva{\flip}{\ld{x, y} x-y, 3, 5}$ floating around. Instead
+
+\begin{alignmath}{rcl}
+  f & : & p \to q \to r \\
+  \eva{\flip}{f} & : & q \to p \to r \\
+\end{alignmath}
+
+Here's an infix operator:
+
+\begin{alignedmath}
+  \circ : \parens{b \to c} \to \parens{a \to b} \to a \to c \\
+  \eva{\parens{f \circ g}}{x} = \eva{f}{\eva{g}{x}}
+\end{alignedmath}
+
+We're going to look at some more stuff with sets.
+
+\s{Set subtraction}
+
+First off, we have ``set subtraction''. This is sometimes called the ``relative
+complement''.
+
+\[ P \setminus Q = \mset{x \in P \semic x \notin Q} \]
+
+$P \bs Q$ is all of the elements in $P$ that are not in $Q$.
+
+\begin{figure}[ht]
+  \centering
+  \inclgraph{setminus.png}
+  \caption{Set subtraction}
+  \label{fig:setminus}
+\end{figure}
+
+What would $P \bs P$ be, then? Well, $\nil$, of course, right! 
+
+\[ P \setminus P = \mset{x \in P \semic x \notin P} = \nil \]
+
+Well, that looks like a contradiction, doesn't it? Well, sort of. It's a
+contradiction if you assume that $P$ is nonempty --- if you assume that there is
+some element in $P$ --- if an element is both in $P$ and not in $P$, that would
+be madness! But, if you realize that the comprehension is the ``set of objects
+satisfying the condition'', then you don't encounter a contradiction.
+$P \setminus P$ is the set of all objects in $P$ that are not in $P$: there are
+no elements satisfying this condition, thus $P \bs P \equiv \nil$.
+
+\Cref{fig:setminus} explains this idea graphically.
+
+\ss{Complement}
+
+If $P \subof \amb$, then $\amb \setminus P$ is called the ``\term{complement} of
+$P$ with respect to $\amb$''. Yes, that's compl\xti{e}ment with an 'e', not
+compl\xti{i}ment, with an 'i'. 
+
+I drew another diagram to illustrate the complement in \cref{fig:complement}.
+
+\begin{figure}[ht]
+  \centering
+  \inclgraph{venn-complement-2.png}
+  \caption{The complement, illustrated graphically. I tried to draw an $\amb$ in
+    the upper right corner. It turned out terribly.}
+  \label{fig:complement}
+\end{figure}
+
+In these exercises, you are going to prove every identity there is about sets.
+
+\begin{ExcList}
+  \Exercise{$A \bs \parens{B \cap C} \equiv \parens{A \bs B} \union \parens{A \bs C}$}
+  \Exercise {$A \bs \parens{B \union C} \equiv \parens{A \bs B} \intersect \parens{A \bs C}$}
+  \Exercise {$A \bs \parens{B \bs C} \equiv \parens{A \bs B} \union \parens{A \intersect C}$}
+  \Exercise {$\parens{A \bs B} \intersect C \equiv \parens{A \cap C} \bs B \equiv A \intersect \parens{C \bs B}$}
+  \Exercise {$\parens{A \bs B} \union C \equiv \parens{A \union C} \bs \parens{B \bs C}$}
+  \Exercise {$A \bs A \equiv \nil$}
+  \Exercise {$A \bs \nil \equiv A$}
+  \Exercise {$\nil \bs A \equiv \nil$}
+  \Exercise {$A \cap \parens{B \cup C} \equiv \parens{A \cap B} \cup \parens{A \cap C}$}
+  \Exercise {$A \cup \parens{B \cap C} \equiv \parens{A \cup B} \cap \parens{A \cup C}$}
+  \Exercise {$\parens{A^c}^c \equiv A$}
+  \Exercise{\nm{\parens{A \cap B}^c \equiv A^c \cup B^c}} 
+  \Exercise{\nm{\parens{A \union B}^c \equiv A^c \cap B^c}}
+\end{ExcList}
+
+\s{Cartesian products}
+
+The next thing we need to go over is a \term{Cartesian product} - it's basically
+a way to double up on a set. So, say we have a set $A$, and another set $B$, the
+Cartesian product is the set of all 2-vectors, where the first element is from
+$A$, and the second element is from $B$.
+
+\begin{alignedmath}
+  \times : \Setof{a} \to \Setof{b} \to \Classof{a,b} \\
+  A \times B \ce \mset{\mvec{x,y} \st x \in A \land y \in B} \\
+\end{alignedmath}
+
+It's the class of all pairs of the elements in either set. It is actually a set,
+too, but I haven't taught you enough to prove that. I also haven't taught you
+what a class is. So, for the time being, know that the Cartesian product
+produces a set, but at the same time you don't know that.
+
+Let's see some examples!
+
+\begin{alignmath}{rccl}
+  \mset{1,2,3} \times \mset{4,5,6}
+    & = & \{ & \mvec{1,4} \\
+    &   &  , & \mvec{1,5} \\
+    &   &  , & \mvec{1,6} \\
+    &   &  , & \mvec{2,4} \\
+    &   &  , & \mvec{2,5} \\
+    &   &  , & \mvec{2,6} \\
+    &   &  , & \mvec{3,4} \\
+    &   &  , & \mvec{3,5} \\
+    &   &  , & \mvec{3,6} \\
+    &   & \} &            \\
+\end{alignmath}
+
+Alright, remember earlier when I told you to install Haskell? Well, if you
+didn't, do it now: \cref{intro-idris}.
+
+\begin{plainfile}
+% ghci
+GHCi, version 7.8.4: http://www.haskell.org/ghc/  :? for help
+Loading package ghc-prim ... linking ... done.
+Loading package integer-gmp ... linking ... done.
+Loading package base ... linking ... done.
+Prelude> 
+\end{plainfile}
+
+GHCi is the Glasgow Haskell Compiler, interactive. It's an interactive
+interpreter for Haskell.
+
+If you want to change your prompt to something other than \code{Prelude>}, then
+write something like this:
+
+\begin{plainfile}
+Prelude> :set prompt "ghci: "
+ghci: 
+\end{plainfile}
+
+If you want to do this permanently, add \code{:set prompt "ghci: "} to
+\filepath{\tilde /.ghc/ghci.conf}.
+
+I didn't just have you open up GHCi for no good reason. It's really easy to play
+with these Cartesian products in GHCi. This way, you can experiment.
+
+Remember the definition of the Cartesian product:
+
+\begin{displaymath}
+  A \times B \ce \mset{\mvec{x,y} \st x \in A \land y \in B}
+\end{displaymath}
+
+Let's try that example out. Math doesn't directly translate into Haskell. Some
+of the syntax is a bit different.
+
+\begin{haskell}
+ghci: [(a,b) | a <- [1,2,3], b <- [4,5,6]]
+[(1,4),(1,5),(1,6),(2,4),(2,5),(2,6),(3,4),(3,5),(3,6)]
+it :: (Num t1, Num t) => [(t, t1)]
+\end{haskell}
+
+% \newcommand{ghciconf}{\filepath{\tilde /.ghc/ghci.conf}}
+
+That last line probably doesn't show up for you. It's just telling us the type
+of our expression. To have it show up automatically for you, run \code{:set +t},
+or add it to \filepath{\tilde /.ghc/ghci.conf}.
+
+There are a number of ways to actually work out the mechanics of the
+product. The simplest, and easiest way, is through \xti{recursion}. So, let's go
+over the mechanics of $\mset{1,2,3} \times \mset{4,5,6}$. You take the first
+element of the first set, in this case, $1$, and take the Cartesian product of
+$\mset{1}$ and $\mset{4,5,6}$:
+
+\[
+\mset{1} \times \mset{4,5,6} =
+\mset{
+  \mvec{1,4},
+  \mvec{1,5},
+  \mvec{1,6}
+}
+\]
+
+That's unreadable
+
+\begin{alignmath}{rccc}
+  \mset{1} \times \mset{4,5,6} & = & \{ & \mvec{1,4} \\
+                               &   &  , & \mvec{1,5} \\
+                               &   &  , & \mvec{1,6} \\
+                               &   & \} &
+\end{alignmath}
+
+Pretty easy. Then you do the same thing with the second element.
+
+\begin{alignmath}{rccc}
+  \mset{2} \times \mset{4,5,6} & = & \{ & \mvec{2,4} \\
+                               &   &  , & \mvec{2,5} \\
+                               &   &  , & \mvec{2,6} \\
+                               &   & \} &
+\end{alignmath}
+
+You guessed it!
+
+\begin{alignmath}{rccc}
+  \mset{3} \times \mset{4,5,6} & = & \{ & \mvec{3,4} \\
+                               &   &  , & \mvec{3,5} \\
+                               &   &  , & \mvec{3,6} \\
+                               &   & \} &
+\end{alignmath}
+
+Then you take the union:
+\newcommand{\unionformatted}[1]{\begin{array}{cc}
+    \{ & \mvec{{#1},4} \\
+     , & \mvec{{#1},5} \\                                                                                       
+     , & \mvec{{#1},6} \\                                                                                       
+    \} &               \\
+  \end{array}}
+
+\begin{alignmath}{rcccc}
+  \mset{1,2,3} \times \mset{4,5,6} & = & \bigcup & \{ & \mset{1} \times \mset{4,5,6}, \\
+                                   &   &         &  , & \mset{2} \times \mset{4,5,6}, \\
+                                   &   &         &  , & \mset{3} \times \mset{4,5,6}, \\
+                                   &   &         & \} & \\
+\end{alignmath}
+
+I'm going to have to display the intermediate result in a separate thing,
+because it's just awful if I try to smush it in with the rest:
+
+\begin{displaymath}
+\unionformatted{1} \bigcup
+\unionformatted{2} \bigcup
+\unionformatted{3}
+\end{displaymath}
+
+Which evaluates to
+
+\begin{alignmath}{rccl}
+  \mset{1,2,3} \times \mset{4,5,6}
+    & = & \{ & \mvec{1,4} \\
+    &   &  , & \mvec{1,5} \\
+    &   &  , & \mvec{1,6} \\
+    &   &  , & \mvec{2,4} \\
+    &   &  , & \mvec{2,5} \\
+    &   &  , & \mvec{2,6} \\
+    &   &  , & \mvec{3,4} \\
+    &   &  , & \mvec{3,5} \\
+    &   &  , & \mvec{3,6} \\
+    &   & \} &            \\
+\end{alignmath}
+
+Okay, great. I hope you understand this so far. What happens when we take the
+product of a set with itself?
+
+
+\begin{alignmath}{rccl}
+  \mset{1,2,3} \times \mset{1,2,3}
+    & = & \{ & \mvec{1,1} \\
+    &   &  , & \mvec{1,2} \\
+    &   &  , & \mvec{1,3} \\
+    &   &  , & \mvec{2,1} \\
+    &   &  , & \mvec{2,2} \\
+    &   &  , & \mvec{2,3} \\
+    &   &  , & \mvec{3,1} \\
+    &   &  , & \mvec{3,2} \\
+    &   &  , & \mvec{3,3} \\
+    &   & \} &            \\
+\end{alignmath}
+
+The Cartesian product of a set $A$ with itself is usually denoted $A^2$ instead
+of $A \times A$. Like I said, we like to be lazy.
+
+\s{Function plots}
+
+Okay, so, here's something that doesn't really fit in anywhere else. Now that
+you know what Cartesian products are, as well as vectors, I can introduce you to
+the \term{Cartesian coordinate plane}. Basically, it's a graphical
+representation of $\R \times \R$:
+
+\answergraph{VectorGraph1.png}
+
+I also put some vectors on there. That looks really crappy, let me draw that
+with a computer real quick:
+
+\answergraph{VectorGraph2.png}
+
+The source code for that graph is in \cref{src:vg2}.
+
+As far as conventions go, you always list the horizontal coordinate first, and
+the vertical coordinate second. Usually, the horizontal axis is labeled the
+$x$-axis, and the vertical axis is labeled the $y$-axis. Hence, the convention
+is to denote vectors on the plane as $\mvec{x,y}$
+
+Okay, so given $A \times B$, a point $\mvec{x,y}$ on the Cartesian coordinate
+plane represents the vector $\mvec{x,y}$, where $x \in A$, $y \in B$. With $\R$,
+a point $\mvec{x, y}$ on the plane is the vector $\mvec{x,y} \in \R^2$
+
+So, how do we plot a function? Well, basically, given a function $f : A \to B$,
+you plot $\mvec{x, \eva{f}{x}} \in A \times B$.
+
+You plot the domain on the $x$-axis, and the codomain on the $y$-axis. You put
+the input value as the horizontal coordinate, and the output value as the
+$y$-coordinate.
+
+For instance:
+
+\begin{displaymath}
+  \parens{\ld{x} x^2} : \R \to \R
+\end{displaymath}
+
+\answergraph{x-squared-curve.png}
+
+The source is in \cref{src:x-squared}.
+
+Go to some point on the $x$-axis. Then go upwards from there until you hit the
+line. Let's start with $8$. Find $8$ on the $x$-axis, then go up from there
+until you get to the line. If you look, the vertical coordinate of the line at
+that point is $64$, which is the square of $8$. That's kind of cool.
+
+\s{The work of Georg Cantor}
+
+Without further ado, we're going to look at Georg Cantor's work. Georg Cantor,
+if you remember from \cref{ch:sets}, is the guy who first studied sets. He came
+up with some bizzarre results.
+
+First of all, long before Cantor, another guy, of whom you've likely heard,
+Galileo Galilei, came up with a paradox. Galileo Galilei is usually mononymously
+referred to as Galileo, mostly because it's easier to type. Galileo is most
+famous for championing the idea that the earth revolves around the sun, and not
+the other way around. He spent his last days under house arrest because he
+believed that. Seventeenth century Italy didn't really have the same free speech
+protections found today in the first world.
+
+Anyway, I digress. Aside from his amazing work in physics, Galileo was among the
+first to point out an interesting fact about $\N$: there are as many perfect
+squares as there are natural numbers.\cite{expeditions} That's weird, because
+the perfect squares are a subset of the natural numbers.
+
+\begin{alignmath}{ccccccc}
+  1 & 2 & 3 & 4 & \dots & n & \dots \\
+  \updownarrow & \updownarrow & \updownarrow & \updownarrow & \updownarrow & \updownarrow & \updownarrow \\
+  1 & 4 & 9 & 16 & \dots & n^2 & \dots \\
+\end{alignmath}
+
+To be fair, Galileo wasn't the first person to come up with this paradox, he was
+just among the first. He was the most famous person to come up with this
+paradox, hence why it's named after him.\cite{w-galileo-paradox}
+
+So, back to the real world: despite being a subset, the infinite set of perfect
+squares has as many elements as the infinite superset of natural
+numbers. Galileo decided that the only solution was to not consider words like
+``larger'' or ``smaller'' when discussing infinite sets. Eventually,
+mathematicians started talking about ``larger'' and ``smaller'' in the context
+of infinite sets, just not the way Galileo would have.
+
+If you want to look at this another way, we've found a bijection
+
+\begin{alignedmath}
+  f : \N \to \mset{x \in \N\semic y \in \N \comma x = y^2} \\
+  \eva{f}{x} \ce x^2 \\
+\end{alignedmath}
+
+Galileo, and later Cantor, decided that two sets have the same number of
+elements if there exists a bijection between them. Instead of saying ``have the
+same number of elements'', we instead say ``have the same cardinality''.
+
+So, $\mset{1,2,3}$ has the same cardinality as $\mset{4,5,6}$, because there's a
+bijective relation between them.
+
+\begin{displaymath}
+\parens{\ld{x} x + 3} : \mset{1,2,3} \to \mset{4,5,6}
+\end{displaymath}
+
+If two sets are finite, as is the case with the previous example, their
+cardinality is just the number of elements. So, the cardinality of
+$\mset{1,2,3}$ is just $3$. If two sets $A$ and $B$ have the same cardinality,
+then I'm going to write $A \ae B$, which you should read as ``$A$ is cardinally
+equal to $B$''.
+
+Do you remember that example function from \cref{s:piecewise}?
+
+\begin{rclmath}
+  q & : & \N \to \Z \\
+  \eva{q}{x} & \ce &
+    \left\{
+      \begin{array}{rcc}
+        \text{$x$ is even} & \to & \frac{x}{2} \\
+        \text{$x$ is odd} & \to & \ngp{\frac{x+1}{2}} \\
+      \end{array}
+    \right.
+\end{rclmath}
+
+\begin{displaymath}
+  \begin{tabu}{|c|c|c|} \hline
+    x & \eva{q}{x} & \text{$\eva{q}{x}$ reduced}  \\ \hline
+    0 & \fracil{0}{2}     & 0 \\
+    1 & \ngfracilpf{1+1}{2} & \ng 1 \\
+    2 & \fracil{2}{2}     & 1 \\
+    3 & \ngfracilpf{3+1}{2} & \ng 2 \\
+    4 & \fracil{4}{2}     & 2 \\
+    5 & \ngfracilpf{5+1}{2} & \ng 3 \\
+    6 & \fracil{6}{2}     & 3 \\
+    7 & \ngfracilpf{7+1}{2} & \ng 4 \\
+    8 & \fracil{8}{2}     & 4 \\
+    \hline
+  \end{tabu}
+\end{displaymath}
+
+Wait wait wait!!!!! That's a bijection! Holy crap! So $\N \ae \Z$! That's
+interesting! Again, despite $\N \subof \Z$, $\N \ae \Z$. That's kind of cool.
+
+Let's plot that function:
+
+\answergraph{nz-bijection.png}
+
+Well that's a bit hard to follow. Let's draw a dotted line between each
+successive point:
+
+\answergraph{nz-bijection-joined.png}
+
+Okay. Please note that since $q : \N \to \Z$, there aren't intermediate
+values. The function only exists at the blue points. That is, you can't evaluate
+$\eva{q}{2.5}$, because $2.5 \notin N$.
+
+Anyway, the point is, we are able to enumerate through the values of $\Z$, the
+same way we can with $\N$. We've found a bijection $q : \N \to \Z$, therefore
+$\N = \Z$.
+
+The cardinality of $\N$ (and also $\Z$) is called $\alnull$, pronounced
+``aleph-null''. $\aleph$ is the first letter of the Hebrew alphabet, called
+``aleph''.\footnote{Some early math textbooks accidentally printed the
+  \reflectbox{\rotatebox[origin=c]{180}{$\aleph$}}
+  upside-down.\cite{w-aleph-null} What a bunch of idiots.}
+
+\ss{The cardinality of irrational numbers}
+
+What about $\I$? $\I$ is seemingly more infinite than $\N$. $\N$ and $\Z$ are
+discrete sets: it's pretty easy to enumerate through them. $\I$ is continuous
+though. Between any two values, there's always an infinity of more values.
+
+Let's, for fun, try to list every single irrational number. If we can list every
+irrational number, then we must be able to enumerate through them, which would
+mean that $\N \ae \I$
+
+\begin{plainfile}
+1.714761022369152...
+4.008668726427755...
+1.566116992594829...
+1.519257059116716...
+5.011643808251281...
+6.533800807168559...
+9.838685190958348...
+3.424290398329045...
+5.065089480002634...
+6.972994377235255...
+7.763147189141261...
+8.374868221801194...
+2.901203914856270...
+9.734153197637937...
+1.163373088314136...
+1.489918657733841...
+1.775506328996835...
+...
+\end{plainfile}
+
+I have to do it \code{in monospace} so that everything is aligned, sorry. Okay,
+let's take the first number, \code{1.714761022369152...}, and subtract $1$ from
+its first digit: \code{0.714761022369152...}. Okay, easy enough
+
+Let's do the same thing to the second number, with the second digit:
+
+\code{4.008668726427755...} oops! It's a $0$. Well, let's just make it cyclic -
+i.e. $0 - 1 \cong 9$.
+
+So, we have
+\code{4.008668726427755... -->  4.908668726427755...}
+
+Let's list what we have so far
+
+\begin{plainfile}
+1.714761022369152... -> 0.714761022369152...
+4.008668726427755... -> 4.908668726427755...
+1.566116992594829...
+1.519257059116716...
+5.011643808251281...
+6.533800807168559...
+9.838685190958348...
+3.424290398329045...
+5.065089480002634...
+6.972994377235255...
+7.763147189141261...
+8.374868221801194...
+2.901203914856270...
+9.734153197637937...
+1.163373088314136...
+1.489918657733841...
+...
+
+0.9
+\end{plainfile}
+
+So, for the $n$th number on the list, we change the $n$th digit. We're also
+going to take the output of the flipping process, and list it in a new number at
+bottom. Let's do this to a few more numbers, so you get the hang of it. I'm also
+going to add a space around the number I changed, to make it more obvious
+
+\begin{plainfile}
+ 1 .714761022369152... ->  0 .714761022369152...
+4. 0 08668726427755... -> 4. 9 08668726427755...
+1.5 6 6116992594829... -> 1.5 5 6116992594829...
+1.51 9 257059116716... -> 1.51 8 257059116716...
+5.011 6 43808251281... -> 5.011 5 43808251281...
+6.5338 0 0807168559... -> 6.5338 9 0807168559...
+9.83868 5 190958348... ->
+3.424290 3 98329045... ->
+5.0650894 8 0002634... ->
+6.97299437 7 235255... ->
+7.763147189 1 41261... ->
+8.3748682218 0 1194... ->
+2.90120391485 6 270... ->
+9.734153197637 9 37... ->
+1.1633730883141 3 6... ->
+...
+0.95849
+\end{plainfile}
+
+Okay, you're getting this! I'm sure you can figure out what the rest are:
+
+\begin{plainfile}
+  1.714761022369152... ->   0.714761022369152...
+4. 0 08668726427755... -> 4. 9 08668726427755...
+1.5 6 6116992594829... -> 1.5 5 6116992594829...
+1.51 9 257059116716... -> 1.51 8 257059116716...
+5.011 6 43808251281... -> 5.011 5 43808251281...
+6.5338 0 0807168559... -> 6.5338 9 0807168559...
+9.83868 5 190958348... -> 9.83868 4 190958348...
+3.424290 3 98329045... -> 3.424290 2 98329045...
+5.0650894 8 0002634... -> 5.0650894 7 0002634...
+6.97299437 7 235255... -> 6.97299437 6 235255...
+7.763147189 1 41261... -> 7.763147189 0 41261...
+8.3748682218 0 1194... -> 8.3748682218 9 1194...
+2.90120391485 6 270... -> 2.90120391485 5 270...
+9.734153197637 9 37... -> 9.734153197637 8 37...
+1.1633730883141 3 6... -> 1.1633730883141 2 6...
+...
+0.95849427609582 ? ... -> 0.95849427609582 ? ...
+\end{plainfile}
+
+Wait wait wait! We've made a new irrational number that's different from all of the
+other numbers in at least 1 digit, right?  It's different from the first number
+in its first digit, it's different from the second number in its second digit,
+and so on.
+
+So, if we theoretically list all of the irrational numbers, in some sort of
+order, we can still make another irrational number that's different than each of
+them by at least one digit. Thus, it's impossible to list every single
+irrational number, because there's always another one!
+
+You can make the same argument for $\N$, sort of. There's always another natural
+number, but it goes after all of the previous ones. With the irrational numbers,
+we can always make a new irrational number that goes somewhere in the middle of
+the set.
+
+It's like if there was a long line to get tickets for a football game. Every
+second, there's a new person coming. With $\N$ and $\Z$, you can just stick the
+new person at the end of the line. With $\I$, however, you can't just stick the
+new person at the end, you have to put him at a definite spot in the middle.
+
+When the ticket booth person needs to help the next person, it's impossible to
+determine who to help next, because every second there's a new person getting
+stuck in front of the person first in line. You can't take down the names of the
+first 20 people in line, because there's no concept of counting with the
+irrational numbers. That concept exists with the natural numbers. $\aleph_0$ is
+defined by being ``countably infinite'' - $\I$ is not countably infinite; it's
+its own type of infinite.
+
+So $\I \agt \N$!
+
+Because $\R \supof \I$, it's not possible that $\R$ is countably
+infinite. There's a part of $\R$ that you can't count, so you can't count all of
+$\R$. Pretty simple:
+
+\ss{Rational numbers}
+
+Here's where it gets interesting. If you remember, $\Q$, the rational numbers,
+is all numbers that can be written as a ratio of $\frac{x}{y}$, where
+$x,y \in \Z, y \ne 0$. Incidentially, they are also numbers that follow some
+sort of pattern.
+
+Well, that definition looks sort of familiar: What if we wrote $\Q$ this way:
+
+\begin{displaymath}
+  \Q = \Z \times \parens{\Z \bs \mset{0}}
+\end{displaymath}
+
+Where $\mvec{x,y} \in \Z \times \parens{\Z \bs \mset{0}}$ maps to the fraction
+$\frac{x}{y}$.
+
+We've done Cartesian coordinate planes of $\R^2$ and $\N \times \Z$. Is there
+any reason we can't do one of $\Z \times \parens{\Z \bs \mset{0}}$?
+
+Well, of course not!
+
+\answergraph{nq-bijection-nolines.png}
+
+Every blue dot at some point $\mvec{x,y}$ represents the fraction
+$\frac{x}{y}$. So, the dot at $\mvec{1,3}$ represents the fraction
+$\frac{1}{3}$. Note that there are no points on the line $y = 0$, because you
+can't divide by zero.
+
+So, can we enumerate through those? That is, follow some pattern that will
+eventually encapsulate every rational number? There's no harm in trying!
+
+The na\"ive way to do it would be to just head in one direction until you stop.
+
+\answergraph{nq-bijection-naive.png}
+
+Of course, you never stop, so this won't work.
+
+With the $\N \to \Z$ bijection, we sort of doubled back on ourselves:
+
+\answergraph{nz-bijection-joined.png}
+
+Maybe let's try that with this:
+
+\answergraph{nq-bijection.png}
+
+Hey! That works. If we keep going, we'll enumerate through $\Q$! So $\Q \ae \N$!
+
+\s{Okay, that's great. What the hell is that function?}
+
+Well, to be honest, I'm not sure. I wrote the script to generate the graph by
+doing some very shoddy programming, but I don't know the associated
+function. How about, as an, um, exercise, I explain my logic?
+
+Let's look at that graph again:
+
+\answergraph{nq-bijection.png}
+
+Let's call the hypothetical function that defines that bijection $r$
+
+\begin{displaymath}
+  r : \N \to \Q
+\end{displaymath}
+
+First of all, we start at the coordinate $\mvec{0,1}$. So we can write
+
+\begin{displaymath}
+  \eva{r}{0} \ce \mvec{0,1}
+\end{displaymath}
+
+\s{Conclusion}
+
+These are the bizarre results Cantor found, which his colleagues refused to
+believe.
+
+The method I used to prove that $\I$ was uncountable is called ``Cantor's
+diagonal argument''. He had proven years beforehand that $\I \agt \N$, using a
+completely different method. The diagonal method is much more approachable, so I
+used that instead.
+
+More importantly, you can use the diagonal argument in a variety of different
+ways. The most interesting such way is Russell's paradox, which I'll get to in
+the next chapter.
+
+The conclusion to draw from this section is:
+
+\begin{quote}
+  All infinite sets are infinite, but some are more infinite than others.
+
+  -- George Orwell
+\end{quote}

@@ -1,0 +1,765 @@
+\ch{Identities, theorems, and the like}\label{appendix-d}
+
+This appendix just lists identities, theorems, and stuff like that. It's for
+reference, not for reading.
+
+\s{Equality}\label{d-equality}
+
+\ss{Properties}
+
+\begin{description}
+  \item[Reflexive property] $a \equiv a$
+  \item[Commutative property] $\parens{a = b} \iff \parens{b = a} \sfall a,b$
+  \item[Transitive property] $\parens{a = b} \land \parens{b = c} \implies \parens{a = c} \sfall a,b,c$
+\end{description}
+
+\ss{Notation}
+
+\begin{description}
+\item[\mtb{a = b}] means that $a$ and $b$ are the same thing.
+\item[\mtb{a \equiv b}] means that $a=b$, for all $a$ and $b$. $a \equiv b$
+  should be read ``$a$ is identically equivalent to $b$''.
+\item[\mtb{a \ce b}] means that $a$ is defined to be equal to $b$. In practice,
+  this is the same as $\equiv$, but is semantically different.
+\end{description}
+
+\s{Implications}\label{d-implications}
+
+\begin{description}
+  \item[Reflexive property] $a \implies a \sfall a$
+  \item[Transitive property] $\parens{a \implies b} \land \parens{b \implies c} \implies \parens{a \implies c} \sfall a,b,c$
+  \item[Negation] $\parens{a \implies b} \iff \parens{\lnot a \impliedby \lnot b} \sfall a,b$
+\end{description}
+
+\s{Booleans}\label{d-booleans}
+
+\nocite{w-boolean-algebra}
+
+\begin{description}
+\item[Definition] A \term{Boolean} is a value of either true or false. The study
+  of Booleans is called \term{Boolean algebra}. The rules for Booleans also work
+  for propositions. The set of Booleans is often referred to as $\bool = \mset{\true,\false}$
+\item[Logical-and] $a \land b$ is pronounced ``$a$ logical-and $b$''. It is true
+  iff $a$ and $b$ are both true.
+  \[ \land : \bool \to \bool \to \bool \]
+\item[Logical-or] $a \lor b$ is pronounced ``$a$ logical-or $b$''. It is true if
+  one or more of $a$ and $b$ are true.
+  \[ \lor : \bool \to \bool \to \bool \]
+\item[Logical-not] $\lnot a$ is pronounced ``logical-not $a$''. $\lnot$ takes
+  true to false, and false to true.
+  \[ \lnot : \bool \to \bool \]
+\item[Cancellative property] $\lnot \circ \lnot \equiv \id$
+\item[Nomenclature] Booleans are named after George Boole, who was the first to
+  study them to any extent.
+\end{description}
+
+\ss{Logical-and}\label{d-booleans-land}
+
+\begin{description}
+  \item[Reflexive property] $a \land a \equiv a$
+  \item[Associative property] $a \land \parens{b \land c} \equiv \parens{a \land b} \land c$
+  \item[Commutative property] $a \land b \equiv b \land a$
+  \item[Distributive property] $a \land \parens{b \lor c} \equiv \parens{a \land b} \lor \parens{b \land c}$
+\end{description}
+
+\ss{Logical-or}\label{d-booleans-lor}
+
+\begin{description}
+  \item[Reflexive property] $a \lor a \equiv a$
+  \item[Associative property] $a \lor \parens{b \lor c} \equiv \parens{a \lor b} \lor c$
+  \item[Commutative property] $a \lor b \equiv b \lor a$
+  \item[Distributive property] $a \lor \parens{b \land c} \equiv \parens{a \lor b} \land \parens{b \lor c}$
+
+    This is a consequence of the distributive property mentioned in
+    \cref{d-booleans-land}, De Morgan's first law, and the cancellative property.
+
+    \begin{proof}
+      Start with the first property
+
+      \begin{displaymath}
+        a \land \parens{b \lor c} \equiv \parens{a \land b} \lor \parens{b \land c}
+      \end{displaymath}
+
+      Apply $\lnot$ to both sides
+
+      \begin{displaymath}
+        \lnot\parens{a \land \parens{b \lor c}} \equiv \lnot\parens{\parens{a \land b} \lor \parens{b \land c}}
+      \end{displaymath}
+
+      Apply De Morgan's laws
+
+      \begin{displaymath}
+        \lnot a \lor \lnot\parens{b \lor c} \equiv \lnot\parens{a \land b} \land \lnot\parens{b \land c}
+      \end{displaymath}
+
+      Do it again
+
+      \begin{displaymath}
+        \lnot a \lor \parens{\lnot b \land \lnot c} \equiv \parens{\lnot a \lor \lnot b} \land \parens{\lnot b \lor \lnot c}
+      \end{displaymath}
+
+      Let $p,q,r = \lnot a, \lnot b, \lnot c$, respectively.
+
+      \begin{displaymath}
+        p \lor \parens{q \land r} \equiv \parens{p \lor q} \land \parens{q \lor r}
+      \end{displaymath}
+    \end{proof}
+
+\end{description}
+
+\ss{De Morgan's Laws}\label{d-booleans-demorgan}
+
+\begin{description}
+  \item[De Morgan's first law] $\lnot\parens{a \land b} \equiv \lnot a \lor \lnot b$
+  \item[Derived law] $\lnot\parens{a \lor b} \equiv \lnot a \land \lnot b$
+    \begin{proof}
+      Start with the first law
+
+      \[ \lnot\parens{a \land b} \equiv \lnot a \lor \lnot b \]
+
+      Let $p = \lnot a$, $q = \lnot b$
+
+      \[ p \lor q \equiv \lnot\parens{\lnot p \land \lnot q} \]
+
+      Apply $\lnot$ to both sides of $\equiv$
+
+      \[ \lnot\parens{p \lor q} \equiv {\lnot p \land \lnot q} \]
+    \end{proof}
+\end{description}
+
+\s{Sets}\label{d-sets}
+
+\ss{Definitions}\label{d-set-definitions}
+
+\begin{description}
+  \item[Unions] $a \cup b \ce \mset{x \in \amb \semic x \in a \lor x \in b}$
+  \item[Intersects] $a \cap b \ce \mset{x \in a \semic x \in b}$
+  \item[Set subtraction (or relative complement)] $a \bs b \ce \mset{x \in a \semic x \notin b}$
+  \item[Complement (sometimes absolute complement)] $a^c \ce \mset{x \in \amb \semic x \notin a}$
+\end{description}
+
+\ss{Identities}\label{d-set-identities}
+
+\sss{Unions}\label{d-unions}
+
+\begin{description}
+  \item[Reflexive property] $a \union a \equiv a$
+  \item[Associative property] $a \union \parens{b \union c} \equiv \parens{a \union b} \union c$
+  \item[Commutative property] $a \union b \equiv b \union a$
+\end{description}
+
+\sss{Intersects}\label{d-interects}
+
+\begin{description}
+  \item[Reflexive property] $a \intersect a \equiv a$
+  \item[Associative property] $a \intersect \parens{b \intersect c} \equiv \parens{a \intersect b} \intersect c$
+  \item[Commutative property] $a \intersect b \equiv b \intersect a$
+\end{description}
+
+\sss{Set subtraction identities}\label{d-set-subtraction}
+
+\begin{enumerate}
+\item $\mathbf{A \bs \parens{B \cap C} \equiv \parens{A \bs B} \union \parens{A \bs C}}$
+
+  \begin{proof}
+    Let $A,B,C \subeq \amb$.
+
+    \begin{rclmath}
+      A \bs \parens{B \cap C} & \ce & \mset{x \in A\semic x \notin \mset{y \in B \semic y \in C}} \\
+                              & \ce & \mset{x \in A\semic x \notin B \lor y \notin C} \\
+    \end{rclmath}
+
+    \begin{rclmath}
+      \parens{A \bs B} \union \parens{A \bs C}
+      & \ce & \mset{
+        x \in \amb \semic
+        x \in \mset{
+          y \in A \semic
+          y \notin B
+        }
+        \lor
+        x \in \mset{
+          z \in A \semic
+          z \notin C
+        }
+      } \\
+      & \ce & \mset{
+        x \in \amb \semic
+        \parens{
+          x \in A \land
+          x \notin B
+        }
+        \lor
+        \parens{
+          x \in A \land
+          x \notin C          
+        }
+      } \\
+    \end{rclmath}
+
+    \[ x \in A \implies x \in \amb \]
+
+    Therefore
+    \begin{rclmath}
+      \parens{A \bs B} \union \parens{A \bs C}
+      & \ce & \mset{
+        x \in A \semic
+        x \notin B
+        \lor
+          x \notin C          
+      } \\
+      A \bs \parens{B \cap C} & \ce & \mset{x \in A\semic x \notin B \lor y \notin C} \\
+      A \bs \parens{B \cap C} & \equiv & \parens{A \bs B} \union \parens{A \bs C} \\
+    \end{rclmath}
+  \end{proof}
+
+\item $\mathbf{A \bs \parens{B \union C} \equiv \parens{A \bs B} \intersect \parens{A \bs C}}$
+
+  \begin{proof}
+    \begin{rclmath}
+      A \bs \parens{B \union C}
+      & \ce & \mset{
+        x \in A \semic
+        x \notin B \land
+        x \notin C
+      } \\
+      
+      \parens{A \bs B} \intersect \parens{A \bs C}
+      & \ce & \mset{
+        x \in \amb \semic
+        x \in \mset{
+          y \in A \semic
+          y \notin B
+        } \land
+        x \in \mset {
+          z \in A \semic
+          z \notin C
+        }
+      } \\
+      & \ce & \mset{
+        x \in A \semic
+        x \notin B
+        \land
+        x \notin C
+      }
+      \\
+    \end{rclmath}
+      % A \bs \parens{B \union C}
+      % \parens{A \bs B} \intersect \parens{A \bs C}
+  \end{proof}
+
+\item $\mathbf{A \bs \parens{B \bs C} \equiv \parens{A \bs B} \union \parens{A \intersect C}}$
+  \begin{proof}
+    \begin{rclmath}
+      A \bs \parens{B \bs C}
+      & \ce & \mset{
+        x \in A \semic
+        x \notin \mset {
+          y \in B \semic
+          y \notin C
+        }
+      } \\
+      & \ce & \mset{
+        x \in A \semic
+        x \notin B \lor
+        x \in C
+      } \\
+      \parens{A \bs B} \union \parens{A \intersect C}
+      & \ce & \mset{
+        x \in \amb \semic
+        x \in \mset{ y \in A \semic y \notin B } \lor
+        x \in \mset{ z \in A \semic z \in C }
+      } \\
+      & \ce & \mset{
+        x \in A \semic
+        x \notin B  \lor
+        x \in C
+      } \\
+    \end{rclmath}
+    % A \bs \parens{B \bs C}
+    % \parens{A \bs B} \union \parens{A \intersect C}
+  \end{proof}
+
+\item $\mathbf{\parens{A \bs B} \intersect C \equiv \parens{A \cap C} \bs B \equiv A \intersect \parens{C \bs B}}$
+
+  \begin{proof}
+    \begin{rclmath}
+      \parens{A \bs B} \intersect C
+      & \ce & \mset{
+        x \in \amb \semic
+        x \in \mset{
+          y \in A \semic
+          y \notin B
+        } \land
+        x \in C
+      } \\
+      & \ce & \mset{
+        x \in A \semic
+        x \notin B \land
+        x \in C
+      } \\
+
+      \parens{A \cap C} \bs B 
+      & \ce & \mset{
+        x \in \amb \semic
+        x \in \mset{
+          y \in A \semic
+          y \in C
+        } \land
+        x \notin B
+      } \\
+      & \ce & \mset{
+        x \in A \semic
+        x \notin B \land
+        x \in C
+      } \\
+      A \intersect \parens{C \bs B}
+      & \ce & \mset{
+        x \in A \semic
+        x \notin B \land
+        x \in C
+      } \\
+    \end{rclmath}
+    % \parens{A \bs B} \intersect C
+    % \parens{A \cap C} \bs B \equiv A \intersect \parens{C \bs B}
+  \end{proof}
+  
+\item $\mathbf{\parens{A \bs B} \union C \equiv \parens{A \union C} \bs \parens{B \bs C}}$
+
+  \begin{proof}
+    \begin{rclmath}
+      \parens{A \bs B} \union C
+      & \ce & \mset{
+        x \in \amb \st
+        x \in \mset{
+          y \in A \st
+          y \notin B
+        } \lor
+        x \in C
+      } \\
+      & \ce & \mset{
+        x \in \amb \st
+        \parens{
+          x \in A \land
+          x \notin B
+        } \lor
+        x \in C
+      } \\
+      \parens{A \union C} \bs \parens{B \bs C}
+      & \ce & \mset{
+        x \in \amb \st
+        x \in \mset{
+          y \in \amb \st
+          y \in A \lor
+          y \in C
+        } \land
+        x \notin \mset{
+          z \in B \st
+          z \notin C
+        } 
+      } \\
+      & \ce & \mset{
+        x \in \amb \st
+        \parens{
+          x \in A \lor
+          x \in C
+        } \land
+        \lnot\parens{
+          x \in B \land
+          x \notin C
+        } 
+      } \\
+      & \ce & \mset{
+        x \in \amb \st
+        \parens{
+          x \in A \lor
+          x \in C
+        } \land
+        \parens{
+          x \notin B \lor
+          x \in C
+        } 
+      } \\
+      & \ce & \mset{
+        x \in \amb \st
+          x \in C \lor
+        \parens{
+          x \in A \land
+          x \notin B
+        } 
+      } \\
+    \end{rclmath}
+    % \parens{A \bs B} \union C
+    % \parens{A \union C} \bs \parens{B \bs C}
+  \end{proof}
+
+\item $\mathbf{A \bs A \equiv \nil}$
+
+  \begin{proof}
+    \begin{displaymath}
+      A \setminus A \ce \mset{x \in A \st x \notin A}
+    \end{displaymath}
+
+    There are no elements in $A$ that are also not in $A$, and the set with no
+    elements is $\nil$.
+  \end{proof}
+  
+\item $\mathbf{A \bs \nil \equiv A}$
+
+  \begin{proof}
+    \begin{displaymath}
+      A \bs \nil \ce \mset{x \in A \bs x \notin \nil}
+    \end{displaymath}
+
+    $\nil$, by definition has no elements, so all elements in $A$ satisfy the
+    condition $x \notin \nil$. Thus, 
+
+    \begin{displaymath}
+      A \bs \nil \equiv A
+    \end{displaymath}
+  \end{proof}
+
+\item $\mathbf{\nil \bs A \equiv \nil}$
+
+  \begin{proof}
+    \begin{displaymath}
+      \nil \bs A \ce \mset{x \in \nil \st x \notin A}
+    \end{displaymath}
+
+    There are no elements in $\nil$, so everything fails the condition on the
+    left-hand-side of the $\st$, hence $\nil \bs A \equiv \nil$.
+  \end{proof}
+\end{enumerate}
+
+\sss{Distributive properties}
+
+\begin{description}
+\item \mtb{A \cap \parens{B \cup C} \equiv \parens{A \cap B} \cup \parens{A \cap C}} 
+
+  \begin{proof}
+    \begin{rclmath}
+      A \cap \parens{B \cup C}
+      & \ce & \mset{
+        x \in A \st
+        x \in B \lor
+        x \in C
+      } \\
+      \parens{A \cap B} \cup \parens{A \cap C}
+      & \ce & \mset{
+        x \in \amb \st
+        \parens{
+          x \in A \land
+          x \in B
+        }\lor
+        \parens{
+          x \in A \land
+          x \in C
+        }
+      } \\
+      & \ce & \mset{
+        x \in \amb \st
+        x \in A \land
+        \parens{
+          x \in B \lor
+          x \in C
+        }
+      } \\
+      & \ce & \mset{
+        x \in A \st
+        x \in B \lor
+        x \in C
+      } \\
+
+    \end{rclmath}
+    % A \cap \parens{B \cup C}
+    % \parens{A \cap B} \cup \parens{A \cap C} 
+  \end{proof}
+
+\item \mtb{A \cup \parens{B \cap C} \equiv \parens{A \cup B} \cap \parens{A \cup C}} 
+
+  \begin{proof}
+    \begin{rclmath}
+      A \cup \parens{B \cap C}
+      & \ce & \mset {
+        x \in \amb \st
+        x \in A \lor
+        \parens{
+          x \in B \land
+          x \in C
+        }
+      } \\
+      \parens{A \cup B} \cap \parens{A \cup C} 
+      & \ce & \mset {
+        x \in \amb \st
+        \parens{
+          x \in A \lor
+          x \in C
+        }\land
+        \parens{
+          x \in A \lor
+          x \in C
+        }
+      } \\
+      & \ce & \mset {
+        x \in \amb \st
+        x \in A \lor
+        \parens{
+          x \in B \land
+          x \in C
+        }
+      } \\
+    \end{rclmath}
+    % A \cup \parens{B \cap C}
+    % \parens{A \cup B} \cap \parens{A \cup C} 
+  \end{proof}
+\end{description}
+
+\sss{Complements}
+
+\begin{description}
+\item \mtb{\parens{A^c}^c \equiv A} 
+  \begin{proof}
+    \begin{rclmath}
+      A \setminus \parens{A \setminus B}
+        & \equiv & \parens{A \setminus A} \union \parens{A \intersect B} \\
+        & \equiv & \nil \union \parens{A \intersect B} \\
+        & \equiv & A \intersect B \\
+      \parens{A^c}^c
+        & \ce & \amb \setminus \parens{\amb \setminus A} \\
+        & \ce & \amb \intersect A \\
+        & \ce & A \\
+    \end{rclmath}
+  \end{proof}
+\item[De Morgan's law] \mtb{\parens{A \cap B}^c \equiv A^c \cup B^c} 
+  \begin{proof}
+    \begin{rclmath}
+      A \setminus \parens{B \cap C}
+        & \equiv & \parens{A \setminus B} \cup \parens{A \setminus C} \\
+      \amb \setminus \parens{A \union B}
+        & \equiv & \parens{\amb \setminus A} \cup \parens{\amb \setminus B} \\
+        & \equiv & \compl{A} \cup \compl{B} \\
+    \end{rclmath}
+  \end{proof}
+
+\item[De Morgan's derived law] \mtb{\parens{A \union B}^c \equiv A^c \cap B^c} 
+  \begin{proof}
+    \begin{rclmath}
+      A \setminus \parens{B \union C}
+        & \equiv & \parens{A \setminus B} \intersect \parens{A \setminus C} \\
+      \amb \setminus \parens{A \union B}
+        & \equiv & \parens{\amb \setminus A} \intersect \parens{\amb \setminus B} \\
+        & \equiv & \compl{A} \intersect \compl{B} \\
+    \end{rclmath}
+  \end{proof}
+\end{description}
+
+\ss{ZFC}\label{d-zfc}
+
+\nocite{w-zfc,jech-set-theory}
+
+\begin{description}
+\item[ZFC] Short for Zermelo-Fraenkel-Choice: a set of axioms rigorously
+  describing set theory.
+\item[Nomenclature] Named after Ernst Zermelo, who formulated the axioms, and
+  Abraham Fraenkel, who greatly improved them.
+\item[Russell's paradox] A paradox proposed by Bertrand Russell in the early
+  20\textsuperscript{th} century regarding unrestricted set comprehensions
+  \begin{alignedmath}
+    A = \mset{x \semic x \notin x} \\
+    A \Qin A
+  \end{alignedmath}
+\item[ZF] ZFC without the axiom of choice
+\end{description}
+
+% \sss{ZFC Axioms}
+
+% \begin{description}
+% \item[Axiom of extensionality] Two sets are equal if they have the same elements
+
+%   \[ \forall A,B : \Set \semic \parens{\forall z\st z \in A \iff z \in B} \iff x = y\]
+
+% \item[Axiom of regularity] Every non-empty set contains a member to which it is
+%   disjoint.
+% \item[Axiom of separation] 
+% \end{description}
+
+\s{Functions}\label{d-functions}
+
+\ss{Vocabulary}
+
+\begin{description}
+\item[Function] A mathematical construct mapping an input to an output.
+\item[Referential transparency] $a = b \implies \evalat{f}{a} =
+  \evalat{f}{b}$. All functions are referentially transparent.
+\item[Domain] If $f : A \to B$, then $A$ is the \term{domain} of $f$.
+\item[Codomain] If $f : A \to B$, then $B$ is the \term{codomain} of $f$.
+\item[Image] $\im{f} \ce \mset{\evalat{f}{x} \in B\semic x \in A}$
+\item[Injectivity] $\notexists \mvec{a,b} \semic a,b \in A \land a \ne b \land \evalat{f}{a} = \evalat{f}{b}$
+\item[Surjectivity] $\codom{f} = \im{f}$
+\item[Bijectivity] A function is \term{bijective} if it is both injective and surjective.
+\item[Invertibility] A function is invertible iff it is bijective. The inverse of $f$ is $\arc{f}$
+\item[Preimage] $\mathrm{preim} \ce \mathbf{codom} \circ \mathrm{arc}$
+\item[Argument] The specific input values to a function.
+\item[Signature] If $f : A \to B$ is a function, then $A \to B$ is its
+  signature.
+\end{description}
+
+\ss{Notation}
+
+\begin{description}
+\item[: notation] $f : A \to B$ means that $f$ takes an item from $A$, and outputs an item
+  to $B$, where $A$ and $B$ are types.
+\item[Currying] Taking a function of multiple arguments, and transforming it
+  into a chain of functions each taking one argument.
+
+  Normal signature
+  
+  $+ : \mvec{\C,\C} \to \C$
+
+  Curried signature:
+  
+  $+ : \C \to \C \to \C$
+
+  This doesn't change the behavior of the function, only the semantics.
+
+  Likewise, \term{uncurrying} is to undo the currying.
+\item[Composition] We can smush two functions together with $\of$:
+  \begin{alignedmath}
+    \of : \parens{b \to c} \to \parens{a \to b} \to a \to c \\
+    \evalat{\parens{f \of g}}{x} \ce \evalat{f}{\evalat{g}{x}} \\
+  \end{alignedmath}
+\end{description}
+
+\s{Lambda calculus}\label{d-lambda-calculus}
+
+\nocite{hs-lambda,hs-alpha,hs-beta,hs-eta,hs-lambda-abs}
+
+\begin{description}
+\item[$\lambda$ abstraction] A way to write a function: $\ld{x,y} x + y$
+\item[$\alpha$ conversion] Changing the names of the arguments. For instance,
+  you can write the above function as
+
+  \[ \ld{a,b} a + b \]
+
+\item[$\beta$ reduction] Partially calculating a result. For instance
+
+  \[ \ld{2,y} 2 + y \]
+
+  Can be $\beta$ reduced to 
+
+  \[ \ld{y} 2 + y \]
+
+\item[$\eta$ conversion] Removing or adding extraneous free arguments. The last
+  function
+
+  \[ \ld{2,y} 2 + y \]
+
+  Can be $\eta$ \xti{reduced} to
+
+  \[ 2 + \]
+
+  Which could then be $\eta$ \xti{abstracted} to 
+
+  \[ \ld{2,\kappa} 2 + \kappa \]
+\end{description}
+
+\s{Greek alphabet}\label{d-greek-alphabet}
+
+\nocite{w-greek-alphabet}
+
+\begin{tabu}{|c|c|c|}\hline
+  \xtb{Letter} & \xtb{Pronounciation} & \xtb{Rough latin equivalent} \\ \hline
+  A, $\alpha$ & Alpha & A \\ \hline
+  B, $\beta$ & Beta & B \\ \hline
+  $\Gamma, \gamma$ & Gamma & G \\ \hline
+  $\Delta, \delta$ & Delta & D \\ \hline
+  E, $\epsilon$ & Epsilon & E, j\xtb{e}t, phl\xtb{eg}m \\ \hline
+  Z, $\zeta$ & Zeta & Z \\ \hline
+  H, $\eta$ & Eta & Eh, r\xtb{ai}n, \xtb{eigh}t \\ \hline
+  $\Theta, \theta$ & Theta & Th, \xtb{th}eater, \xtb{th}under \\ \hline
+  I, $\iota$ & Iota & Ee, f\xtb{ee}t, j\xtb{ee}p \\ \hline
+  K, $\kappa$ & Kappa & K \\ \hline
+  $\Lambda, \lambda$ & Lambda & L \\ \hline
+  M, $\mu$ & Mu & M \\ \hline
+  N, $\nu$ & Nu & N \\ \hline
+  $\Xi, \xi$ & Xi & Ks, du\xtb{cks} \\ \hline
+  O, o & Omicron & Oh, \xtb{oa}t \\ \hline
+  $\Pi, \pi$ & Pi & P \\ \hline
+  P, $\rho$ & Rho & R \\ \hline
+  $\Sigma, \sigma$ & Sigma & S \\ \hline
+  T, $\tau$ & Tau & T \\ \hline
+  $\Upsilon, \upsilon$ & Upsilon & U \\ \hline
+  $\Phi, \phi$ & Phi & F \\ \hline
+  X, $\chi$ & Chi & Sh, \xtb{sh}opping \\ \hline
+  $\Psi, \psi$ & Psi & Ps, cu\xtb{ps} \\ \hline
+  $\Omega, \omega$ & Omega & O, b\xtb{o}ss \\ \hline
+\end{tabu}
+
+\s{Special sets}\label{d-special-sets}
+
+Despite my informal notation, these are all sets
+
+\begin{description}
+\item $\N = \mset{0,1,2,3,4,5,\dots}$
+\item $\Z = \mset{\dots, `5, `4, `3, `2, `1, 0,1,2,3,4,5,\dots}$
+\item $\R$ any given number on the number line.
+\item $\Q = \mset{\frac{x}{y} \in \R \st x,y \in \Z \land y \ne 0}$
+\item $\C = \mset{a + bi \st \mvec{a,b} \in \R\times\R, i = \sqrt{`1}}$
+\item $\I = \R \bs \Q$
+\end{description}
+
+\ss{Properties and identities}
+
+\sss{Addition}
+
+\begin{description}
+\item[Additive identity] \nm{a + 0 \equiv 0}
+\item[Associative property] \nm{a + \parens{b + c} \equiv \parens{a + b} + c}
+\item[Commutative property] \nm{a + b \equiv b + a}
+\item[Cancellative property] \nm{a + b = a + c \implies b = c}
+\item[Negative property] \nm{\forall a \in \C \st \exists \ng a \in \C \st a + \ng a = 0}
+\item[Distribution] \nm{\ng{\parens{a + b}} \equiv \ng a + \ng b}
+\end{description}
+
+\sss{Subtraction}
+
+\begin{description}
+\item[Definition] \nm{a - b \ce a + \ng b}
+\item[Associative property] \nm{a - \parens{b - c} \equiv \parens{a - b} - c}
+\item[Subtractive identity] \nm{a - 0 \equiv a}
+\item[Negative property] \nm{a - b \equiv a + \ng b}
+\item[Distribution theorem] \nm{a - \parens{b + c} \equiv a - b - c}
+\end{description}
+
+\sss{Multiplication}
+
+\begin{description}
+\item[Multiplicative identity] \nm{a \ntimes 1 \equiv a}
+\item[Associative property] \nm{a \ntimes \parens{b \ntimes c} \equiv \parens{a \ntimes b} \ntimes c}
+\item[Commutative property] \nm{a \ntimes b \equiv b \ntimes a}
+\item[Cancellative property] \nm{a \ntimes b = a \ntimes c \implies b = c}
+\item[Divisive property] \nm{\forall a \in \C \st \exists \arc{a} \in \C \st a \ntimes \arc a = 1}
+  \begin{rclmath}
+    \arc{0} & \ce & 1 \\
+    \arc{n} & \ce & \recip{n} \\
+  \end{rclmath}
+\item[Distribution] \nm{\frac{a}{b \ntimes c} \equiv \frac{a}{b} \ntimes \frac{a}{c}}
+\item[Distribution over +] \nm{a \ntimes \parens{b + c} \equiv \parens{a \ntimes b} + \parens{a \ntimes c}}
+\item[Notation] \nm{ab = a\ntimes b} if $a$ and $b$ are two separate things.
+\end{description}
+
+\sss{Division}
+
+\begin{description}
+\item[Divisive identity] \nm{a \div 1 \equiv a}
+\item[Separative property] \nm{a \div b \equiv a \ntimes\recip{b}}
+\item[Antiassociative property] \nm{a \div \parens{b \div c} \equiv a \ntimes \parens{c \div b}}
+\end{description}
+
+% More formally
+
+% \begin{description}
+% \item Let $\mvec{m_1, n_1} \sim \mvec{m_2,n_2} \iff m_1n_1 = m_2n_2$.
+%   $\Q = \parens{Z \times \parens{Z \bs \mset{0}}} / \sim$
+% \item $\C = \mset{a + bi \st \mvec{a,b} \in \R\times\R, i = \sqrt{`1}}$
+% \end{description}
