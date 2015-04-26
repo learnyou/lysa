@@ -1,0 +1,87 @@
+#!/bin/sh
+# 
+# Copyright (c) 2014-2015, Peter Harpending. <peter@harpending.org>
+# All rights reserved.
+# 
+# Redistribution and use in source and binary forms, with or without
+# modification, are permitted provided that the following conditions are met:
+# 
+# 1. Redistributions of source code must retain the above copyright notice, this
+#    list of conditions and the following disclaimer.
+# 
+# 2. Redistributions in binary form must reproduce the above copyright notice,
+#    this list of conditions and the following disclaimer in the documentation
+#    and/or other materials provided with the distribution.
+# 
+# THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+# AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+# IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+# DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE
+# FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+# DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+# SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
+# CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
+# OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+# OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+
+for i in $@ ; do
+    if [[ $i == "-h" ]]      ||
+       [[ $i == "--help" ]]  || 
+       [[ $i == "--usage" ]]
+    then
+        cat << EOF
+USAGE 
+    lysabuild [options]
+
+DESCRIPTION
+    Build LYSA in a sandbox, then extract the PDF.
+
+OPTIONS
+    --clean                 Delete the sandbox. This is usually done
+                            automatically, but you may need to use this option
+                            if the build failed or you previously used
+                            \`lysabuild --sandbox\`.
+
+    -h,--help,--usage       Print this page
+
+    --sandbox               Just create the sandbox, don't actually build LYSA.
+
+COPYRIGHT
+    Copyright (c) 2014-2015, Peter Harpending. <peter@harpending.org>
+
+    This is free software, licensed under the FreeBSD license:
+    http://opensource.org/licenses/BSD-2-Clause
+EOF
+        exit 0
+    fi
+done
+
+clean_and_die() {
+  cd $orig_dir
+  rm -rf tmp
+  exit $1
+}
+
+orig_dir=$(pwd)
+
+[[ $1 == "--clean" ]] && clean_and_die 0
+
+mkdir tmp
+
+cp -rvf lysa.ltx appendices/* chapters/* code/* graphs/* \
+   bibliographies/* images/* tex/latex-solarized/* tmp/
+
+# for i in *.sage ; do
+#     sage $i || clean_and_die 1
+# done
+
+[[ $1 == "--sandbox" ]] && exit 0
+
+cd tmp
+pdflatex lysa.ltx || clean_and_die 1
+bibtex lysa
+pdflatex lysa.ltx && pdflatex lysa.ltx
+
+cp lysa.pdf ..
+clean_and_die 0
