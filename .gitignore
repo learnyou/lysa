@@ -2,3 +2,4 @@ deploy_rsa
 deploy_rsa.pub
 changes.md
 *.sage.py
+/en/book/lysa.html
