@@ -4,14 +4,13 @@ This document is for people who want to contribute. If you have any questions,
 you can bring them up in the IRC channel, open a bug, or email
 `peter@harpending.org`.
 
-So, you like LYSA and want to contribute. Great! Here are instructions,
-separated by operating system:
-
 ## Getting set up
 
 ### Installing the needed software
 
-#### Linux
+This is separated by operating system. At the moment, LYSA has only been
+built on Linux and BSD. I haven't tried OS X or Windows, simply because
+I don't have access to them.
 
 *   **Arch**: Open a terminal, run the following command
 
@@ -26,38 +25,36 @@ separated by operating system:
     build a lot faster (from several hours to a few minutes). If your
     memory is precious, use `-av` instead of `-jav`.
 
-*   **Ubuntu 12.04**: Run this command in a terminal:
+*   **Debian**: Run this in a terminal:
+
+        sudo aptitude install texlive-latex-extra texlive-bibtex-extra \
+          texlive-latex3 texlive-fonts-extra
+
+*   **FreeBSD**: Open a terminal, run these commands:
+
+        sudo pkg install git texlive-full
+
+*   **Ubuntu <= 12.04**: Run this command in a terminal:
 
         sudo aptitude install biblatex texlive texlive-latex-extra \
          texlive-bibtex-extra texlive-math-extra texlive-latex3
 
     I'm sorry, but I couldn't come up with a longer command.
 
-*   **Ubuntu 14.04**: Run this in a terminal:
+*   **Ubuntu > 12.04**: Run this in a terminal:
 
         sudo aptitude install texlive-latex-extra texlive-bibtex-extra \
           texlive-latex3 texlive-fonts-recommended
 
-*   **Debian**: Run this in a terminal:
+### Cloning & Building
 
-        sudo aptitude install texlive-latex-extra texlive-bibtex-extra \
-          texlive-latex3 texlive-fonts-extra
-
-#### BSD
-
-*   **FreeBSD**: Open a terminal, run these commands:
-
-        sudo pkg install git texlive-full
-
-### Building and viewing
-
-*   **Linux, BSD, or OS X**: Run these commands in a terminal
+Run these commands in a terminal
 
         git clone https://github.com/learnyou/lysa.git
         cd lysa/en/book
         git submodule init
         git submodule update
-        ./build
+        ./lysabuild
 
 I don't use Windows, so I don't know how to build LYSA on
 Windows. Sorry. If you know how, don't be shy to add instructions!
@@ -70,29 +67,21 @@ to LYSA. git has a legendarily poor interface, so don't feel bad if you
 have a hard time using it. Despite its poor interface, it is actually a
 very nice program, which is why everybody uses it.
 
-But, I digress. Git needs some configuration before you can use it. You
-can run these terminal commands to configure it:
+I highly recommend reading [Chapter 2 of the Git book][gitch2] if you
+haven't already, because it covers basic configuration and usage of
+Git. 
 
-    git config --global core.editor "nano"
-    git config --global user.name "Firstname Lastname"
-    git config --global user.email "foo@bar.baz"
+Ideally, you would read the entire book, but I don't think anyone is
+actually going to do that.
 
-Replace `Firstname Lastname` and `foo@bar.baz` with your full name and
-email, respectively.
-
-TODO: Explain the file hierarchy.
+[gitch2]: https://git-scm.herokuapp.com/book/en/v2/Git-Basics-Getting-a-Git-Repository
 
 ## Adding Content
 
-If you want to learn LaTeX, the markup language used, the
-[LaTeX Wikibook](https://en.wikibooks.org/wiki/LaTeX) is
-excellent. However, LaTeX is pretty easy, so you can probably just pick
-it up by looking at the source files.
-
-The program we use to track changes to files is called
-Git. [Chapter 2 of the Git book](https://git-scm.herokuapp.com/book/en/v2/Git-Basics-Getting-a-Git-Repository)
-is a good minimal introduction to using git. Ideally, you would read the
-entire book, but I don't think anyone is actually going to do that.
+The English version of the book is written in a markup language called
+[LaTeX](https://en.wikibooks.org/wiki/LaTeX). LaTeX is pretty easy, so
+you can probably pick it up just from reading the source for the
+book. If you have any trouble, consult that link.
 
 If you add a substantial amount of new content, such as a new chapter,
 or a new section, please feel free to add yourself to the `\author`
@@ -100,25 +89,18 @@ field in `book/lysa.ltx` (you don't have to, if you don't want to). If
 you suggested changes, or made a number of trivial changes, you can add
 yourself to the `\editors` field.
 
+For a more thorough guide to the LaTeX practices I use (including the
+file hierarchy), see [`STYLE.md`](STYLE.md)
+
 ### Graphs and Code
 
-* For the time being, you can generate a graph with anything you want, as long
-  as it's open-source. You just have to include the code to generate the graph
-  (in case we want to change it). I recommend [Sage][sage].
+* For the time being, you can generate a graph with anything you want,
+  as long as it's open-source. You just have to include the code to
+  generate the graph (in case we want to change it). I recommend
+  [Sage][sage].
 
-* Turing-complete code examples should be written in [Haskell][hs]. 
-    + If you want to learn Haskell, please see [bitemyapp's guide][learnhs]. 
-    + If you don't want to add code examples, you don't need to learn Haskell.
-    + If you do want to add code examples, but don't want to learn Haskell, you
-      can write your code in something else, and ask someone in the channel to
-      translate it for you. That said, there is no guarantee someone will be
-      willing to do so, though.
+* Code examples should be written with Sage, though.
 
-[agda]: http://wiki.portal.chalmers.se/agda/pmwiki.php
-[coq]: https://coq.inria.fr/
-[hs]: https://www.haskell.org/haskellwiki/Haskell
-[idris]: http://www.idris-lang.org/
-[learnhs]: https://github.com/bitemyapp/learnhaskell
 [sage]: http://www.sagemath.org/
 
 ### Committing
