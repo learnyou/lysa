@@ -1,0 +1,5 @@
+#!/bin/sh
+
+for i in *.sage ; do
+    sage $i || clean_and_die 1
+done

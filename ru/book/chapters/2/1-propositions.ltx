@@ -1,0 +1,97 @@
+\s{Propositions}
+\label{props}
+
+The first thing you need to understand is the notion that ``if x is true, then y
+is also true. But, if y is true, it's not necessarily true that x is false.'' As
+always, mathematicians are too lazy to write this stuff out by hand, so they
+have notation for it.
+
+\begin{enumerate}
+  \item $a \implies b$ means that ``$a$ implies $b$''. It doesn't
+    necessarily mean that $b$ implies $a$. It means that if $a$ is true,
+    then $b$ is also true.
+
+    Here's an example:
+
+    If someone is decapitated, then they will die. So,
+
+    \[ \text{Decapitated} \implies \text{Dead} \]
+
+    However, if someone is dead, it doesn't necessarily mean that they
+    were decapitated. They could have been shot, or stabbed, or had a
+    heart attack. There are endless possibilities.
+
+  \item $a \impliedby b$ is the same as writing $b \implies a$. It's
+    sometimes convenient to use $a \impliedby b$ instead.
+    $a \impliedby b$ should be read ``$a$ is implied by $b$''.
+
+  \item When I strike through some mathematical operator, like this:
+    $\notimplies$, it means that you can semantically put ``not'' in
+    front of whatever the operator says. So, $\notimplies$ means ``not
+    implies''. That doesn't make much grammatical sense in English, so
+    ``does not imply'' might be better. Nonetheless, you get the point.
+
+    Moving on from the example above:
+
+    \[ \text{Decapitated} \implies \text{Dead} \]
+
+    If someone is decapitated, then they're also dead (at least within a
+    few seconds). However, if someone is dead, it's not necessarily true
+    that they were decapitated.
+
+    \[ \text{Decapitated} \notimpliedby \text{Dead} \]
+
+  \item If something is not true, then I'll put a $\lnot$ in front of
+    it. So, if I want to say that $a$ is false, then I'll write
+    $\lnot a$.
+
+  \item If I want to pose a question, I could just ask the question. For
+    instance, ``Is $\lnot\text{Decapitated}\impliedby\lnot\text{Dead}$
+    true?''.
+
+    However, that quickly becomes difficult, usually when there are
+    multiple assertions in a mathematical expression, and you don't know
+    which one I'm asking about. Moreover, since I use the same font for
+    text and math, if I have both, it might be hard to tell which is
+    math and which is text. So, to help with ambiguity, I'll put a ?
+    over the operator I'm asking about:
+
+    \[ \lnot \text{Decapitated} \Qimpliedby \lnot\text{Dead} \]
+
+    See, that's much easier.
+
+  \item Now, on to that question - Is ``not decapitated'' implied by
+    ``not dead''. Well, let's think about it. If someone is not dead,
+    then they couldn't have been decapitated, because if they were
+    decapitated, then they would be dead. Therefore, if someone is not
+    dead, then they weren't decapitated.
+
+    That word jumble was probably confusing. Mathematicians don't like
+    to be confused. I'll make it symbolic for you.
+
+    \begin{textmath}
+        If
+
+        \begin{displaymath}
+            \text{Decapitated} \implies \text{Dead}
+        \end{displaymath}
+
+        then
+
+        \begin{displaymath}
+            \lnot \text{Decapitated} \impliedby \lnot\text{Dead}
+        \end{displaymath}
+    \end{textmath}
+
+    This is another rule about propositional logic:
+
+    \begin{textmath}
+        If
+
+        \[ a \implies b \]
+
+        then
+
+        \[ \lnot b \implies \lnot a \]
+    \end{textmath}
+\end{enumerate}
