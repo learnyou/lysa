@@ -37,16 +37,26 @@ USAGE
 DESCRIPTION
     Build LYSA in a sandbox, then extract the PDF.
 
+    The options below are listed in order of priority. By default, lysabuild
+    will make a PDF.
+
 OPTIONS
-    --clean                 Delete the sandbox. This is usually done
+    -h,--help,--usage       Print this page
+
+    -c,--clean              Delete the sandbox. This is usually done
                             automatically, but you may need to use this option
                             if the build failed or you previously used
                             \`lysabuild --sandbox\`.
 
-    -h,--help,--usage       Print this page
+    -s,--sandbox            Just create the sandbox, don't actually build LYSA.
 
-    --sandbox               Just create the sandbox, don't actually build LYSA.
-
+    (-f,--format) FMT       Convert to FMT. This option is optional, and
+                            defaults to "pdf". Use of this argument requires
+                            pandoc >= 1.14. Converting to a PDF does not require
+                            pandoc.
+                                                                                
+                            Supported formats:  html, pdf
+                            
 COPYRIGHT
     Copyright (c) 2014-2015, Peter Harpending. <peter@harpending.org>
 
@@ -59,13 +69,17 @@ done
 
 clean_and_die() {
   cd $orig_dir
-  rm -rf tmp
+  rm -rvf tmp
   exit $1
 }
 
 orig_dir=$(pwd)
 
-[[ $1 == "--clean" ]] && clean_and_die 0
+if [[ $1 == "--clean" ]] ||
+   [[ $1 == "-c" ]]
+then
+   clean_and_die 0
+fi
 
 mkdir tmp
 
@@ -76,12 +90,45 @@ cp -rvf lysa.ltx appendices/* chapters/* code/* graphs/* \
 #     sage $i || clean_and_die 1
 # done
 
-[[ $1 == "--sandbox" ]] && exit 0
+if [[ $1 == "--sandbox" ]] ||
+   [[ $1 == "-s" ]]
+then
+    exit 0
+fi
 
 cd tmp
-pdflatex lysa.ltx || clean_and_die 1
-bibtex lysa
-pdflatex lysa.ltx && pdflatex lysa.ltx
 
-cp lysa.pdf ..
-clean_and_die 0
+format=pdf
+next_is_format=0
+
+for i in $@ ; do
+    if [[ "--format" == $i ]] ||
+       [[ "-f" == $i ]]
+    then
+       next_is_format=1
+    elif [[ $next_is_format == 1 ]] ; then
+        format=$i
+    fi
+done
+
+case $format in
+    pdf)
+        pdflatex lysa.ltx || clean_and_die 1
+        bibtex lysa
+        pdflatex lysa.ltx && pdflatex lysa.ltx
+        cp -v lysa.pdf ..
+        clean_and_die 0
+        ;;
+    html)
+        pandoc lysa.ltx -f latex -s --mathjax -t html5 \
+            | sed 's,"//,"http://,' \
+            | sed 's,http:,https:,' \
+            > lysa.html
+        cp -v lysa.html ..
+        clean_and_die 0
+        ;;
+    *)
+        printf "Unknown format: %s" $format 1>&2
+        exit 1
+        ;;
+esac
