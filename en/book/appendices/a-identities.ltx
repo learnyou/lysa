@@ -53,78 +53,84 @@ reference, not for reading.
   study them to any extent.
 \end{description}
 
-\ss{Logical-and}\label{d-booleans-land}
+\ss{Properties of the Boolean operators}
 
 \begin{description}
-  \item[Reflexive property] $a \land a \equiv a$
-  \item[Associative property] $a \land \parens{b \land c} \equiv \parens{a \land b} \land c$
-  \item[Commutative property] $a \land b \equiv b \land a$
-  \item[Distributive property] $a \land \parens{b \lor c} \equiv \parens{a \land b} \lor \parens{b \land c}$
-\end{description}
+  \item[Reflection] For all Boolean values \(a\),
 
-\ss{Logical-or}\label{d-booleans-lor}
+    \begin{equation}
+        a \land a = a
+    \end{equation}
 
-\begin{description}
-  \item[Reflexive property] $a \lor a \equiv a$
-  \item[Associative property] $a \lor \parens{b \lor c} \equiv \parens{a \lor b} \lor c$
-  \item[Commutative property] $a \lor b \equiv b \lor a$
-  \item[Distributive property] $a \lor \parens{b \land c} \equiv \parens{a \lor b} \land \parens{b \lor c}$
+    Likewise, for all $a$,
 
-    This is a consequence of the distributive property mentioned in
-    \cref{d-booleans-land}, De Morgan's first law, and the cancellative property.
+    \begin{equation}
+        a \lor a = a
+    \end{equation}
 
     \begin{proof}
-      Start with the first property
+        \begin{alignmath}{rclcl}
+            \false & \land & \false & = & \false \\
+            \true & \land & \true & = & \true \\
+        \end{alignmath}
 
-      \begin{displaymath}
-        a \land \parens{b \lor c} \equiv \parens{a \land b} \lor \parens{b \land c}
-      \end{displaymath}
+        Ditto for $\lor$
 
-      Apply $\lnot$ to both sides
-
-      \begin{displaymath}
-        \lnot\parens{a \land \parens{b \lor c}} \equiv \lnot\parens{\parens{a \land b} \lor \parens{b \land c}}
-      \end{displaymath}
-
-      Apply De Morgan's laws
-
-      \begin{displaymath}
-        \lnot a \lor \lnot\parens{b \lor c} \equiv \lnot\parens{a \land b} \land \lnot\parens{b \land c}
-      \end{displaymath}
-
-      Do it again
-
-      \begin{displaymath}
-        \lnot a \lor \parens{\lnot b \land \lnot c} \equiv \parens{\lnot a \lor \lnot b} \land \parens{\lnot b \lor \lnot c}
-      \end{displaymath}
-
-      Let $p,q,r = \lnot a, \lnot b, \lnot c$, respectively.
-
-      \begin{displaymath}
-        p \lor \parens{q \land r} \equiv \parens{p \lor q} \land \parens{q \lor r}
-      \end{displaymath}
+        \begin{alignmath}{rclcl}
+            \false & \lor & \false & = & \false \\
+            \true & \lor & \true & = & \true
+        \end{alignmath}
     \end{proof}
 
-\end{description}
+  \item[Association] For all $a$, $b$, and $c$,
+    \begin{equation}
+        a \land \parens{b \land c} = \parens{a \land b} \land c
+    \end{equation}
 
-\ss{De Morgan's Laws}\label{d-booleans-demorgan}
+    and
 
-\begin{description}
-  \item[De Morgan's first law] $\lnot\parens{a \land b} \equiv \lnot a \lor \lnot b$
-  \item[Derived law] $\lnot\parens{a \lor b} \equiv \lnot a \land \lnot b$
+    \begin{equation}
+        a \lor \parens{b \lor c} = \parens{a \lor b} \lor c
+    \end{equation}
+
     \begin{proof}
-      Start with the first law
+        \begin{enumerate}
+          \item Let $a = \true$:
+            \begin{rclmath}
+                \true \land \parens{b \land c} & = & \parens{\true \land b} \land c \\
+                b \land c & = & b \land c \\
+                \true \lor \parens{b \lor c} & = & \parens{\true \lor b} \lor c \\
+                \true & = & \true \lor c \\
+                \true & = & \true \\
+            \end{rclmath}
 
-      \[ \lnot\parens{a \land b} \equiv \lnot a \lor \lnot b \]
-
-      Let $p = \lnot a$, $q = \lnot b$
-
-      \[ p \lor q \equiv \lnot\parens{\lnot p \land \lnot q} \]
-
-      Apply $\lnot$ to both sides of $\equiv$
-
-      \[ \lnot\parens{p \lor q} \equiv {\lnot p \land \lnot q} \]
+          \item Let $a = \false$:
+            \begin{rclmath}
+                \false \land \parens{b \land c} & = & \parens{\false \land b} \land c \\
+                \false & = & \false \land c \\
+                \false & = & \false \\
+                \false \lor \parens{b \lor c} & = & \parens{\false \lor b} \lor c \\
+                b \lor c & = & b \lor c \\
+            \end{rclmath}
+        \end{enumerate}
     \end{proof}
+
+  \item [Commutative property]
+    For all $a$ and $b$:
+
+    \begin{equation}
+        a \land b \equiv b \land a
+    \end{equation}
+
+  \item [Distributive property]
+    $a \land \parens{b \lor c} \equiv \parens{a \land b} \lor \parens{a
+      \land c}$
+  \item [De Morgan's first law]
+    $\lnot\parens{a \land b} \equiv \lnot a \lor \lnot b$
+  \item [Reflexive property] $a \lor a \equiv a$
+  \item [Associative property]
+    $a \lor \parens{b \lor c} \equiv \parens{a \lor b} \lor c$
+  \item [Commutative property] $a \lor b \equiv b \lor a$
 \end{description}
 
 \s{Sets}\label{d-sets}

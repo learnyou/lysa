@@ -1,0 +1,366 @@
+\s{Booleans as a monoid}
+
+Okay, first of all, what the hell does the section title mean?
+
+Let's go over it:
+
+\begin{enumerate}
+  \item \term{Booleans} the values true and false. ``Boolean algebra''
+    is what we are doing in this section. Dealing with Booleans.
+
+    \xti{Why are you capitalizing the word Boolean?}
+
+    Because the term is named after a guy named George Boole, who
+    studied them to extent.
+
+  \item A \term{monoid} is a set of things, where you can combine the
+    individual things together. Additionally, there has to be a
+    \term{monoidal identity}.
+
+    \xti{That doesn't help me.}
+
+    Well, read this section, and then you'll get it. Probably.
+\end{enumerate}
+
+\sss{Logical-and and logical-or}
+
+Sometimes we need to combine two pieces of logic together. There are two
+ways we can do this - logical-or and logical-and.
+
+I put logical- in front of them, because the mathematical meaning is
+slightly different than the colloquial meaning.
+
+Mathematicians are lazy, so we don't like to write ``logical-and''
+whenever we want to say it, so instead we use the symbol $\land$.
+
+$A \land B$ is true if (and only if) both $A$ and $B$ are true. If one
+of them is false, then the entire thing is false.
+
+\begin{alignmath}{rclcl}
+    \false & \land & \_      & \ce & \false \\
+    \true  & \land & x       & \ce & x \\
+\end{alignmath}
+
+The $\_$ just means ``you can ignore whatever goes here''.
+
+On the other side, we have logical-or. The symbol for logical-or is
+$\lor$.  $A \lor B$ is true if either $A$ or $B$ is true, or if both of
+them are true. You could think of logical-or as being equivalent to the
+colloquial ``and/or''.
+
+\begin{alignmath}{rclcl}
+    \true   & \lor & \_       & \ce & \true \\
+    \false  & \lor & x        & \ce & x \\
+\end{alignmath}
+
+If you're having trouble remembering which symbol is logical-and and
+which one is logical-or, remember that the logical-and symbol ---
+$\land$ --- looks vaguely like an A.
+
+\pg{Logical-not}
+
+If you'll remember from \cref{props}, $\lnot$ ``negates'' a value. So,
+
+\begin{alignmath}{rlcl}
+    \lnot & \parens{\lnot x} & \ce & x \\
+    \lnot & \true            & \ce & \false
+\end{alignmath}
+
+These values, true and false, are called \term{Booleans}. They are named after a
+mathematician named George Boole who studied them to
+extent.\cite{w-boolean-algebra}
+
+\ss{If (and only if)}
+
+I'm going to introduce some new notation: the $\iff$ symbol.
+
+\[ \parens{A \iff B} \iff \parens{A \implies B} \land \parens{A
+  \impliedby B} \]
+
+Okay, what the hell is that?
+
+\begin{textmath}
+    If
+
+    \[ A \implies B \]
+
+    logical-and
+
+    \[ B \implies A \]
+
+    then
+
+    \[ A \iff B \]
+
+    Likewise, if
+
+    \[ A \iff B \]
+
+    then
+
+    \[ A \implies B \]
+
+    logical-and
+
+    \[ B \implies A \]
+\end{textmath}
+
+The symbol \nm\iff\ should be read as ``if (and only if)''. Sometimes I'll write
+the word iff --- with two `f's --- that's the same as ``if (and only if)''.
+
+The properties of booleans are really boring, and really obvious. If you really
+want to see exhaustive proofs, see \cref{d-bools}. The only tricky one is De
+Morgan's law:
+
+\begin{textmath}
+    For all $A$ and $B$,
+
+    \begin{equation}
+        \label{eq:demorgan1}
+        \lnot\parens{A \land B} = \lnot A \lor \lnot B
+    \end{equation}
+\end{textmath}
+
+Sometimes, mathematicians, such as myself, will use the symbol $\forall$ in the
+place of ``for all''. Additionally, the exercises use the symbol $\equiv$:
+
+\begin{textmath}
+    If, for all $x$ and $y$,
+
+    \begin{equation}
+        x = y
+    \end{equation}
+
+    then
+
+    \begin{equation}
+        x \equiv y
+    \end{equation}
+\end{textmath}
+
+\begin{ExcList}
+    \Exercise[label={demorgan2}]{ For all $A$ and $B$, is it the case that
+
+      \begin{equation}\label{eq:demorgan2}
+          \lnot\parens{A \lor B} \Qequiv \lnot A \land \lnot B
+      \end{equation}
+    }
+
+  \Answer{
+      Start with the first law
+      \begin{equation}
+          \label{eq:-}
+          \lnot\parens{a \land b} \equiv \lnot a \lor \lnot b
+      \end{equation}
+
+      Let $p = \lnot a$, $q = \lnot b$. One of the rules of algebra is, if
+      $x = y$, then you can substitute one in for the other.
+
+      \begin{equation}
+          p \lor q \equiv \lnot\parens{\lnot p \land \lnot q}
+      \end{equation}
+      Another rule is, if you have an equation, and you do something to one side
+      of the =, you have to do the same thing to the other side. Here, we're
+      going to apply $\lnot$ to both sides of $\equiv$
+
+      \begin{equation}
+          \label{eq:-}
+          \lnot\parens{p \lor q} \equiv {\lnot p \land \lnot q}
+      \end{equation}
+  }
+
+  \Exercise{
+    Is it the case that
+
+    \begin{equation}
+       a \lor \parens{b \land c} \equiv \parens{a \lor b} \land \parens{b \lor c}
+    \end{equation}
+    }
+
+  \Answer{
+    Yes. Start with the first property
+
+    \begin{equation}
+      a \land \parens{b \lor c} \equiv \parens{a \land b} \lor \parens{b \land c}
+    \end{equation}
+
+    Apply $\lnot$ to both sides
+
+    \begin{equation}
+      \lnot\parens{a \land \parens{b \lor c}} \equiv \lnot\parens{\parens{a \land b} \lor \parens{b \land c}}
+    \end{equation}
+
+    Apply DeMorgan's laws
+
+    \begin{equation}
+      \lnot a \lor \lnot\parens{b \lor c} \equiv \lnot\parens{a \land b} \land \lnot\parens{b \land c}
+    \end{equation}
+
+    Do it again (inside the parentheses).
+
+    \begin{equation}
+      \lnot a \lor \parens{\lnot b \land \lnot c} \equiv \parens{\lnot a \lor \lnot b} \land \parens{\lnot b \lor \lnot c}
+    \end{equation}
+
+    Let $p,q,r = \lnot a, \lnot b, \lnot c$, respectively.
+
+    \begin{equation}
+      p \lor \parens{q \land r} \equiv \parens{p \lor q} \land \parens{q \lor r}
+    \end{equation}
+  }
+
+  \Exercise{If
+
+    \begin{equation}
+        \lnot A \implies B \implies \lnot C
+    \end{equation}
+
+    then does
+
+    \begin{equation}
+      C \Qimplies A
+    \end{equation}
+  }
+
+  \Answer{Yes.
+
+    \begin{proof}
+        By transition,
+
+      \begin{alignmath}{ccccc}
+        \lnot A & \implies & B & \implies & \lnot C \\
+        \lnot A &          &   & \implies & \lnot C \\
+      \end{alignmath}
+
+      By the reversal property:
+      \begin{equation}
+        A \impliedby C
+      \end{equation}
+    \end{proof}
+  }
+
+  \Exercise{If
+    \begin{equation}
+        A \notimplies B \implies \lnot C
+    \end{equation}
+
+    \begin{equation}
+      A \Qimplies C
+    \end{equation}
+  }
+
+  \Answer{Not by necessity.
+    \begin{proof}
+      By transition:
+      \begin{alignmath}{ccccc}
+        A & \notimplies & B & \implies & \lnot C \\
+        A & \notimplies &   &          & \lnot C \\
+      \end{alignmath}
+
+      This does not imply
+
+      \begin{equation}
+        A \implies C
+      \end{equation}
+      
+      To put it another way
+      \begin{rclmath}
+        A & \notimplies & \lnot C \\
+          & \centernot\Downarrow &  \\
+        A & \implies & C
+      \end{rclmath}
+    \end{proof}
+  }
+
+  \Exercise{If $A \implies B \impliedby C$, then
+
+    \begin{equation}
+      A \Qiff C
+    \end{equation}
+  }
+
+  \Answer{No, there's nothing to indicate that $A$ and $C$ have any relation
+    whatsoever.}
+
+  \Exercise{ I'm sorry, but
+    \begin{equation}
+        A \land \lnot\parens{B \land \parens{C \lor D}} \Qequiv A
+        \land \parens{B \lor C} \land \parens{B \lor D}
+    \end{equation}
+  }
+
+  \Answer{No
+    \begin{proof}
+      Let's assume that it's true.
+      \begin{rclmath}
+        A \land \lnot\brackets{B \land \parens{C \lor D}}
+          & \equiv & A \land \parens{B \lor C} \land \parens{B \lor D} \\
+      \end{rclmath}
+      Let $B, C, D$ all be true. Then:
+
+      \begin{rclmath}
+        A \land \lnot\brackets{\true \land \parens{\true \lor \true}}
+          & \equiv & A \land \parens{\true \lor \true} \land \parens{\true \lor \true} \\
+        A \land \lnot\brackets{\true \land \parens{\true \lor \true}}
+          & \equiv & A \land \true \land \true \\
+        A \land \lnot\brackets{\true \land \parens{\true \lor \true}}
+          & \equiv & A \land \true \\
+        A \land \lnot\brackets{\true \land \true}
+          & \equiv & A \land \true \\
+        A \land \lnot\true
+          & \equiv & A \land \true \\
+        A \land \lnot\true
+          & \equiv & A \land \true \\
+        \false
+          & \equiv & \true \\
+      \end{rclmath}
+
+      Which is obviously false.
+    \end{proof}
+  }
+\end{ExcList}
+
+\ss{Wait, are you going to tell me what a monoid is?}
+
+Okay, you got me!
+
+So, monoids, like I said, are sets where you can stick the elements together to
+get a new element. 
+
+$\mset{\true,\false}$, along with the operator $\land$ is a monoid. You can take
+any two elements of that set, stick them together with $\land$, and get back
+another element of the set.
+
+Additionally, $\mset{\true,\false}$, along with the operator $\lor$ forms a
+monoid.
+
+The definition of $\land$ says that if you take any boolean $a$ and $\land$ it
+with $\true$, you'll get back $a$. This is called the ``monoidal identity''.
+
+The same thing happens with $\lor$ and $\false$.
+
+That's all a monoid is. The root ``mono'' means ``one'', so a ``monoid'' has
+something to do with ``one''. It actually comes from multiplication. Numbers,
+along with $\times$, form a monoid.
+
+If you take any two numbers $x$ and $y$, $x \times y$ is also a
+number. Likewise, if you take any number $x$, $x \times 1$ is just $x$. $1$ in
+this case is the monoidal identity.
+
+I bet you went through high school never hearing the term \term{monoid}! That's
+criminal, given how useful the concept turns out to be, and how simple the
+concept is!
+
+This is the purpose of abstract algebra: to recognize patterns, and use the
+patterns to relate two seemingly disjoint concepts. 
+
+\begin{quote}
+    Almost nothing is mutually exclusive. That is one of the usual failings of
+    thinking by people, is that they think things are exclusive that aren't
+    really.
+
+    -- Larry Wall, creator of the Perl programming
+    language.\cite{larry-wall-interview}
+\end{quote}
+
+Abstract algebra is all about demonstrating Larry Wall's point.
