@@ -114,7 +114,7 @@ the commit with `git add -p`.
 When in doubt, follow the
 [Erlang OTP Git Commit Guide](https://github.com/erlang/otp/wiki/Writing-good-commit-messages).
 
-# Sources
+## Sources
 
 The sources are listed in the book/bibliographies/lysa.bib file. Here
 are some suggested readings:
