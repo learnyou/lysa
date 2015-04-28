@@ -1,4 +1,4 @@
-\documentclass[12pt]{book}
+\documentclass[letter,12pt]{book}
 
 % Append yourself to this list. Aliases are fine (e.g. darkf), but please do
 % include an email where people can email you. If applicable, also include your
@@ -22,17 +22,14 @@
 \usepackage{amsthm}
 \usepackage[toc,page]{appendix}
 \usepackage[backend=bibtex]{biblatex}
-\usepackage[scaled]{beramono}
 \usepackage{centernot}
 \usepackage[mathcal,mathscr]{euscript}
 \usepackage[answerdelayed]{exercise}
-\usepackage[T1]{fontenc}
 \usepackage{graphics}
 \usepackage[utf8]{inputenc}
 \usepackage{listings}
 \usepackage{mathtools}
 \usepackage{relsize}
-\usepackage{mathptmx}
 \usepackage{scrextend}
 \usepackage{setspace}
 \usepackage{solarized-light}
@@ -42,6 +39,14 @@
 \usepackage{xkeyval}
 \usepackage[hidelinks]{hyperref}
 \usepackage{cleveref}
+
+% Change the font.
+% 
+% Comment out the next two lines if you are going to print the book.
+\usepackage[sfdefault,scaled=.85]{FiraSans}
+\usepackage{newtxsf}
+\usepackage[scaled]{beramono}
+\usepackage[T1]{fontenc}
 
 \crefname{chapter}{\S}{\S}
 \crefname{section}{\S}{\S}
@@ -57,7 +62,6 @@
 \Crefname{Exercise}{Ex.}{Ex.}
 
 \addbibresource{lysa.bib}
-\usepackage{listings}
 \usepackage{color}
 
 \definecolor{mygreen}{rgb}{0.3,0.6,0.3}
