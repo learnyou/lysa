@@ -1,17 +1,41 @@
 \ch{Sets}\label{ch:sets}
 
 In math, it's often useful to consider \xti{collections} of objects. There are
-basically two types of collections: \term{sets} and \term{vectors}. Sets are
-unordered, and multiplicity doesn't matter. Vectors are ordered, and
-multiplicity does matter.
+basically two types of collections:
 
-For instance, $\mset{3, 4}$ and $\mset{4,3}$ are the same \xti{set}, but
-$\mvec{3,4}$ and $\mvec{4,3}$ are different \xti{vectors}.
+\begin{description}
+  \item[sets], in which order and multiplicity don't matter
+  \item[vectors], in which order and multiplicity do matter.
+\end{description}
+
+For instance, $\mset{3, 4}$ and $\mset{4,3}$ are the same \xti{set}
+
+\begin{equation}
+    \mset{3,4} = \mset{4,3}
+\end{equation}
+
+but $\mvec{3,4}$ and $\mvec{4,3}$ are different \xti{vectors}.
+
+\begin{equation}
+    \mvec{3,4} \neq \mvec{4,3}
+\end{equation}
 
 Likewise, $\mset{20,38}$ and $\mset{38,20,38,20,20,20,20,20}$ are the same
-\xti{set}. You guessed it, $\mvec{20,38}$ and $\mvec{38,20,38,20,20,20,20,20}$
-are different \xti{vectors}. Sets are --- at least ostensibly --- much more
-important. More importantly, they are much easier to understand.
+\xti{set}
+
+\begin{equation}
+    \mset{20,38} =\mset{38,20,38,20,20,20,20,20}
+\end{equation}
+
+You guessed it, $\mvec{20,38}$ and $\mvec{38,20,38,20,20,20,20,20}$ are
+different \xti{vectors}.
+
+\begin{equation}
+    \mvec{20,38} \neq \mvec{38,20,38,20,20,20,20,20}
+\end{equation}
+
+Sets are --- at least ostensibly --- much more important. More importantly, they
+are much easier to understand.
 
 Sets were first studied to extent by Georg Cantor, a German mathematician, in
 the second half of the nineteenth century. Back in his own day, the results
