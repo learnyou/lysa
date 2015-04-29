@@ -4,36 +4,7 @@ Here's my (pharpend) basic outline for the book. It's extremely rough at this
 point and will probably be gutted and slaughtered in its entirety.
 
 * Chapter 1, Introduction
-    + Motivation
-    + Potential scope of the book
-    + What background knowledge you need.
-        - ideally this would just be fluency in english, and elementary school math.
-    + What is math?
-    + Why are we interested in it?
-
-All of the chapters beyond this point will be assumed to have a multitude of
-exercises, graphs, examples, applications, etc.
-
 * Chapter 2, Boolean Algebra
-    + Introduction
-    + Basic Logic
-        + True and False
-            - \land, \lor, and \lnot
-        + Logic notation
-            - \implies, \impliedby, \iff
-        + Exercises
-
-    + Mildly more complicated Logic
-        + Combining All of them
-            - \lnot\lnot, \lnot\land
-        + More logic notation
-            - \notimplies, \notimpliedby, \notiff
-        + Exercises 
-            - \lnot\lor
-    + Idris stuff
-        + Do all the previous stuff in Idris.
-        
-
 * Chapter 3, Sets
     + Lists and ordered pairs
     + Sets
