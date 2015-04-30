@@ -32,15 +32,14 @@ I don't have access to them.
 
 *   **Debian >=8**: Run this in a terminal:
 
-        sudo aptitude install texlive-latex-recommended \
-                              texlive-latex-extra \
-                              texlive-fonts-extra \
-                              texlive-math-extra \
-                              git
+        sudo aptitude install git texlive-bibtex-extra \
+            texlive-fonts-extra texlive-latex-extra texlive-latex-recommended \
+            texlive-math-extra 
         tlmgr init-usertree
         tlmgr --usermode install newtxmf
 
-*   **FreeBSD**: LYSA cannot be built on FreeBSD.
+*   **FreeBSD**: I haven't been able to build LYSA on FreeBSD, but I'm
+    not a FreeBSD expert. Here's what I tried:
 
         sudo pkg install texlive-full git
         tlmgr --usermode init-usertree
@@ -63,9 +62,10 @@ I don't have access to them.
 Run these commands in a terminal
 
         git clone https://github.com/learnyou/lysa.git
-        cd lysa/en/book
+        cd lysa
         git submodule init
         git submodule update
+        cd en/book
         ./lysabuild
 
 I don't use Windows, so I don't know how to build LYSA on
