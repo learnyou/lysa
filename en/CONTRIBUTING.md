@@ -26,9 +26,16 @@ I don't have access to them.
     build a lot faster (from several hours to a few minutes). If your
     memory is precious, use `-av` instead of `-jav`.
 
-*   **Debian <7**: The version of TeXLive is too old to build LYSA. You
-    need at least TeXLive 2014. The version shipping with Wheezy (Debian
-    7) is TexLive 2012.
+    **Warning**: These instructions are pretty old, and I don't have
+    access to this OS any more. Forgive me if the instructions don't
+    work any more.
+
+*   **Debian <7**: **Cannot be built with standard configuration**
+
+    The version of TeXLive is too old to build LYSA. You need at least
+    TeXLive 2014. The version shipping with Wheezy (Debian 7) is
+    TexLive 2012. You would need to manually install TeXLive 2014, and
+    then build LYSA.
 
 *   **Debian >=8**: Run this in a terminal:
 
@@ -45,17 +52,31 @@ I don't have access to them.
         tlmgr --usermode init-usertree
         tlmgr --usermode install newtxmf
 
+*   **Mac OS X**: I don't use, nor do I have access to Mac OS X, so I
+    don't know how to build LYSA on Mac OS X. Sorry. If you know how,
+    don't be shy to add instructions!
+
 *   **Ubuntu <= 12.04**: Run this command in a terminal:
 
         sudo aptitude install biblatex texlive texlive-latex-extra \
          texlive-bibtex-extra texlive-math-extra texlive-latex3
 
-    I'm sorry, but I couldn't come up with a longer command.
+    **Warning**: These instructions are pretty old, and I don't have
+    access to this OS. (These instructions were added by someone
+    else). Forgive me if they don't work any more.
 
 *   **Ubuntu > 12.04**: Run this in a terminal:
 
         sudo aptitude install texlive-latex-extra texlive-bibtex-extra \
           texlive-latex3 texlive-fonts-recommended
+
+    **Warning**: These instructions are pretty old, and I don't have
+    access to this OS. (These instructions were added by someone
+    else). Forgive me if they don't work any more.
+
+*   **Windows**: I don't use, nor do I have access to a machine running
+    Windows, so I don't know how to build LYSA on Windows. Sorry. If you
+    know how, don't be shy to add instructions!
 
 ### Cloning & Building
 
@@ -68,8 +89,6 @@ Run these commands in a terminal
         cd en/book
         ./lysabuild
 
-I don't use Windows, so I don't know how to build LYSA on
-Windows. Sorry. If you know how, don't be shy to add instructions!
 
 ## If you've never used Git
 
