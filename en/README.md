@@ -12,6 +12,7 @@ This is a fun, easy-to-read, free and open source math textbook.
 * [IRC Channel][2]
 * [Issue tracker][3]
 * [LaTeX style guide][8]
+* [`/r/lysa` on Reddit][9]
 * Main author's email: `peter@harpending.org`
 * [Nightly PDFs][1]
 * [Russian translation][5]
@@ -24,3 +25,4 @@ This is a fun, easy-to-read, free and open source math textbook.
 [6]: https://learnyou.org
 [7]: OUTLINE.md
 [8]: STYLE.md
+[9]: https://www.reddit.com/r/lysa
