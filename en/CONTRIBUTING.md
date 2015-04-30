@@ -22,7 +22,7 @@ I don't have access to them.
         sudo emerge -jav dev-vcs/git dev-tex/biblatex \ 
             dev-texlive/texlive-latexrecommended \
 
-    **Warning**: this will spawn a ton of processes, but will make the
+    **Warning**: This will spawn a ton of processes, but will make the
     build a lot faster (from several hours to a few minutes). If your
     memory is precious, use `-av` instead of `-jav`.
 
