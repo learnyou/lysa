@@ -1,4 +1,4 @@
-### PDFs -> https://github.com/learnyou/lysa-pdfs
+### PDFs -> http://nightly.learnyou.org/lysa
 
 # lysa
 
