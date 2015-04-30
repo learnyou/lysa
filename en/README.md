@@ -1,31 +1,26 @@
-### PDFs -> http://nightly.learnyou.org/lysa
+### Nightly PDFs -> http://nightly.learnyou.org/lysa
 
 # Learn You Some Algebras for Glorious Good!
 
-This is a math textbook, licensed under the Creative Commons
-Attribution-ShareAlike license. It is written in English. There is an
-unofficial [Russian translation](../ru)
+This is a fun, easy-to-read, free and open source math textbook.
 
-If you like chatting on IRC, come see us in `#lysa` on FreeNode. If
-you don't know what IRC is, or you don't have a client set up, you can
-connect through [FreeNode's webchat][webchat].
+#### Links, in alphabetical order
 
-If you
+* [Book outline][7]
+* [Book website][6]
+* [Contributing guide][4]
+* [IRC Channel][2]
+* [Issue tracker][2]
+* [LaTeX style guide][8]
+* Main author's email: `peter@harpending.org`
+* [Nightly PDFs][1]
+* [Russian translation][5]
 
-* notice any errors,
-* have any suggestions,
-* or have any questions,
-
-don't be shy to
-
-*   report them in the
-    [issue tracker](https://github.com/learnyou/lysa/issues), 
-*   ask in the IRC channel,
-*   or email me at `peter@harpending.org`. 
-
-[webchat]: http://webchat.freenode.net/?channels=lysa
-
-## Contributing
-
-If you are interested in contributing, please see the
-[`CONTRIBUTING.md`](CONTRIBUTING.md) file.
+[1]: http://nightly.learnyou.org/lysa
+[2]: http://webchat.freenode.net/?channels=lysa
+[3]: https://github.com/learnyou/lysa/issues
+[4]: CONTRIBUTING.md
+[5]: https://github.com/gazay/lysa
+[6]: https://learnyou.org
+[7]: OUTLINE.md
+[8]: STYLE.md
