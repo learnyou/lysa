@@ -14,12 +14,13 @@ I don't have access to them.
 
 *   **Arch**: Open a terminal, run the following command
 
-        sudo pacman -S texlive-most git
+        sudo pacman -S git texlive-bibtexextra texlive-fontsextra \
+            texlive-latexextra texlive-langextra
 
 *   **Gentoo**: Run this command in a terminal:
 
         sudo emerge -jav dev-vcs/git dev-tex/biblatex \ 
-         dev-texlive/texlive-latexrecommended \
+            dev-texlive/texlive-latexrecommended \
 
     **Warning**: this will spawn a ton of processes, but will make the
     build a lot faster (from several hours to a few minutes). If your
