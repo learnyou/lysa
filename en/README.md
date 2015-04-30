@@ -10,7 +10,7 @@ This is a fun, easy-to-read, free and open source math textbook.
 * [Book website][6]
 * [Contributing guide][4]
 * [IRC Channel][2]
-* [Issue tracker][2]
+* [Issue tracker][3]
 * [LaTeX style guide][8]
 * Main author's email: `peter@harpending.org`
 * [Nightly PDFs][1]
