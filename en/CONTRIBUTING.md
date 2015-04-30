@@ -25,14 +25,25 @@ I don't have access to them.
     build a lot faster (from several hours to a few minutes). If your
     memory is precious, use `-av` instead of `-jav`.
 
-*   **Debian**: Run this in a terminal:
+*   **Debian <7**: The version of TeXLive is too old to build LYSA. You
+    need at least TeXLive 2014. The version shipping with Wheezy (Debian
+    7) is TexLive 2012.
 
-        sudo aptitude install texlive-latex-extra texlive-bibtex-extra \
-          texlive-latex3 texlive-fonts-extra
+*   **Debian >=8**: Run this in a terminal:
 
-*   **FreeBSD**: Open a terminal, run these commands:
+        sudo aptitude install texlive-latex-recommended \
+                              texlive-latex-extra \
+                              texlive-fonts-extra \
+                              texlive-math-extra \
+                              git
+        tlmgr init-usertree
+        tlmgr --usermode install newtxmf
 
-        sudo pkg install git texlive-full
+*   **FreeBSD**: LYSA cannot be built on FreeBSD.
+
+        sudo pkg install texlive-full git
+        tlmgr --usermode init-usertree
+        tlmgr --usermode install newtxmf
 
 *   **Ubuntu <= 12.04**: Run this command in a terminal:
 
