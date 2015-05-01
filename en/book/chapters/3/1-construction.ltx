@@ -74,7 +74,7 @@ We can even have sets of other sets:
     \mset{\mset{1,2,3},\mset{4,5,6},\mset{3,1,6}}
 \end{equation}
 
-\sss{Notation and construction of infinite sets}
+\ss{Notation and construction of infinite sets}
 
 By now, you're hopefully familiar with the simple bracket notation for finite
 sets:
@@ -145,107 +145,145 @@ Okay, how do you read that?
 
 That notation is sort of hairy, but you'll get used to it pretty quickly.
 
-\pg{Well, don't get too used to it}
+\ss{This statement is false}
 
-There's a big problem with that notation:
+Let's think about this situation:
 
-Let's consider the set of all sets, $S$. (This set doesn't actually exist, but
-I'm going to pretend that it does)
+\begin{textmath}
+    There's a barber in a small town. For each man in the town, the barber cuts
+    the man's hair iff the man in question doesn't cut his own hair.
+\end{textmath}
 
-\begin{equation}
-    S = \mset{x \semic \text{\(x\) is a set}}
-\end{equation}
+Let's put this another way
 
-That's not really problematic. Except for the fact that
+\begin{textmath}
+    For some man \xtb{Man} in the town:
 
-\begin{equation}
-    S \in S
-\end{equation}
+    \begin{alignmath}{rl}
+             & \text{Barber cuts \xtb{Man}'s hair} \\
+        \iff & \text{\xtb{Man} doesn't cut his own hair} \\
+    \end{alignmath}
+\end{textmath}
 
-Even that: it's a little weird, but it's acceptable. There exists a set that is
-an element of itself.
+Okay, that's simple enough.
 
-Let's consider another set:
+\begin{textmath}
+    Does the barber cut his own hair?
+\end{textmath}
 
-\begin{iquote}
+Okay, wait. Hmm. Well. Let's plug $\mathbf{Barber}$ into that definition above.
+
+\begin{alignmath}{rl}
+         & \text{Barber cuts \xtb{Barber}'s hair} \\
+    \iff & \text{\xtb{Barber} doesn't cut his own hair} \\
+\end{alignmath}
+
+Well. Hmm. Crap! We've arrived at a contradiction.
+
+\xtb{Why are you telling me about this?}
+
+Well, that little situation I described just now is called \term{Russell's
+  paradox}. A philosopher-stroke-mathematician named Bertrand Russell proposed
+it in the early 20\textsuperscript{th} century, as a reason why we need a
+formalization of set theory.
+
+\xtb{I don't get how the barber thing applies to set theory}
+
+Well, Russell actually proposed this:
+
+\begin{textmath}
+    Let $S$ be the set of all sets.
+
     \begin{equation}
-        A \ce \mset{x \semic x \in S \land x \notin x}
+        A \ce \mset{x \in S \semic x \notin x}
     \end{equation}
+\end{textmath}
 
-    $A$ is the set of all objects $x$ such that $x$ is a set, and $x$ is not an
-    element of itself.
-\end{iquote}
+Or, in a slightly clearer notation
 
-Um, okay. That's kind of weird, but okay.
+\begin{alignmath}{rl}
+         & \text{\(s\) is in \(A\)} \\
+    \iff & \text{\(s\) is not in \(s\)} \\
+\end{alignmath}
 
-\begin{iquote}
-    Is $A \in A$?
-\end{iquote}
+Well, what about $A$?
 
-Wait, what? Well, obviously not. $A$ is the set of all sets $x$ such that $x$ is
-an element of itself. So if $A \in A$, then it would by definition be excluded
-from the set.
+\begin{alignmath}{rl}
+         & \text{\(A\) is in \(A\)} \\
+    \iff & \text{\(A\) is not in \(A\)} \\
+\end{alignmath}
 
-Phew! So, the conclusion is that $A \notin A$.
+Crap.
 
-But wait! $A$ is the set of all sets $x$ such that $x \notin x$. So, if
-$A \notin A$, then $A \in A$!
+\sss{Okay, so how do we fix this?}
 
-We've happened upon a paradox known as \term{Russell's paradox}, where
-
-\begin{equation}
-    \label{eq:russel-paradox}
-    A \in A \iff A \notin A
-\end{equation}
-
-The conclusion to draw from this is that $A$ is not a set. Okay, that's not too
-bad.
-
-But, wait, look how I defined $A$:
+Look at that comprehension notation:
 
 \begin{equation}
-    A \ce \mset{x \semic x \in S \land x \notin x}
+    A = \mset{ x \in {P} \semic \eva{{f}}{{x}}}
 \end{equation}
 
-I defined it using that weird notation where I describe what each element looks
-like, and then list some conditions about the element.
+\begin{description}
+    \item[$x$] describes what each element of $A$ will look like
+    \item[$P$] is a set from which every element of $A$ is drawn
+    \item[$\eva{f}{x}$] is a condition about $x$ that has to hold true if it
+    is to be included in $A$.
+\end{description}
 
-So, just because something can be described using that notation doesn't mean
-it's a set. So, you have to be careful.
-
-There's an easy way to avoid Russell's paradox: just make all of the individual
-element be an element of another set:
-
-So, instead of writing
+This is fine. If we stick to this, then we're golden. The problem comes when you
+don't include $P$ in the equation.
 
 \begin{equation}
-    \Q \ce \mset{\frac{x}{y} \semic x,y \in \Z \land y \neq 0}
+    A = \mset{ x \semic \eva{{f}}{{x}}}
 \end{equation}
 
-Instead, write
+\begin{description}
+    \item[$x$] describes what each element of $A$ will look like
+    \item[$\eva{f}{x}$] is a condition about $x$ that has to hold true if it
+    is to be included in $A$.
+\end{description}
 
-\begin{equation}
-    \Q \ce \mset{\frac{x}{y} \in \R \semic x,y \in \Z \land y \neq 0}
-\end{equation}
+\xtb{But wait, I thought with Russell's paradox, all of the elements in $A$ were
+  drawn from another set, $S$, which is the ``set of all sets''?}
 
-That's okay.
+Well, I lied, sort of. It turns out that the ``set of all sets'' doesn't
+actually exist. Mathematicians in the early 20\textsuperscript{th} century
+didn't know that. But, we know it now.
 
-The acute reader is probably noting that, the way I defined $A$ was
+\ss{Review for the exercises}
 
-\begin{equation}
-    A \ce \mset{x \semic x \in S \land x \notin x}
-\end{equation}
+Yes, there are exercises.
 
-\xtb{So, because $S$ is a set, and every element of $A$ is in $S$, doesn't that
-  mean that your thing is wrong?}
+This section concerns constructing sets. There are three notations that we have
+so far:
 
-Well, no, because, if you'll remember, the set of all sets doesn't actually
-exist.
+\begin{description}
+  \item[Explicitly listing every element] This is for finite sets that are small
+    enough to do so:
 
-\xtb{I'm confused}
+    \begin{rclmath}
+        X & = & \mset{1,2,3,4,5} \\
+        Y & = & \mset{1,2,4,7,10,12,15} \\
+    \end{rclmath}
+  \item[Extrapolation or interpolation] This is for finite or infinite sets that
+    have a very obvious pattern.
 
-So am I, and I'm writing this stuff. Go take a coffee break, and come back in an
-hour.
+    \begin{rclmath}
+        \N & = & \mset{0,1,2,3,4,\cdots} \\
+        \Z & = & \mset{\cdots,-2,-1,0,1,2,\cdots} \\
+        E & = & \mset{0,2,4,6,8,10,\cdots} \\
+        F & = & \mset{0,2,4,6,8,10,\cdots,438,440,442} \\
+    \end{rclmath}
+
+  \item[Comprehensions] This is that weird notation for describing finite or
+    infinite sets with a less than obvious pattern
+
+    \begin{rclmath}
+        \Q & = & \mset{\frac{x}{y} \in \R \semic x,y \in \Z \land y \neq 0} \\ 
+        E & = & \mset{x \in \N \semic \text{$x$ is even}} \\ 
+        F & = & \mset{x \in \N \semic \text{$x$ is even} \land x \le 442} \\ 
+    \end{rclmath}
+\end{description}
 
 \ss{Subsets and Supersets}
 
