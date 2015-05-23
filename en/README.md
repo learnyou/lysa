@@ -264,10 +264,14 @@ writing LaTeX.
 
     Put your macros in `lysa.ltx`.
 
+    Don't use tabulator charactors.
+
     Display math should use either
 
     * the `equation` environment
     * one of the math environments in lysa.ltx
+
+    Do not use `$$...$$`, the `displaymath` environment, or `\[ ... \]`
 
 4.  **Exercises**
 
