@@ -1,0 +1,124 @@
+\s{Subsets and Supersets}
+\label{s:subsets}
+\label{s:supersets}
+\label{s:subsets-supersets}
+\label{s:subs-supers}
+\label{s:subs}
+\label{s:supers}
+
+Remember back to \cref{s:construction}. I invented a set $Q$
+
+\begin{equation}
+    Q = \mset{1,2,5,6,7,9,10}
+\end{equation}
+
+and then asserted that
+
+\begin{equation}
+    \mset{2,6} \notin Q
+\end{equation}
+
+and we were really confused?
+
+Well, why? $\mset{2,6}$ is \xti{in} $Q$, but not in the way we've seen so far:
+it's not an \term{element} of $Q$. How do we express this notion?
+
+Well, all of the elements in $\mset{2,6}$ are also in $Q$. Let's invent some
+notation for that:
+
+\begin{equation}
+    \mset{2,6} \subeq Q
+\end{equation}
+
+For convenience, we'll also define the inverted operator
+
+\begin{equation}
+    Q \supeq \mset{2,6}
+\end{equation}
+
+\xtb{Well, then, wouldn't it be the case that $Q \subeq Q$?}
+
+Well, yeah. All of the elements in $Q$ are also in $Q$.
+
+It's actually how equality of sets is formally defined:
+
+\begin{alignmath}{rcl}
+    P = Q & \iff & \begin{array}{rl}
+                             & P \subeq Q \\
+                       \land & P \supeq Q \\
+                   \end{array} \\
+\end{alignmath}
+
+\xtb{Well, how do we formally define that weird half circle line thing?}
+
+By, the way, if $P \subeq Q$, then you're supposed to say ``$P$ is a
+\term{subset} of $Q$''. ``Sub'' means ``smaller'', so a ``subset'' would be a
+``smaller set''.
+
+Anyway, to answer your question, like this:
+
+\begin{textmath}
+    $P$ is a subset of $Q$:
+
+    \begin{equation}
+        P \subeq Q
+    \end{equation}
+
+    If (and only if), for all $x$,
+
+    \begin{alignmath}{rl}
+        & x \in P \\
+        \implies & x \in Q \\
+    \end{alignmath}
+\end{textmath}
+
+Likewise, 
+
+\begin{textmath}
+    $P$ is a \term{superset} of $Q$:
+
+    \begin{equation}
+        P \supeq Q
+    \end{equation}
+
+    If (and only if), for all $x$,
+
+    \begin{alignmath}{rl}
+        & x \in P \\
+        \impliedby & x \in Q \\
+    \end{alignmath}
+\end{textmath}
+
+(Remember, $\forall$ means ``for all'').
+
+\ss{Wait, what is with the little line under the round half circley thing?}
+
+So, actually, there are two types of subsets - \term{proper} and
+\term{improper}.
+
+\begin{description}
+  \item[$A \subeq B$] is for \term{improper subsets}
+  \item[$A \subof B$] is for \term{proper subsets}
+\end{description}
+
+\xtb{What's the difference?}
+
+\begin{description}
+  \item[$A \subeq B$] allows for the possibility that $A = B$.
+  \item[$A \subof B$] means that $B$ is \xti{strictly larger} than $A$; there
+    are some elements in $B$ that are not in $A$.
+\end{description}
+
+I use $\subeq$ for improper subsets, and $\subof$ for proper
+subsets. \xtb{However}, some people will use $\subof$ for improper subsets, and
+something like $\subsetneq$ or $\subsetneqq$ for proper subsets. You have to
+look out.
+
+\ss{The power set}
+
+The power set of $A$, denoted $2^A$, is the set of all subsets of $A$.
+
+\begin{rlmath}
+    & x \in 2^A \\
+    \iff & x \subeq A \\
+\end{rlmath}
