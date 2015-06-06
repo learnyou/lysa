@@ -1,24 +1,100 @@
-\ch{Booleans, propositional logic, and simple operators}\label{booleans}
+\ch{Propositional logic}
 \label{ch:booleans}
+\label{booleans}
 \label{ch:bools}
+\label{bools}
+\label{ch:props}
+\label{props}
 
-Before we get into interesting content, you have to understand some
-stuff. This stuff is pretty easy. This will likely be one of the shorter
-and easier chapters in the book.
+Math is based upon logic. This chapter explains the formal logic I use in this
+book. Even if you are familiar with formal logic, I recommend that you read this
+chapter simply because every book uses different notation.
 
-Most people think math is about dealing with numbers and pumping out
-formulas. Well, that's not what math is about. As said in \cref{intro},
-it's about using math as a language to express your thoughts. Most
-people don't think about numbers all day; thus, we deal with things in
-math that aren't numbers.
+I use especially weird notation. I happen to be a fan of a mathematical concept
+called the \term{Curry-Howard correspondence}, which calls for my somewhat
+unorthodox notation.
 
-In this next section, we're going to outline some basic rules for
-reasoning about things. You need to know these rules to do really cool
-stuff. Although, as you will (hopefully) see, these rules can be fun to
-toy around with on their own.
+\s{Let's get started!}
 
-I'm not going to spend a whole lot of time on this, because it's really
-boring. You can read through these rules in \cref{d-booleans}
+First of all, you are probably used to statements in logic being either `true',
+or `false'. In math, that doesn't really work, because of something called
+\term{G\"odel's incompleteness theorem}.
 
-\input{2/1-props.ltx}
-\input{2/2-bools-monoids.ltx}
+\xtb{What's a theorem?}
+
+It's something in math that is proven. It's a fact.
+
+\xtb{Why don't you just say fact?}
+
+Theorems are based around combining \term{axioms} and other theorems
+together. So, they aren't really facts, in the sense that we can only prove them
+if you accept other things (the axioms) as facts.
+
+For instance, you can only prove that $(a + b) + c = a + (b + c)$, for all $a$,
+$b$, and $c$ if you accept that $1$ is a number. ``$1$ is a number'' is an
+example of an axiom.
+
+G\"odel's incompleteness theorem says that in any non-trivial mathematical
+system, there will always be non-axiomatic statements (that is, statements that
+aren't axioms) in the system that are true, but unprovable. Another guy, I can't
+remember his name, proved that some statements can't even be said to be true or
+false.
+
+Because of this problem, you're supposed to think of statements as being
+\term{provable} or \term{unprovable}. I might accidentally use the terms `true'
+and `false' on accident. Please report instances of this in the \bugtracker\ or
+\emailme .
+
+\ss{Implications}
+
+The first symbol is $\implies$. The most common form is
+
+\begin{equation}
+\label{eq:a-implies-b}
+A \implies B
+\end{equation}
+
+This should be read as ``$A$ implies $B$''. Sometimes, you'll see something like:
+
+\begin{equation}
+    \label{eq:a-implies-b}
+    f : A \implies B
+\end{equation}
+
+Which means ``$f$ is a proof that $A$ implies $B$''.
+
+With $\implies$, the prefix (the $A$ in that example) is a proposition, as is
+$B$. (They are both propositions).
+
+$f$ is also a proposition. Think of $f$ as a guy saying ``if you can prove $A$
+to me, I can prove to you $B$''. 
+
+\xtb{What if I can show that $A$ is unprovable? Does that mean that $B$ is
+  unprovable?}
+
+No. The opposite is true, though. That is, if you have a proof:
+
+\begin{equation}
+    \label{eq:contraposition}
+    f : A \implies B
+\end{equation}
+
+Then there is another proof
+
+\begin{equation}
+    \label{eq:a-implies-b}
+    g : \parens{A \implies B} \implies \parens{\lnot B \implies \lnot A}
+\end{equation}
+
+$\lnot X$ just means ``$X$ is unprovable''. It should be read ``not $X$''
+
+\xtb{Wait, the proof implies another proof? That's confusing.}
+
+Yep. Think of $g$ as a guy saying ``if you give me a proof of that $A \implies
+B$, then I can give you a proof that $B \implies A$''.
+
+Or, in more colloquial terms: if $A$ implies $B$, then $\lnot B$ implies
+$\lnot A$.
+
+% \input{2/1-props.ltx}
+% \input{2/2-bools-monoids.ltx}

@@ -131,6 +131,9 @@
 \newcommand{\mset}[1]{\left\{\,#1\,\right\}}
 \newcommand{\parens}[1]{\left(#1\right)}
 \newcommand{\brackets}[1]{\left[\,#1\,\right]}
+\let\implies\rightarrow
+\let\impliedby\leftarrow
+\let\iff\leftrightarrow
 \newcommand{\Qimplies}{\stackrel{?}{\implies}}
 \newcommand{\Qimpliedby}{\stackrel{?}{\impliedby}}
 \newcommand{\comma}{,\,}
@@ -298,6 +301,8 @@
 \newenvironment{rlmath}
   {\begin{alignmath}{rl}}
   {\end{alignmath}}
+\renewcommand{\P}{\mathbf{P}}
+\newcommand{\U}{\mathbf{U}}
 
 % ASIDE BOX, stolen from https://github.com/jambonrose/latex-code-example/blob/master/0_preamble.tex
 % 
