@@ -301,18 +301,19 @@
 \newenvironment{rlmath}
   {\begin{alignmath}{rl}}
   {\end{alignmath}}
-\renewcommand{\P}{\mathbf{P}}
-\newcommand{\U}{\mathbf{U}}
+\newcommand{\godel}{G\"odel}
+\newcommand{\nmtext}[1]{\nm{\text{#1}}}
 
 % ASIDE BOX, stolen from https://github.com/jambonrose/latex-code-example/blob/master/0_preamble.tex
 % 
-% Copyright 2013, Andrew Pinkham
+% Copyright 2013, Andrew Pinkham. FreeBSD license:
+% https://github.com/jambonrose/latex-code-example/blob/master/LICENSE.txt
 %
 \usepackage[framemethod=TikZ]{mdframed}
 \definecolor{light-gray}{gray}{0.85}
 \newmdenv[ %
 		usetwoside=false,%
-    font=\footnotesize\it,
+        font=\footnotesize\it,
 		nobreak=false,%
 		roundcorner=0pt,%
 		outerlinewidth=0.2pt,%
