@@ -9,7 +9,7 @@
 For a long time, mathematicians would deal with statements that were either
 true or false. This was called \term{classical logic}. 
 
-In the 1930s, a man named Kurt \godel proved a rather shocking fact: in any
+In the 1930s, a man named Kurt \godel\ proved a rather shocking fact: in any
 non-trivial formal arithmetic system, there will always be statements that are
 true, but cannot be proven. So, if we can't \xtb{prove} something, how do we
 know whether or not it's true?
@@ -98,7 +98,7 @@ a bus; there are endless possibilities. Thus,
 
 \begin{equation}
     \label{eq:notdeaddecap}
-    \text{Dead} \notimplies \text{Decapitated}
+    \text{Decapitated} \notimpliedby \text{Dead}
 \end{equation}
 
 However, if someone is \xtb{not} dead, then they obviously weren't
@@ -106,7 +106,7 @@ decapitated. Therefore,
 
 \begin{equation}
     \label{eq:notdeaddecap}
-    \lnot\text{Dead} \implies \lnot\text{Decapitated}
+    \lnot\text{Decapitated}\impliedby\lnot\text{Dead}
 \end{equation}
 
 This is a fundamental rule of logic, called the \term{contraposition} (or,
@@ -114,7 +114,7 @@ marginally more pretentiously, \term{modus tollens}):
 
 \begin{equation}
     \label{eq:contraposition}
-    \parens{A \implies B} \implies \parens{\lnot A \implies \lnot B}
+    \parens{A \implies B} \implies \parens{\lnot B \implies \lnot A}
 \end{equation}
 
 In some cases, such as the decapitation + death example, it's pretty obvious
@@ -145,14 +145,23 @@ Let's look through a reasonably simple proof.
         A \implies \parens{\parens{A \implies B} \implies B}
     \end{equation}
 
-    If you reverse the order of the two conditions, then you get
+    If you reverse the order of the first two conditions, then you get
 
     \begin{equation}
         \label{eq:abimplies}
         \parens{A \implies B} \implies \parens{A \implies B}
     \end{equation}
 
-    But that's no fun.
+    But that's too easy and therefore no fun.
+
+    Throughout the book, you will see a block of text begin with \xti{Proof} and
+    end with a white box: \qed
+
+    This is standard mathematical notation. The white box means ``proof
+    completed''. You'll often see the term QED floated around a lot. It's an
+    acronym for quod erat demonstrandum, which means ``end of demonstration'' in
+    Latin. Again, mathematicians love to use fancy Latin phrases to make
+    themselves look smart.
 \end{textmath}
 
 \begin{proof}
@@ -167,19 +176,69 @@ Let's look through a reasonably simple proof.
     To express this, you have the colon ($:$) at your disposal
 
     \begin{equation}
-      \text{foo} : A \implies \parens{\parens{A \implies B} \implies B}
+        \text{foo} : \forall A,B ;\; A \implies \parens{\parens{A \implies B} \implies B}
     \end{equation}
 
-    A common tacti
+    Think about this: $A \implies \dots$. This is equivalent to saying ``if I
+    have a proof of $A$, then \dots''. So, we can therefore give the proof of
+    $A$ an arbitrary name. I'm going to call it $f$.
 
     \begin{alignedmath}
-        f : A
-        \parens{\parens{A \implies B} \implies B} \\
-      
+        f : A \\
+        \hrulefill \\
+        \parens{A \implies B} \implies B \\
     \end{alignedmath}
+
+    Above the line is what we know, and below the line is what we are trying to
+    prove.
+
+    Again, on the portion below the line, we are trying to prove the stuff after
+    the arrow, assuming the stuff before the arrow is true. Thus, in the
+    expression below the line, we can move the thing before the first arrow to
+    be above the line.
     
-    
+    \begin{alignedmath}
+        f : A \\
+        g : A \implies B \\
+        \hrulefill \\
+        B \\
+    \end{alignedmath}
+
+    So, $g$ is a proof that $A \implies B$. Again, we don't care what the proof
+    is. The best part about proofs is that you get to assume that the stuff
+    before the arrow is already proven.
+
+    $B$ doesn't have any arrows, so it looks like we have to prove $B$. Well,
+    $g$ is sitting there hoping that there's a proof of $A$ laying around so
+    that it can prove $B$.
+
+    Oh wait, there is!
+
+    So, we can feed $g$ (a proof that $A \implies B$) our proof of $A$ (which is
+    $f$). How do we express this notion of ``feeding''?
+
+    \begin{alignedmath}
+        f : A \\
+        g : A \implies B \\
+        \eva{g}{f} : B \\
+        \hrulefill \\
+    \end{alignedmath}
+
+    Now, there's nothing below the line, so we're done!
 \end{proof}
+
+Alright, that was pretty hard! I can almost guarantee you didn't understand that
+the first time. It's an entirely new concept! Go take a coffee break, take a
+walk, or something of the like, come back in an hour, and read over the
+explanation again. I bet it'll be a lot easier to understand the second time
+around.
+
+I'm even going to write the following stuff on a new page so you aren't as
+tempted to keep going.
+
+\newpage
+
+Well, I lied, w
 
 
 % \begin{textmath}

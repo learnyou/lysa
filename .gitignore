@@ -4,3 +4,5 @@ changes.md
 *.sage.py
 /en/book/lysa.html
 /ru_old
+/en/book/code/firstproof.idr
+/en/book/code/firstproof.v
