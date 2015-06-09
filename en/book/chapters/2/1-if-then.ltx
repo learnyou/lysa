@@ -1,0 +1,302 @@
+\s{If A then B; A, therefore B.}
+
+This is pretty simple notation, actually.
+
+\begin{equation}
+    \label{eq:aimpliesb}
+    A \implies B
+\end{equation}
+
+The above is pretty intuitive: if $A$ is true, then $B$ is true.
+
+The $\implies$ symbol is usually pronounced ``implies''. So, $A$ implies $B$.
+Note that this \xtb{does not} mean that $B$ implies $A$.
+
+Now, actually, you shouldn't say true or false. Let's try that again
+
+\begin{equation}
+    \label{eq:aimpliesb}
+    A \implies B
+\end{equation}
+
+This proof is a guy sitting around saying ``if you have a proof of $A$, I'll
+give you back a proof of $B$''. 
+
+\ss{Reductio ad absurdum}
+
+This is your first instance of mathematicians using fancy Latin-speak to make
+you feel stupid. \term{Reductio ad absurdum} is Latin for ``reduction to the
+absurd''.
+
+It's an argument where you can disprove $A$ by proving that $A$ implies
+something unprovable.
+
+In math, there's a value, which stands for `unprovable'. I mentioned it a few
+paragraphs ago. Do you remember what it is?
+
+It's $\bot$. If you can prove $\bot$, which is unprovable, that's absurd, and
+your argument is obviously wrong!
+
+So, if you want to prove that a proposition is unprovable, the formal way is to
+prove that it implies $\bot$.
+
+That is, for any $A$
+
+\begin{equation}
+   \lnot A \implies \parens{A \implies \bot}
+\end{equation}
+
+The expression $\lnot A$ should be read ``not A'', or ``A is unprovable''. That
+is, a proof of $\lnot A$ is a proof that $A \implies \bot$. $A \implies \bot$ is
+obviously not provable, therefore $\lnot A$ is not provable.
+
+\begin{asidebox}
+    The rules we've learned so far. Also some rules that we haven't learned
+    formally, but should be reasonably obvious.
+
+    \begin{enumerate}
+      \item For any proposition $A$, $A \implies A$. This says that ``given a
+        proposition, if you have a proof of it, you have a proof of it''. It's
+        not all that interesting.
+      \item For any propositions $A$, $B$, and $C$, if $A \implies B$ and
+        $B \implies C$, then $A \implies C$.
+
+        I can put this into fancy parentheses for you:
+
+        \begin{equation}
+            \parens{A \implies B}
+            \implies
+            \parens{
+                \parens{B \implies C}
+                \implies
+                \parens{A \implies C}
+            }
+        \end{equation}
+
+        This should be read ``A proof that $A \implies B$ implies that a proof
+        of $B \implies C$ implies that $A \implies C$.
+  \item For all $A$, $\bot \implies A$.
+  \item Therefore, for some $A$, a proof that $A \implies \bot$, means that $A$
+    implies everything. This is called ``reductio ad absurdum''. $\lnot A$ is
+    equivalent to saying $A \implies \bot$.
+\end{enumerate}
+\end{asidebox}
+
+\ss{The contraposition}
+
+A common mistake is to say ``Well, if $A$ happens, then $B$ will happen. If I
+know that $B$ happened, then I can reasonably conclude that $A$ happened at some
+point in the past.''
+
+Let's go through an example to show why this doesn't quite work.
+
+If someone is decapitated, then they are dead, at least within a few seconds.
+
+\begin{equation}
+    \label{eq:decapdead}
+    \text{Decapitated} \implies \text{Dead}
+\end{equation}
+
+\answergraph{alas-poor-yorick-5.png}
+
+However, if someone is dead, it doesn't necessarily mean they were
+decapitated. They could have been shot, stabbed, had a heart attack, been hit by
+a bus; there are endless possibilities. Thus,
+
+\begin{equation}
+    \label{eq:notdeaddecap}
+    \text{Decapitated} \notimpliedby \text{Dead}
+\end{equation}
+
+However, if someone is \xtb{not} dead, then they obviously weren't
+decapitated. Therefore,
+
+\begin{equation}
+    \label{eq:notdeaddecap}
+    \lnot\text{Decapitated}\impliedby\lnot\text{Dead}
+\end{equation}
+
+This is a fundamental rule of logic, called the \term{contraposition} (or,
+marginally more pretentiously, \term{modus tollens}):
+
+\begin{equation}
+    \label{eq:contraposition}
+    \parens{A \implies B} \implies \parens{\lnot B \implies \lnot A}
+\end{equation}
+
+Remember from before where $\lnot A$ means that $A \implies \bot$. Well, let's
+go through this, substituting $\lnot A$ with $A \implies \bot$.
+
+\begin{equation}
+    \parens{A \implies B}
+    \implies
+    \parens{
+        \parens{B \implies \bot}
+        \implies
+        \parens{A \implies \bot}
+    }
+\end{equation}
+
+Well, if $A \implies B$ and $B \implies \bot$, then, by that property above:
+$A \implies \bot$. This is unprovable, so therefore, if $A \implies B$, and $B$
+is unprovable, then $A$ is also unprovable.
+
+\ss{An example of a proof}
+
+In some cases, such as the decapitation + death example, it's pretty obvious
+that $A$ implies $B$ However, in most cases, it's not obvious. In which case,
+you need to provide a \term{proof}. Now, how do you prove something in math?
+
+It's not all that hard usually. You state what you know, and then you combine
+those facts together.
+
+Let's look through the proof of the \term{transitive property of logic}.
+
+\begin{textmath}
+    For all propositions $A$, $B$, and $C$:
+
+    \begin{equation}
+        \parens{A \implies B} \implies \parens{\parens{B \implies C} \implies \parens{A \implies C}}
+    \end{equation}
+
+    Instead of writing ``for all'', most mathematicians will use the symbol
+    $\forall$. It sort of looks like an $A$, and it's much more convenient to
+    write than typing out ``for all'' every time. The above proposition should
+    now be written 
+
+    \begin{equation}
+        \forall A, B, C
+        \semic
+        \parens{A \implies B}
+        \implies
+        \parens{
+          \parens{B \implies C}
+          \implies
+          \parens{A \implies C}
+        }
+    \end{equation}
+
+    Throughout the book, you will see a block of text begin with \xti{Proof} and
+    end with a white box: \qed
+
+    This is standard mathematical notation. The white box means ``proof
+    completed''. You'll often see the term QED floated around a lot. It's an
+    acronym for quod erat demonstrandum, which means ``end of demonstration'' in
+    Latin. Again, mathematicians love to use fancy Latin phrases to make
+    themselves look smart.
+\end{textmath}
+
+\begin{proof}
+    \begin{equation}
+        \forall A, B, C
+        \semic
+        \parens{A \implies B}
+        \implies
+        \parens{
+          \parens{B \implies C}
+          \implies
+          \parens{A \implies C}
+        }
+    \end{equation}
+
+    For giggles, let's give the proof a name: $X$ We don't know what $X$ is yet,
+    but we know that it's a proof that
+    \(\forall A, B, C \semic \parens{A \implies B} \implies \parens{\parens{B
+        \implies C} \implies \parens{A \implies C}}\)
+
+    To express this, you have the colon ($:$) at your disposal
+
+    \begin{equation}
+        X :
+        \forall A, B, C
+        \semic
+        \parens{A \implies B}
+        \implies
+        \parens{
+          \parens{B \implies C}
+          \implies
+          \parens{A \implies C}
+        }
+    \end{equation}
+
+    Think about this: $\parens{A \implies B} \implies \dots$. This is equivalent
+    to saying ``if I have a proof of $\parens{A \implies B}$, then I can get a
+    proof of \dots''. So, we can therefore give the proof of
+    $\parens{A \implies B}$ an arbitrary name, and use that arbitrary proof of
+    $\parens{A \implies B}$ to prove whatever is in the $\dots$
+
+    \begin{alignedmath}
+        f : A \implies B \\
+        \hrulefill \\
+        \parens{B \implies C} \implies \parens{A \implies C}
+    \end{alignedmath}
+
+    On the stuff below the line, we're trying to prove $\parens{A \implies C}$
+    assuming that somewhere we have a proof that $\parens{B \implies C}$. We're
+    doing the same thing as above essentially. Therefore, we can put
+    $\parens{B \implies C}$ above the line.
+    
+    \begin{alignedmath}
+        f : A \implies B \\
+        g: B \implies C \\
+        \hrulefill \\
+        A \implies C \\
+    \end{alignedmath}
+
+    We can do the same thing again:
+
+    \begin{alignedmath}
+        f : A \implies B \\
+        g : B \implies C \\
+        h : A \\
+        \hrulefill \\
+        C \\
+    \end{alignedmath}
+
+    $C$ doesn't have any arrows, so it looks like we have to prove $C$. We can't
+    just move it above the line!
+
+    Well, $f$ is sitting there hoping that there's a proof of $A$ laying around
+    so that it can prove $B$.
+
+    Oh wait, there is!
+
+    So, we can feed $f$ (a proof that $A \implies B$) our proof of $A$ (which is
+    $h$). How do we express this notion of ``feeding''?
+
+    \begin{alignedmath}
+        f : A \implies B \\
+        g : B \implies C \\
+        h : A \\
+        \eva{f}{h} : B \\
+        \hrulefill \\
+        C \\
+    \end{alignedmath}
+
+    There we go! Now, we have a proof of $B$ at our disposal. We can use it to
+    prove $C$ by feeding our proof of $B$ to the proof that $B \implies C$!
+
+    \begin{alignedmath}
+        f : A \implies B \\
+        g : B \implies C \\
+        h : A \\
+        \eva{f}{h} : B \\
+        \eva{g}{\eva{f}{h}} : C \\
+        \hrulefill \\
+        C \\
+    \end{alignedmath}
+
+    Yay, we have the same thing above the line as below the line! So, we're done!
+\end{proof}
+
+Alright, that was pretty hard! I can almost guarantee you didn't understand that
+the first time. It's an entirely new concept!
+
+Go take a coffee break, take a walk, or something of the like, come back in an
+hour, and read over the explanation again. I bet it'll be a lot easier to
+understand the second time around.
+
+I'm even going to manually insert a page break so you aren't tempted to keep
+going.
+
+\newpage
