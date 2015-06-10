@@ -1,0 +1,252 @@
+\s{Alright, I'm done with my walk.}
+
+Great! You are probably still confused about that proof. Let's go through it
+again!
+
+\begin{equation}
+    X :
+    \forall A, B, C
+    \semic
+    \parens{A \implies B}
+    \implies
+    \parens{
+        \parens{B \implies C}
+        \implies
+        \parens{A \implies C}
+    }
+\end{equation}
+
+Let's forget the formal proof for a second here. Forget about the `if-then'
+stuff. Think about this entirely in terms of the arrows. Think of the arrows as
+connecting flights.
+
+If you can go $A \to B$, then $B \to C$, then you can easily go $A \to C$,
+simply by connecting at $B$. That's all the proof does.
+
+In that proof, we had something like this:
+
+\begin{alignedmath}
+    f : A \to B \\
+    g : B \to C \\
+    h : A \\
+    \hrulefill \\
+    C \\
+\end{alignedmath}
+
+\nm{\eva{f}{h}} is just saying $f$ is the flight from to $A \to B$. $h$ is drive
+from your house to the airport. The expression $\eva{f}{h}$ says ``compose my
+drive to the airport with the flight to $B$''. $g$ is the flight from $B \to C$.
+So, $\eva{g}{\eva{f}{h}}$ is saying ``after you get to $B$, here's how to get to
+$C$''.
+
+Anyway, this is a good segue into introducing functions. I mentioned this in
+I believe the second sentence of the book, but here it goes again: a
+\term{function} is a mathematical construct that takes some input, and gives you
+back some output.
+
+So, a function $f : A \to B$ is a function that takes a proof of $A$ and sends
+back a proof of $B$. If you send $f$ the same proof of $A$ many times over, you
+should get back the same proof of $B$ every time. This is called
+\term{transparency}.
+
+\begin{asidebox}
+    Transparency might seem like an obvious property to you, and that's fine. A
+    lot of my readers are programmers. Hell, \xti{I} am a programmer. In the
+    world of programming, functions are not usually transparent (at least in
+    most programming languages).
+
+    A few programming language --- namely, strongly typed functional programming
+    languages --- enforce transparency. Mathematically inclined people tend to
+    gravitate towards these languages, simply because it plays to their way of
+    thinking. Some examples of strongly typed functional programming languages
+    are Clojure, Haskell, Idris, OCaml, Racket, Scheme, and Standard ML.
+\end{asidebox}
+
+There are functions that do things more interesting than proving stuff. Here's
+an example:
+
+\begin{equation}
+    f : \Z \to \Z \\
+\end{equation}
+
+\xtb{What the hell is $\Z$?}
+
+$\Z$ is the set of integers. In German, ``Zahlen'' means ``numbers'', so $\Z$ is
+``die Zahlen'', or ``the numbers''.
+
+\begin{equation}
+    \Z = \mset{\dots, -5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5, \dots}
+\end{equation}
+
+So, 
+
+\begin{equation}
+    f : \Z \to \Z \\
+\end{equation}
+
+takes a proof $\Z$, and returns another proof of $\Z$.
+
+\xtb{In $f$, you take a proof of $\Z$ and return a proof of $\Z$. How do you
+  prove a set? That doesn't even make sense.}
+
+That's a good question. Sets have things called \term{elements}. For instance,
+$5$ is an element of $\Z$. $5$ would then be a proof of $\Z$. It's a hacky and
+silly approach, but it works. Let's come up with a proof of $\Z \to \Z$
+
+\begin{proof}
+    Let's split on the $\implies$ symbol
+
+    \begin{equation}
+        f : \Z \to \Z \\
+    \end{equation}
+
+    \begin{alignedmath}
+        a : \Z \\
+        \hrulefill \\
+        \Z \\
+    \end{alignedmath}
+
+\end{proof}
+
+The proof $a$ is a perfectly valid proof of $\Z$. Our function $f$ could
+therefore be designed as such:
+
+\begin{alignedmath}
+    f : \Z \to \Z \\
+    \eva{f}{x} = x \\
+\end{alignedmath}
+
+Well, that's not a very interesting proof and/or function. Although, I have
+hopefully established the rather cool fact that proofs and functions are the
+same concept.
+
+\ss{Functions with multiple arguments}
+
+Let's consider a silly function:
+
+\begin{alignedmath}
+    \label{xplusy}
+    f : \mvec{\Z,\Z} \to \Z \\
+    \eva{f}{x, y} = x + y
+\end{alignedmath}
+
+\xtb{What's that $\mvec{\Z,\Z}$ thing?}
+
+It's just a pair of integers (i.e. proofs of $\Z$).
+
+Our function $f$ in this example takes two numbers and adds them together. It's
+not super interesting.
+
+Let's look at what happens if we try to prove this thing.
+
+\begin{proof}
+    \begin{alignedmath}
+        \mvec{a, b} : \mvec{\Z,\Z} \\
+        a + b : \Z \\
+        \hrulefill \\
+        \Z \\
+    \end{alignedmath}
+\end{proof}
+
+So, how do we do computations? I'll give you some exercises here. Don't worry,
+they aren't very hard, and the answers are in one of the appendices if you get
+stuck. I can't remember which appendix, though. Look at the table of contents.
+
+\begin{ExerciseList}
+    \Exercise{Given the definition of $f$ from \cref{xplusy}, what is the value
+      of $\eva{f}{20,500}$}
+    \Answer{$520$}
+    \Exercise{What is the value of $\eva{f}{114,555}$}
+    \Answer{$669$}
+    \Exercise{What is the value of $\eva{f}{433,295}$}
+    \Answer{$728$}
+\end{ExerciseList}
+
+\ss{Currying}
+
+Let's make a slightly more complicated version of $f$:
+
+\begin{alignedmath}
+    f : \mvec{\Z,\Z,\Z,\Z} \to \Z \\
+    \eva{f}{w, x, y, z} = w + x + y + z
+\end{alignedmath}
+
+So, what happens when we do $\eva{f}{3}$. That is, \xti{not} providing all of
+the required proofs of $\Z$?
+
+\begin{equation}
+    \eva{f}{3, x, y, z} = 3 + x + y + z
+\end{equation}
+
+Well, now we have another function. Instead of taking four proofs of $\Z$, it
+now only takes three proofs of $\Z$.
+
+\begin{alignedmath}
+    f : \mvec{\Z,\Z,\Z,\Z} \to \Z \\
+    \eva{f}{3} : \mvec{\Z,\Z,\Z} \to \Z \\
+\end{alignedmath}
+
+One could then argue that $f$ really is a proof like the following:
+
+\begin{alignedmath}
+    f : \Z \to \parens{\mvec{\Z,\Z,\Z} \to \Z} \\
+\end{alignedmath}
+
+Well, let's look at $\eva{f}{3}$
+
+\begin{alignedmath}
+    \eva{f}{3} : \mvec{\Z,\Z,\Z} \to \Z \\
+    \eva{\eva{f}{3}}{x,y,z} = 3 + x + y + z \\
+\end{alignedmath}
+
+What happens when we send $16$ to $\eva{f}{3}$
+
+\begin{alignedmath}
+    \eva{\eva{f}{3}}{16} : \mvec{\Z,\Z} \to \Z \\
+    \eva{\eva{\eva{f}{3}}{16}}{y,z} = 3 + 16 + y + z \\
+\end{alignedmath}
+
+Well, now we can argue that $f$ really is
+
+\begin{equation}
+    f : \Z \to \parens{\Z \to \parens{\mvec{\Z,\Z} \to \Z}}
+\end{equation}
+
+You see where I'm going with this. $f$, in all it's glory, is
+
+\begin{equation}
+    f : \Z \to \parens{\Z \to \parens{\Z \to \parens{\Z \to \Z}}}
+\end{equation}
+
+Now, we mathematicians don't like to write those parentheses over and over
+again. Especially when they always group to the right like that
+
+\begin{equation}
+    f : \Z \to \Z \to \Z \to \Z \to \Z
+\end{equation}
+
+$f$ is really a function that takes \xtb{one} proof of $\Z$, and sends back a
+function that takes \xtb{one} proof of $\Z$, and sends back \dots
+
+You get the point. Note that these parentheses are
+\term{right-associative}. That is, they group to the right. So, it's
+
+\begin{equation}
+    f : \Z \to \parens{\Z \to \parens{\Z \to \parens{\Z \to \Z}}}
+\end{equation}
+
+not
+
+\begin{equation}
+    f : \parens{\parens{\parens{\Z \to \Z} \to \Z} \to \Z} \to Z
+\end{equation}
+
+This is called \term{Currying}, named after the late American mathematician
+Haskell Curry. Curry also came up with the idea that proofs and functions are
+the same thing. That idea is called the \term{Curry-Howard
+  correspondence}. (Another guy named Howard came up with the idea around the
+same time.) The programming language Haskell is named after Haskell Curry.
+
+Cool. Your head is probably spinning again. Go take another walk, get some
+coffee, et cetera. Come back in an hour. I'll do the thing with the page break
+again.
