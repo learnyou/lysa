@@ -1,4 +1,4 @@
-\s{Functions}
+\section{Functions}
 
 Okay, so what's a function?
 
@@ -34,7 +34,9 @@ What's the type of $f$?
     \eva{f}{x} = x + 3 \\
 \end{alignedmath}
 
-I think the $\N \to \N$ part is pretty self-explanatory: it takes something of
+Remember that $\N = \mset{0,1,2,3,4,5,6,\dots}$.
+
+I think the $\N \to \N$ part is pretty self-explanatory: $f$ takes something of
 type $\N$, and spits back out something of type $\N$.
 
 So, what happens when we feed $80$ to $f$?
@@ -48,10 +50,16 @@ Yay! This math stuff isn't hard!
 
 \ss{Comprehensions}
 
-If you really wanted to be picky, you could say that $f$ has the type:
+Think about this for a second: $f$ takes a number and adds 3 to it. What's the
+lowest value in $\N$? Well, it's $0$. If you take $0$, and add $3$ to it, you
+get $3$. You can't add $3$ to a natural number and get something less than
+$3$.
+
+You would therefore be more correct in saying that $f$'s output type is the set
+of numbers greater than (or equal to) $3$.
 
 \begin{alignedmath}
-    f : \N \to \comprehension{z : \N}{z > 2} \\
+    f : \N \to \comprehension{z : \N}{z \ge 3} \\
     \eva{f}{x} = x + 3 \\
 \end{alignedmath}
 
@@ -68,13 +76,10 @@ Read it in two parts: before the pipe, and after the pipe.
     this case, it's just a number $z$.
 
   \item After the pipe has a list of conditions that must hold true. In this
-    case, $z$ must be greater than $2$.
+    case, $z$ must be greater than or equal to $3$.
 \end{itemize}
 
 \answergraph{comprehensions3.png}
-
-The reason is, there is no natural number $a$ such that $\eva{f}{a} \leq
-2$. Therefore, the output type of $f$ is the numbers greater than $2$.
 
 Let's look through some more comprehensions.
 
@@ -129,8 +134,14 @@ Let's look through some more comprehensions.
        F = \mvec{1,1,2,3,5,8,13,21,34,55,89, \dots}
    \end{equation}
 
-   Because there is duplication and a particular order, you use round
-   parentheses to list the Fibonacci numbers.
+   \xtb{Why did you use round parentheses instead of curly braces?}
+
+   The Fibonacci numbers have repetition, and the order in which you list them
+   does matter. To represent this, you use round parentheses when listing them
+   instead of curly braces.\footnote{The mathematical difference is that the
+     Fibonacci numbers are a \term{list}, while the other types we've
+     encountered are all \term{sets}. I'll get to these two in depth later on in
+     the book.}
 
    The $n$th Fibonacci number is the last two Fibonacci numbers added
    together. $89 = 55 + 34$. $55 = 34 + 21$. Et cetera.
@@ -147,6 +158,99 @@ Let's look through some more comprehensions.
 
    This is an example of \term{recursion}: the definition of $f$ uses itself in
    its definition.
+\end{example}
+
+\begin{example}
+    Natural numbers can be divided into two categories:
+
+    \begin{description}
+      \item[Composite numbers] can be divided by another natural number to get a
+        third natural number. For instance, $15$ can be divided by $3$ to get
+        $5$.
+      \item[Prime numbers] can only be divided by $1$ or themselves. For
+        instance, there isn't any natural number that you can divide into $7$,
+        and get another natural number
+
+        $1$ can trivially divide every number. Likewise, every number can
+        trivially divide itself. Mathematicians ignore those two divisors,
+        because they occur in every number and thus are not very interesting.
+    \end{description}
+
+    Let's construct the type of composite numbers:
+
+    \begin{equation}
+        \label{eq:composite}
+        \scomp{x \cdot y : \N}{
+          \parens{x : \N}
+          \land
+          \parens{y : \N}
+          \land
+          \parens{x > 1}
+          \land
+          \parens{y > 1}
+        }
+    \end{equation}
+
+    Let's think about this:
+
+    If you hold $x = 2$ (the minimum value of $x$), let's see what the output
+    values are:
+
+    \begin{rclmath}
+        \scomp{2 \cdot y : \N}{
+          \parens{2 : \N}
+          \land
+          \parens{y : \N}
+          \land
+          \parens{2 > 1}
+          \land
+          \parens{y > 1}
+        } & = & \\
+        \scomp{2 \cdot y : \N}{
+          \parens{y : \N}
+          \land
+          \parens{y > 1}
+        } & = &
+        \mset{2 \cdot 2, 2 \cdot 3, 2 \cdot 4, 2 \cdot 5, 2 \cdot 6, \dots} \\
+        & = & \mset{4, 6, 8, 10, 12,  \dots} \\
+    \end{rclmath}
+
+    That is, all of the multiples of $2$ greater than $2$. Again, $2$ trivially
+    divides $2$, so I excluded it (this is why $x$ has to be greater than $1$,
+    because otherwise $2$ would be in the list of multiples of $2$).
+
+    Now, let's hold $x = 3$
+
+    \begin{equation}
+        \mset{6, 9, 12, 15, 18, 21, 24, \dots}
+    \end{equation}
+
+    With $x = 4$
+
+    \begin{equation}
+        \mset{4, 8, 12, 16, 20, 24, 28, \dots}
+    \end{equation}
+
+    You get the point. If you follow through with this (infinitely), you would
+    eventually list every single composite number.
+
+    \xtb{What about $2$? Isn't $2$ a composite number?}
+
+    Nope! $2$ can only be divided by $1$ or $2$, which makes it prime.
+
+    \xtb{What about dividing by $0$?}
+
+    You aren't allowed to divide by $0$.
+
+    \xtb{Why}?
+
+    Because allowing people to divide by $0$ would poke holes into our logic.
+
+    \xtb{But if you take a cookie, and break it into $0$ parts, then you get
+      $0$, right?}
+
+    Jesus, with the questions\dots Will you give it a rest? I'll explain later,
+    I promise.
 \end{example}
 
 I'm going to give you some exercises. Please do them. They'll really help you
@@ -247,20 +351,14 @@ with the material.
       Is $n$ multiplied by all of the numbers less than $n$. Write a recursive
       function to get the factorial of any natural number.
 
-      Hints:
-
-      \begin{itemize}
-        \item $0! = 1$.
-        \item To multiply two variables together, say $a$ and $b$, just put them
-          next to each other: $ab$
-      \end{itemize}
+      Hint: $0! = 1$.
     }
     \Answer{
       Here's what I went with:
 
       \begin{alignedmath}
           0! = 1 \\
-          n! = n\parens{\parens{n - 1}!} \\
+          n! = n \cdot \parens{\parens{n - 1}!} \\
       \end{alignedmath}
     }
 
