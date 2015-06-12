@@ -97,12 +97,32 @@ Its type is $\Type$. $\Type$ is not a very interesting type.
 I'm going to give you some exercises. Please do them. They'll really help you
 with the material.
 
-\begin{ExerciseList}
+\begin{ExcList}
     \Exercise{Using that weird type bracket notation, construct the type of all
       numbers greater than $80$, and but less than $200$.
 
       Hint: to specify a range, use syntax like this: $x < y < z$.}
     \Answer{\(\mset{x : \N \mid 80 < x < 200 }\)}
+
+    \Exercise{Construct the type of all numbers less than or equal to $30$, and
+      but greater than $10$.}
+    \Answer{\(\mset{x : \N \mid 10 < x \le 30 }\)}
+
+    \Exercise{Be pedantic. What is the type of
+
+      \begin{equation}
+          \fn{x}{x - 10}
+      \end{equation}
+    }
+    \Answer{\(\mset{x : \N \mid x \ge 10}\)}
+
+    \Exercise{Be pedantic. What is the type of
+
+      \begin{equation}
+          \fn{x}{14 - x}
+      \end{equation}
+    }
+    \Answer{\(\mset{x : \N \mid x \le 14}\)}
 
     \Exercise{
       \label{xstotype}
@@ -117,4 +137,11 @@ with the material.
     \Exercise{Figure out the type of the function you constructed in
       \cref{xstotype}.}
     \Answer{$\mlist{\N, \N} \to \Type$}
-\end{ExerciseList}
+
+    \Exercise{What would be the type of
+
+      \begin{equation}
+          \fn{x,y}{x - y}
+      \end{equation}
+    }
+\end{ExcList}
