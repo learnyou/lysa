@@ -102,9 +102,9 @@
 % \newcommand{\anauthor}[2]
 % {#1 {\href{mailto:#2}<{\tt #2}>} \\
 % }
-\newcommand{\aneditor}[2]{#1 {\href{mailto:#2}{<{#2}>}} \\}
+\newcommand{\aneditor}[2]{#1 {\href{mailto:#2}{\code{<}\code{#2}\code{>}}} \\}
 \let\anauthor\aneditor
-\newcommand{\btrurl}[1]{{\footnotesize\url{#1}}}
+\newcommand{\btrurl}[1]{{\footnotesize\code{<}\url{#1}\code{>}}}
 \newcommand{\link}[2]{#2 (\btrurl{#1})}
 
 % Section & Chapter he
@@ -379,6 +379,7 @@ you are reading is an extremely rough and unfinished draft.}
 \newpage
 
 \input{1-introduction.ltx}
+\input{2-functions.ltx}
 \input{3-logic.ltx}
 \input{3-sets.ltx}
 \input{4-more-sets.ltx}
