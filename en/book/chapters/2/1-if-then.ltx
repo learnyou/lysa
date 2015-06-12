@@ -1,92 +1,36 @@
 \s{If A then B; A, therefore B.}
 
-This is pretty simple notation, actually.
+Hi, everyone! This is the first real bit of math in this book! Hold on to your
+bootstraps!
 
 \begin{equation}
     \label{eq:aimpliesb}
     A \implies B
 \end{equation}
 
-The above is pretty intuitive: if $A$ is true, then $B$ is true.
+Mathematicians aren't great at inventing intuitive notation. This one is pretty
+good though: if $A$, then $B$
 
 The $\implies$ symbol is usually pronounced ``implies''. So, $A$ implies $B$.
 Note that this \xtb{does not} mean that $B$ implies $A$.
 
-Now, actually, you shouldn't say true or false. Let's try that again
-
-\begin{equation}
-    \label{eq:aimpliesb}
-    A \implies B
-\end{equation}
-
-This proof is a guy sitting around saying ``if you have a proof of $A$, I'll
-give you back a proof of $B$''. 
-
-\ss{Reductio ad absurdum}
-
-This is your first instance of mathematicians using fancy Latin-speak to make
-you feel stupid. \term{Reductio ad absurdum} is Latin for ``reduction to the
-absurd''.
-
-It's an argument where you can disprove $A$ by proving that $A$ implies
-something unprovable.
-
-In math, there's a value, which stands for `unprovable'. I mentioned it a few
-paragraphs ago. Do you remember what it is?
-
-It's $\bot$. If you can prove $\bot$, which is unprovable, that's absurd, and
-your argument is obviously wrong!
-
-So, if you want to prove that a proposition is unprovable, the formal way is to
-prove that it implies $\bot$.
-
-That is, for any $A$
-
-\begin{equation}
-   \lnot A \implies \parens{A \implies \bot}
-\end{equation}
-
-The expression $\lnot A$ should be read ``not A'', or ``A is unprovable''. That
-is, a proof of $\lnot A$ is a proof that $A \implies \bot$. $A \implies \bot$ is
-obviously not provable, therefore $\lnot A$ is not provable.
-
-\begin{asidebox}
-    The rules we've learned so far. Also some rules that we haven't learned
-    formally, but should be reasonably obvious.
-
-    \begin{enumerate}
-      \item For any proposition $A$, $A \implies A$. This says that ``given a
-        proposition, if you have a proof of it, you have a proof of it''. It's
-        not all that interesting.
-      \item For any propositions $A$, $B$, and $C$, if $A \implies B$ and
-        $B \implies C$, then $A \implies C$.
-
-        I can put this into fancy parentheses for you:
-
-        \begin{equation}
-            \parens{A \implies B}
-            \implies
-            \parens{
-                \parens{B \implies C}
-                \implies
-                \parens{A \implies C}
-            }
-        \end{equation}
-
-        This should be read ``A proof that $A \implies B$ implies that a proof
-        of $B \implies C$ implies that $A \implies C$.
-  \item For all $A$, $\bot \implies A$.
-  \item Therefore, for some $A$, a proof that $A \implies \bot$, means that $A$
-    implies everything. This is called ``reductio ad absurdum''. $\lnot A$ is
-    equivalent to saying $A \implies \bot$.
-\end{enumerate}
-\end{asidebox}
-
-\ss{The contraposition}
+\xtb{It is vitally important that you do not think of these propositions as
+  being true or false}. Instead, they are `provable' and `not provable'. 
 
 A common mistake is to say ``Well, if $A$ happens, then $B$ will happen. If I
 know that $B$ happened, then I can reasonably conclude that $A$ happened at some
 point in the past.''
+
+This is essentially saying
+
+\begin{alignmath}{rl}
+               & A \implies B \\
+               & B \\
+    \therefore & A \\
+\end{alignmath}
+    
+The symbol $\therefore$ is short for ``therefore''. I don't have a clever way to
+remember it. You'll likely get used to it, though.
 
 Let's go through an example to show why this doesn't quite work.
 
