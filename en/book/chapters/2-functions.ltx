@@ -1,10 +1,12 @@
-\ch{Functions and types}
+\chapter{Functions and types}
 \label{ch:functions}
 
 There are two basic tools in abstract math. These tools are general enough to
 allow you to express any idea.\footnote{You can actually prove using math that
   these tools allow expression of any idea. It's called \term{Turing
     completeness}.} These tools are \term{functions} and \term{types}.
+
+\s{Types}
 
 Types are easier to understand, so I'll start with them. Every mathematical
 object has a type. $3$, for instance, is a number. In math, it's useful to think
@@ -17,22 +19,33 @@ every time, they'll instead write:
     x : T
 \end{equation}
 
-So, $3$ is a number. So, how do we express that? This is actually a somewhat
-tricky question, just because there are a whole mess of different types of
-numbers.
+So, $3$ is a number. How do you express this?
 
-There's ``natural numbers'', which are $\mset{0, 1, 2, 3, 4, 5, \dots}$. There's
-the ``integers'', which are $\mset {\dots, -2, -1, 0, 1, 2, \dots}$. Then,
-there's the ``real numbers'', which are way too hard to explain. Then there's
-``imaginary numbers'', which are the opposite of real numbers. The list goes on
-and on. I'll explain what all of these number types are later.
+This is actually a somewhat tricky question, just because there are a whole mess
+of different types of numbers.
 
+\begin{itemize}
+  \item There's ``natural numbers'', which are $\mset{0, 1, 2, 3, 4, 5,
+      \dots}$.
+  \item There's the ``integers'', which are
+    \(\mset {\dots, -2, -1, 0, 1, 2, \dots}\).
+  \item Then, there's the ``real numbers'', which are way too hard to
+    explain.
+  \item There's ``imaginary numbers'', which are the opposite of real
+    numbers.
+\end{itemize}
+
+The list goes on and on. I'll explain what all of these number types are later.
 For now, we'll stick to the simplest type of numbers: natural numbers. The
-symbol for natural numbers is $\N$. So, we can write
+symbol for natural numbers is $\N$.
 
 \begin{equation}
     3 : \N
 \end{equation}
+
+Types even have a type. The type is called $\Type$.
+
+\s{Functions}
 
 Okay, so what's a function?
 
@@ -47,9 +60,7 @@ Let's make a function that takes some number, and adds 3 to it.
     \fn{x}{x + 3}
 \end{equation}
 
-That is to be read ``$x$ to $x$ plus $3$''.
-
-Cool, let's give this a name
+Cool, let's give this function a name
 
 \begin{equation}
     f = \fn{x}{x + 3}
@@ -70,59 +81,148 @@ What's the type of $f$?
     \eva{f}{x} = x + 3 \\
 \end{alignedmath}
 
+I think the $\N \to \N$ part is pretty self-explanatory: it takes something of
+type $\N$, and spits back out something of type $\N$.
+
+So, what happens when we feed $80$ to $f$?
+
+\begin{rclmath}
+    \eva{f}{80} & = & 80 + 3 \\
+                & = & 83 \\
+\end{rclmath}
+
+Yay! This math stuff isn't hard!
+
+\ss{Comprehensions}
+
 If you really wanted to be picky, you could say that $f$ has the type:
 
 \begin{alignedmath}
-    f : \N \to \mset{ z : \N \,\mid\, z > 2 } \\
+    f : \N \to \comprehension{z : \N}{z > 2} \\
     \eva{f}{x} = x + 3 \\
 \end{alignedmath}
 
-Okay, what the hell is that curly brace nonsense?
+\xtb{What the hell is that curly brace nonsense?}
+
+It's called a \term{comprehension}.
+
+\answergraph{comprehensions.png}
 
 Read it in two parts: before the pipe, and after the pipe.
 
-Before the pipe describes what every item of the type looks like. In this case,
-it's just a number $z$.
+\begin{itemize}
+  \item Before the pipe describes what every item of the type looks like. In
+    this case, it's just a number $z$.
 
-After the pipe has a list of conditions that must hold true. In this case, $z$
-must be greater than $2$.
+  \item After the pipe has a list of conditions that must hold true. In this
+    case, $z$ must be greater than $2$.
+\end{itemize}
+
+\answergraph{comprehensions3.png}
 
 The reason is, there is no natural number $a$ such that $\eva{f}{a} \leq
 2$. Therefore, the output type of $f$ is the numbers greater than $2$.
 
-\xtb{What's the type of the expression $\N \implies \N$?}
+Let's look through some more comprehensions.
 
-Its type is $\Type$. $\Type$ is not a very interesting type.
+\begin{example}
+    The type of all natural numbers greater than $60$, but less than $70$:
+
+    \begin{equation}
+        \comprehension{x : \N}{60 < x < 70}
+    \end{equation}
+
+    Alternatively, you can use the logical-and operator:
+
+    \begin{equation}
+        \comprehension{x : \N}{\parens{60 < x} \land \parens{x < 70}}
+    \end{equation}
+
+    That should be read as ``the type of all numbers $x$ such that $60$ is less
+    than $x$ and $x$ is less than $70$''.
+\end{example}
+
+\begin{example}
+    A function that takes some number $x$, and constructs the type of all
+    natural numbers less than $x$
+
+    \begin{alignedmath}
+        \fn{x}{\comprehension{y : \N}{y < x}}
+    \end{alignedmath}
+\end{example}
+
+\begin{example}
+    The type of all natural numbers that are a multiple of two:
+
+    \begin{equation}
+        \comprehension{2x : \N}{x : \N}
+    \end{equation}
+
+    This is a bit odd. In this case, it's easier to read the stuff after the
+    pipe first:
+
+    \begin{equation}
+        x : \N
+    \end{equation}
+
+    So, for every number $x$, we're going to multiply it by $2$. Therefore,
+    there won't be any numbers in the result that aren't multiples of $2$. Yay!
+\end{example}
+
+\begin{example}
+   The Fibonacci numbers are the numbers 
+
+   \begin{equation}
+       F = \mvec{1,1,2,3,5,8,13,21,34,55,89, \dots}
+   \end{equation}
+
+   Because there is duplication and a particular order, you use round
+   parentheses to list the Fibonacci numbers.
+
+   The $n$th Fibonacci number is the last two Fibonacci numbers added
+   together. $89 = 55 + 34$. $55 = 34 + 21$. Et cetera.
+
+   This is a function that gives the $n$th Fibonacci number:
+
+   \begin{alignedmath}
+       \eva{f}{0} = 1 \\
+       \eva{f}{1} = 1 \\
+       \eva{f}{n} = \eva{f}{n - 1} + \eva{f}{n - 2} \\
+   \end{alignedmath}
+
+   When indexing items, you always start at $0$. It's just a thing.
+
+   This is an example of \term{recursion}: the definition of $f$ uses itself in
+   its definition.
+\end{example}
 
 I'm going to give you some exercises. Please do them. They'll really help you
 with the material.
 
-\begin{ExcList}
+\begin{ExerciseList}
     \Exercise{Using that weird type bracket notation, construct the type of all
-      numbers greater than $80$, and but less than $200$.
-
-      Hint: to specify a range, use syntax like this: $x < y < z$.}
-    \Answer{\(\mset{x : \N \mid 80 < x < 200 }\)}
+      numbers greater than $80$, and less than $200$.}
+    \Answer{\(\comprehension{x : \N}{80 < x < 200 }\)}
 
     \Exercise{Construct the type of all numbers less than or equal to $30$, and
-      but greater than $10$.}
-    \Answer{\(\mset{x : \N \mid 10 < x \le 30 }\)}
+      greater than $10$.}
+    \Answer{\(\comprehension{x : \N}{10 < x \le 30 }\)}
 
-    \Exercise{Be pedantic. What is the type of
+    \Exercise{Be picky. What is the type of
 
       \begin{equation}
           \fn{x}{x - 10}
       \end{equation}
     }
-    \Answer{\(\mset{x : \N \mid x \ge 10}\)}
+    \Answer{\(\comprehension{x : \N}{x \ge 10}\)}
 
-    \Exercise{Be pedantic. What is the type of
+    \Exercise{Be picky. What is the type of
 
       \begin{equation}
           \fn{x}{14 - x}
       \end{equation}
     }
-    \Answer{\(\mset{x : \N \mid x \le 14}\)}
+    \Answer{\(\comprehension{x : \N}{x \le 14}\)}
 
     \Exercise{
       \label{xstotype}
@@ -132,16 +232,85 @@ with the material.
 
       Hint: to have multiple values sent to a function, just add commas: $\fn{x,
       y}{x + y}$}
-    \Answer{\(\fn{x, y}{\mset{a : \N \mid x < a < y }}\)}
+    \Answer{\(\fn{x, y}{\comprehension{a : \N}{x < a < y }}\)}
 
     \Exercise{Figure out the type of the function you constructed in
       \cref{xstotype}.}
     \Answer{$\mlist{\N, \N} \to \Type$}
 
-    \Exercise{What would be the type of
+    \Exercise{Be picky. What would be the type of
 
       \begin{equation}
           \fn{x,y}{x - y}
       \end{equation}
     }
-\end{ExcList}
+    \Answer{There are a number of acceptable answers here. The one I originally
+        wrote is
+
+        \begin{equation}
+            \comprehension{\mvec{x,y} : \mvec{\N, \N}}{x \ge y} \to \N
+        \end{equation}
+
+        This would also work:
+
+        \begin{equation}
+            \comprehension{\mvec{x : \N, y : \N}}{x \ge y} \to \N
+        \end{equation}
+
+        Or maybe this:
+        
+        \begin{equation}
+            \mvec{x : \N, \comprehension{y : \N}{x \ge y}} \to \N
+        \end{equation}
+
+        The important thing is that you recognized that $x \ge y$.
+    }
+
+    \Exercise{Using this definition of the Fibonacci numbers:
+        \begin{alignedmath}
+            \eva{f}{0} = 1 \\
+            \eva{f}{1} = 1 \\
+            \eva{f}{n} = \eva{f}{n - 1} + \eva{f}{n - 2} \\
+        \end{alignedmath}
+
+        Construct the type of the Fibonacci numbers.
+    }
+    \Answer{The answer I chose is
+
+        \begin{equation}
+            \lcomp{\eva{f}{x} : \N}{x : \N}
+        \end{equation}
+
+        Remember, because order does matter, and repeated entries are counted
+        separately, you use the round parentheses.
+    }
+
+    \Exercise{The factorial of a number $n$, written
+
+      \begin{equation}
+          n!
+      \end{equation}
+
+      Is $n$ multiplied by all of the numbers less than $n$. Write a recursive
+      function to get the factorial of any natural number.
+
+      Hints:
+
+      \begin{itemize}
+        \item $0! = 1$.
+        \item To multiply two variables together, say $a$ and $b$, just put them
+          next to each other: $ab$
+      \end{itemize}
+    }
+    \Answer{
+      Here's what I went with:
+
+      \begin{alignedmath}
+          0! = 1 \\
+          n! = n\parens{\parens{n - 1}!} \\
+      \end{alignedmath}
+    }
+
+    \Exercise{Construct the output type of the factorial function.}
+    \Answer{$\scomp{n! : \N}{n : \N}$}
+\end{ExerciseList}
