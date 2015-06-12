@@ -45,7 +45,7 @@
 % Comment out the next two lines if you are going to print the book.
 % \usepackage[sfdefault,scaled=.85]{FiraSans}
 % \usepackage{newtxsf}
-\usepackage{fourier}
+\usepackage[adobe-utopia]{mathdesign}
 \usepackage[scaled]{beramono}
 \usepackage[T1]{fontenc}
 
@@ -151,7 +151,7 @@
 \newcommand{\semicolon}{;\;}
 \newcommand{\mlist}[1]{\left(\,#1\,\right)}
 \newcommand{\sfall}{\semicolon\forall}
-\newcommand{\ld}[1]{\lambda\mlist{#1} \to}
+\newcommand{\ld}[1]{\lambda\mlist{#1}.\;}
 \newcommand{\evalbf}[2]{\evalat{\mathbf{#1}}{#2}}
 \newcommand{\evalrm}[2]{\evalat{\mathrm{#1}}{#2}}
 \newcommand{\domain}{\evalbf{dom}}
@@ -243,7 +243,7 @@
 \newcommand{\Qexists}{\stackrel{?}{\exists}}
 \newcommand{\nilnm}{$\nil$}
 \newcommand{\nm}[1]{${#1}$}
-\newcommand{\fn}[2]{\ld{#1} {#2}}
+\newcommand{\fn}[2]{\mlist{#1} \Rightarrow #2}
 \let\n\eta
 \newcommand{\notexists}{\centernot\exists}
 \newcommand{\amb}{\mathscr{A}}
@@ -304,6 +304,7 @@
   {\end{alignmath}}
 \newcommand{\godel}{G\"odel}
 \newcommand{\nmtext}[1]{\nm{\text{#1}}}
+\newcommand{\Type}{\mathbf{Type}}
 
 % ASIDE BOX, stolen from https://github.com/jambonrose/latex-code-example/blob/master/0_preamble.tex
 % 

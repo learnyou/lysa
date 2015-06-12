@@ -1,0 +1,120 @@
+\ch{Functions and types}
+\label{ch:functions}
+
+There are two basic tools in abstract math. These tools are general enough to
+allow you to express any idea.\footnote{You can actually prove using math that
+  these tools allow expression of any idea. It's called \term{Turing
+    completeness}.} These tools are \term{functions} and \term{types}.
+
+Types are easier to understand, so I'll start with them. Every mathematical
+object has a type. $3$, for instance, is a number. In math, it's useful to think
+``what type of thing is this?''. That's all a type is.
+
+Mathematicians love to be lazy. Instead of writing out ``$x$ is of type $T$''
+every time, they'll instead write:
+
+\begin{equation}
+    x : T
+\end{equation}
+
+So, $3$ is a number. So, how do we express that? This is actually a somewhat
+tricky question, just because there are a whole mess of different types of
+numbers.
+
+There's ``natural numbers'', which are $\mset{0, 1, 2, 3, 4, 5, \dots}$. There's
+the ``integers'', which are $\mset {\dots, -2, -1, 0, 1, 2, \dots}$. Then,
+there's the ``real numbers'', which are way too hard to explain. Then there's
+``imaginary numbers'', which are the opposite of real numbers. The list goes on
+and on. I'll explain what all of these number types are later.
+
+For now, we'll stick to the simplest type of numbers: natural numbers. The
+symbol for natural numbers is $\N$. So, we can write
+
+\begin{equation}
+    3 : \N
+\end{equation}
+
+Okay, so what's a function?
+
+A function is a mathematical construct that takes some input, does something to
+it, and sends back output. Essentially, instead of being some static value that
+isn't very interesting, a function takes something as input, does something to
+it, and spits back some output.
+
+Let's make a function that takes some number, and adds 3 to it.
+
+\begin{equation}
+    \fn{x}{x + 3}
+\end{equation}
+
+That is to be read ``$x$ to $x$ plus $3$''.
+
+Cool, let's give this a name
+
+\begin{equation}
+    f = \fn{x}{x + 3}
+\end{equation}
+
+The much more common notation is this:
+
+\begin{equation}
+    \eva{f}{x} = x + 3
+\end{equation}
+
+That is to be read ``$f$ of $x$ equals $x$ plus $3$''.
+
+What's the type of $f$?
+
+\begin{alignedmath}
+    f : \N \to \N \\
+    \eva{f}{x} = x + 3 \\
+\end{alignedmath}
+
+If you really wanted to be picky, you could say that $f$ has the type:
+
+\begin{alignedmath}
+    f : \N \to \mset{ z : \N \,\mid\, z > 2 } \\
+    \eva{f}{x} = x + 3 \\
+\end{alignedmath}
+
+Okay, what the hell is that curly brace nonsense?
+
+Read it in two parts: before the pipe, and after the pipe.
+
+Before the pipe describes what every item of the type looks like. In this case,
+it's just a number $z$.
+
+After the pipe has a list of conditions that must hold true. In this case, $z$
+must be greater than $2$.
+
+The reason is, there is no natural number $a$ such that $\eva{f}{a} \leq
+2$. Therefore, the output type of $f$ is the numbers greater than $2$.
+
+\xtb{What's the type of the expression $\N \implies \N$?}
+
+Its type is $\Type$. $\Type$ is not a very interesting type.
+
+I'm going to give you some exercises. Please do them. They'll really help you
+with the material.
+
+\begin{ExerciseList}
+    \Exercise{Using that weird type bracket notation, construct the type of all
+      numbers greater than $80$, and but less than $200$.
+
+      Hint: to specify a range, use syntax like this: $x < y < z$.}
+    \Answer{\(\mset{x : \N \mid 80 < x < 200 }\)}
+
+    \Exercise{
+      \label{xstotype}
+
+      Construct a function that takes two numbers $x$ and $y$, and uses
+      them to construct the type of numbers greater than $x$ but less than $y$.
+
+      Hint: to have multiple values sent to a function, just add commas: $\fn{x,
+      y}{x + y}$}
+    \Answer{\(\fn{x, y}{\mset{a : \N \mid x < a < y }}\)}
+
+    \Exercise{Figure out the type of the function you constructed in
+      \cref{xstotype}.}
+    \Answer{$\mlist{\N, \N} \to \Type$}
+\end{ExerciseList}
