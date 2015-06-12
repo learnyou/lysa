@@ -59,8 +59,10 @@
 \Crefname{subsection}{\S}{\S}
 \Crefname{subsubsection}{\S}{\S}
 \Crefname{paragraph}{\S}{\S}
-\crefname{Exercise}{ex.}{ex.}
-\Crefname{Exercise}{Ex.}{Ex.}
+\crefname{Exercise}{exercise}{exercise}
+\Crefname{Exercise}{Exercise}{Exercise}
+\crefname{example}{example}{example}
+\Crefname{example}{Example}{Example}
 
 \addbibresource{lysa.bib}
 \usepackage{color}
@@ -296,6 +298,8 @@
 \newcommand{\alt}{\stackrel{\mathrm{c}}{>}}
 \newtheorem{theorem}{Theorem}
 \newtheorem{axiom}{Axiom}
+\theoremstyle{definition}
+\newtheorem{example}{Example}
 \newenvironment{textmath}
   {\begin{quote}}
   {\end{quote}}
