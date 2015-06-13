@@ -1,0 +1,165 @@
+\section{Currying and Uncurrying!}
+
+Those exercises were fun, weren't they? I bet not. If you had a lot of trouble
+with them, don't worry. They're purposefully difficult.
+
+My experience is that most textbooks have a ton of pedantic, tedious
+exercises. I try to not do that. The exercises I gave you are difficult, but the
+good kind of difficult.
+
+Anyway, let's move on, hopefully to something a little bit less boring.
+
+\ss{Currying and uncurrying}
+
+Remember $\Z$, the integers? If you don't:
+
+\begin{equation}
+    \Z = \mset{\dots,-5,-4,-3,-2,-1,0,1,2,3,4,5,\dots} \\
+\end{equation}
+
+Consider this function:
+
+\begin{alignedmath}
+    f : \parens{\Z, \Z, \Z} \to \Z \\
+    \eva{f}{a,b,c} = a + b + c
+\end{alignedmath}
+
+What's $\eva{f}{1,2,4}$? Well,
+
+\begin{rclmath}
+    \eva{f}{1,2,4} & = & 1 + 2 + 4 \\
+                   & = & 7 \\
+\end{rclmath}
+
+What happens when you only apply one value to $f$?
+
+\begin{rclmath}
+    \eva{f}{18,b,c} & = & 18 + b + c \\
+\end{rclmath}
+
+I've sort of transformed $f$: instead of being a function that takes three
+integers that adds them together, it's now a function that takes one integer,
+and returns back a function that takes two integers, and adds them to the first
+integer.
+
+That word jumble is confusing. Let me make it symbolic for you:
+
+Previously, $f$ was like this:
+
+\begin{equation}
+    f : \parens{\Z, \Z, \Z} \to \Z
+\end{equation}
+
+However, if you allow only one value to be sent to $f$, then you can think of
+$f$ more like this:
+
+\begin{equation}
+    f : \Z \to \parens{\parens{\Z, \Z} \to \Z}
+\end{equation}
+
+Let's rewrite $f$ with this new definition in mind:
+
+\begin{equation}
+    \eva{f}{a} = \fn{y,z}{a + y + z}
+\end{equation}
+
+This might be a little clearer if I used the non-named function notation.
+
+\begin{equation}
+    f = \fn{a}{\parens{\fn{y,z}{a + y + z}}}
+\end{equation}
+
+By the way, that non-named fun is called $\lambda$ (Greek letter ``lambda'')
+notation. You might sometimes see the notation
+
+\begin{equation}
+    \lambda x \Rightarrow x + 3
+\end{equation}
+
+Personally, I like my notation better.
+
+Well, let's just consider that second inside function.
+
+\begin{equation}
+    \fn{y,z}{a + y + z}
+\end{equation}
+
+(This assumes that $a$ was already defined elsewhere, which it would have been
+if we put it back where it goes).
+
+Let's look at the type of the inside function
+
+\begin{equation}
+    \fn{y,z}{a + y + z} : \mvec{\Z,\Z} \to \Z
+\end{equation}
+
+What if you only send the first value to the inside function?
+
+\begin{equation}
+    \fn{14,z}{a + 14 + z} : \Z \to \Z
+\end{equation}
+
+Well, again, we just transformed the inside function from
+
+\begin{equation}
+   \mvec{\Z,\Z} \to \Z
+\end{equation}
+
+to something like
+
+\begin{equation}
+   \Z \to \parens{\Z \to \Z}
+\end{equation}
+
+Well, now, let's sort of consider the original function, $f$:
+
+$f$'s type is now
+
+\begin{equation}
+   f : \Z \to \parens{\Z \to \parens{\Z \to \Z}}
+\end{equation}
+
+And $f$ is more properly written like this:
+
+\begin{equation}
+    f = \fn{a}{\parens{\fn{b}{\parens{\fn{c}{a + b + c}}}}}
+\end{equation}
+
+This is called \term{Currying}.
+
+\begin{definition}[Currying]
+    \label{def:currying}
+    Taking something with type
+
+    \begin{equation}
+        \mvec{a,b,c,d,e,\dots} \to \beta
+    \end{equation}
+
+    and turning it into something with the type
+
+    \begin{equation}
+        a \to \parens{b \to \parens{c \to \dots}}
+    \end{equation}
+\end{definition}
+
+\term{Uncurrying} is doing exactly the opposite thing
+
+\begin{definition}[Uncurrying]
+    \label{def:uncurrying}
+    Taking something with type
+
+    \begin{equation}
+        a \to \parens{b \to \parens{c \to \dots}}
+    \end{equation}
+
+    and turning it into something with the type
+
+    \begin{equation}
+        \mvec{a,b,c,d,e,\dots} \to \beta
+    \end{equation}
+\end{definition}
+
+I'll give some examples of Currying and Uncurrying here, as well as some
+exercises. After that, though, I'm going to silently curry \& uncurry types
+without explicitly saying that I'm doing so. I do it so often that it's too much
+effort to say so every time. You'll get used to it, I promise.
