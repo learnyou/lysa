@@ -4,33 +4,25 @@ Here's my (pharpend) basic outline for the book. It's extremely rough at this
 point and will probably be gutted and slaughtered in its entirety.
 
 * Chapter 1, Introduction
-* Chapter 2, Boolean Algebra
-* Chapter 3, Sets
-    + Lists and ordered pairs
-    + Sets
-        + ElementOf
-        + ImproperSubset
-        + ProperSubset
-        + Exercises
-    + Operators on Sets
-        + Unary opearators
-        + Binary operators
-        + The set of booleans
-            - Unary ~ operator
-            - Binary V and ^ operators
-            - Binary V and ^ operators
-        + Exercises
-+ The set of natural numbers
-+ The set of integers
-+ The set of real numbers
-
-
-* Chapter 3, Proofs
-    + What are proofs?
-    + Proof-based approach to groups, rings, fields.
-    * Peano axioms
-        + Basically go through Landau's Foundations of Analysis
-
+* Chapter 2, functions and types
+    + Define types
+    + Define functions
+        * Comprehension notation
+        * Domain & codomain
+        * Functions that output types
+        * Functions that output other functions
+        * Currying
+        * Injective functions and surjective functions
+        * Inverting functions
+    + Useful functions
+        * id
+        * (.)
+        * flip
+* Chapter 3, Propositions
+    + Proofs are functions
+    + Types are propositions
+    + The life and times of Haskell Brooks Curry
+        
 * Chapter 4, Special sets
     + Magmas
     + Semigroups
@@ -44,9 +36,6 @@ point and will probably be gutted and slaughtered in its entirety.
     + Homomorphisms
     + Isomorphisms
     + Endomorphisms
-    + Injective functions
-    + Surjective functions
-    + Bijective functions
 
 * Chapter 6, monomials
     + Examples
