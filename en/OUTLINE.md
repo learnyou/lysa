@@ -18,6 +18,7 @@ point and will probably be gutted and slaughtered in its entirety.
         * id
         * (.)
         * flip
+
 * Chapter 3, Propositions
     + Proofs are functions
     + Types are propositions
