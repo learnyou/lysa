@@ -111,9 +111,9 @@ Run these commands in a terminal
     cd lysa
     git submodule init
     git submodule update
-    cd en/book
-    ./lysabuild
+    make
 
+You can then read `lysa-en.pdf`
 
 ## If you've never used Git
 
@@ -124,8 +124,7 @@ have a hard time using it. Despite its poor interface, it is actually a
 very nice program, which is why everybody uses it.
 
 I highly recommend reading [Chapter 2 of the Git book][gitch2] if you
-haven't already, because it covers basic configuration and usage of
-Git. 
+haven't already, because it covers basic configuration and usage of Git.
 
 Ideally, you would read the entire book, but I don't think anyone is
 actually going to do that.
