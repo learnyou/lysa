@@ -153,7 +153,6 @@
 \newcommand{\semicolon}{;\;}
 \newcommand{\mlist}[1]{\left(\,#1\,\right)}
 \newcommand{\sfall}{\semicolon\forall}
-\newcommand{\ld}[1]{\lambda\mlist{#1}.\;}
 \newcommand{\evalbf}[2]{\evalat{\mathbf{#1}}{#2}}
 \newcommand{\evalrm}[2]{\evalat{\mathrm{#1}}{#2}}
 \newcommand{\domain}{\evalbf{dom}}
@@ -170,7 +169,6 @@
 \newenvironment{alignedmath}
   {\begin{alignmath}{l}}
   {\end{alignmath}}
-\newcommand{\lto}{\lambda\to}
 \newcommand{\arc}  {\evalrm{arc}}
 \newcommand{\im}   {\evalrm{im}}
 \newcommand{\preim}{\evalrm{preim}}
@@ -245,7 +243,7 @@
 \newcommand{\Qexists}{\stackrel{?}{\exists}}
 \newcommand{\nilnm}{$\nil$}
 \newcommand{\nm}[1]{${#1}$}
-\newcommand{\fn}[2]{\mlist{#1} \Rightarrow #2}
+\newcommand{\fn}[2]{\lambda #1 .\; #2}
 \let\n\eta
 \newcommand{\notexists}{\centernot\exists}
 \newcommand{\amb}{\mathscr{A}}
@@ -391,8 +389,8 @@ you are reading is an extremely rough and unfinished draft.}
 \input{1-introduction.ltx}
 \input{2-functions-types.ltx}
 \input{3-logic.ltx}
-\input{3-sets.ltx}
-\input{4-more-sets.ltx}
+% \input{3-sets.ltx}
+% \input{4-more-sets.ltx}
  
 % Citations
 % \nocite{lyah}
