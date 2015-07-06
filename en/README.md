@@ -1,8 +1,10 @@
 ### Nightly PDFs -> http://nightly.learnyou.org/lysa
 
 # Learn You Some Algebras for Glorious Good!
-
-This is a fun, easy-to-read, free and open source math textbook.
+ 
+This is a fun, easy-to-read, free and open source math textbook. You can
+read all about it at <http://www.learnyou.org>. (Sorry, I'm too cheap to
+pay for an SSL certificate, so no HTTPS).
 
 #### Links, in alphabetical order
 
