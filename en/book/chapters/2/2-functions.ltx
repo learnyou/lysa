@@ -13,7 +13,34 @@ Let's make a function that takes some number, and adds 3 to it.
     \fn{x}{x + 3}
 \end{equation}
 
-Cool, let's give this function a name
+\xtb{What is that notation?}
+
+The first character is the Greek letter lambda: $\lambda$. It serves the same
+function in Greek as the 'L' does in English. The $\lambda$ serves to indicate
+that we are creating a function, not just an ordinary value.\footnote{Although a
+  lot of people will use $\lambda$ as an ordinary variable name, which gets very
+  confusing. Thankfully, I haven't seen anyone use \xti{both} the $\lambda$ for
+  functions and for a variable name.}
+
+Immediately following the $\lambda$ is a list of inputs to the function. In this
+case, there is only one, which is called $x$. If there was more than one input,
+they would be separated by commas. After the list of variables, there's a
+period.
+
+After the period indicates what the function does to the inputs. This is called,
+uninterestingly enough, the \term{output} of the function.
+
+That's all a function is: input and output. You've likely forgotten what the
+function is, so I'll write it again:
+
+\begin{equation}
+    \fn{x}{x + 3}
+\end{equation}
+
+This function takes some number $x$ as input, and the output is $x + 3$. This is
+not a very interesting function, I know.
+
+Let's give this function a name
 
 \begin{equation}
     f = \fn{x}{x + 3}
@@ -265,22 +292,6 @@ with the material.
       greater than $10$.}
     \Answer{\(\comprehension{x : \N}{10 < x \le 30 }\)}
 
-    \Exercise{Be picky. What is the type of
-
-      \begin{equation}
-          \fn{x}{x - 10}
-      \end{equation}
-    }
-    \Answer{\(\comprehension{x : \N}{x \ge 10}\)}
-
-    \Exercise{Be picky. What is the type of
-
-      \begin{equation}
-          \fn{x}{14 - x}
-      \end{equation}
-    }
-    \Answer{\(\comprehension{x : \N}{x \le 14}\)}
-
     \Exercise{
       \label{xstotype}
 
@@ -294,53 +305,6 @@ with the material.
     \Exercise{Figure out the type of the function you constructed in
       \cref{xstotype}.}
     \Answer{$\mlist{\N, \N} \to \Type$}
-
-    \Exercise{Be picky. What would be the type of
-
-      \begin{equation}
-          \fn{x,y}{x - y}
-      \end{equation}
-    }
-    \Answer{There are a number of acceptable answers here. The one I originally
-        wrote is
-
-        \begin{equation}
-            \comprehension{\mvec{x,y} : \mvec{\N, \N}}{x \ge y} \to \N
-        \end{equation}
-
-        This would also work:
-
-        \begin{equation}
-            \comprehension{\mvec{x : \N, y : \N}}{x \ge y} \to \N
-        \end{equation}
-
-        Or maybe this:
-        
-        \begin{equation}
-            \mvec{x : \N, \comprehension{y : \N}{x \ge y}} \to \N
-        \end{equation}
-
-        The important thing is that you recognized that $x \ge y$.
-    }
-
-    \Exercise{Using this definition of the Fibonacci numbers:
-        \begin{alignedmath}
-            \eva{f}{0} = 1 \\
-            \eva{f}{1} = 1 \\
-            \eva{f}{n} = \eva{f}{n - 1} + \eva{f}{n - 2} \\
-        \end{alignedmath}
-
-        Construct the type of the Fibonacci numbers.
-    }
-    \Answer{The answer I chose is
-
-        \begin{equation}
-            \lcomp{\eva{f}{x} : \N}{x : \N}
-        \end{equation}
-
-        Remember, because order does matter, and repeated entries are counted
-        separately, you use the round parentheses.
-    }
 
     \Exercise{The factorial of a number $n$, written
 
@@ -361,7 +325,4 @@ with the material.
           n! = n \cdot \parens{\parens{n - 1}!} \\
       \end{alignedmath}
     }
-
-    \Exercise{Construct the output type of the factorial function.}
-    \Answer{$\scomp{n! : \N}{n : \N}$}
 \end{ExerciseList}
