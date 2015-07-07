@@ -120,7 +120,7 @@ Let's look through some more comprehensions.
     Alternatively, you can use the logical-and operator:
 
     \begin{equation}
-        \comprehension{x : \N}{\parens{60 < x} \land \parens{x < 70}}
+        \comprehension{x : \N}{\parens{60 < x} \text{ and } \parens{x < 70}}
     \end{equation}
 
     That should be read as ``the type of all numbers $x$ such that $60$ is less
@@ -209,11 +209,11 @@ Let's look through some more comprehensions.
         \label{eq:composite}
         \scomp{x \cdot y : \N}{
           \parens{x : \N}
-          \land
+          \text{ and }
           \parens{y : \N}
-          \land
+          \text{ and }
           \parens{x > 1}
-          \land
+          \text{ and }
           \parens{y > 1}
         }
     \end{equation}
@@ -226,16 +226,16 @@ Let's look through some more comprehensions.
     \begin{rclmath}
         \scomp{2 \cdot y : \N}{
           \parens{2 : \N}
-          \land
+          \text{ and }
           \parens{y : \N}
-          \land
+          \text{ and }
           \parens{2 > 1}
-          \land
+          \text{ and }
           \parens{y > 1}
         } & = & \\
         \scomp{2 \cdot y : \N}{
           \parens{y : \N}
-          \land
+          \text{ and }
           \parens{y > 1}
         } & = &
         \mset{2 \cdot 2, 2 \cdot 3, 2 \cdot 4, 2 \cdot 5, 2 \cdot 6, \dots} \\
