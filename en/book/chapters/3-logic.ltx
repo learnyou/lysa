@@ -1,12 +1,18 @@
-\ch{Intuitionistic logic}
-\label{ch:booleans}
-\label{booleans}
-\label{ch:bools}
-\label{bools}
+\ch{Props, proofs, and providence}
 \label{ch:props}
 \label{props}
 \label{ch:logic}
 \label{logic}
+
+Alright, you survived the first chapter! (Or, I guess, the second
+chapter).
+
+This chapter goes over how mathematicians construct proofs. Even if you are a
+Fields medalist (the math equivalent of the Nobel prize), I suggest you read
+this chapter. My proof calculus (yes, it's really called that, I know\dots) is
+much different than most.
+
+With that out of the way, let's move on!
 
 For a long time, mathematicians would deal with statements that were either
 true or false. This was called \term{classical logic}. 
@@ -16,16 +22,15 @@ non-trivial formal arithmetic system, there will always be statements that are
 true, but cannot be proven. So, if we can't \xtb{prove} something, how do we
 know whether or not it's true?
 
-\begin{asidebox}
-    \godel\ was somewhat of a character. He was extremely paranoid about being
-    poisoned, so he refused to eat anything unless his wife prepared it for him.
-    Towards the end of his life, his wife was hospitalized for an extensive
-    period of time, during which \godel\ refused to eat, and therefore starved
-    to death. \cite{w-godel}
-\end{asidebox}
+\godel\ was somewhat of a character. He was extremely paranoid about being
+poisoned, so he refused to eat anything unless his wife prepared it for him.
+Towards the end of his life, his wife was hospitalized for an extensive period
+of time, during which \godel\ refused to eat, and therefore starved to
+death. \cite{w-godel}
 
-Well, the answer is to not think of things in terms of \term{true} and
-\term{false}, but rather in the terms of \term{provable} and
+Getting back on the topic, with regard to how to decide whether or not
+unprovable things are true, the answer is to not think of things in terms of
+\term{true} and \term{false}, but rather in the terms of \term{provable} and
 \term{unprovable}. Anything that's provable is true. Anything that isn't
 provable, we don't care whether or not it's true, because we can't prove it.
 \nocite{w-godel-incompleteness}

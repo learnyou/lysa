@@ -1,38 +1,86 @@
 \s{If A then B; A, therefore B.}
 
-Hi, everyone! This is the first real bit of math in this book! Hold on to your
-bootstraps!
+Most people, even most mathematicians, construct proofs by listing off steps. I
+sort of do it differently. I'm a huge fan of a concept called the
+\term{Curry-Howard correspondence} (this Curry the same guy from Currying).
+
+Instead of stating your proposition, and listing off steps to prove it, I'm
+instead going to 
+
+\begin{enumerate}
+  \item Express what I'm trying to prove via types.
+  \item Write a function that fits the type of my proof.
+\end{enumerate}
+
+\begin{definition}
+    The Curry-Howard correspondence states that
+
+    \begin{enumerate}
+      \item Types and propositions have identical semantics
+      \item Functions and proofs have identical semantics
+    \end{enumerate}
+\end{definition}
+
+If you have very little math background, that doesn't really seem very
+interesting. However, to people who are used to the normal way of proving stuff,
+that fact mindblowing.
+
+So, let's say we want to prove that some proposition $a$ implies another
+proposition $b$. Well, then, all we have to do is find a function with type
 
 \begin{equation}
-    \label{eq:aimpliesb}
-    A \implies B
+    a \implies b
 \end{equation}
 
-Mathematicians aren't great at inventing intuitive notation. This one is pretty
-good though: if $A$, then $B$
+When dealing with normal non-proofy functions, you can think of the symbol
+$\implies$ as saying ``to''. With proofs, it's more helpful to think of the
+symbol as ``implies''.
 
-The $\implies$ symbol is usually pronounced ``implies''. So, $A$ implies $B$.
-Note that this \xtb{does not} mean that $B$ implies $A$.
+\begin{remark}[Consequence of the Curry-Howard correspondence]
+    A value of type $a$, where $a$ is a proposition, is a proof of the
+    proposition $a$.
+\end{remark}
 
-\xtb{It is vitally important that you do not think of these propositions as
-  being true or false}. Instead, they are `provable' and `not provable'. 
+\begin{remark}[Consequence of the Curry-Howard correspondence]
+    A function with type $a \implies b$ is a proof that $a$ implies $b$.
+
+    That is, if $a$, then $b$.
+\end{remark}
+
+So, how do we disprove something? Well, again, that's not our goal. We instead
+want to prove that something isn't provable. That sounds weird, doesn't it?
+
+A staple of logic is called \term{reductio ad absurdum}. It's Latin for
+``reduction to the absurd''. Given a proposition $A$, if you can prove that $A$
+implies something unprovable, then $A$ is obviously unprovable.
+
+Well, in math, we so happen to have a value that is unprovable. That value is
+bottom: $\bot$.
+
+Following along with this logic, if we were to prove that $A$ is unprovable, it
+would follow that $A$ implies $\bot$. So, how do we say ``$A$ is unprovable''.
+
+\begin{definition}[Unprovability]
+    A proposition $a$ is unprovable if $\lnot a$
+\end{definition}
+
+What if you have a proof of both $\lnot A$ and $A$? Well, that's absurd, so
+let's call that an instance of reductio ad absurdum.
+
+\begin{definition}[Unprovability by reductio ad absurdum]
+    \begin{equation}
+        \lnot A = A \implies \bot
+    \end{equation}
+
+    That is, proving $\lnot A$ is equivalent to proving that $A \implies \bot$.
+\end{definition}
+
+\ss{The big pitfall of propositional logic}
 
 A common mistake is to say ``Well, if $A$ happens, then $B$ will happen. If I
 know that $B$ happened, then I can reasonably conclude that $A$ happened at some
-point in the past.''
-
-This is essentially saying
-
-\begin{alignmath}{rl}
-               & A \implies B \\
-               & B \\
-    \therefore & A \\
-\end{alignmath}
-    
-The symbol $\therefore$ is short for ``therefore''. I don't have a clever way to
-remember it. You'll likely get used to it, though.
-
-Let's go through an example to show why this doesn't quite work.
+point in the past.'' Let's go through an example to show why this doesn't quite
+work.
 
 If someone is decapitated, then they are dead, at least within a few seconds.
 
@@ -52,7 +100,9 @@ a bus; there are endless possibilities. Thus,
     \text{Decapitated} \notimpliedby \text{Dead}
 \end{equation}
 
-However, if someone is \xtb{not} dead, then they obviously weren't
+\ss{The contraposition}
+
+If someone is alive (i.e. \xtb{not} dead), then they obviously weren't
 decapitated. Therefore,
 
 \begin{equation}
@@ -61,176 +111,52 @@ decapitated. Therefore,
 \end{equation}
 
 This is a fundamental rule of logic, called the \term{contraposition} (or,
-marginally more pretentiously, \term{modus tollens}):
+marginally more pretentiously, \term{modus tollens}). We can actually prove it
+fairly easily.
 
-\begin{equation}
-    \label{eq:contraposition}
-    \parens{A \implies B} \implies \parens{\lnot B \implies \lnot A}
-\end{equation}
-
-Remember from before where $\lnot A$ means that $A \implies \bot$. Well, let's
-go through this, substituting $\lnot A$ with $A \implies \bot$.
-
-\begin{equation}
-    \parens{A \implies B}
-    \implies
-    \parens{
-        \parens{B \implies \bot}
-        \implies
-        \parens{A \implies \bot}
-    }
-\end{equation}
-
-Well, if $A \implies B$ and $B \implies \bot$, then, by that property above:
-$A \implies \bot$. This is unprovable, so therefore, if $A \implies B$, and $B$
-is unprovable, then $A$ is also unprovable.
-
-\ss{An example of a proof}
-
-In some cases, such as the decapitation + death example, it's pretty obvious
-that $A$ implies $B$ However, in most cases, it's not obvious. In which case,
-you need to provide a \term{proof}. Now, how do you prove something in math?
-
-It's not all that hard usually. You state what you know, and then you combine
-those facts together.
-
-Let's look through the proof of the \term{transitive property of logic}.
-
-\begin{textmath}
-    For all propositions $A$, $B$, and $C$:
-
+\begin{lemma}[Contraposition]
     \begin{equation}
-        \parens{A \implies B} \implies \parens{\parens{B \implies C} \implies \parens{A \implies C}}
+        \label{eq:contraposition}
+        \parens{A \implies B} \implies \parens{\lnot B \implies \lnot A}
     \end{equation}
-
-    Instead of writing ``for all'', most mathematicians will use the symbol
-    $\forall$. It sort of looks like an $A$, and it's much more convenient to
-    write than typing out ``for all'' every time. The above proposition should
-    now be written 
-
-    \begin{equation}
-        \forall A, B, C
-        \semic
-        \parens{A \implies B}
-        \implies
-        \parens{
-          \parens{B \implies C}
-          \implies
-          \parens{A \implies C}
-        }
-    \end{equation}
-
-    Throughout the book, you will see a block of text begin with \xti{Proof} and
-    end with a white box: \qed
-
-    This is standard mathematical notation. The white box means ``proof
-    completed''. You'll often see the term QED floated around a lot. It's an
-    acronym for quod erat demonstrandum, which means ``end of demonstration'' in
-    Latin. Again, mathematicians love to use fancy Latin phrases to make
-    themselves look smart.
-\end{textmath}
+\end{lemma}
 
 \begin{proof}
-    \begin{equation}
-        \forall A, B, C
-        \semic
-        \parens{A \implies B}
-        \implies
-        \parens{
-          \parens{B \implies C}
-          \implies
-          \parens{A \implies C}
-        }
-    \end{equation}
+    \begin{alignedmath}
+        f: \parens{A \implies B} \implies \parens{\lnot B \implies \lnot A} \\
+        f: \parens{A \implies B} \implies \lnot B \implies \lnot A \\
+    \end{alignedmath}
 
-    For giggles, let's give the proof a name: $X$ We don't know what $X$ is yet,
-    but we know that it's a proof that
-    \(\forall A, B, C \semic \parens{A \implies B} \implies \parens{\parens{B
-        \implies C} \implies \parens{A \implies C}}\)
-
-    To express this, you have the colon ($:$) at your disposal
+    Remember that
 
     \begin{equation}
-        X :
-        \forall A, B, C
-        \semic
-        \parens{A \implies B}
-        \implies
-        \parens{
-          \parens{B \implies C}
-          \implies
-          \parens{A \implies C}
-        }
+        \lnot X = X \implies \bot
     \end{equation}
 
-    Think about this: $\parens{A \implies B} \implies \dots$. This is equivalent
-    to saying ``if I have a proof of $\parens{A \implies B}$, then I can get a
-    proof of \dots''. So, we can therefore give the proof of
-    $\parens{A \implies B}$ an arbitrary name, and use that arbitrary proof of
-    $\parens{A \implies B}$ to prove whatever is in the $\dots$
+    If we make this substitution on the last two types:
 
-    \begin{alignedmath}
-        f : A \implies B \\
-        \hrulefill \\
-        \parens{B \implies C} \implies \parens{A \implies C}
-    \end{alignedmath}
+    \begin{rclmath}
+        \lnot B & \Longrightarrow & B \implies \bot \\
+        \lnot A & \Longrightarrow & A \implies \bot \\
+    \end{rclmath}
 
-    On the stuff below the line, we're trying to prove $\parens{A \implies C}$
-    assuming that somewhere we have a proof that $\parens{B \implies C}$. We're
-    doing the same thing as above essentially. Therefore, we can put
-    $\parens{B \implies C}$ above the line.
-    
-    \begin{alignedmath}
-        f : A \implies B \\
-        g: B \implies C \\
-        \hrulefill \\
-        A \implies C \\
-    \end{alignedmath}
+    Then, the type of $f$ becomes:
 
-    We can do the same thing again:
+    \begin{equation}
+        f : \parens{A \implies B} \implies \parens{B \implies \bot} \implies A \implies \bot \\
+    \end{equation}
 
-    \begin{alignedmath}
-        f : A \implies B \\
-        g : B \implies C \\
-        h : A \\
-        \hrulefill \\
-        C \\
-    \end{alignedmath}
+    Now the proof is as simple as composing the first and second functions:
 
-    $C$ doesn't have any arrows, so it looks like we have to prove $C$. We can't
-    just move it above the line!
+    \begin{rclmath}
+        p \circ \eva{r}{q} & : & A \implies \bot \\
+    \end{rclmath}
 
-    Well, $f$ is sitting there hoping that there's a proof of $A$ laying around
-    so that it can prove $B$.
+    The proof $f$ is now pretty easy
 
-    Oh wait, there is!
-
-    So, we can feed $f$ (a proof that $A \implies B$) our proof of $A$ (which is
-    $h$). How do we express this notion of ``feeding''?
-
-    \begin{alignedmath}
-        f : A \implies B \\
-        g : B \implies C \\
-        h : A \\
-        \eva{f}{h} : B \\
-        \hrulefill \\
-        C \\
-    \end{alignedmath}
-
-    There we go! Now, we have a proof of $B$ at our disposal. We can use it to
-    prove $C$ by feeding our proof of $B$ to the proof that $B \implies C$!
-
-    \begin{alignedmath}
-        f : A \implies B \\
-        g : B \implies C \\
-        h : A \\
-        \eva{f}{h} : B \\
-        \eva{g}{\eva{f}{h}} : C \\
-        \hrulefill \\
-        C \\
-    \end{alignedmath}
-
-    Yay, we have the same thing above the line as below the line! So, we're done!
+    \begin{equation}
+        \eva{f}{p,q} = \eva{r}{q} \circ p
+    \end{equation}
 \end{proof}
 
 Alright, that was pretty hard! I can almost guarantee you didn't understand that
@@ -242,3 +168,52 @@ understand the second time around.
 
 I'm even going to manually insert a page break so you aren't as tempted to keep
 going.
+
+\newpage
+
+\ss{Examples}
+
+Here are some examples of proving stuff!
+
+\begin{example}
+    Prove that
+
+    \begin{equation}
+        A \implies \lnot \parens{\lnot A}
+    \end{equation}
+
+    Substitute $\lnot x \Longrightarrow x \to \bot$.
+
+    \begin{alignedmath}
+        A \implies \lnot \parens{A \to \bot} \\
+        A \implies \parens{\parens{A \implies \bot} \implies \bot} \\
+        A \implies \parens{A \implies \bot} \implies \bot \\
+    \end{alignedmath}
+
+    The proof of this is then
+
+    \begin{equation}
+        \fn{x,f}{\eva{f}{x}}
+    \end{equation}
+\end{example}
+
+\begin{example}
+    Prove that
+
+    \begin{equation}
+        \lnot \parens{\lnot A} \notimplies A
+    \end{equation}
+
+    Rather, I am proving that
+
+    \begin{equation}
+        \lnot \parens{\lnot \parens{\lnot A} \implies A}
+    \end{equation}
+
+    Which is equivalent to 
+
+    \begin{equation}
+        \parens{\parens{\parens{A \implies \bot} \implies \bot} \implies A} \implies \bot
+    \end{equation}
+
+\end{example}
