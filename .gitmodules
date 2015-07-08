@@ -1,0 +1,3 @@
+[submodule "en/tex/latex-solarized"]
+	path = en/tex/latex-solarized
+	url = https://github.com/jez/latex-solarized.git
