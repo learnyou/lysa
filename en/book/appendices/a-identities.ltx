@@ -641,24 +641,24 @@ reference, not for reading.
 \nocite{hs-lambda,hs-alpha,hs-beta,hs-eta,hs-lambda-abs}
 
 \begin{description}
-\item[$\lambda$ abstraction] A way to write a function: $\ld{x,y} x + y$
+\item[$\lambda$ abstraction] A way to write a function: $\fn{x,y} x + y$
 \item[$\alpha$ conversion] Changing the names of the arguments. For instance,
   you can write the above function as
 
-  \[ \ld{a,b} a + b \]
+  \[ \fn{a,b} a + b \]
 
 \item[$\beta$ reduction] Partially calculating a result. For instance
 
-  \[ \ld{2,y} 2 + y \]
+  \[ \fn{2,y} 2 + y \]
 
   Can be $\beta$ reduced to 
 
-  \[ \ld{y} 2 + y \]
+  \[ \fn{y} 2 + y \]
 
 \item[$\eta$ conversion] Removing or adding extraneous free arguments. The last
   function
 
-  \[ \ld{2,y} 2 + y \]
+  \[ \fn{2,y} 2 + y \]
 
   Can be $\eta$ \xti{reduced} to
 
@@ -666,7 +666,7 @@ reference, not for reading.
 
   Which could then be $\eta$ \xti{abstracted} to 
 
-  \[ \ld{2,\kappa} 2 + \kappa \]
+  \[ \fn{2,\kappa} 2 + \kappa \]
 \end{description}
 
 \s{Greek alphabet}\label{d-greek-alphabet}

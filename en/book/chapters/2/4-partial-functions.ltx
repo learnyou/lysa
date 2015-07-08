@@ -1,0 +1,155 @@
+\s{Partial functions}
+
+If you remember way back to the beginning of the chapter, I constructed a
+function that looked like this:
+
+\begin{equation}
+    \eva{f}{x} = x + 3
+\end{equation}
+
+I pointed out that, because there is no natural number $x$, such that
+$\eva{f}{x} < 3$, that $f$'s output type would therefore be the set of numbers
+greater than or equal to 3. That is
+
+\begin{equation}
+    f : \N \to \scomp{x : \N}{x \ge 3}
+\end{equation}
+
+In this case, we made $f$ into a \term{surjective} function, merely by making
+its output type more specific.
+
+Before I get any further, let me give you some definitions. You don't have to
+remember all of these right away, you'll pick them up as we go along.
+
+\begin{definition}[Domain]
+    The domain of a function $f$ is the input type of $f$. That is, if
+
+    \begin{equation}
+        f : A \to B
+    \end{equation}
+
+    then the domain of $f$, written $\dom{f}$, is $A$. That is:
+
+    \begin{equation}
+        \dom{f} = A
+    \end{equation}
+\end{definition}
+
+\begin{definition}[Total function]
+    If a function $f$ is able to operate on every value in its domain, $f$ is a
+    \xti{total function}.
+
+    The function above, $\fn{x}{x + 3}$ is a total function. For \xti{any} $x$
+    in the domain $\N$, $f$ can add $3$ to it, and give you a result.
+\end{definition}
+
+\begin{definition}[Partial function]
+    If a function $f$ is \xtb{not} able to operate on every value in its domain,
+    $f$ is a \xti{partial function}.
+
+    The standard example is what's called the \term{reciprocal function}:
+
+    \begin{equation}
+        \eva{r}{x} = \frac{1}{x}
+    \end{equation}
+
+    Note that $r$ does \xtb{not} have the type $\N \to \N$. In this case, $r$
+    instead has the type $\Z \to \Q$, where
+
+    \begin{itemize}
+      \item $\Z$ is the set of integers: $\mset{\dots,-2,-1,0,1,2,\dots}$, and
+      \item $\Q$ is the set of all numbers that can be expressed as a fraction
+        of two integers.
+    \end{itemize}
+
+    For every value in $\Z$, \xti{except} $0$, you can run $r$ on it and get a
+    result in $\Q$. Remember, you can't divide by $0$.
+
+    But, because $r$ can't operate on every value in its domain, $r$ is a
+    partial function.
+
+    Partial functions are not very fun. They don't provide much in the way of
+    interesting insights, or have any deeper meaning. The only purpose they
+    serve is to be a pain in the ass. For that reason, mathematicians do
+    everything they can to avoid them.
+
+    \xtb{Remember:} partial functions are evil!
+\end{definition}
+
+\begin{definition}[Codomain]
+    Mathematicians have a fancy term for the input type to a function. It
+    therefore stands to reason that mathematicians would have an even fancier
+    and more pretentious term for the output type: \term{codomain}.
+
+    In general, in math, if you know what \term{something} is, the
+    \term{cosomething} is just the dual of \term{something}. In this case, the
+    \term{domain} is the input type of the function, and the \term{codomain} is
+    the output type of the function.
+
+    If $f : A \to B$, then 
+
+    \begin{equation}
+        \codom{f} = B
+    \end{equation}
+
+    \xtb{What if $f$ has a curried type, so instead of $A \to B$, it's
+      $A \to B \to C \to D \to \dots$?}
+
+    Good question! Remember that curried types are right-associative, so
+
+    \begin{equation}
+        A \to B \to C \to D \to \dots
+    \end{equation}
+
+    is really just the lazy man's way of writing
+
+    \begin{equation}
+        A \to \parens{B \to \parens{C \to \parens{D \to \dots}}}
+    \end{equation}
+
+    Therefore, if 
+
+    \begin{equation}
+        f : A \to \parens{B \to \parens{C \to \parens{D \to \dots}}}
+    \end{equation}
+
+    then
+
+    \begin{equation}
+        \codom{f} = B \to \parens{C \to \parens{D \to \dots}}
+    \end{equation}
+\end{definition}
+
+\sss{Same function, different [co]domain}
+
+This touches upon a cool thing. Let's say we have some function:
+
+\begin{equation}
+    f : A \to B \to C \to D
+\end{equation}
+
+The type of $f$ is written in curried form. Thus,
+
+\begin{rclmath}
+    \dom{f} & = & A \\
+    \codom{f} & = & B \to C \to D \\
+\end{rclmath}
+
+If we write $f$'s type in uncurried form:
+
+\begin{equation}
+    f : \parens{A,B,C} \to D
+\end{equation}
+
+Then
+
+\begin{rclmath}
+    \dom{f} & = & \parens{A,B,C} \\
+    \codom{f} & = & D \\
+\end{rclmath}
+
+So, we have two identical functions with a different domain and codomain. That's
+pretty cool.
+
+Okay, I guess it's not \xti{all} that cool. I realized it while I was writing
+this out though, so I thought it was worth mentioning.
