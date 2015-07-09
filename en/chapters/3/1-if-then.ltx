@@ -126,7 +126,7 @@ fairly easily.
         f: \parens{A \implies B} \implies \lnot B \implies \lnot A \\
     \end{alignedmath}
 
-    Remember that
+    Remember that, for all propositions $X$,
 
     \begin{equation}
         \lnot X = X \implies \bot
@@ -135,27 +135,29 @@ fairly easily.
     If we make this substitution on the last two types:
 
     \begin{rclmath}
-        \lnot B & \Longrightarrow & B \implies \bot \\
-        \lnot A & \Longrightarrow & A \implies \bot \\
+        \lnot B & = & B \implies \bot \\
+        \lnot A & = & A \implies \bot \\
     \end{rclmath}
 
     Then, the type of $f$ becomes:
 
-    \begin{equation}
+    \begin{alignmath}{c}
+        f : \parens{A \implies B} \implies \parens{B \implies \bot} \implies \parens{A \implies \bot} \\
         f : \parens{A \implies B} \implies \parens{B \implies \bot} \implies A \implies \bot \\
-    \end{equation}
+    \end{alignmath}
 
     Now the proof is as simple as composing the first and second functions:
 
-    \begin{rclmath}
-        p \circ \eva{r}{q} & : & A \implies \bot \\
-    \end{rclmath}
+    \begin{equation}
+        \eva{f}{p,q} = q \circ p
+    \end{equation}
 
-    The proof $f$ is now pretty easy
+    In a marginally less confusing form:
 
     \begin{equation}
-        \eva{f}{p,q} = \eva{r}{q} \circ p
+        \eva{f}{p,q,r} = \eva{q}{\eva{p}{r}}
     \end{equation}
+
 \end{proof}
 
 Alright, that was pretty hard! I can almost guarantee you didn't understand that
@@ -175,6 +177,7 @@ going.
 Here are some examples of proving stuff!
 
 \begin{example}
+    \label{expl:doubneg1}
     Prove that
 
     \begin{equation}
@@ -194,25 +197,4 @@ Here are some examples of proving stuff!
     \begin{equation}
         \fn{x,f}{\eva{f}{x}}
     \end{equation}
-\end{example}
-
-\begin{example}
-    Prove that
-
-    \begin{equation}
-        \lnot \parens{\lnot A} \notimplies A
-    \end{equation}
-
-    Rather, I am proving that
-
-    \begin{equation}
-        \lnot \parens{\lnot \parens{\lnot A} \implies A}
-    \end{equation}
-
-    Which is equivalent to 
-
-    \begin{equation}
-        \parens{\parens{\parens{A \implies \bot} \implies \bot} \implies A} \implies \bot
-    \end{equation}
-
 \end{example}
