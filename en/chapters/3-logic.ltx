@@ -49,18 +49,25 @@ similar statements in math, were we can't even say it's true or false.
 In the case of the liar's paradox, we have a pretty quick cop-out, by just
 saying that it's not provable. We don't care whether or not it's true.
 
-For this, we have two values in math, which we throw around a lot: $\top$, and
-$\bot$. The symbols are called \term{top} and \term{bottom}, respectively. They
-refer, respectively to `provable' and `unprovable'.
+So, how do you express the notion that you have a proof something? Let's call
+the proof $p$ and the proposition $X$. To say ``$p$ is a proof of $X$'', you
+write:
 
-\xtb{Why don't you just call the symbols `provable' and `unprovable'?}
+\begin{equation}
+    p : X
+\end{equation}
 
-It's sort of like how $+$ and $-$ refer to the concepts addition and
-subtraction, but are pronounced `plus' and `minus'.
+\xtb{Wait, that's the type notation!}
 
-You're probably still used to calling propositions `true' and `false'. That's
-okay. Over time, you'll get used to calling them `top' and `bottom'. Even
-mathematicians will accidentally call them `true' and `false'.
+Yep! This is what's called the \term{Curry-Howard correspondence}. Namely,
+
+\begin{itemize}
+  \item functions and proofs have identical semantics, and
+  \item types and propositions have identical semantics
+\end{itemize}
+
+Cool! You already know how to send values to functions, and to manipulate
+functions a bit. So, proofs should be easy! Let's get started then!
 
 \input{3/1-if-then.ltx}
 \newpage

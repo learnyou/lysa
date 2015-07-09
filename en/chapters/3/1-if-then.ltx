@@ -1,30 +1,5 @@
 \s{If A then B; A, therefore B.}
 
-Most people, even most mathematicians, construct proofs by listing off steps. I
-sort of do it differently. I'm a huge fan of a concept called the
-\term{Curry-Howard correspondence} (this Curry the same guy from Currying).
-
-Instead of stating your proposition, and listing off steps to prove it, I'm
-instead going to 
-
-\begin{enumerate}
-  \item Express what I'm trying to prove via types.
-  \item Write a function that fits the type of my proof.
-\end{enumerate}
-
-\begin{definition}
-    The Curry-Howard correspondence states that
-
-    \begin{enumerate}
-      \item Types and propositions have identical semantics
-      \item Functions and proofs have identical semantics
-    \end{enumerate}
-\end{definition}
-
-If you have very little math background, that doesn't really seem very
-interesting. However, to people who are used to the normal way of proving stuff,
-that fact mindblowing.
-
 So, let's say we want to prove that some proposition $a$ implies another
 proposition $b$. Well, then, all we have to do is find a function with type
 
@@ -35,6 +10,16 @@ proposition $b$. Well, then, all we have to do is find a function with type
 When dealing with normal non-proofy functions, you can think of the symbol
 $\implies$ as saying ``to''. With proofs, it's more helpful to think of the
 symbol as ``implies''.
+
+Occasionally, you'll also see the backwards arrow: $\impliedby$, which means
+``implied by'', and $\iff$, which means ``if (and only if)''.
+
+The expression $a \iff b$ is just shorthand for
+
+\begin{alignmath}{rc}
+    a \implies b & \text{and} \\
+    a \impliedby b &
+\end{alignmath}
 
 \begin{remark}[Consequence of the Curry-Howard correspondence]
     A value of type $a$, where $a$ is a proposition, is a proof of the
@@ -47,6 +32,8 @@ symbol as ``implies''.
     That is, if $a$, then $b$.
 \end{remark}
 
+\ss{Disproving stuff}
+
 So, how do we disprove something? Well, again, that's not our goal. We instead
 want to prove that something isn't provable. That sounds weird, doesn't it?
 
@@ -55,27 +42,39 @@ A staple of logic is called \term{reductio ad absurdum}. It's Latin for
 implies something unprovable, then $A$ is obviously unprovable.
 
 Well, in math, we so happen to have a value that is unprovable. That value is
-bottom: $\bot$.
+bottom: $\bot$. Rather, $\bot$ is what's called the ``empty type''. Namely,
+there is no value $x$ such that $x : \bot$.
 
-Following along with this logic, if we were to prove that $A$ is unprovable, it
-would follow that $A$ implies $\bot$. So, how do we say ``$A$ is unprovable''.
+I'm going to introduce you to a new symbol: $\exists$. It means ``there
+exists''. The dual symbol is $\notexists$ which means ``there does not
+exist''. The $\exists$ going with the term ``exists'' shouldn't be too hard to
+remember.
+
+The reason I bring that up now is, it's easy to define $\bot$ using $\exists$:
+
+\begin{equation}
+    \notexists x \mid x : \bot
+\end{equation}
+
+Remember, the pipe should be read as ``such that''. There does not exist $x$
+such that $x : \bot$. Likewise, if we have some proof
+
+\begin{equation}
+    f = A \implies \bot
+\end{equation}
+
+Then $A$ is a false proposition, because it implies a proof of the unprovable.
+
+Because mathematicians like to be lazy, we don't like to write out $A \implies
+\bot$ every time. For this reason, we have the $\lnot$ Symbol
 
 \begin{definition}[Unprovability]
-    A proposition $a$ is unprovable if $\lnot a$
-\end{definition}
-
-What if you have a proof of both $\lnot A$ and $A$? Well, that's absurd, so
-let's call that an instance of reductio ad absurdum.
-
-\begin{definition}[Unprovability by reductio ad absurdum]
     \begin{equation}
         \lnot A = A \implies \bot
     \end{equation}
-
-    That is, proving $\lnot A$ is equivalent to proving that $A \implies \bot$.
 \end{definition}
 
-\ss{The big pitfall of propositional logic}
+\ss{Watch yourself!}
 
 A common mistake is to say ``Well, if $A$ happens, then $B$ will happen. If I
 know that $B$ happened, then I can reasonably conclude that $A$ happened at some
