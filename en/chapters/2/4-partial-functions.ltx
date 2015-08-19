@@ -184,7 +184,7 @@ remember all of these right away, you'll pick them up as we go along.
       \item[$f$'s domain] The natural numbers less than $10$. That is,
 
         \begin{equation}
-            \dom{f} = \scomp{x : \N}{x \leq 10}
+            \dom{f} = \scomp{x : \N}{x < 10}
         \end{equation}
 
       \item[$f$'s codomain] The natural numbers whose value is at least 5 but
@@ -200,6 +200,51 @@ remember all of these right away, you'll pick them up as we go along.
     Answer: like this:
 
     \begin{equation}
-        f : \scomp{x : \N}{x \leq 10} \to \scomp{x : \N}{5 \leq x < 15}
+        f : \scomp{x : \N}{x < 10} \to \scomp{x : \N}{5 \leq x < 15}
     \end{equation}
+
+    Okay, let's find a function that fits that signature! Can you make an
+    educated guess? I'll let you guess, and put in a page break.
+
+    \newpage
+
+    Here's my answer:
+
+    \begin{equation}
+        \eva{f}{x} = x + 5
+    \end{equation}
+
+    Let's make a little table, shall we?
+
+    \begin{tabu}{c|c}
+      Input value & Output value \\
+      \hline \\
+      0 & 5 \\
+      1 & 6 \\
+      2 & 7 \\
+      3 & 8 \\
+      \dots & \dots \\
+      9 & 14 \\
+    \end{tabu}
+
+    It just adds 5 to all the input values.
+
+    Let's ask ourselves some questions:
+
+    \begin{enumerate}
+      \item Is $f$ total?
+      \item Is $f$ surjective?
+    \end{enumerate}
+
+    What do those terms mean again?
+
+    \begin{description}
+      \item[Total] means that $f$ has an answer for every value in its
+        domain. $f$ does, so yay!
+      \item[Surjective] means that $f$ reaches every value in its codomain. $f$
+        does!
+    \end{description}
+
+    Yay, this isn't hard! It's not very interesting yet, but nonetheless it
+    isn't hard!
 \end{example}
