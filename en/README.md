@@ -19,7 +19,7 @@ pay for an SSL certificate, so no HTTPS).
 * [Nightly PDFs][1]
 * [Russian translation][5]
 
-[1]: http://nightly.learnyou.org/lysa
+[1]: http://nightly.learnyou.org/lysa/en
 [2]: http://webchat.freenode.net/?channels=lysa
 [3]: https://github.com/learnyou/lysa/issues
 [4]: #contributing
