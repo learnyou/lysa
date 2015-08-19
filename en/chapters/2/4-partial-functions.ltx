@@ -120,36 +120,86 @@ remember all of these right away, you'll pick them up as we go along.
     \end{equation}
 \end{definition}
 
-\sss{Same function, different [co]domain}
+\begin{asidebox}
+    \xtb{Same function, different [co]domain}
 
-This touches upon a cool thing. Let's say we have some function:
+    This touches upon a cool thing. Let's say we have some function:
 
-\begin{equation}
-    f : A \to B \to C \to D
-\end{equation}
+    \begin{equation}
+        f : A \to B \to C \to D
+    \end{equation}
 
-The type of $f$ is written in curried form. Thus,
+    The type of $f$ is written in curried form. Thus,
 
-\begin{rclmath}
-    \dom{f} & = & A \\
-    \codom{f} & = & B \to C \to D \\
-\end{rclmath}
+    \begin{rclmath}
+        \dom{f} & = & A \\
+        \codom{f} & = & B \to C \to D \\
+    \end{rclmath}
 
-If we write $f$'s type in uncurried form:
+    If we write $f$'s type in uncurried form:
 
-\begin{equation}
-    f : \parens{A,B,C} \to D
-\end{equation}
+    \begin{equation}
+        f : \parens{A,B,C} \to D
+    \end{equation}
 
-Then
+    Then
 
-\begin{rclmath}
-    \dom{f} & = & \parens{A,B,C} \\
-    \codom{f} & = & D \\
-\end{rclmath}
+    \begin{rclmath}
+        \dom{f} & = & \parens{A,B,C} \\
+        \codom{f} & = & D \\
+    \end{rclmath}
 
-So, we have two identical functions with a different domain and codomain. That's
-pretty cool.
+    So, we have two identical functions with a different domain and codomain. That's
+    pretty cool.
 
-Okay, I guess it's not \xti{all} that cool. I realized it while I was writing
-this out though, so I thought it was worth mentioning.
+    Okay, I guess it's not \xti{all} that cool. I realized it while I was writing
+    this out though, so I thought it was worth mentioning.
+\end{asidebox}
+
+\begin{definition}[Range]
+    Remember when we were talking about domains and total functions? It was just
+    the last page. Essentially:
+
+    \begin{itemize}
+      \item The \term{domain} is the possible inputs to the function.
+      \item A \term{total function} is a function able to operate on all its
+        potential inputs.
+      \item The \term{codomain} is the possible outputs of the function.
+      \item The \xtb{\term{range}} is the actual set of outputs of the function.
+    \end{itemize}
+\end{definition}
+
+\begin{definition}[Surjection]
+    If a functions range is the same as its codomain, then the function is
+    \term{surjective}.
+
+    That is, if there's a function $f : A \to B$, then $f$ is surjective if
+    there aren't any values of $B$ that can't be ``reached'' by $f$.
+\end{definition}
+
+\begin{example}
+    Let's say we have some function $f$.
+
+    \begin{description}
+      \item[$f$'s domain] The natural numbers less than $10$. That is,
+
+        \begin{equation}
+            \dom{f} = \scomp{x : \N}{x \leq 10}
+        \end{equation}
+
+      \item[$f$'s codomain] The natural numbers whose value is at least 5 but
+        less than 15. That is,
+
+        \begin{equation}
+            \codom{f} = \scomp{x : \N}{5 \leq x < 15}
+        \end{equation}
+    \end{description}
+
+    Question: how do you write $f$'s signature?
+
+    Answer: like this:
+
+    \begin{equation}
+        f : \scomp{x : \N}{x \leq 10} \to \scomp{x : \N}{5 \leq x < 15}
+    \end{equation}
+\end{example}
