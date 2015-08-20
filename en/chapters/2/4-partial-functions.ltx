@@ -248,3 +248,125 @@ remember all of these right away, you'll pick them up as we go along.
     Yay, this isn't hard! It's not very interesting yet, but nonetheless it
     isn't hard!
 \end{example}
+
+That last function had another property which proves to be important:
+injection. That is, for some value in the range, there is exactly one value
+in the domain that reaches it.
+
+For instance, $6$ can only be reached by $\eva{f}{1}$. There isn't another value
+$x$ such that $\eva{f}{x} = 6$. The \xti{only} value for which that holds is
+$1$.
+
+The same property holds for the rest of the range: for every value $y$ in the
+range, there is exactly one value $x$ such that $\eva{f}{x} = y$
+
+\begin{definition}[Injection]
+    If $f$'s domain is in one-to-one correspondence with
+    its range, then $f$ is an injection.
+
+    More formally,
+
+    \begin{textmath}
+        Let $f : A \to B$, and $C$ be the range of $f$ (i.e. the subset of the
+        codomain reachable by $f$).
+
+        If, for all $y : C$, there is exactly one value $x : A$ such that
+        $\eva{f}{x} = y$, then $f$ is an \term{injection}.
+    \end{textmath}
+\end{definition}
+
+\begin{definition}[Bijection]
+    If $f$ is both an injection and a surjection, then $f$ is a
+    \term{bijection}.
+
+    More formally,
+
+    \begin{textmath}
+        Let $f : A \to B$.
+
+        If, for all $y : B$, there is exactly one value $x : A$ such that
+        $\eva{f}{x} = y$, then $f$ is a \term{bijection}.
+    \end{textmath}
+\end{definition}
+
+\begin{example}
+    Let's come up with a total function that is surjective but not injective.
+
+    This is a bit of a challenge! Basically, a function has to go over the same
+    value twice in order to not be injective, but it has to go over every value
+    in the codomain!
+
+    Here's my version:
+
+    \begin{alignedmath}
+        f : \N \to \scomp{x : \N}{x < 10} \\
+        \eva{f}{x} = x \mod 10 \\
+    \end{alignedmath}
+
+    Okay, what the hell is mod?
+
+    ``mod'' is short for ``modulo''. $x \mod y$ is the remainder of
+    non-fractionally dividing $x$ by $y$. For instance, $\frac{12}{10}$ is $1$
+    with a remainder of $2$. So $12 \mod 10 = 2$.
+
+    You should notice that $14 \mod 10$ is $4$, but so is $4 \mod 10$. And for
+    that matter, so is $114 \mod 10$. There are multiple values that can reach
+    $4$ via $f$, so $f$ is \xtb{not} injective.
+
+    However, every value in $f$'s codomain is reached by $f$, and therefore $f$
+    is surjective!
+
+    A much easier function would be something like this:\footnote{The pipe in
+      the middle just means ``such that'', just as it does in the comprehension
+      notation.}
+
+    \begin{alignedmath}
+        f : \N \to \N \\
+        \eva{f}{0} = 44 \\
+        \eva{f}{x} \mid x > 0 = x + 4 \\
+    \end{alignedmath}
+
+    However, I thought of the modulo example first, and it seems a bit more
+    likely to happen in the real world.
+\end{example}
+
+\begin{ExcList}
+    \Exercise{Come up with a partial function.}
+    \Answer{Many many correct answers here. The one I thought of is:
+
+      \begin{alignedmath}
+          f : \N \to \Q \\
+          \eva{f}{x} = \frac{2}{x} \\
+      \end{alignedmath}
+    }
+
+    \Exercise{Come up with a total function that is injective but not
+      surjective.}
+
+    \Answer{Again, there are a lot of correct answers here, but the one I came
+      up with is:
+
+      \begin{alignedmath}
+          f : \N \to \N \\
+          \eva{f}{x} = 2x \\
+      \end{alignedmath}
+
+      Remember, $xy$ is shorthand for multiplying $x$ and $y$.
+    }
+
+    \Exercise{Come up with a total bijective function.}
+    \Answer{Here's mine:
+
+      \begin{alignedmath}
+          \eva{f}{x} = x
+      \end{alignedmath}
+
+      It's so simple, it should be cheating. But it's not.
+
+      \begin{quotation}
+          When the book author does it that means that it is not cheating.
+
+          --- Richard M. Nixon
+      \end{quotation} 
+    }
+\end{ExcList}
