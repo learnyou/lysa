@@ -178,23 +178,60 @@ Here are some examples of proving stuff!
 
 \begin{example}
     \label{expl:doubneg1}
-    Prove that
+    Let's prove that
 
     \begin{equation}
         A \implies \lnot \parens{\lnot A}
     \end{equation}
 
-    Substitute $\lnot x \Longrightarrow x \to \bot$.
+    \begin{proof}
+        Substitute $\lnot x \Longrightarrow x \to \bot$.
 
-    \begin{alignedmath}
-        A \implies \lnot \parens{A \to \bot} \\
-        A \implies \parens{\parens{A \implies \bot} \implies \bot} \\
-        A \implies \parens{A \implies \bot} \implies \bot \\
-    \end{alignedmath}
+        \begin{alignedmath}
+            A \implies \lnot \parens{A \to \bot} \\
+            A \implies \parens{\parens{A \implies \bot} \implies \bot} \\
+            A \implies \parens{A \implies \bot} \implies \bot \\
+        \end{alignedmath}
 
-    The proof of this is then
+        The proof of this is then
 
-    \begin{equation}
-        \fn{x,f}{\eva{f}{x}}
-    \end{equation}
+        \begin{equation}
+            \fn{x,f}{\eva{f}{x}}
+        \end{equation}
+    \end{proof}
+\end{example}
+
+\begin{example}
+    If you know that $A \implies B$ and that $B \implies C$, then
+    $A \implies C$.
+
+    \begin{proof}
+        The proof will be of this type:
+
+        \begin{equation}
+            f : \parens{A \implies B} \implies \parens{B \implies C} \implies \parens{A \implies C}
+        \end{equation}
+
+        Remember that $X \implies Y \implies Z \implies \dots$ is just shorthand
+        for $X \to \parens{Y \to \parens{Z \to \dots}}$.
+
+        Thus, we can take that last pair of parentheses off:
+
+        \begin{equation}
+            f : \parens{A \implies B} \implies \parens{B \implies C} \implies A \implies C
+        \end{equation}
+
+        Here's a solution
+
+        \begin{equation}
+            \eva{f}{g,h,x} = \eva{h}{\eva{g}{x}}
+        \end{equation}
+
+        Or, in $\eta$-reduced form:
+
+        \begin{equation}
+            \eva{f}{g,h} = h \of g
+        \end{equation}
+        
+    \end{proof}
 \end{example}
