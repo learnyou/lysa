@@ -63,29 +63,30 @@ Let's try to prove that:
 \pg{Forall}
 
 I keep having to write ``For all $x$''. Conveniently, mathematicians have a
-symbol for this, which I will use sparingly, as it's usually easier to type out
-``for all''. The symbol in question is $\forall$.
+symbol for this: $\forall$. In text, it's clearer and easier to type out ``for
+all''. However, a lot of people will use the $\forall$ symbol when writing
+things by hand.
 
 \sss{Negating foralls}
 
 Remember, this is not provable:
 
 \begin{equation}
-    \forall X \semic X \impliedby \lnot \parens{\lnot X}
+    \fall X \semic X \impliedby \lnot \parens{\lnot X}
 \end{equation}
 
 To the untrained eye, this would then mean:
 
 \begin{alignmath}{cl}
-      & \lnot\parens{\forall X \semic X \impliedby \lnot \parens{\lnot X}} \\
-    = & \forall X \semic X \notimpliedby \lnot \parens{\lnot X} \\
+      & \lnot\parens{\fall X \semic X \impliedby \lnot \parens{\lnot X}} \\
+    = & \fall X \semic X \notimpliedby \lnot \parens{\lnot X} \\
 \end{alignmath}
 
 \xtb{But that's not the case!} There are certainly some cases where
 $X \iff \lnot\lnot X$. But, there are also many cases where that doesn't
 hold. So, you can't say that either version holds for all cases.
 
-Instead, you just take off the $\forall$
+Instead, you just take off the $\fall$
 
 \begin{textmath}
     For some $X$:
@@ -118,13 +119,13 @@ You're probably not asking that, because that sounds like complete nonsense.
 Since we can't prove
 
 \begin{equation}
-    \forall X \semic X \impliedby \lnot \parens{\lnot X}
+    \fall X \semic X \impliedby \lnot \parens{\lnot X}
 \end{equation}
 
 Wouldn't that therefore mean that
 
 \begin{equation}
-    \forall X \semic \parens{X \impliedby \lnot \parens{\lnot X}} \implies \bot
+    \fall X \semic \parens{X \impliedby \lnot \parens{\lnot X}} \implies \bot
 \end{equation}
 
 Well, no. You would be making another assumption from classical logic, called
@@ -132,13 +133,19 @@ Well, no. You would be making another assumption from classical logic, called
 
 \begin{equation}
     \label{eq:lem}
-    \forall X \semic X \text{ or } \lnot X
+    \fall X \semic X \tor \lnot X
 \end{equation}
 
 where $X$ is a proposition.
 
-That's an inclusive-or, by the way. Meaning that it's okay if both of them are
-true.
+Basically, given some statement $X$,
+
+\begin{description}
+  \item[In classical logic] you can always \term{decide} whether or not $X$ is
+    true.
+  \item[In intuitionistic logic] that's not the case. There are values of $X$
+    that are \term{undecideable}.
+\end{description}
 
 Remember the liar's paradox:
 
@@ -148,7 +155,7 @@ Remember the liar's paradox:
 
 That statement cannot be said to be true or false. It's \term{undecidable}.
 
-Remember, to negate a statement starting with $\forall$, you just need to find a
+Remember, to negate a statement starting with ``for all'', you just need to find a
 case where the statement doesn't hold. In the case of the decidability law, I've
 just found a case where the decidability law doesn't hold, so therefore it can't
 hold for all propositions.
@@ -159,5 +166,16 @@ The undecidability law and the lack of left-double-negation are really the core
 things you need to worry about with intuitionist logic. The next thing to look
 out for are De Morgan's laws.
 
-I'm going to go through a classical proof of them. That is, a proof assuming
-decidability and double negation.
+\begin{definition}[De Morgan's first law]
+    \begin{equation}
+        \label{eq:demorgan1}
+        \lnot\parens{P \tand Q} \iff \lnot P \tor \lnot Q
+    \end{equation}
+\end{definition}
+
+\begin{definition}[De Morgan's second law]
+    \begin{equation}
+        \label{eq:demorgan1}
+        \lnot\parens{P \tor Q} \iff \lnot P \tand \lnot Q
+    \end{equation}
+\end{definition}

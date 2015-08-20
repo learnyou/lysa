@@ -151,7 +151,7 @@
 \newcommand{\bigand}[1]{\land\brackets{#1}}
 \newcommand{\semicolon}{;\;}
 \newcommand{\mlist}[1]{\left(\,#1\,\right)}
-\newcommand{\sfall}{\semicolon\forall}
+\newcommand{\sfall}{\semicolon\fall}
 \newcommand{\evalbf}[2]{\evalat{\mathbf{#1}}{#2}}
 \newcommand{\evalrm}[2]{\evalat{\mathrm{#1}}{#2}}
 \newcommand{\domain}{\evalbf{dom}}
@@ -238,8 +238,6 @@
           }}
   {}
 \let\filepath\code
-\newcommand{\Qforall}{\stackrel{?}{\forall}}
-\newcommand{\Qexists}{\stackrel{?}{\exists}}
 \newcommand{\nilnm}{$\nil$}
 \newcommand{\nm}[1]{${#1}$}
 \newcommand{\fn}[2]{\lambda\mlist{#1} \Longrightarrow #2}
@@ -313,6 +311,12 @@
 \newcommand{\lcomp}[2]{\mlist{#1 \,\mid\, #2}}
 \newcommand{\scomp}[2]{\mset{#1 \,\mid\, #2}}
 \renewcommand{\mod}[1]{\parens{\text{mod } #1}}
+\newcommand{\tand}{\text{ and }}
+\newcommand{\tor}{\text{ or }}
+\newcommand{\fall}{\text{for all }}
+\newcommand{\join}{\text{join}}
+\newcommand{\branchleft}{\text{left}}
+\newcommand{\branchright}{\text{right}}
 
 % ASIDE BOX, stolen from https://github.com/jambonrose/latex-code-example/blob/master/0_preamble.tex
 % 
