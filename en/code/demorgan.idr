@@ -25,3 +25,4 @@ DeMorgan2 x y = Not (Disjunction x y) -> Conjunction (Not x) (Not y)
 DeMorgan3 : Type -> Type -> Type 
 DeMorgan3 x y = Conjunction (Not x) (Not y) -> Not (Disjunction x y)
 
+dnr : {x} -> DoubleNegRight x
