@@ -171,11 +171,112 @@ out for are De Morgan's laws.
         \label{eq:demorgan1}
         \lnot\parens{P \tand Q} \iff \lnot P \tor \lnot Q
     \end{equation}
+
+    You can think of this like this:
+
+    \begin{itemize}
+      \item I told you that
+        \begin{enumerate}
+          \item I went to the park, and
+          \item I went to the grocery store
+        \end{enumerate}
+      \item If you can prove either
+        \begin{enumerate}
+          \item I didn't go to the park, or
+          \item I didn't go to the grocery store
+        \end{enumerate}
+
+        then I lied to you.
+    \end{itemize}
 \end{definition}
 
 \begin{definition}[De Morgan's second law]
     \begin{equation}
-        \label{eq:demorgan1}
+        \label{eq:demorgan2}
         \lnot\parens{P \tor Q} \iff \lnot P \tand \lnot Q
     \end{equation}
+
+    This is the dual of the first law
+
+    \begin{itemize}
+      \item I told you that
+        \begin{enumerate}
+          \item I went to the park, or
+          \item I went to the grocery store
+        \end{enumerate}
+
+      \item If you can prove that
+        \begin{enumerate}
+          \item I didn't go to the park, and
+          \item I didn't go to the grocery store
+        \end{enumerate}
+
+        then I lied to you
+    \end{itemize}
 \end{definition}
+
+Remember that each of those laws is really two laws. For instance, the first law
+can be stated as:
+
+\begin{textmath}
+    \begin{equation}
+        \lnot\parens{P \tand Q} \implies \lnot P \tor \lnot Q
+    \end{equation}
+
+    and
+
+    \begin{equation}
+        \lnot\parens{P \tand Q} \impliedby \lnot P \tor \lnot Q
+    \end{equation}
+\end{textmath}
+
+I ``proved'', intuitively, the first branch of each law. Let's look at the
+second branch of each law.
+
+\begin{lemma}[De Morgan's first law, part 2]
+    \begin{equation}
+        \lnot\parens{P \tand Q} \impliedby \lnot P \tor \lnot Q
+    \end{equation}
+
+    \begin{itemize}
+      \item If I tell you
+        \begin{enumerate}
+          \item I didn't go to the grocery store, or
+          \item I didn't go to the park
+        \end{enumerate}
+
+      \item If you can prove
+        \begin{enumerate}
+          \item I went to the grocery store, and
+          \item I went to the park
+        \end{enumerate}
+
+        then I lied to you
+    \end{itemize}
+\end{lemma}
+
+\begin{lemma}[De Morgan's second law, part 2]
+    \begin{equation}
+        \lnot\parens{P \tor Q} \impliedby \lnot P \tand \lnot Q
+    \end{equation}
+
+    \begin{itemize}
+      \item I told you
+        \begin{enumerate}
+          \item I didn't go to the park, and
+          \item I didn't go to the grocery store
+        \end{enumerate}
+      \item If you can prove
+        \begin{enumerate}
+          \item I went to the park, or
+          \item I went to the grocery store
+        \end{enumerate}
+
+        then I lied to you.
+    \end{itemize}
+\end{lemma}
+
+So, all and all, there are four laws there. One of them isn't true. Can you
+figure out which one?
+
+I'll insert a page break.
