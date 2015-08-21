@@ -300,17 +300,17 @@ range, there is exactly one value $x$ such that $\eva{f}{x} = y$
 
     \begin{alignedmath}
         f : \N \to \scomp{x : \N}{x < 10} \\
-        \eva{f}{x} = x \mod 10 \\
+        \eva{f}{x} = x \mod{10} \\
     \end{alignedmath}
 
     Okay, what the hell is mod?
 
     ``mod'' is short for ``modulo''. $x \mod y$ is the remainder of
     non-fractionally dividing $x$ by $y$. For instance, $\frac{12}{10}$ is $1$
-    with a remainder of $2$. So $12 \mod 10 = 2$.
+    with a remainder of $2$. So $12 \mod{10} = 2$.
 
-    You should notice that $14 \mod 10$ is $4$, but so is $4 \mod 10$. And for
-    that matter, so is $114 \mod 10$. There are multiple values that can reach
+    You should notice that $14 \mod{10}$ is $4$, but so is $4 \mod{10}$. And for
+    that matter, so is $114 \mod{10}$. There are multiple values that can reach
     $4$ via $f$, so $f$ is \xtb{not} injective.
 
     However, every value in $f$'s codomain is reached by $f$, and therefore $f$
