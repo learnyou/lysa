@@ -233,7 +233,7 @@ can be stated as:
 I ``proved'', intuitively, the first branch of each law. Let's look at the
 second branch of each law.
 
-\begin{lemma}[De Morgan's first law, part 2]
+\begin{remark}[De Morgan's first law, part 2]
     \begin{equation}
         \lnot\parens{P \tand Q} \impliedby \lnot P \tor \lnot Q
     \end{equation}
@@ -253,9 +253,9 @@ second branch of each law.
 
         then I lied to you
     \end{itemize}
-\end{lemma}
+\end{remark}
 
-\begin{lemma}[De Morgan's second law, part 2]
+\begin{remark}[De Morgan's second law, part 2]
     \begin{equation}
         \lnot\parens{P \tor Q} \impliedby \lnot P \tand \lnot Q
     \end{equation}
@@ -274,9 +274,196 @@ second branch of each law.
 
         then I lied to you.
     \end{itemize}
-\end{lemma}
+\end{remark}
 
 So, all and all, there are four laws there. One of them isn't true. Can you
 figure out which one?
 
-I'll insert a page break.
+I'll insert a page break so you can think about it.
+
+\newpage
+\ss{Differences (continued)}
+
+The answer is to try to prove each law. They can all be proved using very simple
+logic.
+
+Let's get going! Just for the hell of it, let's work in reverse order.
+
+\begin{theorem}[De Morgan's second law, part 1]
+    \begin{equation}
+        \lnot\parens{P \tor Q} \implies \lnot P \tand \lnot Q
+    \end{equation}
+
+    \answergraph{another-theorem-gimped.png}
+
+    Let's do the unfolding and what not. I did it in the last couple of proofs,
+    so I won't bother explaining it here. Well, it would probably be quicker to
+    just explain what I'm doing than to explain that explaining my actions would
+    take longer than\dots gah, recursion!
+
+    Anyway:
+
+    \begin{equation}
+        \parens{
+          \parens{P \tor Q}
+          \implies \bot
+        }
+        \implies
+        \parens{
+          \parens{P \implies \bot}
+          \tand
+          \parens{Q \implies \bot}
+        }
+    \end{equation}
+
+    Which, in silly 4\textsuperscript{th}-grader chalkboard form:
+
+    \begin{rclmath}
+        a & : & \parens{P \tor Q} \implies \bot \\
+        \hline \\
+        \text{goal} & : & \parens{P \implies \bot} \tand \parens{Q \implies \bot} \\
+    \end{rclmath}
+
+    Well, this isn't all that hard.
+
+    Since the goal is logical-and, we have to prove \xtb{both} branches.
+
+    \begin{rclmath}
+        a & : & \parens{P \tor Q} \implies \bot \\
+        \hline \\
+        \text{goal}_\branchleft & : & P \implies \bot \\
+    \end{rclmath}
+
+    We can proceed from here, moving anything before the last $\implies$ symbol
+    above the line (because we are proving the last thing assuming the previous
+    things).
+
+    \begin{rclmath}
+        a & : & \parens{P \tor Q} \implies \bot \\
+        b & : & P \\
+        \hline \\
+        \text{goal}_\branchleft & : & \bot \\
+    \end{rclmath}
+
+    Well, if you'll remember, a proof of $P$ is a valid proof of $P \lor
+    Q$. Therefore:
+
+    \begin{rclmath}
+        a & : & \parens{P \tor Q} \implies \bot \\
+        b & : & P \\
+        \eva{a}{\eva{\branchleft}{b}} & : & \bot \\
+        \hline \\
+        \text{goal}_\branchleft & : & \bot \\
+    \end{rclmath}
+\end{theorem}
+
+\begin{theorem}[De Morgan's first law, part 2]
+    \begin{equation}
+        \lnot\parens{P \tand Q} \impliedby \lnot P \tor \lnot Q
+    \end{equation}
+
+    \begin{proof}
+        Let's do the same thing, expand the definition of $\lnot$, as well as
+        destruct logical-and:
+
+        \begin{equation}
+            \parens{
+                \parens{P \implies \bot}
+                \tor
+                \parens{Q \implies \bot}
+            }
+            \implies
+            \parens{
+                P \implies Q \implies \bot
+            }
+        \end{equation}
+
+        Remember the rule with the parentheses, where we can remove tailing pairs:
+
+        \begin{equation}
+            \parens{
+                \parens{P \implies \bot}
+                \tor
+                \parens{Q \implies \bot}
+            }
+            \implies P \implies Q \implies \bot
+        \end{equation}
+
+        Let's do the whole thing from before with above-the-line and below-the-line.
+
+        \begin{alignmath}{rcl}
+            a & : & \parens{P \implies \bot} \tor \parens{Q \implies \bot} \\
+            b & : & P \\
+            c & : & Q \\
+            \hline \\
+            \text{goal} & : & \bot \\
+        \end{alignmath}
+
+        Here, we have to look at both branches of $a$, and prove the theorem for
+        both of them. We know that at least one of them has a proof, but we still
+        have to consider the cases where one branch has a proof, but the other might
+        not.
+
+        Let's first look at the left branch:
+
+        \begin{alignmath}{rcl}
+            a_{\branchleft} & : & P \implies \bot \\
+            b & : & P \\
+            c & : & Q \\
+            \eva{a_{\branchleft}}{b} & : & \bot \\
+            \hline \\
+            \text{goal} & : & \bot \\
+        \end{alignmath}
+
+        Yay! And now the right branch:
+
+        \begin{alignmath}{rcl}
+            a_{\branchright} & : & Q \implies \bot \\
+            b & : & P \\
+            c & : & Q \\
+            \eva{a_{\branchright}}{c} & : & \bot \\
+            \hline \\
+            \text{goal} & : & \bot \\
+        \end{alignmath}
+
+        Yay! Proof complete!
+    \end{proof}
+\end{theorem}
+
+\begin{theorem}[De Morgan's first law, part 1]
+    \begin{equation}
+        \lnot\parens{P \tand Q} \implies \lnot P \tor \lnot Q
+    \end{equation}
+
+    Well, let's expand the definition of $\lnot$, shall we?
+    \begin{equation}
+        \parens{
+          \parens{P \tand Q}
+          \implies
+          \bot
+        }
+        \implies
+        \parens{
+          \parens{P \implies \bot}
+          \tor
+          \parens{Q \implies \bot}
+        }
+    \end{equation}
+
+    Well, the and-part can be destructed as such:
+
+    \begin{equation}
+        \parens{
+            P \implies Q \implies \bot
+        }
+        \implies
+        \parens{
+          \parens{P \implies \bot}
+          \tor
+          \parens{Q \implies \bot}
+        }
+    \end{equation}
+
+    Hmm. This one looks tough. Let's come back to it
+\end{theorem}
+

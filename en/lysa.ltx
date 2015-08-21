@@ -41,10 +41,9 @@
 \usepackage{cleveref}
 
 % Change the font.
-% 
-% Comment out the next two lines if you are going to print the book.
-\usepackage[sfdefault]{roboto}
-\usepackage{newtxsf}
+% \usepackage{newtxtext,newtxmath}            % Use this line for printing
+\usepackage[sfdefault,scale=0.85]{FiraSans} % Use this and the next line for
+\usepackage{newtxsf}                        % electronic viewing
 \usepackage[scaled]{beramono}
 \usepackage[T1]{fontenc}
 
@@ -291,11 +290,11 @@
 \newcommand{\aleqq}{\stackrel{\mathrm{c}}{\leqq}}
 \newcommand{\agt}{\stackrel{\mathrm{c}}{>}}
 \newcommand{\alt}{\stackrel{\mathrm{c}}{>}}
+\theoremstyle{definition}
 \newtheorem{theorem}{Theorem}
 \newtheorem{lemma}{Lemma}
 \newtheorem{axiom}{Axiom}
 \newtheorem{remark}{Remark}
-\theoremstyle{definition}
 \newtheorem{example}{Example}
 \newtheorem{definition}{Definition}
 \newenvironment{textmath}
