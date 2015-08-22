@@ -1,0 +1,51 @@
+\s{Differences (continued) (continued)}
+
+Alright, that section was getting pretty long! You have probably guessed by now,
+but the first part of the first De Morgan law is the one that isn't true in
+intuitionistic logic. Why?
+
+Well... I can't really think of a good intuitive reason. You can prove (and I
+will) that De Morgan's first law only holds if you assume these two axioms:
+
+\begin{enumerate}
+  \item The law of excluded middle (LEM). That is,
+
+    \begin{equation}
+        \fall P \comma P \tor \lnot P
+    \end{equation}
+
+  \item Double negation
+
+    \begin{equation}
+        \fall P \comma P \iff \lnot \lnot P
+    \end{equation}
+\end{enumerate}
+
+If you'll remember, those are the two axioms that separate intuitionistic logic
+from classical logic. Anyway. Let's get going
+
+\begin{theorem}[De Morgan's first law, part 1 (ish)]
+    \begin{equation}
+        \parens{
+          \lnot\parens{P \tand Q} \implies \lnot P \tor \lnot Q
+        }
+        \iff
+        \parens{
+          \parens{
+            \fall X \comma X \tor \lnot X
+          }
+          \tand
+          \parens{
+            \fall X \comma X \iff \lnot \lnot X
+          }
+        }
+    \end{equation}
+
+    Hmm. There are actually two theorems here that we have to prove!
+    \begin{enumerate}
+      \item You can prove LEM and double negation, given De Morgan's law 1.1
+      \item You can prove De Morgan's law 1.1 given LEM and double negation
+    \end{enumerate}
+
+    The second seems considerably easier, so we'll start with that.
+\end{theorem}
