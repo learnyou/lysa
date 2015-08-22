@@ -6,7 +6,7 @@ clean:
 mksandbox:
 	mkdir .lysa
 
-en: mksandbox
+en: clean mksandbox
 	cp -rvf en/lysa.ltx \
                 en/appendices/* \
                 en/chapters/* \
