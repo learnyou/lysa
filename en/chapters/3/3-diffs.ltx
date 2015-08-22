@@ -289,6 +289,115 @@ logic.
 
 Let's get going! Just for the hell of it, let's work in reverse order.
 
+\begin{theorem}[De Morgan's second law, part 2]
+    \begin{equation}
+        \lnot P \tand \lnot Q \implies \lnot\parens{P \tor Q}
+    \end{equation}
+
+    Well, let's think about this. We are trying to prove $\lnot\parens{P \tor
+      Q}$ assuming $\lnot P \land \lnot Q$. My favorite way to prove things is
+    by putting stuff into a table such as this:
+
+    \begin{rclmath}
+        a & : & \lnot P \\
+        b & : & \lnot Q \\
+        \hline \\
+        \text{goal} & : & \lnot \parens{P \tor Q} \\
+    \end{rclmath}
+
+    The given proofs are above the line, and the goal is below the line. $a :
+    \lnot P$ should be read as ``$a$ is a proof of $\lnot P$''.
+
+    \begin{asidebox}
+        Formal proofs start with the word ``proof'' italicized, and then a silly
+        box at the end. I'm not sure about the origins of the white box. The
+        \LaTeX command to add the box is \code{\textbackslash qed}. QED stands
+        for ``quod erat demonstrandum'' which is fancy math-latin-speak for
+        ``end of demonstration'', or in this case ``end of proof''. In this
+        book, the white box is on the lower right corner of the proof, and has a
+        cross inside, and no top line: \qed.
+    \end{asidebox}
+
+    Anyway, let's get started!
+
+    \begin{proof}
+        Remember, for all $X$,
+
+        \begin{equation}
+            \lnot X = X \to \bot
+        \end{equation}
+
+        Thus, we can substitute $\lnot$-whatever with whatever-implies-bottom.
+
+        \begin{rclmath}
+            a & : & P \implies \bot \\
+            b & : & Q \implies \bot \\
+            \hline \\
+            \text{goal} & : & \parens{P \tor Q} \implies \bot \\
+        \end{rclmath}
+
+        Well, now, the dynamics have shifted: we can now move $P \lor Q$ above the
+        line, because we are now trying to prove $\bot$ assuming $a$, and $b$, along
+        with $P \lor Q$. Therefore:
+
+        \begin{rclmath}
+            a & : & P \implies \bot \\
+            b & : & Q \implies \bot \\
+            c & : & P \tor Q \\
+            \hline \\
+            \text{goal} & : & \bot \\
+        \end{rclmath}
+
+        When we have a logical-or in one of the assumptions (the stuff we know,
+        i.e. above the line), then we have to consider both branches.
+
+        We know that one of the following is correct:
+
+        \begin{enumerate}
+        \item $P$ and $Q$ both hold
+        \item $P$ holds, but $Q$ doesn't
+        \item $Q$ holds, but $P$ doesn't
+        \end{enumerate}
+
+        Let's consider each situation
+
+        \begin{enumerate}
+        \item $P$ and $Q$ both hold
+            \begin{rclmath}
+                a & : & P \implies \bot \\
+                b & : & Q \implies \bot \\
+                c_1 & : & P \\
+                d_1 & : & Q \\
+                \eva{a}{c_1} & : & \bot \\
+                \hline \\
+                \text{goal} & : & \bot \\
+            \end{rclmath}
+
+            \qed
+        \item $P$ holds, but $Q$ doesn't
+            \begin{rclmath}
+                a & : & P \implies \bot \\
+                c_2 & : & P \\
+                \eva{a}{c_2} & : & \bot \\
+                \hline \\
+                \text{goal} & : & \bot \\
+            \end{rclmath}
+
+            \qed
+        \item $Q$ holds, but $P$ doesn't
+            \begin{rclmath}
+                b & : & Q \implies \bot \\
+                c_3 & : & Q \\
+                \eva{b}{c_3} & : & \bot \\
+                \hline \\
+                \text{goal} & : & \bot \\
+            \end{rclmath}
+
+            \qed
+        \end{enumerate}
+    \end{proof}
+\end{theorem}
+
 \begin{theorem}[De Morgan's second law, part 1]
     \begin{equation}
         \lnot\parens{P \tor Q} \implies \lnot P \tand \lnot Q
