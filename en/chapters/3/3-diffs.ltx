@@ -433,146 +433,156 @@ Let's get going! Just for the hell of it, let's work in reverse order.
         \text{goal} & : & \parens{P \implies \bot} \tand \parens{Q \implies \bot} \\
     \end{rclmath}
 
-    Well, this isn't all that hard.
-
-    Since the goal is logical-and, we have to prove \xtb{both} branches.
-
-    \begin{rclmath}
-        a & : & \parens{P \tor Q} \implies \bot \\
-        \hline \\
-        \text{goal}_\branchleft & : & P \implies \bot \\
-    \end{rclmath}
-
-    We can proceed from here, moving anything before the last $\implies$ symbol
-    above the line (because we are proving the last thing assuming the previous
-    things).
-
-    \begin{rclmath}
-        a & : & \parens{P \tor Q} \implies \bot \\
-        b & : & P \\
-        \hline \\
-        \text{goal}_\branchleft & : & \bot \\
-    \end{rclmath}
-
-    Well, if you'll remember, a proof of $P$ is a valid proof of $P \lor
-    Q$. Therefore:
-
-    \begin{rclmath}
-        a & : & \parens{P \tor Q} \implies \bot \\
-        b & : & P \\
-        \eva{a}{\eva{\branchleft}{b}} & : & \bot \\
-        \hline \\
-        \text{goal}_\branchleft & : & \bot \\
-    \end{rclmath}
-\end{theorem}
-
-\begin{theorem}[De Morgan's first law, part 2]
-    \begin{equation}
-        \lnot\parens{P \tand Q} \impliedby \lnot P \tor \lnot Q
-    \end{equation}
-
     \begin{proof}
-        Let's do the same thing, expand the definition of $\lnot$, as well as
-        destruct logical-and:
+        So, we'll have to do the same thing as before, ish. Since we have a
+        $\land$ in the goal, we have to prove both branches of it. So, let's get
+        started.
 
-        \begin{equation}
-            \parens{
-                \parens{P \implies \bot}
-                \tor
-                \parens{Q \implies \bot}
-            }
-            \implies
-            \parens{
-                P \implies Q \implies \bot
-            }
-        \end{equation}
+        \begin{description}
+          \item[Left branch] First, the left branch
 
-        Remember the rule with the parentheses, where we can remove tailing pairs:
+            \begin{rclmath}
+                a & : & \parens{P \tor Q} \implies \bot \\
+                \hline \\
+                \text{goal}_\branchleft & : & P \implies \bot \\
+            \end{rclmath}
 
-        \begin{equation}
-            \parens{
-                \parens{P \implies \bot}
-                \tor
-                \parens{Q \implies \bot}
-            }
-            \implies P \implies Q \implies \bot
-        \end{equation}
+            We can proceed from here, moving anything before the last $\implies$
+            symbol above the line (because we are proving the last thing
+            assuming the previous things).
 
-        Let's do the whole thing from before with above-the-line and below-the-line.
+            \begin{rclmath}
+                a & : & \parens{P \tor Q} \implies \bot \\
+                b & : & P \\
+                \hline \\
+                \text{goal}_\branchleft & : & \bot \\
+            \end{rclmath}
 
-        \begin{alignmath}{rcl}
-            a & : & \parens{P \implies \bot} \tor \parens{Q \implies \bot} \\
-            b & : & P \\
-            c & : & Q \\
-            \hline \\
-            \text{goal} & : & \bot \\
-        \end{alignmath}
+            Well, if you'll remember, a proof of $P$ is a valid proof of
+            $P \lor Q$. Therefore:
 
-        Here, we have to look at both branches of $a$, and prove the theorem for
-        both of them. We know that at least one of them has a proof, but we still
-        have to consider the cases where one branch has a proof, but the other might
-        not.
+            \begin{rclmath}
+                a & : & \parens{P \tor Q} \implies \bot \\
+                b & : & P \\
+                \eva{a}{\eva{\branchleft}{b}} & : & \bot \\
+                \hline \\
+                \text{goal}_\branchleft & : & \bot \\
+            \end{rclmath}
 
-        Let's first look at the left branch:
+            Yay! \qed
+          \item[Right branch] Yay, now the right branch
 
-        \begin{alignmath}{rcl}
-            a_{\branchleft} & : & P \implies \bot \\
-            b & : & P \\
-            c & : & Q \\
-            \eva{a_{\branchleft}}{b} & : & \bot \\
-            \hline \\
-            \text{goal} & : & \bot \\
-        \end{alignmath}
+            \begin{rclmath}
+                a & : & \parens{P \tor Q} \implies \bot \\
+                \hline \\
+                \text{goal}_\branchright & : & Q \implies \bot \\
+            \end{rclmath}
 
-        Yay! And now the right branch:
+            Well, now we can move the $Q$ up:
+        
+            \begin{rclmath}
+                a & : & \parens{P \tor Q} \implies \bot \\
+                b_{\branchright} & : & Q \\
+                \hline \\
+                \text{goal}_\branchright & : & \bot \\
+            \end{rclmath}
 
-        \begin{alignmath}{rcl}
-            a_{\branchright} & : & Q \implies \bot \\
-            b & : & P \\
-            c & : & Q \\
-            \eva{a_{\branchright}}{c} & : & \bot \\
-            \hline \\
-            \text{goal} & : & \bot \\
-        \end{alignmath}
+            Then apply $b$: to $a$ to get:
 
-        Yay! Proof complete!
+            \begin{rclmath}
+                a                              & : & \parens{P \tor Q} \implies \bot \\
+                b                              & : & Q \\
+                \eva{a}{\eva{\branchright}{b}} & : & \bot \\
+                \hline \\
+                \text{goal}_\branchright       & : & \bot \\
+            \end{rclmath}
+
+            Yay! Theroem proved! \qed
+        \end{description}
     \end{proof}
 \end{theorem}
 
-\begin{theorem}[De Morgan's first law, part 1]
+Now would be a good time to go take a break. I'll put in a page break as a
+suggestion.
+\newpage
+
+\sss{Yay, more theorems!}
+
+Alright, let's get this out of the way
+
+\begin{theorem}[De Morgan's first law, part 2]
     \begin{equation}
-        \lnot\parens{P \tand Q} \implies \lnot P \tor \lnot Q
+        \lnot P \tor \lnot Q \to \lnot\parens{P \tand Q} 
     \end{equation}
 
-    Well, let's expand the definition of $\lnot$, shall we?
+    Which, in proof-friendly form:
+
     \begin{equation}
         \parens{
-          \parens{P \tand Q}
-          \implies
-          \bot
-        }
-        \implies
-        \parens{
-          \parens{P \implies \bot}
+          \parens{P \to \bot}
           \tor
-          \parens{Q \implies \bot}
+          \parens{Q \to \bot}
         }
+        \to
+        \parens{P \tand Q} 
+        \to
+        \bot
     \end{equation}
 
-    Well, the and-part can be destructed as such:
+    \begin{proof}
+        Let's put this in fourth-grader form:
 
-    \begin{equation}
-        \parens{
-            P \implies Q \implies \bot
-        }
-        \implies
-        \parens{
-          \parens{P \implies \bot}
-          \tor
-          \parens{Q \implies \bot}
-        }
-    \end{equation}
+        \begin{rclmath}
+            a           & : & \parens{P \implies \bot} \tor \parens{Q \implies \bot} \\
+            b           & : & P \tand Q \\
+            \hline \\
+            \text{goal} & : & \bot \\
+        \end{rclmath}
 
-    Hmm. This one looks tough. Let's come back to it
+        Okay, well, a rule that I haven't mentioned yet is, if you have
+        $P \land Q$ as an assumption, you can split that into two
+        assumptions. You have a proof that both $P$ and $Q$ hold. Thus, you can
+        split that into a proof that $P$ holds and a proof that $Q$ holds.
+
+        \begin{rclmath}
+            a           & : & \parens{P \implies \bot} \tor \parens{Q \implies \bot} \\
+            b           & : & P \\
+            c           & : & Q \\
+            \hline \\
+            \text{goal} & : & \bot \\
+        \end{rclmath}
+
+        Hmm. Okay, well, remember, if we have a $\lor$ as one of the
+        assumptions, we have to consider both branches of it. So....
+
+        \begin{description}
+          \item[Left branch of $a$] This is if $P \implies \bot$ holds, but not
+            the other.
+            
+            \begin{rclmath}
+                a_\branchleft          & : & P \implies \bot \\
+                b                      & : & P \\
+                c                      & : & Q \\
+                \eva{a_\branchleft}{b} & : & \bot \\
+                \hline \\
+                \text{goal}   & : & \bot \\
+            \end{rclmath}
+
+            Yay!! \qed
+          \item[Right branch of $a$] This is if $Q \implies \bot$ holds, but not
+            the other.
+            
+            \begin{rclmath}
+                a_\branchright          & : & Q \implies \bot \\
+                b                       & : & P \\
+                c                       & : & Q \\
+                \eva{a_\branchright}{c} & : & \bot \\
+                \hline \\
+                \text{goal}   & : & \bot \\
+            \end{rclmath}
+
+            Yay!! \qed
+        \end{description}
+    \end{proof}
 \end{theorem}
 
