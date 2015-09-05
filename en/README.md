@@ -117,6 +117,9 @@ Run these commands in a terminal
 
 You can then read `lysa-en.pdf`
 
+You can use `./watchbuild.sh` if you have inotify installed, and it will
+rebuild the book whenever there's a change to any of the files.
+
 ## If you've never used Git
 
 [git](https://git-scm.herokuapp.com) is a version control
