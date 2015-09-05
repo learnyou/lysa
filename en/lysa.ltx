@@ -1,4 +1,12 @@
-\documentclass[letter,12pt]{book}
+% If you are in United States, and you intend to print the book on a normal
+% printer, you should use this line instead:
+% 
+% \documentclass[letter, 12pt]{book}
+% 
+% as that will optimize the book for US-sized paper.
+% 
+% You might also want to change the fonts if you intend to print the book.
+\documentclass[12pt]{book}
 
 % Append yourself to this list. Aliases are fine (e.g. darkf), but please do
 % include an email where people can email you. If applicable, also include your
@@ -31,21 +39,36 @@
 \usepackage{mathtools}
 \usepackage{relsize}
 \usepackage{scrextend}
+\usepackage{sectsty}
 \usepackage{setspace}
 \usepackage{solarized-light}
 \usepackage{tabu}
 \usepackage{ulem}
 \usepackage{url}
 \usepackage{xkeyval}
+
+\usepackage[T1]{fontenc}
+\usepackage[scaled=0.85]{beramono}
+
 \usepackage[hidelinks]{hyperref}
 \usepackage{cleveref}
 
 % Change the font.
-% \usepackage{newtxtext,newtxmath}            % Use this line for printing
-\usepackage[sfdefault,scale=0.85]{FiraSans} % Use this and the next line for
-\usepackage{newtxsf}                        % electronic viewing
-\usepackage[scaled]{beramono}
-\usepackage[T1]{fontenc}
+% 
+% The default is to optimize the book for reading on an electronic screen. This
+% means serifed headings and sans-serif body. The opposite is optimal if you
+% want to *print* the book. Thus, you should comment out the following stanza if
+% you intend to print the book
+\renewcommand*{\familydefault}{\sfdefault}
+\usepackage{newtxsf}
+\allsectionsfont{\rmfamily}
+
+% If you are *printing* the book, I suggest you do the following:
+% 
+% \usepackage{roboto}
+% \allsectionsfont{\sffamily}
+% 
+% Of course, this book is free-as-in-freedom, so you can do whatever you want.
 
 \crefname{chapter}{\S}{\S}
 \crefname{section}{\S}{\S}
@@ -109,11 +132,12 @@
 \newcommand{\link}[2]{#2 (\btrurl{#1})}
 
 % Section & Chapter he
-\newcommand{\ch}[1]{\chapter{#1}\label{ch: #1}}
-\newcommand{\s}[1]{\section{#1}\label{s: #1}}
-\renewcommand{\ss}[1]{\subsection{#1}\label{ss: #1}}
-\newcommand{\sss}[1]{\subsubsection{#1}\label{sss: #1}}
-\newcommand{\pg}[2]{\paragraph{#1}\label{pg: #1}}
+\newcommand{\ch}[1]{\chapter{#1}}
+\newcommand{\s}[1]{{\sffamily \section{#1}}}
+\renewcommand{\ss}[1]{\subsection{#1}}
+\newcommand{\sss}[1]{\subsubsection{#1}}
+\newcommand{\pg}[2]{\paragraph{#1}}
+
 
 % Math shortcuts
 \newcommand{\N}{\mathbb{N}}
