@@ -4,9 +4,9 @@ clean:
 	rm -rf .lysa
 
 mksandbox:
-	mkdir .lysa
+	mkdir -p .lysa
 
-en: clean mksandbox
+en: mksandbox
 	cp -rvf en/lysa.ltx \
                 en/appendices/* \
                 en/chapters/* \
@@ -17,10 +17,7 @@ en: clean mksandbox
                 en/tex/latex-solarized/* \
                 .lysa/
 	cd .lysa && \
-	  pdflatex lysa.ltx && \
-	  bibtex lysa && \
-	  pdflatex lysa.ltx && \
-	  pdflatex lysa.ltx && \
+	  latexmk -pdf lysa.ltx && \
 	  cp lysa.pdf ../lysa-en.pdf
 	@echo "SUCCESSFULLY BUILT lysa-en.pdf"
 
