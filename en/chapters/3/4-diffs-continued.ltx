@@ -1,108 +1,300 @@
-\s{Differences (continued) (continued)}
+\s{Differences (continued)}
 
-Alright, that section was getting pretty long! You have probably guessed by now,
-but the first part of the first De Morgan law is the one that isn't true in
-intuitionistic logic. Why?
+The answer is to try to prove each law. They can all be proved using very simple
+logic.
 
-Well... I can't really think of a good intuitive reason. You can prove (and I
-will) that De Morgan's first law only holds if you assume these two axioms:
+Let's get going! Just for the hell of it, let's work in reverse order.
 
-\begin{enumerate}
-  \item The law of excluded middle (LEM). That is,
-
+\begin{theorem}[De Morgan's second law, part 2]
     \begin{equation}
-        \fall P \comma P \tor \lnot P
+        \lnot P \tand \lnot Q \implies \lnot\parens{P \tor Q}
     \end{equation}
 
-  \item Double negation
+    Well, let's think about this. We are trying to prove $\lnot\parens{P \tor
+      Q}$ assuming $\lnot P \land \lnot Q$. My favorite way to prove things is
+    by putting stuff into a table such as this:
 
-    \begin{equation}
-        \fall P \comma P \iff \lnot \lnot P
-    \end{equation}
-\end{enumerate}
+    \begin{rclmath}
+        a & : & \lnot P \\
+        b & : & \lnot Q \\
+        \hline \\
+        \text{goal} & : & \lnot \parens{P \tor Q} \\
+    \end{rclmath}
 
-If you'll remember, those are the two axioms that separate intuitionistic logic
-from classical logic. Anyway. Let's get going
+    The given proofs are above the line, and the goal is below the line. $a :
+    \lnot P$ should be read as ``$a$ is a proof of $\lnot P$''.
 
-\begin{theorem}[De Morgan's first law, part 1 (ish)]
-    \begin{equation}
-        \parens{
-          \lnot\parens{P \tand Q} \implies \lnot P \tor \lnot Q
-        }
-        \iff
-        \parens{
-          \parens{
-            \fall X \comma X \tor \lnot X
-          }
-          \tand
-          \parens{
-            \fall X \comma X \iff \lnot \lnot X
-          }
-        }
-    \end{equation}
+    \begin{asidebox}
+        Formal proofs start with the word ``proof'' italicized, and then a silly
+        box at the end. I'm not sure about the origins of the white box. The
+        \LaTeX command to add the box is \code{\textbackslash qed}. QED stands
+        for ``quod erat demonstrandum'' which is fancy math-latin-speak for
+        ``end of demonstration'', or in this case ``end of proof''. In this
+        book, the white box is on the lower right corner of the proof, and has a
+        cross inside, and no top line: \qed.
+    \end{asidebox}
 
-    Hmm. There are actually two theorems here that we have to prove!
-    \begin{enumerate}
-      \item You can prove LEM and double negation, given De Morgan's law 1.1
-      \item You can prove De Morgan's law 1.1 given LEM and double negation
-    \end{enumerate}
-
-    The second seems considerably easier, so we'll start with that.
+    Anyway, let's get started!
 
     \begin{proof}
-        Here's what we're trying to prove:
+        Remember, for all $X$,
 
         \begin{equation}
-            \parens{
-                \parens{
-                    \fall X \comma X \tor \lnot X
-                }
-                \tand
-                \parens{
-                    \fall X \comma X \iff \lnot \lnot X
-                }
-            }
-            \implies
-            \parens{
-                \lnot\parens{P \tand Q} \implies \lnot P \tor \lnot Q
-            }
+            \lnot X = X \to \bot
         \end{equation}
 
-        We can do some Currying magic to produce
+        Thus, we can substitute $\lnot$-whatever with whatever-implies-bottom.
 
-        \begin{equation}
-            \parens{
-                \fall X \comma X \tor \lnot X
-            }
-            \to
-            \parens{
-                \fall X \comma X \iff \lnot \lnot X
-            }
-            \to
-            \lnot\parens{P \tand Q}
-            \to
-            \lnot P \tor \lnot Q
-        \end{equation}
+        \begin{rclmath}
+            a & : & P \implies \bot \\
+            b & : & Q \implies \bot \\
+            \hline \\
+            \text{goal} & : & \parens{P \tor Q} \implies \bot \\
+        \end{rclmath}
 
-        That still looks incredibly confusing. Let's do the thing with the line
+        Well, now, the dynamics have shifted: we can now move $P \lor Q$ above the
+        line, because we are now trying to prove $\bot$ assuming $a$, and $b$, along
+        with $P \lor Q$. Therefore:
 
-        \begin{alignmath}{rcl}
-            a & : & \fall X \comma X \tor \lnot X \\
-            b & : & \fall X \comma X \iff \lnot \lnot X \\
-            c & : & \lnot\parens{P \tand Q} \\
-            \tabucline \\
-            \text{goal} & : & \lnot P \tor \lnot Q \\
-        \end{alignmath}
+        \begin{rclmath}
+            a & : & P \implies \bot \\
+            b & : & Q \implies \bot \\
+            c & : & P \tor Q \\
+            \hline \\
+            \text{goal} & : & \bot \\
+        \end{rclmath}
 
-        Let's unfold the definition of $\lnot$ to produce:
+        When we have a logical-or in one of the assumptions (the stuff we know,
+        i.e. above the line), then we have to consider both branches.
 
-        \begin{alignmath}{rcl}
-            a & : & \fall X \comma X \tor \parens{X \implies \bot} \\
-            b & : & \fall X \comma X \iff \parens{\parens{X \implies \bot} \implies \bot} \\
-            c & : & P \to Q \to \bot \\
-            \tabucline \\
-            \text{goal} & : & \parens{P \to \bot} \tor \parens{Q \to \bot} \\
-        \end{alignmath}
+        We know that one of the following is correct:
 
+        \begin{enumerate}
+        \item $P$ and $Q$ both hold
+        \item $P$ holds, but $Q$ doesn't
+        \item $Q$ holds, but $P$ doesn't
+        \end{enumerate}
+
+        Let's consider each situation
+
+        \begin{enumerate}
+          \item $P$ and $Q$ both hold
+            \begin{rclmath}
+                a & : & P \implies \bot \\
+                b & : & Q \implies \bot \\
+                c_1 & : & P \\
+                d_1 & : & Q \\
+                \eva{a}{c_1} & : & \bot \\
+                \hline \\
+                \text{goal} & : & \bot \\
+            \end{rclmath}
+
+            \qed
+          \item $P$ holds, but $Q$ doesn't
+            \begin{rclmath}
+                a & : & P \implies \bot \\
+                c_2 & : & P \\
+                \eva{a}{c_2} & : & \bot \\
+                \hline \\
+                \text{goal} & : & \bot \\
+            \end{rclmath}
+
+            \qed
+          \item $Q$ holds, but $P$ doesn't
+            \begin{rclmath}
+                b & : & Q \implies \bot \\
+                c_3 & : & Q \\
+                \eva{b}{c_3} & : & \bot \\
+                \hline \\
+                \text{goal} & : & \bot \\
+            \end{rclmath}
+
+            \qed
+        \end{enumerate}
     \end{proof}
 \end{theorem}
+
+\begin{theorem}[De Morgan's second law, part 1]
+    \begin{equation}
+        \lnot\parens{P \tor Q} \implies \lnot P \tand \lnot Q
+    \end{equation}
+
+    \answergraph{another-theorem-gimped.png}
+
+    Let's do the unfolding and what not. I did it in the last couple of proofs,
+    so I won't bother explaining it here. Well, it would probably be quicker to
+    just explain what I'm doing than to explain that explaining my actions would
+    take longer than\dots gah, recursion!
+
+    Anyway:
+
+    \begin{equation}
+        \parens{
+          \parens{P \tor Q}
+          \implies \bot
+        }
+        \implies
+        \parens{
+          \parens{P \implies \bot}
+          \tand
+          \parens{Q \implies \bot}
+        }
+    \end{equation}
+
+    Which, in silly 4\textsuperscript{th}-grader chalkboard form:
+
+    \begin{rclmath}
+        a & : & \parens{P \tor Q} \implies \bot \\
+        \hline \\
+        \text{goal} & : & \parens{P \implies \bot} \tand \parens{Q \implies \bot} \\
+    \end{rclmath}
+
+    \begin{proof}
+        So, we'll have to do the same thing as before, ish. Since we have a
+        $\land$ in the goal, we have to prove both branches of it. So, let's get
+        started.
+
+        \begin{description}
+          \item[Left branch] First, the left branch
+
+            \begin{rclmath}
+                a & : & \parens{P \tor Q} \implies \bot \\
+                \hline \\
+                \text{goal}_\branchleft & : & P \implies \bot \\
+            \end{rclmath}
+
+            We can proceed from here, moving anything before the last $\implies$
+            symbol above the line (because we are proving the last thing
+            assuming the previous things).
+
+            \begin{rclmath}
+                a & : & \parens{P \tor Q} \implies \bot \\
+                b & : & P \\
+                \hline \\
+                \text{goal}_\branchleft & : & \bot \\
+            \end{rclmath}
+
+            Well, if you'll remember, a proof of $P$ is a valid proof of
+            $P \lor Q$. Therefore:
+
+            \begin{rclmath}
+                a & : & \parens{P \tor Q} \implies \bot \\
+                b & : & P \\
+                \eva{a}{\eva{\branchleft}{b}} & : & \bot \\
+                \hline \\
+                \text{goal}_\branchleft & : & \bot \\
+            \end{rclmath}
+
+            Yay! \qed
+          \item[Right branch] Yay, now the right branch
+
+            \begin{rclmath}
+                a & : & \parens{P \tor Q} \implies \bot \\
+                \hline \\
+                \text{goal}_\branchright & : & Q \implies \bot \\
+            \end{rclmath}
+
+            Well, now we can move the $Q$ up:
+        
+            \begin{rclmath}
+                a & : & \parens{P \tor Q} \implies \bot \\
+                b_{\branchright} & : & Q \\
+                \hline \\
+                \text{goal}_\branchright & : & \bot \\
+            \end{rclmath}
+
+            Then apply $b$: to $a$ to get:
+
+            \begin{rclmath}
+                a                              & : & \parens{P \tor Q} \implies \bot \\
+                b                              & : & Q \\
+                \eva{a}{\eva{\branchright}{b}} & : & \bot \\
+                \hline \\
+                \text{goal}_\branchright       & : & \bot \\
+            \end{rclmath}
+
+            Yay! Theroem proved! \qed
+        \end{description}
+    \end{proof}
+\end{theorem}
+
+Alright, let's get this out of the way
+
+\begin{theorem}[De Morgan's first law, part 2]
+    \begin{equation}
+        \lnot P \tor \lnot Q \to \lnot\parens{P \tand Q} 
+    \end{equation}
+
+    Which, in proof-friendly form:
+
+    \begin{equation}
+        \parens{
+          \parens{P \to \bot}
+          \tor
+          \parens{Q \to \bot}
+        }
+        \to
+        \parens{P \tand Q} 
+        \to
+        \bot
+    \end{equation}
+
+    \begin{proof}
+        Let's put this in fourth-grader form:
+
+        \begin{rclmath}
+            a           & : & \parens{P \implies \bot} \tor \parens{Q \implies \bot} \\
+            b           & : & P \tand Q \\
+            \hline \\
+            \text{goal} & : & \bot \\
+        \end{rclmath}
+
+        Okay, well, a rule that I haven't mentioned yet is, if you have
+        $P \land Q$ as an assumption, you can split that into two
+        assumptions. You have a proof that both $P$ and $Q$ hold. Thus, you can
+        split that into a proof that $P$ holds and a proof that $Q$ holds.
+
+        \begin{rclmath}
+            a           & : & \parens{P \implies \bot} \tor \parens{Q \implies \bot} \\
+            b           & : & P \\
+            c           & : & Q \\
+            \hline \\
+            \text{goal} & : & \bot \\
+        \end{rclmath}
+
+        Hmm. Okay, well, remember, if we have a $\lor$ as one of the
+        assumptions, we have to consider both branches of it. So....
+
+        \begin{description}
+          \item[Left branch of $a$] This is if $P \implies \bot$ holds, but not
+            the other.
+            
+            \begin{rclmath}
+                a_\branchleft          & : & P \implies \bot \\
+                b                      & : & P \\
+                c                      & : & Q \\
+                \eva{a_\branchleft}{b} & : & \bot \\
+                \hline \\
+                \text{goal}   & : & \bot \\
+            \end{rclmath}
+
+            Yay!! \qed
+          \item[Right branch of $a$] This is if $Q \implies \bot$ holds, but not
+            the other.
+            
+            \begin{rclmath}
+                a_\branchright          & : & Q \implies \bot \\
+                b                       & : & P \\
+                c                       & : & Q \\
+                \eva{a_\branchright}{c} & : & \bot \\
+                \hline \\
+                \text{goal}   & : & \bot \\
+            \end{rclmath}
+
+            Yay!! 
+        \end{description}
+    \end{proof}
+\end{theorem}
+
+That was exhausting. Go take a break, you've earned it. I'll put in a page break,
+just for you. \newpage
