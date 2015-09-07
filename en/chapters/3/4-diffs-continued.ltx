@@ -48,4 +48,61 @@ from classical logic. Anyway. Let's get going
     \end{enumerate}
 
     The second seems considerably easier, so we'll start with that.
+
+    \begin{proof}
+        Here's what we're trying to prove:
+
+        \begin{equation}
+            \parens{
+                \parens{
+                    \fall X \comma X \tor \lnot X
+                }
+                \tand
+                \parens{
+                    \fall X \comma X \iff \lnot \lnot X
+                }
+            }
+            \implies
+            \parens{
+                \lnot\parens{P \tand Q} \implies \lnot P \tor \lnot Q
+            }
+        \end{equation}
+
+        We can do some Currying magic to produce
+
+        \begin{equation}
+            \parens{
+                \fall X \comma X \tor \lnot X
+            }
+            \to
+            \parens{
+                \fall X \comma X \iff \lnot \lnot X
+            }
+            \to
+            \lnot\parens{P \tand Q}
+            \to
+            \lnot P \tor \lnot Q
+        \end{equation}
+
+        That still looks incredibly confusing. Let's do the thing with the line
+
+        \begin{alignmath}{rcl}
+            a & : & \fall X \comma X \tor \lnot X \\
+            b & : & \fall X \comma X \iff \lnot \lnot X \\
+            c & : & \lnot\parens{P \tand Q} \\
+            \tabucline \\
+            \text{goal} & : & \lnot P \tor \lnot Q \\
+        \end{alignmath}
+
+        Let's unfold the definition of $\lnot$ to produce:
+
+        \begin{alignmath}{rcl}
+            a & : & \fall X \comma X \tor \parens{X \implies \bot} \\
+            b & : & \fall X \comma X \iff \parens{\parens{X \implies \bot} \implies \bot} \\
+            c & : & P \to Q \to \bot \\
+            \tabucline \\
+            \text{goal} & : & \parens{P \to \bot} \tor \parens{Q \to \bot} \\
+        \end{alignmath}
+
+    \end{proof}
 \end{theorem}
