@@ -186,8 +186,8 @@
 \newcommand{\bracketset}[1]{\brackets{ #1 }}
 \newcommand{\evalat}[2]{#1 \parens{#2}}
 \newenvironment{alignmath}[1]
-  {\begin{equation}\begin{array}{#1}}
-  {\end{array}\end{equation}}
+  {\begin{equation}\begin{tabu}{#1}}
+  {\end{tabu}\end{equation}}
 \newenvironment{alignedmath}
   {\begin{alignmath}{l}}
   {\end{alignmath}}
