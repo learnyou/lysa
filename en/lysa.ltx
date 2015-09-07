@@ -6,52 +6,37 @@
 % as that will optimize the book for US-sized paper.
 % 
 % You might also want to change the fonts if you intend to print the book.
-\documentclass[12pt]{book}
+\documentclass[letterpaper, 12pt]{memoir}
 
-% Append yourself to this list. Aliases are fine (e.g. darkf), but please do
-% include an email where people can email you. If applicable, also include your
-% middle initial, as is the convention in academia.
-\author{
-  \pharpend
-}
-
-\newcommand{\editors}{
-  \aneditor{Alexander G Bauer}{sasha@crofter.org}
-  \aneditor{Randy Brown}{randy@beingbrown.net}
-  \aneditor{Nick Chambers}{DTSCode@gmail.com}
-  \aneditor{Ng Wei En}{wei2912.supp0rt@gmail.com}
-  \aneditor{Anton Golov}{jesyspa@gmail.com}
-  \aneditor{Ben Z RF}{benzrf@benzrf.com}
-}
+\chapterstyle{koma}
 
 \usepackage{amsmath}
-\usepackage{amsfonts}
-\usepackage{amssymb}
+% \usepackage{amsfonts}
+% \usepackage{amssymb}
 \usepackage{amsthm}
-\usepackage[toc,page]{appendix}
+% \usepackage[toc,page]{appendix}
 \usepackage[backend=bibtex]{biblatex}
-\usepackage{centernot}
-\usepackage[mathcal,mathscr]{euscript}
-\usepackage[answerdelayed]{exercise}
-\usepackage{graphics}
-\usepackage[utf8]{inputenc}
+% \usepackage{centernot}
+% \usepackage[mathcal,mathscr]{euscript}
+% \usepackage[answerdelayed]{exercise}
+% \usepackage{graphics}
+% \usepackage[utf8]{inputenc}
 \usepackage{listings}
-\usepackage{mathtools}
-\usepackage{relsize}
-\usepackage{scrextend}
-\usepackage{sectsty}
-\usepackage{setspace}
-\usepackage{solarized-light}
-\usepackage{tabu}
-\usepackage{ulem}
-\usepackage{url}
-\usepackage{xkeyval}
+% \usepackage{mathtools}
+% \usepackage{relsize}
+% \usepackage{setspace}
+% \usepackage{solarized-light}
+% \usepackage{tabu}
+% \usepackage{ulem}
+% \usepackage{url}
+% \usepackage{xkeyval}
 
-\usepackage[T1]{fontenc}
-\usepackage[scaled=0.85]{beramono}
+% \usepackage[T1]{fontenc}
+% \usepackage[scaled=0.85]{beramono}
 
 \usepackage[hidelinks]{hyperref}
 \usepackage{cleveref}
+
 
 % Change the font.
 % 
@@ -59,14 +44,14 @@
 % means serifed headings and sans-serif body. The opposite is optimal if you
 % want to *print* the book. Thus, you should comment out the following stanza if
 % you intend to print the book
-\renewcommand*{\familydefault}{\sfdefault}
-\usepackage{newtxsf}
-\allsectionsfont{\rmfamily}
+% \renewcommand*{\familydefault}{\sfdefault}
+% \usepackage{newtxsf}
+% \allsectionsfont{\rmfamily}
 
 % If you are *printing* the book, I suggest you do the following:
 % 
-% \usepackage{roboto}
-% \allsectionsfont{\sffamily}
+\usepackage{roboto}
+
 % 
 % Of course, this book is free-as-in-freedom, so you can do whatever you want.
 
@@ -238,7 +223,7 @@
 {
   \end{ExerciseList}
 }
-\newenvironment{iquote}{\begin{quote}\it}{\end{quote}}
+\newenvironment{iquote}{\begin{quote}\emph}{\end{quote}}
 \newcommand{\bugtracker}{\link{https://github.com/learnyou/lysa/issues/new}{bug tracker}}
 \newcommand{\emailme}{email me at \code{peter@harpending.org}}
 \lstnewenvironment{plainfile}[1][]
@@ -378,6 +363,21 @@
     {\end{asidebox}\end{samepage}}
 
 \title{Learn You Some Algebras for Glorious Good!}
+% Append yourself to this list. Aliases are fine (e.g. darkf), but please do
+% include an email where people can email you. If applicable, also include your
+% middle initial, as is the convention in academia.
+\author{
+  \pharpend
+}
+
+\newcommand{\editors}{
+  \aneditor{Alexander G Bauer}{sasha@crofter.org}
+  \aneditor{Randy Brown}{randy@beingbrown.net}
+  \aneditor{Nick Chambers}{DTSCode@gmail.com}
+  \aneditor{Ng Wei En}{wei2912.supp0rt@gmail.com}
+  \aneditor{Anton Golov}{jesyspa@gmail.com}
+  \aneditor{Ben Z RF}{benzrf@benzrf.com}
+}
 \begin{document}
 \maketitle
 
@@ -400,11 +400,11 @@ License. To view a copy of this license, visit
 
 \section*{Editors \& Noted Contributors}
 
-\begin{addmargin}[4em]{2em}
+\begin{adjustwidth*}{4em}{2em}
 \begin{tabular}{l l}
   \editors
 \end{tabular}
-\end{addmargin}
+\end{adjustwidth*}
 
 \noindent\hrulefill
 
