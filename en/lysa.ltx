@@ -1,14 +1,7 @@
-% If you are in United States, and you intend to print the book on a normal
-% printer, you should use this line instead:
-% 
-% \documentclass[letter, 12pt]{book}
-% 
-% as that will optimize the book for US-sized paper.
-% 
-% You might also want to change the fonts if you intend to print the book.
-\documentclass[letterpaper, 12pt]{memoir}
+\documentclass[ebook,12pt]{memoir}
 
-\chapterstyle{koma}
+
+\chapterstyle{bianchi}
 
 \usepackage{amsmath}
 % \usepackage{amsfonts}
@@ -16,10 +9,12 @@
 \usepackage{amsthm}
 % \usepackage[toc,page]{appendix}
 \usepackage[backend=bibtex]{biblatex}
+\usepackage{datetime2}
 % \usepackage{centernot}
 % \usepackage[mathcal,mathscr]{euscript}
 % \usepackage[answerdelayed]{exercise}
-% \usepackage{graphics}
+\usepackage[margin=0.2in]{geometry}
+\usepackage{graphicx}
 % \usepackage[utf8]{inputenc}
 \usepackage{listings}
 % \usepackage{mathtools}
@@ -31,380 +26,347 @@
 % \usepackage{url}
 % \usepackage{xkeyval}
 
-% \usepackage[T1]{fontenc}
-% \usepackage[scaled=0.85]{beramono}
-
-\usepackage[hidelinks]{hyperref}
-\usepackage{cleveref}
-
-
 % Change the font.
 % 
 % The default is to optimize the book for reading on an electronic screen. This
 % means serifed headings and sans-serif body. The opposite is optimal if you
 % want to *print* the book. Thus, you should comment out the following stanza if
 % you intend to print the book
-% \renewcommand*{\familydefault}{\sfdefault}
-% \usepackage{newtxsf}
-% \allsectionsfont{\rmfamily}
+\usepackage[T1]{fontenc}
+\renewcommand*{\familydefault}{\sfdefault}
+\usepackage{newtxsf}
+\usepackage{sectsty}
+\allsectionsfont{\rmfamily}
+
+% These two have to be the last imports
+\usepackage[hidelinks]{hyperref}
+\usepackage{cleveref}
 
 % If you are *printing* the book, I suggest you do the following:
 % 
-\usepackage{roboto}
+% \usepackage{roboto}
 
-% 
-% Of course, this book is free-as-in-freedom, so you can do whatever you want.
+% % 
+% % Of course, this book is free-as-in-freedom, so you can do whatever you want.
 
-\crefname{chapter}{\S}{\S}
-\crefname{section}{\S}{\S}
-\crefname{subsection}{\S}{\S}
-\crefname{subsubsection}{\S}{\S}
-\crefname{paragraph}{\S}{\S}
-\Crefname{chapter}{\S}{\S}
-\Crefname{section}{\S}{\S}
-\Crefname{subsection}{\S}{\S}
-\Crefname{subsubsection}{\S}{\S}
-\Crefname{paragraph}{\S}{\S}
-\crefname{Exercise}{exercise}{exercise}
-\Crefname{Exercise}{Exercise}{Exercise}
-\crefname{example}{example}{example}
-\Crefname{example}{Example}{Example}
+% \crefname{chapter}{\S}{\S}
+% \crefname{section}{\S}{\S}
+% \crefname{subsection}{\S}{\S}
+% \crefname{subsubsection}{\S}{\S}
+% \crefname{paragraph}{\S}{\S}
+% \Crefname{chapter}{\S}{\S}
+% \Crefname{section}{\S}{\S}
+% \Crefname{subsection}{\S}{\S}
+% \Crefname{subsubsection}{\S}{\S}
+% \Crefname{paragraph}{\S}{\S}
+% \crefname{Exercise}{exercise}{exercise}
+% \Crefname{Exercise}{Exercise}{Exercise}
+% \crefname{example}{example}{example}
+% \Crefname{example}{Example}{Example}
 
-\addbibresource{lysa.bib}
-\usepackage{color}
+% \addbibresource{lysa.bib}
+% \usepackage{color}
 
-\definecolor{mygreen}{rgb}{0.3,0.6,0.3}
-\definecolor{mygray}{rgb}{0.8,0.8,0.8}
-\definecolor{mymauve}{rgb}{0.58,0,0.82}
+% \definecolor{mygreen}{rgb}{0.3,0.6,0.3}
+% \definecolor{mygray}{rgb}{0.8,0.8,0.8}
+% \definecolor{mymauve}{rgb}{0.58,0,0.82}
 
-\lstset{ %
-  % backgroundcolor=\color{white},   % choose the background color; you must add \usepackage{color} or \usepackage{xcolor}
-  basicstyle=\footnotesize\ttfamily,     % the size of the fonts that are used for the code
-  breakatwhitespace=false,         % sets if automatic breaks should only happen at whitespace
-  breaklines=false,                 % sets automatic line breaking
-  captionpos=b,                    % sets the caption-position to bottom
-  commentstyle=\color{mygreen},    % comment style
-  deletekeywords={...},            % if you want to delete keywords from the given language
-  escapeinside={\%*}{*)},          % if you want to add LaTeX within your code
-  extendedchars=true,              % lets you use non-ASCII characters; for 8-bits encodings only, does not work with UTF-8
-  frame=single,                    % adds a frame around the code
-  keepspaces=true,                 % keeps spaces in text, useful for keeping indentation of code (possibly needs columns=flexible)
-  % keywordstyle=\color{blue},       % keyword style
-  % Actually, we are using Idris, but Haskell is close enough
-  % language=\null,                % the language of the code
-  % morekeywords={*,...},            % if you want to add more keywords to the set
-  numbers=left,                    % where to put the line-numbers; possible values are (none, left, right)
-  numbersep=5pt,                   % how far the line-numbers are from the code
-  numberstyle=\footnotesize\ttfamily,    % the style that is used for the line-numbers
-  rulecolor=\color{mygray},        % if not set, the frame-color may be changed on line-breaks within not-black text (e.g. comments (green here))
-  showspaces=false,                % show spaces everywhere adding particular underscores; it overrides 'showstringspaces'
-  showstringspaces=false,          % underline spaces within strings only
-  showtabs=false,                  % show tabs within strings adding particular underscores
-  stepnumber=1,                    % the step between two line-numbers. If it's 1, each line will be numbered
-  % stringstyle=\color{mymauve},     % string literal style
-  tabsize=2,                       % sets default tabsize to 2 spaces
-  title=\lstname,                   % show the filename of files included with \lstinputlisting; also try caption instead of title
-  caption=\lstname ,                  % show the filename of files included with \lstinputlisting; also try caption instead of title
-}
-
-% Print-friendly links
-% \newcommand{\anauthor}[2]
-% {#1 {\href{mailto:#2}<{\tt #2}>} \\
+% \lstset{ %
+%   % backgroundcolor=\color{white},   % choose the background color; you must add \usepackage{color} or \usepackage{xcolor}
+%   basicstyle=\footnotesize\ttfamily,     % the size of the fonts that are used for the code
+%   breakatwhitespace=false,         % sets if automatic breaks should only happen at whitespace
+%   breaklines=false,                 % sets automatic line breaking
+%   captionpos=b,                    % sets the caption-position to bottom
+%   commentstyle=\color{mygreen},    % comment style
+%   deletekeywords={...},            % if you want to delete keywords from the given language
+%   escapeinside={\%*}{*)},          % if you want to add LaTeX within your code
+%   extendedchars=true,              % lets you use non-ASCII characters; for 8-bits encodings only, does not work with UTF-8
+%   frame=single,                    % adds a frame around the code
+%   keepspaces=true,                 % keeps spaces in text, useful for keeping indentation of code (possibly needs columns=flexible)
+%   % keywordstyle=\color{blue},       % keyword style
+%   % Actually, we are using Idris, but Haskell is close enough
+%   % language=\null,                % the language of the code
+%   % morekeywords={*,...},            % if you want to add more keywords to the set
+%   numbers=left,                    % where to put the line-numbers; possible values are (none, left, right)
+%   numbersep=5pt,                   % how far the line-numbers are from the code
+%   numberstyle=\footnotesize\ttfamily,    % the style that is used for the line-numbers
+%   rulecolor=\color{mygray},        % if not set, the frame-color may be changed on line-breaks within not-black text (e.g. comments (green here))
+%   showspaces=false,                % show spaces everywhere adding particular underscores; it overrides 'showstringspaces'
+%   showstringspaces=false,          % underline spaces within strings only
+%   showtabs=false,                  % show tabs within strings adding particular underscores
+%   stepnumber=1,                    % the step between two line-numbers. If it's 1, each line will be numbered
+%   % stringstyle=\color{mymauve},     % string literal style
+%   tabsize=2,                       % sets default tabsize to 2 spaces
+%   title=\lstname,                   % show the filename of files included with \lstinputlisting; also try caption instead of title
+%   caption=\lstname ,                  % show the filename of files included with \lstinputlisting; also try caption instead of title
 % }
-\newcommand{\aneditor}[2]{#1 {\href{mailto:#2}{\code{<}\code{#2}\code{>}}} \\}
-\let\anauthor\aneditor
-\newcommand{\btrurl}[1]{{\footnotesize\code{<}\url{#1}\code{>}}}
-\newcommand{\link}[2]{#2 (\btrurl{#1})}
 
-% Section & Chapter he
+% Alphabetized macros
+\newcommand{\aneditor}[2]{#1 {\href{mailto:#2}{\code{<}\code{#2}\code{>}}} \\}
+\newcommand{\btrurl}[1]{{\normalsize\code{<}\url{#1}\code{>}}}
+\newcommand{\bugtracker}{\link{https://github.com/learnyou/lysa/issues/new}{bug tracker}}
 \newcommand{\ch}[1]{\chapter{#1}}
+\newcommand{\code}[1]{\texttt{\normalsize #1}}
+\newcommand{\emailme}{email me at \code{peter@harpending.org}}
+\newcommand{\inclgraph}[1]{\includegraphics[width=0.8\textwidth]{#1}}
+\newcommand{\link}[2]{#2 (\btrurl{#1})}
+\newcommand{\pg}[2]{\paragraph{#1}}
+\newcommand{\sss}[1]{\subsubsection{#1}}
 \newcommand{\s}[1]{{\sffamily \section{#1}}}
 \renewcommand{\ss}[1]{\subsection{#1}}
-\newcommand{\sss}[1]{\subsubsection{#1}}
-\newcommand{\pg}[2]{\paragraph{#1}}
 
-
-% Math shortcuts
-\newcommand{\N}{\mathbb{N}}
-\newcommand{\R}{\mathbb{R}}
-\newcommand{\Z}{\mathbb{Z}}
-\renewcommand{\emptyset}{\varnothing}
-\newcommand{\nil}{\emptyset}
-\newcommand{\subof}{\subset}
-\newcommand{\subeq}{\subseteq}
-\newcommand{\subofnm}{$\subset$}
-\newcommand{\subeqnm}{$\subseteq$}
-\newcommand{\supof}{\supset}
-\newcommand{\supeq}{\supseteq}
-\newcommand{\supofnm}{$\supset$}
-\newcommand{\supeqnm}{$\supseteq$}
-\newcommand{\mset}[1]{\left\{\,#1\,\right\}}
-\newcommand{\parens}[1]{\left(#1\right)}
-\newcommand{\brackets}[1]{\left[\,#1\,\right]}
-\let\implies\rightarrow
-\let\impliedby\leftarrow
-\let\iff\leftrightarrow
-\newcommand{\Qimplies}{\stackrel{?}{\implies}}
-\newcommand{\Qimpliedby}{\stackrel{?}{\impliedby}}
-\newcommand{\comma}{,\,}
-\newcommand{\notimplies}{\centernot\implies}
-\newcommand{\notimpliedby}{\centernot\impliedby}
-\newcommand{\notiff}{\centernot\iff}
-\newcommand{\Qin}{\stackrel{?}{\in}}
-\newcommand{\Qiff}{\stackrel{?}{\iff}}
-\newcommand{\truenm}{$\true$}
-\newcommand{\falsenm}{$\false$}
-\newcommand{\true}{\mathrm{True}}
-\newcommand{\false}{\mathrm{False}}
-\newcommand{\bigand}[1]{\land\brackets{#1}}
-\newcommand{\semicolon}{;\;}
-\newcommand{\mlist}[1]{\left(\,#1\,\right)}
-\newcommand{\sfall}{\semicolon\fall}
-\newcommand{\evalbf}[2]{\evalat{\mathbf{#1}}{#2}}
-\newcommand{\evalrm}[2]{\evalat{\mathrm{#1}}{#2}}
-\newcommand{\domain}{\evalbf{dom}}
-\let\dom\domain
-\newcommand{\codomain}{\evalbf{codom}}
-\let\codom\codomain
-\newcommand{\bool}{\mathbb{B}}
-\newcommand{\boolnm}{$\mathrm{\bool}$}
-\newcommand{\bracketset}[1]{\brackets{ #1 }}
-\newcommand{\evalat}[2]{#1 \parens{#2}}
-\newenvironment{alignmath}[1]
-  {\begin{equation}\begin{array}{#1}}
-  {\end{array}\end{equation}}
-\newenvironment{alignedmath}
-  {\begin{alignmath}{l}}
-  {\end{alignmath}}
-\newcommand{\arc}  {\evalrm{arc}}
-\newcommand{\im}   {\evalrm{im}}
-\newcommand{\preim}{\evalrm{preim}}
-\newcommand{\Set}{\mathbf{Set}}
-\newcommand{\Qsubof}{\stackrel{?}{\subof}}
-\newcommand{\Qsubeq}{\stackrel{?}{\subeq}}
-\newcommand{\Qsupof}{\stackrel{?}{\supof}}
-\newcommand{\Qsupeq}{\stackrel{?}{\supeq}}
-\newcommand{\notsubof}{\centernot{\subof}}
-\newcommand{\notsubeq}{\centernot{\subeq}}
-\newcommand{\notsupof}{\centernot{\supof}}
-\newcommand{\notsupeq}{\centernot{\supeq}}
-\newcommand{\superbracket}[2]{
-  {
-    ^{
-      {#1}
-    }
-    \brackets{
-      {#2}
-    }
-  }
-}
-\renewcommand{\ng}{`}
-\newcommand{\Q}{\mathbb{Q}}
-\newcommand{\evalateq}[2]{#1 {\bracketset{#2}}}
-% \renewcommand{\succ}[1]{\evalat{\mathrm{succ}}{x}}
-\newcommand{\semic}{;\;}
-\newcommand{\pharpend}{\anauthor{Peter Harpending}{peter@harpending.org}}
-\let\xti\textit %italicize
-\let\xtb\textbf %boldface
-\newcommand{\code}[1]{{\footnotesize\ttfamily #1}}
-\let\crappycode\code %boldface
+\let\anauthor\aneditor
 \let\terminal\code
+\let\xtb\textbf %boldface
+
+% Friggin memoir class not letting me alphabetize stuff; these are the macros
+% that depend on each other
+\let\xti\emph %boldface
 \let\term\xti
-\let\xtv\code
-\let\tilde\textasciitilde
-\let\mvec\mlist
-\setlength{\parskip}{2ex}
-\newenvironment{ExcList}
-{
-  % \newpage
-  \ss{Exercises}
-  \begin{ExerciseList}
-}
-{
-  \end{ExerciseList}
-}
-\newenvironment{iquote}{\begin{quote}\emph}{\end{quote}}
-\newcommand{\bugtracker}{\link{https://github.com/learnyou/lysa/issues/new}{bug tracker}}
-\newcommand{\emailme}{email me at \code{peter@harpending.org}}
-\lstnewenvironment{plainfile}[1][]
-{\noindent\minipage{\linewidth}\medskip
-  \lstset{
-      #1
-    }}
-  {\endminipage}
-\lstnewenvironment{haskell}[1][]
-{\noindent\minipage{\linewidth}\medskip
-  \lstset{
-      language=Haskell,
-      #1
-    }}
-  {\endminipage}
-\lstnewenvironment{shellsession}[1][]
-  {\lstset{
-      numbers=none,
-      #1
-          }}
-  {}
-\let\filepath\code
-\newcommand{\nilnm}{$\nil$}
-\newcommand{\nm}[1]{${#1}$}
-\newcommand{\fn}[2]{\lambda\mlist{#1} \Longrightarrow #2}
-\let\n\eta
-\newcommand{\notexists}{\centernot\exists}
-\newcommand{\amb}{\mathscr{A}}
-\newcommand{\inamb}{\in\amb}
-\newcommand{\Qequiv}{\stackrel{?}{\equiv}}
-\let\eva\evalat
-\newcommand{\id}{\mathrm{id}}
-\newcommand{\inclgraph}[1]{\includegraphics[width=0.8\textwidth]{#1}}
-\newcommand{\flip}{\mathrm{flip}}
-\newcommand{\compl}[1]{{#1}^c}
-\let\bs\setminus
-\newenvironment{rclmath}{\begin{alignmath}{rcl}}{\end{alignmath}}
-\newcommand{\answergraph}[1]{\begin{center}\inclgraph{{#1}}\end{center}}
-\let\cnot\centernot
-\newcommand{\notequiv}{\cnot\equiv}
-\let\union\cup
-\let\intersect\cap
-\newcommand{\ce}{:=}
 \newcommand{\termref}[2]{\term{#1} (\cref{#2})}
-\newcommand{\C}{\mathbb{C}}
-\let\of\circ
-\newcommand{\mtb}[1]{$\mathbf{#1}$}
-\let\st\semic
-\newcommand{\suc}{\mathscr{S}}
-\renewcommand{\succ}[1]{\eva{\suc}{#1}}
-\newcommand{\I}{\mathbb{I}}
-\newcommand{\Setof}{\eva{\Set}}
-\newcommand{\Class}{\mathbf{Class}}
-\newcommand{\Classof}{\eva{\Class}}
-\let\ntimes\cdot                %ntimes= ``numeric times''
-\newcommand{\recip}{\frac{1}}
-\renewcommand{\ae}{\stackrel{\mathrm{c}}{=}}
-\newcommand{\alnull}{\aleph_0}
-\newcommand{\ngp}[1]{\ng{\parens{#1}}}
-\newcommand{\ngfrac}[2]{\ngp{\frac{#1}{#2}}}
-\newcommand{\fracil}[2]{#1 \div #2}
-\newcommand{\ngfracil}[2]{\ngp{\fracil{#1}{#2}}}
-\newcommand{\ngfracilpf}[2]{\ngp{\fracil{\parens{#1}}{#2}}}
-\renewcommand{\sin}[1]{\eva{\mathrm{sin}}{#1}}
-\renewcommand{\cos}[1]{\eva{\mathrm{cos}}{#1}}
-\lstdefinestyle{sage}{float=h, language=Python}
-\newcommand{\sageinput}{\lstinputlisting[style=sage]}
-\let\cleardoublepage\clearpage
-\newenvironment{rclproof}
-  {\begin{proof}\begin{rclmath}}
-  {\end{rclmath}\end{proof}}
-\newcommand{\ageqq}{\stackrel{\mathrm{c}}{\geqq}}
-\newcommand{\aleqq}{\stackrel{\mathrm{c}}{\leqq}}
-\newcommand{\agt}{\stackrel{\mathrm{c}}{>}}
-\newcommand{\alt}{\stackrel{\mathrm{c}}{>}}
-\theoremstyle{definition}
-\newtheorem{theorem}{Theorem}
-\newtheorem{lemma}{Lemma}
-\newtheorem{axiom}{Axiom}
-\newtheorem{remark}{Remark}
-\newtheorem{example}{Example}
-\newtheorem{definition}{Definition}
-\newenvironment{textmath}
-  {\begin{quote}}
-  {\end{quote}}
-\newenvironment{rlmath}
-  {\begin{alignmath}{rl}}
-  {\end{alignmath}}
-\newcommand{\godel}{G\"odel}
-\newcommand{\nmtext}[1]{\nm{\text{#1}}}
-\newcommand{\Type}{\mathbf{Type}}
-\newcommand{\comprehension}[2]{\mset{#1 \,\mid\, #2}}
-\newcommand{\lcomp}[2]{\mlist{#1 \,\mid\, #2}}
-\newcommand{\scomp}[2]{\mset{#1 \,\mid\, #2}}
-\renewcommand{\mod}[1]{\parens{\text{mod } #1}}
-\newcommand{\tand}{\text{ and }}
-\newcommand{\tor}{\text{ or }}
-\newcommand{\fall}{\text{for all }}
-\newcommand{\join}{\text{join}}
-\newcommand{\branchleft}{\text{left}}
-\newcommand{\branchright}{\text{right}}
 
-% ASIDE BOX, stolen from https://github.com/jambonrose/latex-code-example/blob/master/0_preamble.tex
-% 
-% Copyright 2013, Andrew Pinkham. FreeBSD license:
-% https://github.com/jambonrose/latex-code-example/blob/master/LICENSE.txt
-%
-\usepackage[framemethod=TikZ]{mdframed}
-\definecolor{light-gray}{gray}{0.85}
-\newmdenv[ %
-		usetwoside=false,%
-        font=\footnotesize\it,
-		nobreak=false,%
-		roundcorner=0pt,%
-		outerlinewidth=0.2pt,%
-		linecolor=lightgray,%
-		skipabove=12pt,%
-		skipbelow=12pt,%
-		% topmargin=24pt,%
-		% bottommargin=24pt,%
-		rightmargin=10pt,%
-		leftmargin=10pt,%
-		% innertopmargin=\baselineskip,%
-		% innerbottommargin=\baselineskip,%
-		innerrightmargin=10pt,%
-		innerleftmargin=10pt,%  
-		backgroundcolor=light-gray,%
-		]{asidebox}
+% \let\implies\rightarrow
+% \let\impliedby\leftarrow
+% \let\iff\leftrightarrow
+% \newcommand{\Qimplies}{\stackrel{?}{\implies}}
+% \newcommand{\Qimpliedby}{\stackrel{?}{\impliedby}}
+% \newcommand{\comma}{,\,}
+% \newcommand{\notimplies}{\centernot\implies}
+% \newcommand{\notimpliedby}{\centernot\impliedby}
+% \newcommand{\notiff}{\centernot\iff}
+% \newcommand{\Qin}{\stackrel{?}{\in}}
+% \newcommand{\Qiff}{\stackrel{?}{\iff}}
+% \newcommand{\truenm}{$\true$}
+% \newcommand{\falsenm}{$\false$}
+% \newcommand{\true}{\mathrm{True}}
+% \newcommand{\false}{\mathrm{False}}
+% \newcommand{\bigand}[1]{\land\brackets{#1}}
+% \newcommand{\semicolon}{;\;}
+% \newcommand{\mlist}[1]{\left(\,#1\,\right)}
+% \newcommand{\sfall}{\semicolon\fall}
+% \newcommand{\evalbf}[2]{\evalat{\mathbf{#1}}{#2}}
+% \newcommand{\evalrm}[2]{\evalat{\mathrm{#1}}{#2}}
+% \newcommand{\domain}{\evalbf{dom}}
+% \let\dom\domain
+% \newcommand{\codomain}{\evalbf{codom}}
+% \let\codom\codomain
+% \newcommand{\bool}{\mathbb{B}}
+% \newcommand{\boolnm}{$\mathrm{\bool}$}
+% \newcommand{\bracketset}[1]{\brackets{ #1 }}
+% \newcommand{\evalat}[2]{#1 \parens{#2}}
+% \newenvironment{alignmath}[1]
+%   {\begin{equation}\begin{array}{#1}}
+%   {\end{array}\end{equation}}
+% \newenvironment{alignedmath}
+%   {\begin{alignmath}{l}}
+%   {\end{alignmath}}
+% \newcommand{\arc}  {\evalrm{arc}}
+% \newcommand{\im}   {\evalrm{im}}
+% \newcommand{\preim}{\evalrm{preim}}
+% \newcommand{\Set}{\mathbf{Set}}
+% \newcommand{\Qsubof}{\stackrel{?}{\subof}}
+% \newcommand{\Qsubeq}{\stackrel{?}{\subeq}}
+% \newcommand{\Qsupof}{\stackrel{?}{\supof}}
+% \newcommand{\Qsupeq}{\stackrel{?}{\supeq}}
+% \newcommand{\notsubof}{\centernot{\subof}}
+% \newcommand{\notsubeq}{\centernot{\subeq}}
+% \newcommand{\notsupof}{\centernot{\supof}}
+% \newcommand{\notsupeq}{\centernot{\supeq}}
+% \newcommand{\superbracket}[2]{
+%   {
+%     ^{
+%       {#1}
+%     }
+%     \brackets{
+%       {#2}
+%     }
+%   }
+% }
+% \renewcommand{\ng}{`}
+% \newcommand{\Q}{\mathbb{Q}}
+% \newcommand{\evalateq}[2]{#1 {\bracketset{#2}}}
+% % \renewcommand{\succ}[1]{\evalat{\mathrm{succ}}{x}}
+% \newcommand{\semic}{;\;}
+% \let\xti\textit %italicize
+% \let\crappycode\code %boldface
+% \let\xtv\code
+% \let\tilde\textasciitilde
+% \let\mvec\mlist
+% \setlength{\parskip}{2ex}
+% \newenvironment{ExcList}
+% {
+%   % \newpage
+%   \ss{Exercises}
+%   \begin{ExerciseList}
+% }
+% {
+%   \end{ExerciseList}
+% }
+% \newenvironment{iquote}{\begin{quote}\emph}{\end{quote}}
+% \lstnewenvironment{plainfile}[1][]
+% {\noindent\minipage{\linewidth}\medskip
+%   \lstset{
+%       #1
+%     }}
+%   {\endminipage}
+% \lstnewenvironment{haskell}[1][]
+% {\noindent\minipage{\linewidth}\medskip
+%   \lstset{
+%       language=Haskell,
+%       #1
+%     }}
+%   {\endminipage}
+% \lstnewenvironment{shellsession}[1][]
+%   {\lstset{
+%       numbers=none,
+%       #1
+%           }}
+%   {}
+% \let\filepath\code
+% \newcommand{\nilnm}{$\nil$}
+% \newcommand{\nm}[1]{${#1}$}
+% \newcommand{\fn}[2]{\lambda\mlist{#1} \Longrightarrow #2}
+% \let\n\eta
+% \newcommand{\notexists}{\centernot\exists}
+% \newcommand{\amb}{\mathscr{A}}
+% \newcommand{\inamb}{\in\amb}
+% \newcommand{\Qequiv}{\stackrel{?}{\equiv}}
+% \let\eva\evalat
+% \newcommand{\id}{\mathrm{id}}
+% \newcommand{\flip}{\mathrm{flip}}
+% \newcommand{\compl}[1]{{#1}^c}
+% \let\bs\setminus
+% \newenvironment{rclmath}{\begin{alignmath}{rcl}}{\end{alignmath}}
+% \newcommand{\answergraph}[1]{\begin{center}\inclgraph{{#1}}\end{center}}
+% \let\cnot\centernot
+% \newcommand{\notequiv}{\cnot\equiv}
+% \let\union\cup
+% \let\intersect\cap
+% \newcommand{\ce}{:=}
+% \newcommand{\C}{\mathbb{C}}
+% \let\of\circ
+% \newcommand{\mtb}[1]{$\mathbf{#1}$}
+% \let\st\semic
+% \newcommand{\suc}{\mathscr{S}}
+% \renewcommand{\succ}[1]{\eva{\suc}{#1}}
+% \newcommand{\I}{\mathbb{I}}
+% \newcommand{\Setof}{\eva{\Set}}
+% \newcommand{\Class}{\mathbf{Class}}
+% \newcommand{\Classof}{\eva{\Class}}
+% \let\ntimes\cdot                %ntimes= ``numeric times''
+% \newcommand{\recip}{\frac{1}}
+% \renewcommand{\ae}{\stackrel{\mathrm{c}}{=}}
+% \newcommand{\alnull}{\aleph_0}
+% \newcommand{\ngp}[1]{\ng{\parens{#1}}}
+% \newcommand{\ngfrac}[2]{\ngp{\frac{#1}{#2}}}
+% \newcommand{\fracil}[2]{#1 \div #2}
+% \newcommand{\ngfracil}[2]{\ngp{\fracil{#1}{#2}}}
+% \newcommand{\ngfracilpf}[2]{\ngp{\fracil{\parens{#1}}{#2}}}
+% \renewcommand{\sin}[1]{\eva{\mathrm{sin}}{#1}}
+% \renewcommand{\cos}[1]{\eva{\mathrm{cos}}{#1}}
+% \lstdefinestyle{sage}{float=h, language=Python}
+% \newcommand{\sageinput}{\lstinputlisting[style=sage]}
+% \let\cleardoublepage\clearpage
+% \newenvironment{rclproof}
+%   {\begin{proof}\begin{rclmath}}
+%   {\end{rclmath}\end{proof}}
+% \newcommand{\ageqq}{\stackrel{\mathrm{c}}{\geqq}}
+% \newcommand{\aleqq}{\stackrel{\mathrm{c}}{\leqq}}
+% \newcommand{\agt}{\stackrel{\mathrm{c}}{>}}
+% \newcommand{\alt}{\stackrel{\mathrm{c}}{>}}
+% \theoremstyle{definition}
+% \newtheorem{theorem}{Theorem}
+% \newtheorem{lemma}{Lemma}
+% \newtheorem{axiom}{Axiom}
+% \newtheorem{remark}{Remark}
+% \newtheorem{example}{Example}
+% \newtheorem{definition}{Definition}
+% \newenvironment{textmath}
+%   {\begin{quote}}
+%   {\end{quote}}
+% \newenvironment{rlmath}
+%   {\begin{alignmath}{rl}}
+%   {\end{alignmath}}
+% \newcommand{\godel}{G\"odel}
+% \newcommand{\nmtext}[1]{\nm{\text{#1}}}
+% \newcommand{\Type}{\mathbf{Type}}
+% \newcommand{\comprehension}[2]{\mset{#1 \,\mid\, #2}}
+% \newcommand{\lcomp}[2]{\mlist{#1 \,\mid\, #2}}
+% \newcommand{\scomp}[2]{\mset{#1 \,\mid\, #2}}
+% \renewcommand{\mod}[1]{\parens{\text{mod } #1}}
+% \newcommand{\tand}{\text{ and }}
+% \newcommand{\tor}{\text{ or }}
+% \newcommand{\fall}{\text{for all }}
+% \newcommand{\join}{\text{join}}
+% \newcommand{\branchleft}{\text{left}}
+% \newcommand{\branchright}{\text{right}}
 
-% End of ASIDE BOX
+% % ASIDE BOX, stolen from https://github.com/jambonrose/latex-code-example/blob/master/0_preamble.tex
+% % 
+% % Copyright 2013, Andrew Pinkham. FreeBSD license:
+% % https://github.com/jambonrose/latex-code-example/blob/master/LICENSE.txt
+% %
+% \usepackage[framemethod=TikZ]{mdframed}
+% \definecolor{light-gray}{gray}{0.85}
+% \newmdenv[ %
+% 		usetwoside=false,%
+%         font=\footnotesize\it,
+% 		nobreak=false,%
+% 		roundcorner=0pt,%
+% 		outerlinewidth=0.2pt,%
+% 		linecolor=lightgray,%
+% 		skipabove=12pt,%
+% 		skipbelow=12pt,%
+% 		% topmargin=24pt,%
+% 		% bottommargin=24pt,%
+% 		rightmargin=10pt,%
+% 		leftmargin=10pt,%
+% 		% innertopmargin=\baselineskip,%
+% 		% innerbottommargin=\baselineskip,%
+% 		innerrightmargin=10pt,%
+% 		innerleftmargin=10pt,%  
+% 		backgroundcolor=light-gray,%
+% 		]{asidebox}
 
-\newenvironment{aside}[1][Default]
-    { %
-      \begin{samepage} %
-      \begin{asidebox}[frametitle=Aside - {#1}] %
-    }
-    {\end{asidebox}\end{samepage}}
+% % End of ASIDE BOX
 
-\title{Learn You Some Algebras for Glorious Good!}
-% Append yourself to this list. Aliases are fine (e.g. darkf), but please do
-% include an email where people can email you. If applicable, also include your
-% middle initial, as is the convention in academia.
-\author{
-  \pharpend
-}
+% \newenvironment{aside}[1][Default]
+%     { %
+%       \begin{samepage} %
+%       \begin{asidebox}[frametitle=Aside - {#1}] %
+%     }
+%     {\end{asidebox}\end{samepage}}
 
-\newcommand{\editors}{
-  \aneditor{Alexander G Bauer}{sasha@crofter.org}
-  \aneditor{Randy Brown}{randy@beingbrown.net}
-  \aneditor{Nick Chambers}{DTSCode@gmail.com}
-  \aneditor{Ng Wei En}{wei2912.supp0rt@gmail.com}
-  \aneditor{Anton Golov}{jesyspa@gmail.com}
-  \aneditor{Ben Z RF}{benzrf@benzrf.com}
-}
+
 \begin{document}
+
+% Title page
+\title{Learn You Some Algebras for Glorious Good!}
+\author{
+  \anauthor{Alexander G Bauer}{sasha@crofter.org}
+  \anauthor{Randy Brown}{randy@beingbrown.net}
+  \anauthor{Nick Chambers}{DTSCode@gmail.com}
+  \anauthor{Ng Wei En}{wei2912.supp0rt@gmail.com}
+  \anauthor{Anton Golov}{jesyspa@gmail.com}
+  \anauthor{Peter Harpending}{peter@harpending.org}
+  \anauthor{Ben Z RF}{benzrf@benzrf.com}
+}
 \maketitle
 
+% Copyright and editors
 \newpage
 \topskip0pt
 \vspace*{\fill}
-
 \begin{center}
 \inclgraph{cc-by-sa.png}
 \end{center}
 
-Copyright © 2014-2015 \pharpend and contributors
+Copyright \copyright\ 2014-2015 authors and contributors.
 
 Except where otherwise specified, this work, and all other works herein, are
 licensed under the Creative Commons Attribution-ShareAlike 4.0 International
 License. To view a copy of this license, visit
 \btrurl{https://creativecommons.org/licenses/by-sa/4.0/}.
-
-\noindent\hrulefill
-
-\section*{Editors \& Noted Contributors}
-
-\begin{adjustwidth*}{4em}{2em}
-\begin{tabular}{l l}
-  \editors
-\end{tabular}
-\end{adjustwidth*}
 
 \noindent\hrulefill
 
@@ -417,39 +379,39 @@ you are reading is an extremely rough and unfinished draft.}
 \newpage
 
 \input{1-introduction.ltx}
-\input{2-functions-types.ltx}
-\input{3-logic.ltx}
-% \input{3-sets.ltx}
-% \input{4-more-sets.ltx}
+% \input{2-functions-types.ltx}
+% \input{3-logic.ltx}
+% % \input{3-sets.ltx}
+% % \input{4-more-sets.ltx}
  
-% Citations
-% \nocite{lyah}
-% \nocite{jobs-programming}
-% \nocite{w-functions}
-% \nocite{landau-analysis}
-% \nocite{expeditions}
-% \nocite{axler-linalg}
-% \nocite{taylor-analysis}
-% \nocite{hungerford}
-% \nocite{mathstats}
-% \nocite{lang-linalg}
-% \nocite{reid-commalg}
-% \nocite{jech-set-theory}
+% % Citations
+% % \nocite{lyah}
+% % \nocite{jobs-programming}
+% % \nocite{w-functions}
+% % \nocite{landau-analysis}
+% % \nocite{expeditions}
+% % \nocite{axler-linalg}
+% % \nocite{taylor-analysis}
+% % \nocite{hungerford}
+% % \nocite{mathstats}
+% % \nocite{lang-linalg}
+% % \nocite{reid-commalg}
+% % \nocite{jech-set-theory}
 
-\begin{appendices}
+% \begin{appendices}
 
-{\footnotesize
-  \setlength{\parskip}{0ex}
-  % \setlength{\parindent}{0ex}
-}
-\input{a-identities.ltx}
-\input{b-graph-listings.ltx}
-% \input{c-peano-axioms.ltx}
-\ch{Answers to the exercises}
-\label{ex-solutions}
-\shipoutAnswer
-\end{appendices}
+% {\footnotesize
+%   \setlength{\parskip}{0ex}
+%   % \setlength{\parindent}{0ex}
+% }
+% \input{a-identities.ltx}
+% \input{b-graph-listings.ltx}
+% % \input{c-peano-axioms.ltx}
+% \ch{Answers to the exercises}
+% \label{ex-solutions}
+% \shipoutAnswer
+% \end{appendices}
 
-\newpage
-\printbibliography
+% \newpage
+% \printbibliography
 \end{document}
