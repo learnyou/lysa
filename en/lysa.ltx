@@ -31,6 +31,7 @@
 \usepackage[toc,page]{appendix}
 \usepackage[backend=bibtex]{biblatex}
 \usepackage{centernot}
+\usepackage{datetime}
 \usepackage[mathcal,mathscr]{euscript}
 \usepackage[answerdelayed]{exercise}
 \usepackage{graphics}
@@ -378,6 +379,10 @@
     {\end{asidebox}\end{samepage}}
 
 \title{Learn You Some Algebras for Glorious Good!}
+
+\renewcommand*{\dateseparator}{-}
+\date{\yyyymmdddate\today}
+
 \begin{document}
 \maketitle
 
