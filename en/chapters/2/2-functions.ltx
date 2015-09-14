@@ -25,10 +25,11 @@ that we are creating a function, not just an ordinary value.\footnote{Although a
 Immediately following the $\lambda$ is a list of inputs to the function. In this
 case, there is only one, which is called $x$. If there was more than one input,
 they would be separated by commas. After the list of variables, there's a
-period.
+rocket: $\Longrightarrow$.
 
-After the period indicates what the function does to the inputs. This is called,
-uninterestingly enough, the \term{output} of the function.
+The portion after the rocket indicates what the function does to the
+inputs. This is called, uninterestingly enough, the \term{output} of the
+function.
 
 That's all a function is: input and output. You've likely forgotten what the
 function is, so I'll write it again:
@@ -188,20 +189,34 @@ Let's look through some more comprehensions.
 \end{example}
 
 \begin{example}
-    Natural numbers can be divided into two categories:
+    Natural numbers greater than $1$ can be divided into two categories:
 
     \begin{description}
       \item[Composite numbers] can be divided by another natural number to get a
         third natural number. For instance, $15$ can be divided by $3$ to get
         $5$.
-      \item[Prime numbers] can only be divided by $1$ or themselves. For
-        instance, there isn't any natural number that you can divide into $7$,
-        and get another natural number
 
-        $1$ can trivially divide every number. Likewise, every number can
-        trivially divide itself. Mathematicians ignore those two divisors,
-        because they occur in every number and thus are not very interesting.
+        There are always two \term{trivial divisors}. $1$ can trivially divide
+        every number. Likewise, every number can trivially divide itself. These
+        trivial divisors occur in every single number and thus are not very
+        interesting.
+
+      \item[Prime numbers] have only trivial divisors. For instance, there is no
+        non-trivial divisor of $7$.
     \end{description}
+
+    \xtb{Why do you exclude $1$?}
+
+    Well, because $1$ has only trivial divisors.
+
+    \xtb{Okay, but what about $2$?}
+
+    Well\dots hell, I dunno\dots
+
+    Oh, oh, I remember! There's this cool thing called the Sieve of
+    Eratosthenes, I'll show it to you in a little while.\footnote{TODO: show
+      this to reader.} Anyway, the sieve makes sense if $2$ is prime but $1$
+    isn't.
 
     Let's construct the type of composite numbers:
 
