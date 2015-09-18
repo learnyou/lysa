@@ -92,14 +92,13 @@ I don't have access to them.
     access to this OS. (These instructions were added by someone
     else). Forgive me if they don't work any more.
 
-*   **Ubuntu > 12.04**: Run this in a terminal:
+*   **Ubuntu 14.04**
 
-        sudo aptitude install texlive-latex-extra texlive-bibtex-extra \
-          texlive-latex3 texlive-fonts-recommended
+        sudo aptitude install texlive-latex-extra texlive-math-extra \
+          texlive-fonts-extra latexmk texlive-bibtex-extra xzdec
+        tlmgr init-usertree
+        tlmgr --usermode install newtxsf
 
-    **Warning**: These instructions are pretty old, and I don't have
-    access to this OS. (These instructions were added by someone
-    else). Forgive me if they don't work any more.
 
 *   **Windows**: I don't use, nor do I have access to a machine running
     Windows, so I don't know how to build LYSA on Windows. Sorry. If you
