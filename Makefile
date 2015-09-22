@@ -1,3 +1,5 @@
+all: en-ebook en-print clean
+
 clean:
 	rm -rf .lysa
 
