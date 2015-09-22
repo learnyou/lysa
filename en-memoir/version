@@ -1,0 +1,11 @@
+#!/bin/sh
+# 
+# This generates some latex of the form "Version 0.4-git:8472f2c" (that's a made
+# up version), which the makefile sinks to version.tex. version.tex is included
+# by lysa.tex
+
+version_num=0.0
+commit_hash=$(git rev-parse --short HEAD)
+commit_url="https://github.com/learnyou/lysa/tree/$commit_hash"
+
+printf "\\href{$commit_url}{Version $version_num-git:$commit_hash}"
