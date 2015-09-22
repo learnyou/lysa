@@ -1,0 +1,152 @@
+\ch{Basic arithmetic}
+\label{basic-arithmetic}
+
+This is a review appendix. It will teach you the basic facts of arithmetic,
+basic algebra, and how to do proofs. It's too boring for the rest of the
+book. Nonetheless, even if you have arithmetic and proofs under your belt, this
+chapter will be very helpful.
+
+We are going to start with some very simple axioms about arithmetic, called the
+Peano axioms. From there, we will prove all of the things we know about
+addition, subtraction, multiplication, et cetera.
+
+This is more or less a copy of Edmund Landau's \xti{Foundations of Analysis},
+found in \cite{landau-analysis}. However, Landau's book, while very rigorous, is
+very breve, and very dry. His book is about 130 pages long, and very
+formal. This appendix is unfinished; however, when it is finished, I expect it
+to be much longer, and very informal --- but nonetheless rigorous.
+
+Even if you don't read this, I highly recommend you buy a copy of Landau's book,
+if only for reference purposes. It doesn't cost very much. I think I bought my
+copy for US \$30.00.
+
+This appendix is independent of the rest of the book -- the main part of the
+book does not assume you have read this appendix, and this appendix doesn't
+assume you've read the rest of the book.\footnote{Although the book does assume
+  you know most of the stuff covered in this appendix.} (Hence why it's an
+appendix). With that in mind, there is some duplication between here and the
+book. Sorry about that.
+
+\s{Peano axioms}
+
+\sss{Properties of equality}
+
+Before we get to the slightly less boring part, we have to review the properties
+of equality.
+
+$x = y$ means that two things --- $x$ and $y$ in this case --- are the same
+thing, at least in some scope.
+
+If I use a letter instead of a number, it usually means ``stick some number
+here, but we don't know what number it is''. If it's in the context of ``for
+all'', then it usually doesn't matter what number we are talking about, as the
+property is true for every case.
+
+\begin{description}
+\item[Reflexive property] $x = x$, for all $x$. So, $x$ is the same thing as
+  itself. Duh.
+\item[Commutative property] For all $x$ and $y$, if $x = y$, then $y =
+  x$.
+  ``Commute'' means ``move'', so the commutative property is the property of
+  moving things around.
+\item[Transitive property] For all $x$, $y$, and $z$, if $x = y$, and $y = z$,
+  then $x = z$.
+\end{description}
+
+Thus, something like
+
+\begin{displaymath}
+  a = b = c = d
+\end{displaymath}
+
+Is just the lazyman's way of writing
+
+\begin{displaymath}
+  a = b \comma b = c \comma c = d
+\end{displaymath}
+
+Because of the transitive property, it also means
+
+\begin{displaymath}
+  a = c \land d = b \land a = d
+\end{displaymath}
+
+\sss{Axioms of natural numbers}
+
+The natural numbers are the ``whole numbers'', usually denoted as $\N$.
+
+$$\N \ce \mset{0,1,2,3,4,\dots}$$
+
+\begin{axiom}
+  $0$ is a natural number.\footnote{Some people say that $1$ is the first
+    natural number. It doesn't matter a whole lot, at least as far as
+    construction goes. Most people nowadays start with $0$, because $0$ is the
+    additive identity. That is, $a + 0 \equiv a$.}
+\end{axiom}
+
+\begin{axiom}
+  For each natural number $x$, there is exactly one separate natural number,
+  called the \term{successor of $x$}, denoted $\succ{x}$.
+
+  The successor is the next number. So, $\succ{0} = 1$, $\succ{1} = 2$,
+  $\succ{2} = 3$, et cetera. This also means that we can define every natural
+  number as some succession from $0$:
+
+  It's also true that if $x = y$, then $\succ{x} = \succ{y}$. (This makes $\suc$
+  a \term{function}).
+
+$$\succ{\succ{\succ{\succ{0}}}} = 4$$
+\end{axiom}
+
+\begin{axiom}\label{injection-axiom}
+  There are no two numbers who have the same successor. That is, if
+  $\succ{x} = \succ{y}$, then $x = y$, for all $x$ and $y$. (This makes $\suc$
+  an \term{injection}).
+\end{axiom}
+
+\begin{axiom}
+  There is no natural number $q$ such that $\succ{q} = 0$.
+\end{axiom}
+
+\begin{axiom}
+  Let there be a set $M$ such that:
+
+  \begin{enumerate}
+  \item $0$ is in $M$ (denoted $0 \in M$)
+  \item If some number $x$ is in $M$, then its successor $\succ{x}$ is also in
+    $M$
+  \end{enumerate}
+
+  Then $M$ contains all of the natural numbers. This establishes the
+  completeness of $\N$.
+\end{axiom}
+
+\ss{Addition}
+
+\begin{theorem}
+  For all $x$ and $y$, if $x \ne y$, then $\succ{x} \ne \succ{y}$.
+  \begin{proof}
+    Else we would have $\succ{x} = \succ{y}$, and, by \cref{injection-axiom},
+    $x = y$
+  \end{proof}
+\end{theorem}
+
+\begin{theorem}
+  $\succ{x} \ne x$
+
+  \begin{proof}
+    Let $Q$ be the set of all $x$ for which this property holds true.
+
+    By axiom 1, $0 \in \N$. By axiom 3, $\notexists q \in N \st \succ{q} =
+    0$. Therefore $\succ{0} \ne 0$.
+
+    By construction, if $x \in Q$, then $\succ{x} \ne x$. By the previous
+    theorem, $\succ{\succ{x}} \ne \succ{x}$, which would mean that
+    $\succ{x} \in Q$. Thus, by axiom 5, $Q = \N$.
+
+    Therefore, for all $x \in \N$, $x \ne \succ{x}$
+  \end{proof}
+
+\end{theorem}
+
+This is unfinished.
