@@ -1,0 +1,62 @@
+\s{Conjunctions, disjunctions, and negations}
+
+I sort of hinted at these in the last section.
+
+We've already seen logical negation:
+
+\begin{definition}[Logical negation]
+    \label{def:lnot}
+    \begin{equation}
+        \lnot X = X \to \bot
+    \end{equation}
+\end{definition}
+What are the other two?
+
+\begin{definition}[Conjunction]
+    \label{def:conjunction}
+    This is usually called ``logical-and''. Basically, for
+
+    \begin{equation}
+        A \tand B 
+    \end{equation}
+
+    to be ``true'' (or $\top$), then both $A$ and $B$ have to be $\top$.
+    
+    To be more precise, $A \tand B$ is a type, and the proof of that type, which
+    I'll call $\join$, is as follows:
+
+    \begin{equation}
+        \label{eq:join}
+        \join : A \to B \to A \tand B
+    \end{equation}
+
+    You'll often see the symbol $\land$ used in place of writing out ``and''.
+\end{definition}
+
+\begin{definition}[Disjunction]
+    \label{def:disjunction}
+    A disjunction is somewhat equivalent to saying ``or''. It's also called
+    ``logical-or''.
+
+    Like logical-and, logical-or is a type constructor:
+
+    \begin{equation}
+        A \tor B : \Type
+    \end{equation}
+
+    The symbol for logical-or is $\lor$. However, in most cases, it's clearer
+    and easier to type out the word ``or''.
+
+    Logical disjunction has two proofs:
+
+    \begin{rclmath}
+        \branchleft & : & A \to A \tor B \\
+        \branchright & : & B \to A \tor B \\
+    \end{rclmath}
+
+    Basically, if you have a proof of either one of the propositions, you have a
+    proof of the disjunction.
+
+    The proofs are not mutually exclusive. That is, if you have a proof of $A$,
+    as well as a proof of $B$, then $A \tor B$ still holds.
+\end{definition}

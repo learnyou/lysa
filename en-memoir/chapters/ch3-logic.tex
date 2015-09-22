@@ -1,0 +1,83 @@
+\ch{Props, proofs, and providence}
+\label{ch:props}
+\label{props}
+\label{ch:logic}
+\label{logic}
+
+Alright, you survived the first chapter! (Or, I guess, the second
+chapter).
+
+This chapter goes over intuitionist logic, particularly that which relates to
+type theory. If you are already familiar with inituitionist logic and with type
+theory, you can skip to the next chapter. This chapter contains a lot of
+nitty-gritty logical proofs that might not be fun.
+
+It's important that you understand the logical foundations of math before we
+move on to actual math. That's why this chapter exists.
+
+Anyway, let's get this over with.
+
+For a long time, mathematicians would deal with statements that were either
+true or false. This was called \term{classical logic}. 
+
+In the 1930s, a man named Kurt \godel\ proved a rather shocking fact: in any
+non-trivial formal arithmetic system, there will always be statements that are
+true, but cannot be proven. So, if we can't \xtb{prove} something, how do we
+know whether or not it's true?
+
+\godel\ was somewhat of a character. He was extremely paranoid about being
+poisoned, so he refused to eat anything unless his wife prepared it for him.
+Towards the end of his life, his wife was hospitalized for an extensive period
+of time, during which \godel\ refused to eat, and therefore starved to
+death. \cite{w-godel}
+
+Getting back on the topic, with regard to how to decide whether or not
+unprovable things are true, the answer is to not think of things in terms of
+\term{true} and \term{false}, but rather in the terms of \term{provable} and
+\term{unprovable}. Anything that's provable is true. Anything that isn't
+provable, we don't care whether or not it's true, because we can't prove it.
+\nocite{w-godel-incompleteness}
+
+Further supporting this line of thinking is the liar's paradox:
+
+\begin{quote}
+    This statement is false.
+\end{quote}
+
+If we assume that the statement is true, then the statement makes itself
+false. If you assume the statement is false, it makes itself true. This is an
+example of a statement that cannot be said to be true or false. There are
+similar statements in math, were we can't even say it's true or false.
+
+In the case of the liar's paradox, we have a pretty quick cop-out, by just
+saying that it's not provable. We don't care whether or not it's true.
+
+So, how do you express the notion that you have a proof something? Let's call
+the proof $p$ and the proposition $X$. To say ``$p$ is a proof of $X$'', you
+write:
+
+\begin{equation}
+    p : X
+\end{equation}
+
+\xtb{Wait, that's the type notation!}
+
+Yep! This is what's called the \term{Curry-Howard correspondence}.\footnote{The
+  ``correspondence'' part just means that the concepts correspond to each other,
+  and that a guy named Curry and a guy named Howard discovered this around the
+  same time. This \xtb{was not} a correspondence between Curry and Howard.}
+Namely,
+
+\begin{itemize}
+  \item functions and proofs have identical semantics, and
+  \item types and propositions have identical semantics
+\end{itemize}
+
+Cool! You already know how to send values to functions, and to manipulate
+functions a bit. So, proofs should be easy! Let's get started then!
+
+\input{chapters/ch3/ch1-if-then.ltx}
+\input{chapters/ch3/ch2-junctions.ltx}
+\input{chapters/ch3/ch3-diffs.ltx}
+\input{chapters/ch3/ch4-diffs-continued.ltx}
+\input{chapters/ch3/ch5-diffs-continued-continued.ltx}

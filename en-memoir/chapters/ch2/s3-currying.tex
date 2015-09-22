@@ -1,0 +1,264 @@
+\section{Currying and Uncurrying!}
+
+Those exercises were fun, weren't they? I bet not. If you had a lot of trouble
+with them, don't worry. They're purposefully difficult.
+
+My experience is that most textbooks have a ton of pedantic, tedious
+exercises. I try to not do that. The exercises I gave you are difficult, but the
+good kind of difficult.
+
+Anyway, let's move on, hopefully to something a little bit less boring.
+
+Remember $\Z$, the integers? If you don't:
+
+\begin{equation}
+    \Z = \mset{\dots,-5,-4,-3,-2,-1,0,1,2,3,4,5,\dots} \\
+\end{equation}
+
+Consider this function:
+
+\begin{eqnarray}
+    f : \parens{\Z, \Z, \Z} \to \Z \\
+    \eva{f}{a,b,c} = a + b + c
+\end{eqnarray}
+
+What's $\eva{f}{1,2,4}$? Well,
+
+\begin{eqnarray}
+    \eva{f}{1,2,4} & = & 1 + 2 + 4 \\
+                   & = & 7 \\
+\end{eqnarray}
+
+What happens when you only apply one value to $f$?
+
+\begin{eqnarray}
+    \eva{f}{18,b,c} & = & 18 + b + c \\
+\end{eqnarray}
+
+I've sort of transformed $f$: instead of being a function that takes three
+integers that adds them together, it's now a function that takes one integer,
+and returns back a function that takes two integers, and adds them to the first
+integer.
+
+That word jumble is confusing. Let me make it symbolic for you:
+
+Previously, $f$ was like this:
+
+\begin{equation}
+    f : \parens{\Z, \Z, \Z} \to \Z
+\end{equation}
+
+However, if you allow only one value to be sent to $f$, then you can think of
+$f$ more like this:
+
+\begin{equation}
+    f : \Z \to \parens{\parens{\Z, \Z} \to \Z}
+\end{equation}
+
+Let's rewrite $f$ with this new definition in mind:
+
+\begin{equation}
+    \eva{f}{a} = \fn{y,z}{a + y + z}
+\end{equation}
+
+This might be a little clearer if I used the non-named function notation.
+
+\begin{equation}
+    f = \fn{a}{\parens{\fn{y,z}{a + y + z}}}
+\end{equation}
+
+Well, let's just consider that second inside function.
+
+\begin{equation}
+    \fn{y,z}{a + y + z}
+\end{equation}
+
+(This assumes that $a$ was already defined elsewhere, which it would have been
+if we put it back where it goes).
+
+Let's look at the type of the inside function
+
+\begin{equation}
+    \fn{y,z}{a + y + z} : \mvec{\Z,\Z} \to \Z
+\end{equation}
+
+What if you only send the first value to the inside function?
+
+\begin{equation}
+    \fn{14,z}{a + 14 + z} : \Z \to \Z
+\end{equation}
+
+Well, again, we just transformed the inside function from
+
+\begin{equation}
+   \mvec{\Z,\Z} \to \Z
+\end{equation}
+
+to something like
+
+\begin{equation}
+   \Z \to \parens{\Z \to \Z}
+\end{equation}
+
+Well, now, let's sort of consider the original function, $f$:
+
+$f$'s type is now
+
+\begin{equation}
+   f : \Z \to \parens{\Z \to \parens{\Z \to \Z}}
+\end{equation}
+
+And $f$ is more properly written like this:
+
+\begin{equation}
+    f = \fn{a}{\parens{\fn{b}{\parens{\fn{c}{a + b + c}}}}}
+\end{equation}
+
+This is called \term{Currying}.
+
+\begin{definition}[Currying]
+    \label{def:currying}
+    Taking something with type
+
+    \begin{equation}
+        \mvec{a,b,c,d,e,\dots} \to \beta
+    \end{equation}
+
+    and turning it into something with the type
+
+    \begin{equation}
+        a \to \parens{b \to \parens{c \to \dots}}
+    \end{equation}
+\end{definition}
+
+\term{Uncurrying} is doing exactly the opposite thing
+
+\begin{definition}[Uncurrying]
+    \label{def:uncurrying}
+    Taking something with type
+
+    \begin{equation}
+        a \to \parens{b \to \parens{c \to \dots}}
+    \end{equation}
+
+    and turning it into something with the type
+
+    \begin{equation}
+        \mvec{a,b,c,d,e,\dots} \to \beta
+    \end{equation}
+\end{definition}
+
+I'll give some examples of Currying and Uncurrying here, as well as some
+exercises. After that, though, I'm going to silently curry \& uncurry types
+without explicitly saying that I'm doing so. I do it so often that it's too much
+effort to say so every time. You'll get used to it, I promise.
+
+One more thing. I don't like typing out all of the parentheses in this:
+
+\begin{equation}
+    a \to \parens{b \to \parens{c \to \dots}}
+\end{equation}
+
+Especially when most of the time, they group to the right like that. Instead,
+I'm going to write:
+
+\begin{equation}
+    a \to b \to c \to \dots
+\end{equation}
+
+\ss{Examples}
+
+\begin{example}
+    The curried form of:
+
+    \begin{equation}
+        \mvec{\Z,\N} \to \Q
+    \end{equation}
+
+    is:
+
+    \begin{equation}
+        \Z \to \N \to \Q
+    \end{equation}
+\end{example}
+
+\begin{example}
+    The curried form of
+
+    \begin{equation}
+        \mvec{a, a \to b} \to b
+    \end{equation}
+
+    is:
+
+    \begin{equation}
+        a \to \parens{a \to b} \to b
+    \end{equation}
+
+    A function that does this is:
+
+    \begin{eqnarray}
+        f : a \to \parens{a \to b} \to b \\
+        \eva{f}{x,g} = \eva{g}{x}
+    \end{eqnarray}
+\end{example}
+
+
+\begin{example}
+    \label{exp:flip}
+    The curried form of
+
+    \begin{equation}
+        \parens{\mvec{a, b} \to c} \to \parens{\mvec{b,a} \to c}
+    \end{equation}
+
+    is:
+
+    \begin{equation}
+        \parens{a \to b \to c} \to b \to a \to c
+    \end{equation}
+
+    The function with this exact type is $\flip$.
+
+    \begin{eqnarray}
+        \flip & : & \parens{a \to b \to c} \to b \to a \to c \\
+        \eva{\flip}{f,x,y} & = & \eva{f}{y,x} \\
+    \end{eqnarray}
+\end{example}
+
+% TODO: Add more exercises
+\begin{ExcList}
+    \Exercise{Write out the uncurried and curried type of the $+$ function over
+      natural numbers.}
+    \Answer{Curried:
+
+        \begin{equation}
+            \N \to \N \to \N
+        \end{equation}
+
+        Uncurried:
+
+        \begin{equation}
+            \mvec{\N, \N} \to \N
+        \end{equation}
+    }
+
+    \Exercise{There is a very important function, called ``compose''. The symbol
+        for compose is a circle: $\circ$. Here is compose's type:
+
+        \begin{equation}
+            \circ : \parens{b \to c} \to \parens{a \to b} \to a \to c
+        \end{equation}
+
+        It is usually used in infix form:
+
+        \begin{eqnarray}
+            f : a \to b \\
+            g : b \to c \\
+            g \circ f : a \to c \\
+        \end{eqnarray}
+
+        Write the $\circ$ function. 
+    }
+    \Answer{$\eva{f \circ g}{x} = \eva{f}{\eva{g}{x}}$}
+\end{ExcList}

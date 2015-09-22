@@ -1,0 +1,343 @@
+\section{Functions}
+
+Okay, so what's a function?
+
+A function is a mathematical construct that takes some input, does something to
+it, and sends back output. Essentially, instead of being some static value that
+isn't very interesting, a function takes something as input, does something to
+it, and spits back some output.
+
+Let's make a function that takes some number, and adds 3 to it.
+
+\begin{equation}
+    \fn{x}{x + 3}
+\end{equation}
+
+\xtb{What is that notation?}
+
+The first character is the Greek letter lambda: $\lambda$. It serves the same
+function in Greek as the 'L' does in English. The $\lambda$ serves to indicate
+that we are creating a function, not just an ordinary value.\footnote{Although a
+  lot of people will use $\lambda$ as an ordinary variable name, which gets very
+  confusing. Thankfully, I haven't seen anyone use \xti{both} the $\lambda$ for
+  functions and for a variable name.}
+
+Immediately following the $\lambda$ is a list of inputs to the function. In this
+case, there is only one, which is called $x$. If there was more than one input,
+they would be separated by commas. After the list of variables, there's a
+rocket: $\Longrightarrow$.
+
+The portion after the rocket indicates what the function does to the
+inputs. This is called, uninterestingly enough, the \term{output} of the
+function.
+
+That's all a function is: input and output. You've likely forgotten what the
+function is, so I'll write it again:
+
+\begin{equation}
+    \fn{x}{x + 3}
+\end{equation}
+
+This function takes some number $x$ as input, and the output is $x + 3$. This is
+not a very interesting function, I know.
+
+Let's give this function a name
+
+\begin{equation}
+    f = \fn{x}{x + 3}
+\end{equation}
+
+The much more common notation is this:
+
+\begin{equation}
+    \eva{f}{x} = x + 3
+\end{equation}
+
+That is to be read ``$f$ of $x$ equals $x$ plus $3$''.
+
+What's the type of $f$?
+
+\begin{eqnarray}
+    f : \N \to \N \\
+    \eva{f}{x} = x + 3 \\
+\end{eqnarray}
+
+Remember that $\N = \mset{0,1,2,3,4,5,6,\dots}$.
+
+I think the $\N \to \N$ part is pretty self-explanatory: $f$ takes something of
+type $\N$, and spits back out something of type $\N$.
+
+So, what happens when we feed $80$ to $f$?
+
+\begin{eqnarray}
+    \eva{f}{80} & = & 80 + 3 \\
+                & = & 83 \\
+\end{eqnarray}
+
+Yay! This math stuff isn't hard!
+
+\ss{Comprehensions}
+
+Think about this for a second: $f$ takes a number and adds 3 to it. What's the
+lowest value in $\N$? Well, it's $0$. If you take $0$, and add $3$ to it, you
+get $3$. You can't add $3$ to a natural number and get something less than
+$3$.
+
+You would therefore be more correct in saying that $f$'s output type is the set
+of numbers greater than (or equal to) $3$.
+
+\begin{eqnarray}
+    f : \N \to \comprehension{z : \N}{z \ge 3} \\
+    \eva{f}{x} = x + 3 \\
+\end{eqnarray}
+
+\xtb{What the hell is that curly brace nonsense?}
+
+It's called a \term{comprehension}.
+
+\answergraph{images/comprehensions.png}
+
+Read it in two parts: before the pipe, and after the pipe.
+
+\begin{itemize}
+  \item Before the pipe describes what every item of the type looks like. In
+    this case, it's just a number $z$.
+
+  \item After the pipe has a list of conditions that must hold true. In this
+    case, $z$ must be greater than or equal to $3$.
+\end{itemize}
+
+\answergraph{images/comprehensions3.png}
+
+Let's look through some more comprehensions.
+
+\begin{example}
+    The type of all natural numbers greater than $60$, but less than $70$:
+
+    \begin{equation}
+        \comprehension{x : \N}{60 < x < 70}
+    \end{equation}
+
+    Alternatively, you can use the logical-and operator:
+
+    \begin{equation}
+        \comprehension{x : \N}{\parens{60 < x} \text{ and } \parens{x < 70}}
+    \end{equation}
+
+    That should be read as ``the type of all numbers $x$ such that $60$ is less
+    than $x$ and $x$ is less than $70$''.
+\end{example}
+
+\begin{example}
+    A function that takes some number $x$, and constructs the type of all
+    natural numbers less than $x$
+
+    \begin{equation}
+        \fn{x}{\comprehension{y : \N}{y < x}}
+    \end{equation}
+\end{example}
+
+\begin{example}
+    The type of all natural numbers that are a multiple of two:
+
+    \begin{equation}
+        \comprehension{2x : \N}{x : \N}
+    \end{equation}
+
+    This is a bit odd. In this case, it's easier to read the stuff after the
+    pipe first:
+
+    \begin{equation}
+        x : \N
+    \end{equation}
+
+    So, for every number $x$, we're going to multiply it by $2$. Therefore,
+    there won't be any numbers in the result that aren't multiples of $2$. Yay!
+\end{example}
+
+\begin{example}
+   The Fibonacci numbers are the numbers 
+
+   \begin{equation}
+       F = \mvec{1,1,2,3,5,8,13,21,34,55,89, \dots}
+   \end{equation}
+
+   \xtb{Why did you use round parentheses instead of curly braces?}
+
+   The Fibonacci numbers have repetition, and the order in which you list them
+   does matter. To represent this, you use round parentheses when listing them
+   instead of curly braces.\footnote{The mathematical difference is that the
+     Fibonacci numbers are a \term{list}, while the other types we've
+     encountered are all \term{sets}. I'll get to these two in depth later on in
+     the book.}
+
+   The $n$th Fibonacci number is the last two Fibonacci numbers added
+   together. $89 = 55 + 34$. $55 = 34 + 21$. Et cetera.
+
+   This is a function that gives the $n$th Fibonacci number:
+
+   \begin{eqnarray}
+       \eva{f}{0} = 1 \\
+       \eva{f}{1} = 1 \\
+       \eva{f}{n} = \eva{f}{n - 1} + \eva{f}{n - 2}
+   \end{eqnarray}
+
+   When indexing items, you always start at $0$. It's just a thing.
+
+   This is an example of \term{recursion}: the definition of $f$ uses itself in
+   its definition.
+\end{example}
+
+\begin{example}
+    Natural numbers greater than $1$ can be divided into two categories:
+
+    \begin{description}
+      \item[Composite numbers] can be divided by another natural number to get a
+        third natural number. For instance, $15$ can be divided by $3$ to get
+        $5$.
+
+        There are always two \term{trivial divisors}. $1$ can trivially divide
+        every number. Likewise, every number can trivially divide itself. These
+        trivial divisors occur in every single number and thus are not very
+        interesting.
+
+      \item[Prime numbers] have only trivial divisors. For instance, there is no
+        non-trivial divisor of $7$.
+    \end{description}
+
+    \xtb{Why do you exclude $1$?}
+
+    Well, because $1$ has only trivial divisors.
+
+    \xtb{Okay, but what about $2$?}
+
+    Well\dots hell, I dunno\dots
+
+    Oh, oh, I remember! There's this cool thing called the Sieve of
+    Eratosthenes, I'll show it to you in a little while.\footnote{TODO: show
+      this to reader.} Anyway, the sieve makes sense if $2$ is prime but $1$
+    isn't.
+
+    Let's construct the type of composite numbers:
+
+    \begin{equation}
+        \label{eq:composite}
+        \scomp{x \cdot y : \N}{
+          \parens{x : \N}
+          \text{ and }
+          \parens{y : \N}
+          \text{ and }
+          \parens{x > 1}
+          \text{ and }
+          \parens{y > 1}
+        }
+    \end{equation}
+
+    Let's think about this:
+
+    If you hold $x = 2$ (the minimum value of $x$), let's see what the output
+    values are:
+
+    \begin{eqnarray}{cl}
+       & \scomp{2 \cdot y : \N}{
+           \parens{2 : \N}
+           \text{ and }
+           \parens{y : \N}
+           \text{ and }
+           \parens{2 > 1}
+           \text{ and }
+           \parens{y > 1}
+         } \\
+       = & \scomp{2 \cdot y : \N}{
+             \parens{y : \N}
+             \text{ and }
+             \parens{y > 1}
+           } \\
+       = & \mset{2 \cdot 2, 2 \cdot 3, 2 \cdot 4, 2 \cdot 5, 2 \cdot 6, \dots} \\
+       = & \mset{4, 6, 8, 10, 12,  \dots} \\
+    \end{eqnarray}
+
+    That is, all of the multiples of $2$ greater than $2$. Again, $2$ trivially
+    divides $2$, so I excluded it (this is why $x$ has to be greater than $1$,
+    because otherwise $2$ would be in the list of multiples of $2$).
+
+    Now, let's hold $x = 3$
+
+    \begin{equation}
+        \mset{6, 9, 12, 15, 18, 21, 24, \dots}
+    \end{equation}
+
+    With $x = 4$
+
+    \begin{equation}
+        \mset{4, 8, 12, 16, 20, 24, 28, \dots}
+    \end{equation}
+
+    You get the point. If you follow through with this (infinitely), you would
+    eventually list every single composite number.
+
+    \xtb{What about $2$? Isn't $2$ a composite number?}
+
+    Nope! $2$ can only be divided by $1$ or $2$, which makes it prime.
+
+    \xtb{What about dividing by $0$?}
+
+    You aren't allowed to divide by $0$.
+
+    \xtb{Why}?
+
+    Because allowing people to divide by $0$ would poke holes into our logic.
+
+    \xtb{But if you take a cookie, and break it into $0$ parts, then you get
+      $0$, right?}
+
+    Jesus, with the questions\dots Will you give it a rest? I'll explain later,
+    I promise.
+\end{example}
+
+I'm going to give you some exercises. Please do them. They'll really help you
+with the material.
+
+\begin{ExerciseList}
+    \Exercise{Using that weird type bracket notation, construct the type of all
+      numbers greater than $80$, and less than $200$.}
+    \Answer{\(\comprehension{x : \N}{80 < x < 200 }\)}
+
+    \Exercise{Construct the type of all numbers less than or equal to $30$, and
+      greater than $10$.}
+    \Answer{\(\comprehension{x : \N}{10 < x \le 30 }\)}
+
+    \Exercise{
+      \label{xstotype}
+
+      Construct a function that takes two numbers $x$ and $y$, and uses
+      them to construct the type of numbers greater than $x$ but less than $y$.
+
+      Hint: to have multiple values sent to a function, just add commas: $\fn{x,
+      y}{x + y}$}
+    \Answer{\(\fn{x, y}{\comprehension{a : \N}{x < a < y }}\)}
+
+    \Exercise{Figure out the type of the function you constructed in
+      \cref{xstotype}.}
+    \Answer{$\mlist{\N, \N} \to \Type$}
+
+    \Exercise{The factorial of a number $n$, written
+
+      \begin{equation}
+          n!
+      \end{equation}
+
+      Is $n$ multiplied by all of the numbers less than $n$. Write a recursive
+      function to get the factorial of any natural number.
+
+      Hint: $0! = 1$.
+    }
+    \Answer{
+      Here's what I went with:
+
+      \begin{eqnarray}
+          0! = 1 \\
+          n! = n \cdot \parens{\parens{n - 1}!}
+      \end{eqnarray}
+    }
+\end{ExerciseList}

@@ -1,0 +1,237 @@
+\s{If A then B; A, therefore B.}
+
+So, let's say we want to prove that some proposition $a$ implies another
+proposition $b$. Well, then, all we have to do is find a function with type
+
+\begin{equation}
+    a \implies b
+\end{equation}
+
+When dealing with normal non-proofy functions, you can think of the symbol
+$\implies$ as saying ``to''. With proofs, it's more helpful to think of the
+symbol as ``implies''.
+
+Occasionally, you'll also see the backwards arrow: $\impliedby$, which means
+``implied by'', and $\iff$, which means ``if (and only if)''.
+
+The expression $a \iff b$ is just shorthand for
+
+\begin{alignmath}{rc}
+    a \implies b & \text{and} \\
+    a \impliedby b &
+\end{alignmath}
+
+\begin{remark}[Consequence of the Curry-Howard correspondence]
+    A value of type $a$, where $a$ is a proposition, is a proof of the
+    proposition $a$.
+\end{remark}
+
+\begin{remark}[Consequence of the Curry-Howard correspondence]
+    A function with type $a \implies b$ is a proof that $a$ implies $b$.
+
+    That is, if $a$, then $b$.
+\end{remark}
+
+\ss{Disproving stuff}
+
+So, how do we disprove something? Well, again, that's not our goal. We instead
+want to prove that something isn't provable. That sounds weird, doesn't it?
+
+A staple of logic is called \term{reductio ad absurdum}. It's Latin for
+``reduction to the absurd''. Given a proposition $A$, if you can prove that $A$
+implies something unprovable, then $A$ is obviously unprovable.
+
+Well, in math, we so happen to have a value that is unprovable. That value is
+bottom: $\bot$. Rather, $\bot$ is what's called the ``empty type''. Namely,
+there is no value $x$ such that $x : \bot$.
+
+I'm going to introduce you to a new symbol: $\exists$. It means ``there
+exists''. The dual symbol is $\notexists$ which means ``there does not
+exist''. The $\exists$ going with the term ``exists'' shouldn't be too hard to
+remember.
+
+The reason I bring that up now is, it's easy to define $\bot$ using $\exists$:
+
+\begin{equation}
+    \notexists x \mid x : \bot
+\end{equation}
+
+Remember, the pipe should be read as ``such that''. There does not exist $x$
+such that $x : \bot$. Likewise, if we have some proof
+
+\begin{equation}
+    f = A \implies \bot
+\end{equation}
+
+Then $A$ is a false proposition, because it implies a proof of the unprovable.
+
+Because mathematicians like to be lazy, we don't like to write out $A \implies
+\bot$ every time. For this reason, we have the $\lnot$ Symbol
+
+\begin{definition}[Unprovability]
+    \begin{equation}
+        \lnot A = A \implies \bot
+    \end{equation}
+\end{definition}
+
+\ss{Watch yourself!}
+
+A common mistake is to say ``Well, if $A$ happens, then $B$ will happen. If I
+know that $B$ happened, then I can reasonably conclude that $A$ happened at some
+point in the past.'' Let's go through an example to show why this doesn't quite
+work.
+
+If someone is decapitated, then they are dead, at least within a few seconds.
+
+\begin{equation}
+    \label{eq:decapdead}
+    \text{Decapitated} \implies \text{Dead}
+\end{equation}
+
+\answergraph{alas-poor-yorick-5.png}
+
+However, if someone is dead, it doesn't necessarily mean they were
+decapitated. They could have been shot, stabbed, had a heart attack, been hit by
+a bus; there are endless possibilities. Thus,
+
+\begin{equation}
+    \label{eq:notdeaddecap}
+    \text{Decapitated} \notimpliedby \text{Dead}
+\end{equation}
+
+\ss{The contraposition}
+
+If someone is alive (i.e. \xtb{not} dead), then they obviously weren't
+decapitated. Therefore,
+
+\begin{equation}
+    \label{eq:notdeaddecap}
+    \lnot\text{Decapitated}\impliedby\lnot\text{Dead}
+\end{equation}
+
+This is a fundamental rule of logic, called the \term{contraposition} (or,
+marginally more pretentiously, \term{modus tollens}). We can actually prove it
+fairly easily.
+
+\begin{lemma}[Contraposition]
+    \begin{equation}
+        \label{eq:contraposition}
+        \parens{A \implies B} \implies \parens{\lnot B \implies \lnot A}
+    \end{equation}
+\end{lemma}
+
+\begin{proof}
+    \begin{alignedmath}
+        f: \parens{A \implies B} \implies \parens{\lnot B \implies \lnot A} \\
+        f: \parens{A \implies B} \implies \lnot B \implies \lnot A \\
+    \end{alignedmath}
+
+    Remember that, for all propositions $X$,
+
+    \begin{equation}
+        \lnot X = X \implies \bot
+    \end{equation}
+
+    If we make this substitution on the last two types:
+
+    \begin{rclmath}
+        \lnot B & = & B \implies \bot \\
+        \lnot A & = & A \implies \bot \\
+    \end{rclmath}
+
+    Then, the type of $f$ becomes:
+
+    \begin{alignmath}{c}
+        f : \parens{A \implies B} \implies \parens{B \implies \bot} \implies \parens{A \implies \bot} \\
+        f : \parens{A \implies B} \implies \parens{B \implies \bot} \implies A \implies \bot \\
+    \end{alignmath}
+
+    Now the proof is as simple as composing the first and second functions:
+
+    \begin{equation}
+        \eva{f}{p,q} = q \circ p
+    \end{equation}
+
+    In a marginally less confusing form:
+
+    \begin{equation}
+        \eva{f}{p,q,r} = \eva{q}{\eva{p}{r}}
+    \end{equation}
+
+\end{proof}
+
+Alright, that was pretty hard! I can almost guarantee you didn't understand that
+the first time. It's an entirely new concept!
+
+Go take a coffee break, take a walk, or something of the like, come back in an
+hour, and read over the explanation again. I bet it'll be a lot easier to
+understand the second time around.
+
+I'm even going to manually insert a page break so you aren't as tempted to keep
+going.
+
+\newpage
+
+\ss{Examples}
+
+Here are some examples of proving stuff!
+
+\begin{example}
+    \label{expl:doubneg1}
+    Let's prove that
+
+    \begin{equation}
+        A \implies \lnot \parens{\lnot A}
+    \end{equation}
+
+    \begin{proof}
+        Substitute $\lnot x \Longrightarrow x \to \bot$.
+
+        \begin{alignedmath}
+            A \implies \lnot \parens{A \to \bot} \\
+            A \implies \parens{\parens{A \implies \bot} \implies \bot} \\
+            A \implies \parens{A \implies \bot} \implies \bot \\
+        \end{alignedmath}
+
+        The proof of this is then
+
+        \begin{equation}
+            \fn{x,f}{\eva{f}{x}}
+        \end{equation}
+    \end{proof}
+\end{example}
+
+\begin{example}
+    If you know that $A \implies B$ and that $B \implies C$, then
+    $A \implies C$.
+
+    \begin{proof}
+        The proof will be of this type:
+
+        \begin{equation}
+            f : \parens{A \implies B} \implies \parens{B \implies C} \implies \parens{A \implies C}
+        \end{equation}
+
+        Remember that $X \implies Y \implies Z \implies \dots$ is just shorthand
+        for $X \to \parens{Y \to \parens{Z \to \dots}}$.
+
+        Thus, we can take that last pair of parentheses off:
+
+        \begin{equation}
+            f : \parens{A \implies B} \implies \parens{B \implies C} \implies A \implies C
+        \end{equation}
+
+        Here's a solution
+
+        \begin{equation}
+            \eva{f}{g,h,x} = \eva{h}{\eva{g}{x}}
+        \end{equation}
+
+        Or, in $\eta$-reduced form:
+
+        \begin{equation}
+            \eva{f}{g,h} = h \of g
+        \end{equation}
+        
+    \end{proof}
+\end{example}

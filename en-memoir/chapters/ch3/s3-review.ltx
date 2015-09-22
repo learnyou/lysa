@@ -1,0 +1,52 @@
+\s{Morphisms}
+
+Let's review what I supposedly have taught you so far and how all the various
+things tie in together.
+
+\begin{enumerate}
+  \item There are these things called \term{function}s, which take some input and spit
+    out some output.
+  \item There are these things called \term{type}s, which describe the ``type''
+    of thing some object is.
+  \item There is this weird curly brace notation for constructing types, called
+    \term{comprehension notation}.
+  \item We can curry and uncurry types to make function semantics slightly
+    easier. Namely, it's a lot easier to play around with partial functions if
+    the function type is curried.
+  \item If a function has type $A \to B$, then $A$ is the domain and $B$ is the
+    codomain.
+  \item You can prove things by expressing propositions as types and proofs as
+    functions.
+\end{enumerate}
+
+I'm going to introduce a new term: \term{isomorphic}. Some type $A$ is
+\term{isomorphic} to $B$ if I can convert $A$ to $B$ to $A$ without any loss of
+data.
+
+\begin{definition}[Isomorphism]
+    If there exist two functions $f$ and $g$ such that
+
+    \begin{textmath}
+        \begin{equation}
+            f : A \to B
+            g : B \to A
+        \end{equation}
+
+        and, for all $x : A$,
+
+        \begin{equation}
+            \eva{g}{\eva{f}{x}} = x
+        \end{equation}
+
+        then $f$ and $g$ form an \term{isomorphism}.
+    \end{textmath}
+
+    An isomorphism between two types if and only if two types are
+    isomorphic. Thus, if you find an isomorphism, you can conclude that the two
+    types are isomorphic. Likewise, if you are given that the two types are
+    isomorphic, then you can conclude that there exists an isomorphism.
+\end{definition}
+
+\begin{theorem}
+    
+\end{theorem}

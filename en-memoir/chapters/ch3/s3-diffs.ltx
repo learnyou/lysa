@@ -1,0 +1,284 @@
+\s{Differences between intuitionistic logic and classical logic}
+
+If you'll remember,
+
+\begin{description}
+  \item[classical logic] is where things are true or false.
+  \item[intuitionistic logic] is where things are provable or not provable.
+\end{description}
+
+It seems like a subtle difference, but there are some rather annoying
+consequences, which I'll go through in this section.
+
+\ss{Your English teacher lied to you}
+
+In classical logic, a well-known rule is the double-negative:
+
+\begin{textmath}
+    For all $X$,
+
+    \begin{equation}
+        X \iff \lnot \parens{\lnot X}
+    \end{equation}
+\end{textmath}
+
+This isn't true in intuitionist logic. Well, one half of it is true. Namely:
+
+\begin{definition}[Double negation, right]
+    For all $X$,
+
+    \begin{equation}
+        X \implies \lnot \parens{\lnot X}
+    \end{equation}
+\end{definition}
+
+I proved this in \cref{expl:doubneg1}.
+
+The other half can't be proven, though
+
+\begin{textmath}
+    For all $X$,
+
+    \begin{equation}
+        X \impliedby \lnot \parens{\lnot X}
+    \end{equation}
+\end{textmath}
+
+Let's try to prove that:
+
+\begin{proof}[Double negation, left]
+    For all $x$
+
+    \begin{alignmath}{cl}
+          & X \impliedby \lnot \parens{\lnot X} \\
+        = & \lnot \parens{\lnot X} \implies X \\
+        = & \lnot \parens{X \implies \bot} \implies X \\
+        = & \parens{\parens{X \implies \bot} \implies \bot} \implies X \\
+    \end{alignmath}
+
+    We can't Curry the type, because the operators are left-associative. It's
+    not provable.
+\end{proof}
+
+\pg{Forall}
+
+I keep having to write ``For all $x$''. Conveniently, mathematicians have a
+symbol for this: $\forall$. In text, it's clearer and easier to type out ``for
+all''. However, a lot of people will use the $\forall$ symbol when writing
+things by hand.
+
+\sss{Negating foralls}
+
+Remember, this is not provable:
+
+\begin{equation}
+    \fall X \semic X \impliedby \lnot \parens{\lnot X}
+\end{equation}
+
+To the untrained eye, this would then mean:
+
+\begin{alignmath}{cl}
+      & \lnot\parens{\fall X \semic X \impliedby \lnot \parens{\lnot X}} \\
+    = & \fall X \semic X \notimpliedby \lnot \parens{\lnot X} \\
+\end{alignmath}
+
+\xtb{But that's not the case!} There are certainly some cases where
+$X \iff \lnot\lnot X$. But, there are also many cases where that doesn't
+hold. So, you can't say that either version holds for all cases.
+
+Instead, you just take off the $\fall$
+
+\begin{textmath}
+    For some $X$:
+
+    \begin{equation}
+        X \impliedby \lnot \parens{\lnot X} 
+    \end{equation}
+\end{textmath}
+
+Likewise, 
+
+\begin{textmath}
+    For some $X$:
+
+    \begin{equation}
+        X \notimpliedby \lnot \parens{\lnot X} 
+    \end{equation}
+\end{textmath}
+
+The thing to take away from all this is, double negation doesn't always hold in
+intuitionist logic.
+
+\ss{The law of excluded middle}
+
+You might be asking ``well, since we can't prove left-double-negation, doesn't
+that mean that left-double-negation would imply $\bot$?''.
+
+You're probably not asking that, because that sounds like complete nonsense.
+
+Since we can't prove
+
+\begin{equation}
+    \fall X \semic X \impliedby \lnot \parens{\lnot X}
+\end{equation}
+
+Wouldn't that therefore mean that
+
+\begin{equation}
+    \fall X \semic \parens{X \impliedby \lnot \parens{\lnot X}} \implies \bot
+\end{equation}
+
+Well, no. You would be making another assumption from classical logic, called
+\term{the law of excluded middle}, or \term{decidability}. That is:
+
+\begin{equation}
+    \label{eq:lem}
+    \fall X \semic X \tor \lnot X
+\end{equation}
+
+where $X$ is a proposition.
+
+Basically, given some statement $X$,
+
+\begin{description}
+  \item[In classical logic] you can always \term{decide} whether or not $X$ is
+    true.
+  \item[In intuitionistic logic] that's not the case. There are values of $X$
+    that are \term{undecideable}.
+\end{description}
+
+Remember the liar's paradox:
+
+\begin{textmath}
+    This statement is false.
+\end{textmath}
+
+That statement cannot be said to be true or false. It's \term{undecidable}.
+
+Remember, to negate a statement starting with ``for all'', you just need to find a
+case where the statement doesn't hold. In the case of the decidability law, I've
+just found a case where the decidability law doesn't hold, so therefore it can't
+hold for all propositions.
+
+\ss{De Morgan's laws}
+
+The undecidability law and the lack of left-double-negation are really the core
+things you need to worry about with intuitionist logic. The next thing to look
+out for are De Morgan's laws.
+
+\begin{definition}[De Morgan's first law]
+    \begin{equation}
+        \label{eq:demorgan1}
+        \lnot\parens{P \tand Q} \iff \lnot P \tor \lnot Q
+    \end{equation}
+
+    You can think of this like this:
+
+    \begin{itemize}
+      \item I told you that
+        \begin{enumerate}
+          \item I went to the park, and
+          \item I went to the grocery store
+        \end{enumerate}
+      \item If you can prove either
+        \begin{enumerate}
+          \item I didn't go to the park, or
+          \item I didn't go to the grocery store
+        \end{enumerate}
+
+        then I lied to you.
+    \end{itemize}
+\end{definition}
+
+\begin{definition}[De Morgan's second law]
+    \begin{equation}
+        \label{eq:demorgan2}
+        \lnot\parens{P \tor Q} \iff \lnot P \tand \lnot Q
+    \end{equation}
+
+    This is the dual of the first law
+
+    \begin{itemize}
+      \item I told you that
+        \begin{enumerate}
+          \item I went to the park, or
+          \item I went to the grocery store
+        \end{enumerate}
+
+      \item If you can prove that
+        \begin{enumerate}
+          \item I didn't go to the park, and
+          \item I didn't go to the grocery store
+        \end{enumerate}
+
+        then I lied to you
+    \end{itemize}
+\end{definition}
+
+Remember that each of those laws is really two laws. For instance, the first law
+can be stated as:
+
+\begin{textmath}
+    \begin{equation}
+        \lnot\parens{P \tand Q} \implies \lnot P \tor \lnot Q
+    \end{equation}
+
+    and
+
+    \begin{equation}
+        \lnot\parens{P \tand Q} \impliedby \lnot P \tor \lnot Q
+    \end{equation}
+\end{textmath}
+
+I ``proved'', intuitively, the first branch of each law. Let's look at the
+second branch of each law.
+
+\begin{remark}[De Morgan's first law, part 2]
+    \begin{equation}
+        \lnot\parens{P \tand Q} \impliedby \lnot P \tor \lnot Q
+    \end{equation}
+
+    \begin{itemize}
+      \item If I tell you
+        \begin{enumerate}
+          \item I didn't go to the grocery store, or
+          \item I didn't go to the park
+        \end{enumerate}
+
+      \item If you can prove
+        \begin{enumerate}
+          \item I went to the grocery store, and
+          \item I went to the park
+        \end{enumerate}
+
+        then I lied to you
+    \end{itemize}
+\end{remark}
+
+\begin{remark}[De Morgan's second law, part 2]
+    \begin{equation}
+        \lnot\parens{P \tor Q} \impliedby \lnot P \tand \lnot Q
+    \end{equation}
+
+    \begin{itemize}
+      \item I told you
+        \begin{enumerate}
+          \item I didn't go to the park, and
+          \item I didn't go to the grocery store
+        \end{enumerate}
+      \item If you can prove
+        \begin{enumerate}
+          \item I went to the park, or
+          \item I went to the grocery store
+        \end{enumerate}
+
+        then I lied to you.
+    \end{itemize}
+\end{remark}
+
+So, all and all, there are four laws there. One of them isn't true. Can you
+figure out which one?
+
+I'll insert a page break so you can think about it. You know what, I'll make an
+entire new section
+
