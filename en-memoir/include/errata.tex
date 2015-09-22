@@ -1,2 +1,18 @@
 \let\code\texttt
-\newcommand{\anauthor}[2]{#1 \code{<}\url{#2}\code{>} \\}
+\newcommand{\mdlink}[2]{\code{<\href{#2}{#1}>}}
+\newcommand{\link}[2]{\code{<\href{#1}{#2}>}}
+\newcommand{\btrurl}[1]{\code{<\url{#1}>}}
+\newcommand{\email}{\code{<}}
+\newcommand{\anauthor}[2]{#1 \mdlink{#2}{mailto:#2} \\}
+
+\let\ch\chapter
+\let\s\section
+\let\ss\subsection
+\let\sss\subsubsection
+\let\pg\paragraph
+
+\newcommand{\bugtracker}{\mdlink{bug tracker}{https://github.com/learnyou/lysa/issues}}
+\newcommand{\emailme}{email me at \email{peter@harpending.org}}
+
+\let\term\emph
+\newcommand{\termref}[2]{\term{#1} (\cref{#2})}
