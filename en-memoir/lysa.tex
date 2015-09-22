@@ -1,0 +1,34 @@
+\documentclass[12pt,letterpaper,oneside]{memoir}
+
+\usepackage{biblatex}
+\usepackage{datetime2}
+\usepackage{url}
+
+% These have to be imported last and laster, respectively
+\usepackage[hidelinks]{hyperref}
+\usepackage{cleveref}
+
+\input{include/errata.tex}
+
+\newcommand{\authors}{
+  \anauthor{Alexander G Bauer}{sasha@crofter.org}
+  \anauthor{Randy Brown}{randy@beingbrown.net}
+  \anauthor{Nick Chambers}{DTSCode@gmail.com}
+  \anauthor{Ng Wei En}{wei2912.supp0rt@gmail.com}
+  \anauthor{Anton Golov}{jesyspa@gmail.com}
+  \anauthor{Peter Harpending}{peter@harpending.org}
+  \anauthor{Ben Z RF}{benzrf@benzrf.com}
+}
+
+\begin{document}
+% Title page
+\title{Learn You Some Algebras for Glorious Good!}
+\author{\authors}
+\maketitle
+
+% Bibliography
+\addbibresource{lysa.bib}
+\nocite{*}
+\printbibliography
+
+\end{document}
