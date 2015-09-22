@@ -31,14 +31,42 @@
 \end{center}
 \vspace*{\fill}
 \newpage
+\topskip0pt
+\vspace*{\fill}
+
+\begin{center}
+\inclgraph{images/cc-by-sa.png}
+\end{center}
+
+Copyright \copyright 2014-2015, various authors and contributors
+
+Except where otherwise specified, this work, and all other works herein, are
+licensed under the Creative Commons Attribution-ShareAlike 4.0 International
+License. To view a copy of this license, visit
+\btrurl{https://creativecommons.org/licenses/by-sa/4.0/}.
+
+\noindent\hrulefill
+
+\xtb{Please keep in mind that this book is far from finished, and what you are
+  reading is an extremely rough and unfinished draft.}
+
+\vspace*{\fill}
+\newpage
 
 % Table of contents
 \tableofcontents
-\newpage
 
 % Chapters
 \input{chapters/ch1-introduction.tex}
 \input{chapters/ch2-functions-types.tex}
+
+\begin{appendices}
+    \input{appendices/a-graph-listings.tex}
+    \ch{Answers to the exercises}
+    \label{ex-solutions}
+    \label{solutions}
+    \shipoutAnswer
+\end{appendices}
 
 % Bibliography
 \printbibliography
