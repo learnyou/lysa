@@ -29,7 +29,7 @@ en-ebook: mksandbox
 	  cat include/ebook.tex > lysa.tex && \
 	  cat ly.tex >> lysa.tex && \
 	  ./version > version.tex && \
-	  latexmk -pdf lysa.tex && \
+	  latexmk -xelatex -pdf lysa.tex && \
 	  cp lysa.pdf ../lysa-en-ebook.pdf
 	@echo "SUCCESSFULLY BUILT lysa-en-ebook.pdf"
 
@@ -41,7 +41,7 @@ en-print: mksandbox
 	  cat include/print.tex > lysa.tex && \
 	  cat ly.tex >> lysa.tex && \
 	  ./version > version.tex && \
-	  latexmk -pdf lysa.tex && \
+	  latexmk -xelatex -pdf lysa.tex && \
 	  cp lysa.pdf ../lysa-en-print.pdf
 	@echo "SUCCESSFULLY BUILT lysa-en-print.pdf"
 
