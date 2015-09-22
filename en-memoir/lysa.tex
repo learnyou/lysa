@@ -7,27 +7,45 @@
 \usepackage[hidelinks]{hyperref}
 \usepackage{cleveref}
 
+% Include stuff
 \input{include/errata.tex}
-
-\newcommand{\authors}{
-  \anauthor{Alexander G Bauer}{sasha@crofter.org}
-  \anauthor{Randy Brown}{randy@beingbrown.net}
-  \anauthor{Nick Chambers}{DTSCode@gmail.com}
-  \anauthor{Ng Wei En}{wei2912.supp0rt@gmail.com}
-  \anauthor{Anton Golov}{jesyspa@gmail.com}
-  \anauthor{Peter Harpending}{peter@harpending.org}
-  \anauthor{Ben Z RF}{benzrf@benzrf.com}
-}
-
-\begin{document}
-% Title page
-\title{Learn You Some Algebras for Glorious Good!}
-\author{\authors}
-\maketitle
 
 % Bibliography
 \addbibresource{lysa.bib}
 \nocite{*}
+
+
+\begin{document}
+
+% Title page
+\topskip0pt
+\vspace*{\fill}
+\title{Learn You Some Algebras for Glorious Good!}
+\author{
+    \anauthor{Alexander G Bauer}{sasha@crofter.org}
+    \anauthor{Randy Brown}{randy@beingbrown.net}
+    \anauthor{Nick Chambers}{DTSCode@gmail.com}
+    \anauthor{Ng Wei En}{wei2912.supp0rt@gmail.com}
+    \anauthor{Anton Golov}{jesyspa@gmail.com}
+    \anauthor{Peter Harpending}{peter@harpending.org}
+    \anauthor{Ben Z RF}{benzrf@benzrf.com}
+}
+\maketitle
+\begin{center}
+    \vspace{-1ex}
+    \large\input{version.tex}
+\end{center}
+\vspace*{\fill}
+\newpage
+
+% Table of contents
+\tableofcontents
+\newpage
+
+% Chapters
+\input{chapters/ch1-introduction.tex}
+
+% Bibliography
 \printbibliography
 
 \end{document}
