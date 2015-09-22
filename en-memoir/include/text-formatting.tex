@@ -1,9 +1,9 @@
 \let\code\texttt
-\newcommand{\mdlink}[2]{\code{<\href{#2}{#1}>}}
-\newcommand{\link}[2]{\code{<\href{#1}{#2}>}}
+\newcommand{\mdlink}[2]{#1 \code{<\url{#2}>}}
+\newcommand{\link}[2]{#2 \code{<\url{#1}>}}
 \newcommand{\btrurl}[1]{\code{<\url{#1}>}}
-\newcommand{\email}{\code{<}}
-\newcommand{\anauthor}[2]{#1 \mdlink{#2}{mailto:#2} \\}
+\newcommand{\email}[1]{\code{<\href{mailto:#1}{#1}>}}
+\newcommand{\anauthor}[2]{#1 \email{#2} \\}
 
 \let\ch\chapter
 \let\s\section
@@ -25,3 +25,5 @@
 \newenvironment{textmath}
     {\begin{quote}}
     {\end{quote}}
+
+\crefname{Exercise}{exercise}{Exercise}
