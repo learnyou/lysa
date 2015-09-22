@@ -1,0 +1,31 @@
+% Math macros
+% N, Q, R, Z
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+
+% Names of categories or types
+\newcommand{\Type}{\mathbf{Type}}
+\newcommand{\flip}{\mathbf{flip}}
+
+% Bracketing
+\newcommand{\mset}[1]{\left\{\, #1 \,\right\}}
+\newcommand{\mlist}[1]{\left(\, #1 \,\right)}
+\let\mvec\mlist
+\newcommand{\braces}[1]{\left\{ #1 \right\)}
+\newcommand{\parens}[1]{\left( #1 \right)}
+\newcommand{\comprehension}[2]{\mset{#1\; : \; #2}}
+\let\scomp\comprehension
+\newcommand{\compl}[2]{\mlist{#1\; : \; #2}}
+
+% Other stuff
+\newcommand{\evalat}[2]{#1 \mlist{#2}}
+\let\eva\evalat
+\newcommand{\fn}[2]{\mlist{#1} \longmapsto #2}
+\newcommand{\dom}[1]{\eva{\text{dom}}{#1}}
+\newcommand{\codom}[1]{\eva{\text{codom}}{#1}}
+
+% Theorem-like environments
+\newtheorem{example}{Example}
+\newtheorem{definition}{Definiton}

@@ -1,19 +1,13 @@
-\usepackage[babel=other,urldate=iso8601,date=iso8601]{biblatex}
-\usepackage{exercise}
-\usepackage{datetime2}
-\usepackage{url}
-
-% These have to be imported last and laster, respectively
-\usepackage[hidelinks]{hyperref}
-\usepackage{cleveref}
-
-% Include stuff
-\input{include/errata.tex}
+% Include stuff. The order matters, so don't change this unless you know what
+% you are doing.
+\input{include/imports.tex}
+\input{include/graphics.tex}
+\input{include/text-formatting.tex}
+\input{include/math.tex}
 
 % Bibliography
 \addbibresource{lysa.bib}
 \nocite{*}
-
 
 \begin{document}
 
@@ -44,6 +38,7 @@
 
 % Chapters
 \input{chapters/ch1-introduction.tex}
+\input{chapters/ch2-functions-types.tex}
 
 % Bibliography
 \printbibliography
