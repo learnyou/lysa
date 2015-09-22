@@ -9,117 +9,115 @@ Let's get going! Just for the hell of it, let's work in reverse order.
     \begin{equation}
         \lnot P \tand \lnot Q \implies \lnot\parens{P \tor Q}
     \end{equation}
+\end{theorem}
 
-    Well, let's think about this. We are trying to prove $\lnot\parens{P \tor
-      Q}$ assuming $\lnot P \land \lnot Q$. My favorite way to prove things is
-    by putting stuff into a table such as this:
+Well, let's think about this. We are trying to prove $\lnot\parens{P \tor
+    Q}$ assuming $\lnot P \land \lnot Q$. My favorite way to prove things is
+by putting stuff into a table such as this:
 
-    \begin{rclmath}
-        a & : & \lnot P \\
-        b & : & \lnot Q \\
+\begin{eqnarray}
+    a & : & \lnot P \\
+    b & : & \lnot Q \\
+    \hline \\
+    \text{goal} & : & \lnot \parens{P \tor Q} \\
+\end{eqnarray}
+
+The given proofs are above the line, and the goal is below the line. $a :
+\lnot P$ should be read as ``$a$ is a proof of $\lnot P$''.
+
+Formal proofs start with the word ``proof'' italicized, and then a silly
+box at the end. I'm not sure about the origins of the white box. The
+\LaTeX command to add the box is \code{\textbackslash qed}. QED stands
+for ``quod erat demonstrandum'' which is fancy math-latin-speak for
+``end of demonstration'', or in this case ``end of proof''. In this
+book, the white box is on the lower right corner of the proof, and has a
+cross inside, and no top line: \qed.
+
+Anyway, let's get started!
+
+\begin{proof}
+    Remember, for all $X$,
+
+    \begin{equation}
+        \lnot X = X \to \bot
+    \end{equation}
+
+    Thus, we can substitute $\lnot$-whatever with whatever-implies-bottom.
+
+    \begin{eqnarray}
+        a & : & P \implies \bot \\
+        b & : & Q \implies \bot \\
         \hline \\
-        \text{goal} & : & \lnot \parens{P \tor Q} \\
-    \end{rclmath}
+        \text{goal} & : & \parens{P \tor Q} \implies \bot \\
+    \end{eqnarray}
 
-    The given proofs are above the line, and the goal is below the line. $a :
-    \lnot P$ should be read as ``$a$ is a proof of $\lnot P$''.
+    Well, now, the dynamics have shifted: we can now move $P \lor Q$ above the
+    line, because we are now trying to prove $\bot$ assuming $a$, and $b$, along
+    with $P \lor Q$. Therefore:
 
-    \begin{asidebox}
-        Formal proofs start with the word ``proof'' italicized, and then a silly
-        box at the end. I'm not sure about the origins of the white box. The
-        \LaTeX command to add the box is \code{\textbackslash qed}. QED stands
-        for ``quod erat demonstrandum'' which is fancy math-latin-speak for
-        ``end of demonstration'', or in this case ``end of proof''. In this
-        book, the white box is on the lower right corner of the proof, and has a
-        cross inside, and no top line: \qed.
-    \end{asidebox}
+    \begin{eqnarray}
+        a & : & P \implies \bot \\
+        b & : & Q \implies \bot \\
+        c & : & P \tor Q \\
+        \hline \\
+        \text{goal} & : & \bot \\
+    \end{eqnarray}
 
-    Anyway, let's get started!
+    When we have a logical-or in one of the assumptions (the stuff we know,
+    i.e. above the line), then we have to consider both branches.
 
-    \begin{proof}
-        Remember, for all $X$,
+    We know that one of the following is correct:
 
-        \begin{equation}
-            \lnot X = X \to \bot
-        \end{equation}
+    \begin{enumerate}
+    \item $P$ and $Q$ both hold
+    \item $P$ holds, but $Q$ doesn't
+    \item $Q$ holds, but $P$ doesn't
+    \end{enumerate}
 
-        Thus, we can substitute $\lnot$-whatever with whatever-implies-bottom.
+    Let's consider each situation
 
-        \begin{rclmath}
+    \begin{enumerate}
+        \item $P$ and $Q$ both hold
+        \begin{eqnarray}
             a & : & P \implies \bot \\
             b & : & Q \implies \bot \\
-            \hline \\
-            \text{goal} & : & \parens{P \tor Q} \implies \bot \\
-        \end{rclmath}
-
-        Well, now, the dynamics have shifted: we can now move $P \lor Q$ above the
-        line, because we are now trying to prove $\bot$ assuming $a$, and $b$, along
-        with $P \lor Q$. Therefore:
-
-        \begin{rclmath}
-            a & : & P \implies \bot \\
-            b & : & Q \implies \bot \\
-            c & : & P \tor Q \\
+            c_1 & : & P \\
+            d_1 & : & Q \\
+            \eva{a}{c_1} & : & \bot \\
             \hline \\
             \text{goal} & : & \bot \\
-        \end{rclmath}
+        \end{eqnarray}
 
-        When we have a logical-or in one of the assumptions (the stuff we know,
-        i.e. above the line), then we have to consider both branches.
-
-        We know that one of the following is correct:
-
-        \begin{enumerate}
-        \item $P$ and $Q$ both hold
+        \qed
         \item $P$ holds, but $Q$ doesn't
+        \begin{eqnarray}
+            a & : & P \implies \bot \\
+            c_2 & : & P \\
+            \eva{a}{c_2} & : & \bot \\
+            \hline \\
+            \text{goal} & : & \bot \\
+        \end{eqnarray}
+
+        \qed
         \item $Q$ holds, but $P$ doesn't
-        \end{enumerate}
+        \begin{eqnarray}
+            b & : & Q \implies \bot \\
+            c_3 & : & Q \\
+            \eva{b}{c_3} & : & \bot \\
+            \hline \\
+            \text{goal} & : & \bot \\
+        \end{eqnarray}
 
-        Let's consider each situation
-
-        \begin{enumerate}
-          \item $P$ and $Q$ both hold
-            \begin{rclmath}
-                a & : & P \implies \bot \\
-                b & : & Q \implies \bot \\
-                c_1 & : & P \\
-                d_1 & : & Q \\
-                \eva{a}{c_1} & : & \bot \\
-                \hline \\
-                \text{goal} & : & \bot \\
-            \end{rclmath}
-
-            \qed
-          \item $P$ holds, but $Q$ doesn't
-            \begin{rclmath}
-                a & : & P \implies \bot \\
-                c_2 & : & P \\
-                \eva{a}{c_2} & : & \bot \\
-                \hline \\
-                \text{goal} & : & \bot \\
-            \end{rclmath}
-
-            \qed
-          \item $Q$ holds, but $P$ doesn't
-            \begin{rclmath}
-                b & : & Q \implies \bot \\
-                c_3 & : & Q \\
-                \eva{b}{c_3} & : & \bot \\
-                \hline \\
-                \text{goal} & : & \bot \\
-            \end{rclmath}
-
-            \qed
-        \end{enumerate}
-    \end{proof}
-\end{theorem}
+        \qed
+    \end{enumerate}
+\end{proof}
 
 \begin{theorem}[De Morgan's second law, part 1]
     \begin{equation}
         \lnot\parens{P \tor Q} \implies \lnot P \tand \lnot Q
     \end{equation}
 
-    \answergraph{another-theorem-gimped.png}
+    \answergraph{images/another-theorem-gimped.png}
 
     Let's do the unfolding and what not. I did it in the last couple of proofs,
     so I won't bother explaining it here. Well, it would probably be quicker to
@@ -143,11 +141,11 @@ Let's get going! Just for the hell of it, let's work in reverse order.
 
     Which, in silly 4\textsuperscript{th}-grader chalkboard form:
 
-    \begin{rclmath}
+    \begin{eqnarray}
         a & : & \parens{P \tor Q} \implies \bot \\
         \hline \\
         \text{goal} & : & \parens{P \implies \bot} \tand \parens{Q \implies \bot} \\
-    \end{rclmath}
+    \end{eqnarray}
 
     \begin{proof}
         So, we'll have to do the same thing as before, ish. Since we have a
@@ -157,61 +155,61 @@ Let's get going! Just for the hell of it, let's work in reverse order.
         \begin{description}
           \item[Left branch] First, the left branch
 
-            \begin{rclmath}
+            \begin{eqnarray}
                 a & : & \parens{P \tor Q} \implies \bot \\
                 \hline \\
                 \text{goal}_\branchleft & : & P \implies \bot \\
-            \end{rclmath}
+            \end{eqnarray}
 
             We can proceed from here, moving anything before the last $\implies$
             symbol above the line (because we are proving the last thing
             assuming the previous things).
 
-            \begin{rclmath}
+            \begin{eqnarray}
                 a & : & \parens{P \tor Q} \implies \bot \\
                 b & : & P \\
                 \hline \\
                 \text{goal}_\branchleft & : & \bot \\
-            \end{rclmath}
+            \end{eqnarray}
 
             Well, if you'll remember, a proof of $P$ is a valid proof of
             $P \lor Q$. Therefore:
 
-            \begin{rclmath}
+            \begin{eqnarray}
                 a & : & \parens{P \tor Q} \implies \bot \\
                 b & : & P \\
                 \eva{a}{\eva{\branchleft}{b}} & : & \bot \\
                 \hline \\
                 \text{goal}_\branchleft & : & \bot \\
-            \end{rclmath}
+            \end{eqnarray}
 
             Yay! \qed
           \item[Right branch] Yay, now the right branch
 
-            \begin{rclmath}
+            \begin{eqnarray}
                 a & : & \parens{P \tor Q} \implies \bot \\
                 \hline \\
                 \text{goal}_\branchright & : & Q \implies \bot \\
-            \end{rclmath}
+            \end{eqnarray}
 
             Well, now we can move the $Q$ up:
         
-            \begin{rclmath}
+            \begin{eqnarray}
                 a & : & \parens{P \tor Q} \implies \bot \\
                 b_{\branchright} & : & Q \\
                 \hline \\
                 \text{goal}_\branchright & : & \bot \\
-            \end{rclmath}
+            \end{eqnarray}
 
             Then apply $b$: to $a$ to get:
 
-            \begin{rclmath}
+            \begin{eqnarray}
                 a                              & : & \parens{P \tor Q} \implies \bot \\
                 b                              & : & Q \\
                 \eva{a}{\eva{\branchright}{b}} & : & \bot \\
                 \hline \\
                 \text{goal}_\branchright       & : & \bot \\
-            \end{rclmath}
+            \end{eqnarray}
 
             Yay! Theroem proved! \qed
         \end{description}
@@ -242,25 +240,25 @@ Alright, let's get this out of the way
     \begin{proof}
         Let's put this in fourth-grader form:
 
-        \begin{rclmath}
+        \begin{eqnarray}
             a           & : & \parens{P \implies \bot} \tor \parens{Q \implies \bot} \\
             b           & : & P \tand Q \\
             \hline \\
             \text{goal} & : & \bot \\
-        \end{rclmath}
+        \end{eqnarray}
 
         Okay, well, a rule that I haven't mentioned yet is, if you have
         $P \land Q$ as an assumption, you can split that into two
         assumptions. You have a proof that both $P$ and $Q$ hold. Thus, you can
         split that into a proof that $P$ holds and a proof that $Q$ holds.
 
-        \begin{rclmath}
+        \begin{eqnarray}
             a           & : & \parens{P \implies \bot} \tor \parens{Q \implies \bot} \\
             b           & : & P \\
             c           & : & Q \\
             \hline \\
             \text{goal} & : & \bot \\
-        \end{rclmath}
+        \end{eqnarray}
 
         Hmm. Okay, well, remember, if we have a $\lor$ as one of the
         assumptions, we have to consider both branches of it. So....
@@ -269,27 +267,27 @@ Alright, let's get this out of the way
           \item[Left branch of $a$] This is if $P \implies \bot$ holds, but not
             the other.
             
-            \begin{rclmath}
+            \begin{eqnarray}
                 a_\branchleft          & : & P \implies \bot \\
                 b                      & : & P \\
                 c                      & : & Q \\
                 \eva{a_\branchleft}{b} & : & \bot \\
                 \hline \\
                 \text{goal}   & : & \bot \\
-            \end{rclmath}
+            \end{eqnarray}
 
             Yay!! \qed
           \item[Right branch of $a$] This is if $Q \implies \bot$ holds, but not
             the other.
             
-            \begin{rclmath}
+            \begin{eqnarray}
                 a_\branchright          & : & Q \implies \bot \\
                 b                       & : & P \\
                 c                       & : & Q \\
                 \eva{a_\branchright}{c} & : & \bot \\
                 \hline \\
                 \text{goal}   & : & \bot \\
-            \end{rclmath}
+            \end{eqnarray}
 
             Yay!! 
         \end{description}

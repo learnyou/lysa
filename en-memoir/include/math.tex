@@ -6,8 +6,11 @@
 \newcommand{\Z}{\mathbb{Z}}
 
 % Names of categories or types
-\newcommand{\Type}{\mathbf{Type}}
-\newcommand{\flip}{\mathbf{flip}}
+\newcommand{\branchleft}{\text{left}}
+\newcommand{\branchright}{\text{right}}
+\newcommand{\flip}{\text{flip}}
+\newcommand{\join}{\text{join}}
+\newcommand{\Type}{\text{Type}}
 
 % Bracketing
 \newcommand{\mset}[1]{\left\{\, #1 \,\right\}}
@@ -21,13 +24,23 @@
 
 % Other stuff
 \newcommand{\codom}[1]{\eva{\text{codom}}{#1}}
+\newcommand{\comma}{,\,}
 \newcommand{\dom}[1]{\eva{\text{dom}}{#1}}
 \newcommand{\evalat}[2]{#1 \mlist{#2}}
 \let\eva\evalat
 \newcommand{\fall}{\text{ for all }}
 \let\sfall\fall
 \newcommand{\fn}[2]{\mlist{#1} \longmapsto #2}
+\newcommand{\notexists}{\centernot{\exists}}
+\newcommand{\notimpliedby}{\centernot{\impliedby}}
+\let\of\circ
+\newcommand{\semic}{;\;}
+\newcommand{\tand}{\text{ and }}
+\newcommand{\tor}{\text{ or }}
 
 % Theorem-like environments
 \newtheorem{example}{Example}
-\newtheorem{definition}{Definiton}
+\newtheorem{definition}{Definition}
+\newtheorem{lemma}{Lemma}
+\newtheorem{remark}{Remark}
+\newtheorem{theorem}{Theorem}

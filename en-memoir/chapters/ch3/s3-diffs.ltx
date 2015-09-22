@@ -49,12 +49,12 @@ Let's try to prove that:
 \begin{proof}[Double negation, left]
     For all $x$
 
-    \begin{alignmath}{cl}
+    \begin{eqnarray}{cl}
           & X \impliedby \lnot \parens{\lnot X} \\
         = & \lnot \parens{\lnot X} \implies X \\
         = & \lnot \parens{X \implies \bot} \implies X \\
         = & \parens{\parens{X \implies \bot} \implies \bot} \implies X \\
-    \end{alignmath}
+    \end{eqnarray}
 
     We can't Curry the type, because the operators are left-associative. It's
     not provable.
@@ -77,10 +77,10 @@ Remember, this is not provable:
 
 To the untrained eye, this would then mean:
 
-\begin{alignmath}{cl}
+\begin{eqnarray}{cl}
       & \lnot\parens{\fall X \semic X \impliedby \lnot \parens{\lnot X}} \\
     = & \fall X \semic X \notimpliedby \lnot \parens{\lnot X} \\
-\end{alignmath}
+\end{eqnarray}
 
 \xtb{But that's not the case!} There are certainly some cases where
 $X \iff \lnot\lnot X$. But, there are also many cases where that doesn't
