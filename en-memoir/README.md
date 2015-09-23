@@ -95,9 +95,10 @@ I don't have access to them.
 *   **Ubuntu 14.04**
 
         sudo aptitude install texlive-latex-extra texlive-math-extra \
-          texlive-fonts-extra latexmk texlive-bibtex-extra xzdec
+          texlive-fonts-extra latexmk texlive-bibtex-extra xzdec \
+          biber texlive-xetex
         tlmgr init-usertree
-        tlmgr --usermode install newtxsf
+        tlmgr --usermode install newtxsf datetime2 tracklang
 
 
 *   **Windows**: I don't use, nor do I have access to a machine running
