@@ -1,3 +1,6 @@
 [submodule "en/tex/latex-solarized"]
 	path = en/tex/latex-solarized
 	url = https://github.com/jez/latex-solarized.git
+[submodule "en-memoir/tex/latex-solarized"]
+	path = en-memoir/tex/latex-solarized
+	url = https://github.com/jez/latex-solarized.git
