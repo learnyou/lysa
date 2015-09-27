@@ -16,10 +16,10 @@ Occasionally, you'll also see the backwards arrow: $\impliedby$, which means
 
 The expression $a \iff b$ is just shorthand for
 
-\begin{eqnarray}{rc}
+\begin{alignmath}{rc}
     a \implies b & \text{and} \\
     a \impliedby b &
-\end{eqnarray}
+\end{alignmath}
 
 \begin{remark}[Consequence of the Curry-Howard correspondence]
     A value of type $a$, where $a$ is a proposition, is a proof of the
@@ -121,10 +121,10 @@ fairly easily.
 \end{lemma}
 
 \begin{proof}
-    \begin{eqnarray}
-        f: \parens{A \implies B} \implies \parens{\lnot B \implies \lnot A} \\
-        f: \parens{A \implies B} \implies \lnot B \implies \lnot A \\
-    \end{eqnarray}
+    \begin{rclmath}
+        f&:& \parens{A \implies B} \implies \parens{\lnot B \implies \lnot A} \\
+        f&:& \parens{A \implies B} \implies \lnot B \implies \lnot A \\
+    \end{rclmath}
 
     Remember that, for all propositions $X$,
 
@@ -134,17 +134,17 @@ fairly easily.
 
     If we make this substitution on the last two types:
 
-    \begin{eqnarray}
+    \begin{rclmath}
         \lnot B & = & B \implies \bot \\
         \lnot A & = & A \implies \bot \\
-    \end{eqnarray}
+    \end{rclmath}
 
     Then, the type of $f$ becomes:
 
-    \begin{eqnarray}{c}
-        f : \parens{A \implies B} \implies \parens{B \implies \bot} \implies \parens{A \implies \bot} \\
-        f : \parens{A \implies B} \implies \parens{B \implies \bot} \implies A \implies \bot \\
-    \end{eqnarray}
+    \begin{rclmath}
+        f & : & \parens{A \implies B} \implies \parens{B \implies \bot} \implies \parens{A \implies \bot} \\
+        f & : & \parens{A \implies B} \implies \parens{B \implies \bot} \implies A \implies \bot \\
+    \end{rclmath}
 
     Now the proof is as simple as composing the first and second functions:
 
@@ -187,11 +187,11 @@ Here are some examples of proving stuff!
     \begin{proof}
         Substitute $\lnot x \Longrightarrow x \to \bot$.
 
-        \begin{eqnarray}
+        \begin{alignedmath}
             A \implies \lnot \parens{A \to \bot} \\
             A \implies \parens{\parens{A \implies \bot} \implies \bot} \\
             A \implies \parens{A \implies \bot} \implies \bot \\
-        \end{eqnarray}
+        \end{alignedmath}
 
         The proof of this is then
 
