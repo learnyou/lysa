@@ -17,23 +17,23 @@ Remember $\Z$, the integers? If you don't:
 
 Consider this function:
 
-\begin{eqnarray}
+\begin{alignedmath}
     f : \parens{\Z, \Z, \Z} \to \Z \\
     \eva{f}{a,b,c} = a + b + c
-\end{eqnarray}
+\end{alignedmath}
 
 What's $\eva{f}{1,2,4}$? Well,
 
-\begin{eqnarray}
+\begin{rclmath}
     \eva{f}{1,2,4} & = & 1 + 2 + 4 \\
-                   & = & 7 \\
-\end{eqnarray}
+                   & = & 7
+\end{rclmath}
 
 What happens when you only apply one value to $f$?
 
-\begin{eqnarray}
-    \eva{f}{18,b,c} & = & 18 + b + c \\
-\end{eqnarray}
+\begin{equation}
+    \eva{f}{18,b,c} = 18 + b + c
+\end{equation}
 
 I've sort of transformed $f$: instead of being a function that takes three
 integers that adds them together, it's now a function that takes one integer,
@@ -197,10 +197,10 @@ I'm going to write:
 
     A function that does this is:
 
-    \begin{eqnarray}
-        f : a \to \parens{a \to b} \to b \\
-        \eva{f}{x,g} = \eva{g}{x}
-    \end{eqnarray}
+    \begin{rclmath}
+        f & : & a \to \parens{a \to b} \to b \\
+        \eva{f}{x,g} & = & \eva{g}{x}
+    \end{rclmath}
 \end{example}
 
 
@@ -220,10 +220,10 @@ I'm going to write:
 
     The function with this exact type is $\flip$.
 
-    \begin{eqnarray}
+    \begin{rclmath}
         \flip & : & \parens{a \to b \to c} \to b \to a \to c \\
         \eva{\flip}{f,x,y} & = & \eva{f}{y,x} \\
-    \end{eqnarray}
+    \end{rclmath}
 \end{example}
 
 % TODO: Add more exercises
@@ -252,11 +252,11 @@ I'm going to write:
 
         It is usually used in infix form:
 
-        \begin{eqnarray}
-            f : a \to b \\
-            g : b \to c \\
-            g \circ f : a \to c \\
-        \end{eqnarray}
+        \begin{rclmath}
+            f         &:& a \to b \\
+            g         &:& b \to c \\
+            g \circ f &:& a \to c \\
+        \end{rclmath}
 
         Write the $\circ$ function. 
     }

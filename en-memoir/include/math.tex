@@ -18,9 +18,9 @@
 \let\mvec\mlist
 \newcommand{\braces}[1]{\left\{ #1 \right\)}
 \newcommand{\parens}[1]{\left( #1 \right)}
-\newcommand{\comprehension}[2]{\mset{#1\; : \; #2}}
+\newcommand{\comprehension}[2]{\mset{#1\; \mid \; #2}}
 \let\scomp\comprehension
-\newcommand{\compl}[2]{\mlist{#1\; : \; #2}}
+\newcommand{\compl}[2]{\mlist{#1\; \mid \; #2}}
 
 % Other stuff
 \newcommand{\codom}[1]{\eva{\text{codom}}{#1}}
@@ -30,7 +30,7 @@
 \let\eva\evalat
 \newcommand{\fall}{\text{ for all }}
 \let\sfall\fall
-\newcommand{\fn}[2]{\mlist{#1} \longmapsto #2}
+\newcommand{\fn}[2]{\lambda \mlist{#1} \longmapsto #2}
 \newcommand{\notexists}{\centernot{\exists}}
 \newcommand{\notimpliedby}{\centernot{\impliedby}}
 \let\of\circ
@@ -39,8 +39,23 @@
 \newcommand{\tor}{\text{ or }}
 
 % Theorem-like environments
-\newtheorem{example}{Example}
-\newtheorem{definition}{Definition}
-\newtheorem{lemma}{Lemma}
-\newtheorem{remark}{Remark}
-\newtheorem{theorem}{Theorem}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[section]
+\newtheorem{example}{Example}[section]
+
+\theoremstyle{remark}
+\newtheorem{remark}[example]{Remark}
+
+
+\newenvironment{alignmath}[1]
+    {\begin{equation}\begin{tabu}{#1}}
+    {\end{tabu}\end{equation}}
+\newenvironment{alignedmath}
+    {\begin{equation}\begin{tabu}{r}}
+    {\end{tabu}\end{equation}}
+\newenvironment{rclmath}
+    {\begin{equation}\begin{tabu}{rcl}}
+    {\end{tabu}\end{equation}}

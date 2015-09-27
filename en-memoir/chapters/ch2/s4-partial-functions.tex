@@ -130,10 +130,10 @@ This touches upon a cool thing. Let's say we have some function:
 
 The type of $f$ is written in curried form. Thus,
 
-\begin{eqnarray}
+\begin{rclmath}
     \dom{f} & = & A \\
     \codom{f} & = & B \to C \to D \\
-\end{eqnarray}
+\end{rclmath}
 
 If we write $f$'s type in uncurried form:
 
@@ -143,10 +143,10 @@ If we write $f$'s type in uncurried form:
 
 Then
 
-\begin{eqnarray}
+\begin{rclmath}
     \dom{f} & = & \parens{A,B,C} \\
     \codom{f} & = & D \\
-\end{eqnarray}
+\end{rclmath}
 
 So, we have two identical functions with a different domain and codomain. That's
 pretty cool.
@@ -296,10 +296,10 @@ range, there is exactly one value $x$ such that $\eva{f}{x} = y$
 
     Here's my version:
 
-    \begin{eqnarray}
+    \begin{alignedmath}
         f : \N \to \scomp{x : \N}{x < 10} \\
         \eva{f}{x} = x \mod{10} \\
-    \end{eqnarray}
+    \end{alignedmath}
 
     Okay, what the hell is mod?
 
@@ -318,11 +318,11 @@ range, there is exactly one value $x$ such that $\eva{f}{x} = y$
       the middle just means ``such that'', just as it does in the comprehension
       notation.}
 
-    \begin{eqnarray}
+    \begin{alignedmath}
         f : \N \to \N \\
         \eva{f}{0} = 44 \\
         \eva{f}{x} \mid x > 0 = x + 4 \\
-    \end{eqnarray}
+    \end{alignedmath}
 
     However, I thought of the modulo example first, and it seems a bit more
     likely to happen in the real world.
@@ -332,10 +332,10 @@ range, there is exactly one value $x$ such that $\eva{f}{x} = y$
     \Exercise{Come up with a partial function.}
     \Answer{Many many correct answers here. The one I thought of is:
 
-      \begin{eqnarray}
+      \begin{alignedmath}
           f : \N \to \Q \\
           \eva{f}{x} = \frac{2}{x} \\
-      \end{eqnarray}
+      \end{alignedmath}
     }
 
     \Exercise{Come up with a total function that is injective but not
@@ -344,10 +344,10 @@ range, there is exactly one value $x$ such that $\eva{f}{x} = y$
     \Answer{Again, there are a lot of correct answers here, but the one I came
       up with is:
 
-      \begin{eqnarray}
+      \begin{alignedmath}
           f : \N \to \N \\
           \eva{f}{x} = 2x \\
-      \end{eqnarray}
+      \end{alignedmath}
 
       Remember, $xy$ is shorthand for multiplying $x$ and $y$.
     }
@@ -355,9 +355,9 @@ range, there is exactly one value $x$ such that $\eva{f}{x} = y$
     \Exercise{Come up with a total bijective function.}
     \Answer{Here's mine:
 
-      \begin{eqnarray}
+      \begin{equation}
           \eva{f}{x} = x
-      \end{eqnarray}
+      \end{equation}
 
       It's so simple, it should be cheating. But it's not.
 

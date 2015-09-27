@@ -25,11 +25,10 @@ that we are creating a function, not just an ordinary value.\footnote{Although a
 Immediately following the $\lambda$ is a list of inputs to the function. In this
 case, there is only one, which is called $x$. If there was more than one input,
 they would be separated by commas. After the list of variables, there's a
-rocket: $\Longrightarrow$.
+weirdly shaped arrow: $\mapsto$. It should be read as ``maps to''.
 
-The portion after the rocket indicates what the function does to the
-inputs. This is called, uninterestingly enough, the \term{output} of the
-function.
+The portion after the arrow indicates what the function does to the inputs. This
+is called, uninterestingly enough, the \term{output} of the function.
 
 That's all a function is: input and output. You've likely forgotten what the
 function is, so I'll write it again:
@@ -57,10 +56,10 @@ That is to be read ``$f$ of $x$ equals $x$ plus $3$''.
 
 What's the type of $f$?
 
-\begin{eqnarray}
+\begin{alignedmath}
     f : \N \to \N \\
-    \eva{f}{x} = x + 3 \\
-\end{eqnarray}
+    \eva{f}{x} = x + 3
+\end{alignedmath}
 
 Remember that $\N = \mset{0,1,2,3,4,5,6,\dots}$.
 
@@ -69,10 +68,10 @@ type $\N$, and spits back out something of type $\N$.
 
 So, what happens when we feed $80$ to $f$?
 
-\begin{eqnarray}
+\begin{rclmath}
     \eva{f}{80} & = & 80 + 3 \\
                 & = & 83 \\
-\end{eqnarray}
+\end{rclmath}
 
 Yay! This math stuff isn't hard!
 
@@ -86,12 +85,12 @@ $3$.
 You would therefore be more correct in saying that $f$'s output type is the set
 of numbers greater than (or equal to) $3$.
 
-\begin{eqnarray}
-    f : \N \to \comprehension{z : \N}{z \ge 3} \\
-    \eva{f}{x} = x + 3 \\
-\end{eqnarray}
+\begin{rclmath}
+    f & : & \N \to \comprehension{z : \N}{z \ge 3} \\
+    \eva{f}{x} & = & x + 3 \\
+\end{rclmath}
 
-\xtb{What the hell is that curly brace nonsense?}
+\xtb{What is that curly brace nonsense?}
 
 It's called a \term{comprehension}.
 
@@ -176,11 +175,11 @@ Let's look through some more comprehensions.
 
    This is a function that gives the $n$th Fibonacci number:
 
-   \begin{eqnarray}
-       \eva{f}{0} = 1 \\
-       \eva{f}{1} = 1 \\
-       \eva{f}{n} = \eva{f}{n - 1} + \eva{f}{n - 2}
-   \end{eqnarray}
+   \begin{rclmath}
+       \eva{f}{0} &=& 1 \\
+       \eva{f}{1} &=& 1 \\
+       \eva{f}{n} &=& \eva{f}{n - 1} + \eva{f}{n - 2}
+   \end{rclmath}
 
    When indexing items, you always start at $0$. It's just a thing.
 
