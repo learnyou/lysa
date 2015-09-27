@@ -5,6 +5,23 @@
 \input{include/text-formatting.tex}
 \input{include/math.tex}
 
+% Add yourself here if you want to be an author
+\author{
+    \anauthor{Peter Harpending}{peter@harpending.org}
+}
+
+% Add yourself here if you want to be listed as an ``editor or noted
+% contributor''
+\newcommand{\editors}{
+    \aneditor{Ng Wei En}{wei2912.supp0rt@gmail.com}
+    \aneditor{Randy Brown}{randy@beingbrown.net}
+    \aneditor{Anton Golov}{jesyspa@gmail.com}
+    \aneditor{Ben Z RF}{benzrf@benzrf.com}
+    \aneditor{Alexander G Bauer}{sasha@crofter.org}
+    \aneditor{Nick Chambers}{DTSCode@gmail.com}
+}
+
+
 % Bibliography
 \addbibresource{lysa.bib}
 \nocite{*}
@@ -15,45 +32,46 @@
 \topskip0pt
 \vspace*{\fill}
 \title{Learn You Some Algebras for Glorious Good!}
-\author{
-    \anauthor{Alexander G Bauer}{sasha@crofter.org}
-    \anauthor{Randy Brown}{randy@beingbrown.net}
-    \anauthor{Nick Chambers}{DTSCode@gmail.com}
-    \anauthor{Ng Wei En}{wei2912.supp0rt@gmail.com}
-    \anauthor{Anton Golov}{jesyspa@gmail.com}
-    \anauthor{Peter Harpending}{peter@harpending.org}
-    \anauthor{Ben Z RF}{benzrf@benzrf.com}
-}
 \maketitle
+
 \begin{center}
     \vspace{-1ex}
     \large\input{version.tex}
 \end{center}
 \vspace*{\fill}
-\newpage
-\topskip0pt
-\vspace*{\fill}
 
+% Copyright page
+\newpage
+\vspace*{\fill}
+\topskip0pt
 \begin{center}
     \inclgraph{images/cc-by-sa.png}
-    \bigskip
+\end{center}
+
+{ \footnotesize
+    \noindent
 
     Copyright \copyright 2014-2015, various authors and contributors
-
-    \bigskip
 
     Except where otherwise specified, this work, and all other works herein, are
     licensed under the Creative Commons Attribution-ShareAlike 4.0 International
     License. To view a copy of this license, visit
     \btrurl{https://creativecommons.org/licenses/by-sa/4.0/}.
 
-    \bigskip
     \noindent\hrulefill
-    \bigskip
+
+    \sss*{Editors and Noted Contributors}
+
+    \begin{tabu}{ll}
+        \editors
+    \end{tabu}
+
+    \noindent\hrulefill
 
     \xtb{Please keep in mind that this book is far from finished, and what you
       are reading is an extremely rough and unfinished draft.}
-\end{center}
+
+}
 \vspace*{\fill}
 \newpage
 
