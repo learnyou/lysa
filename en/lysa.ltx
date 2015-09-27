@@ -29,7 +29,7 @@
 \usepackage{amssymb}
 \usepackage{amsthm}
 \usepackage[toc,page]{appendix}
-\usepackage[backend=bibtex]{biblatex}
+\usepackage[backend=bibtex,style=authoryear]{biblatex}
 \usepackage{centernot}
 \usepackage{datetime}
 \usepackage[mathcal,mathscr]{euscript}
@@ -341,6 +341,7 @@
 \newcommand{\join}{\text{join}}
 \newcommand{\branchleft}{\text{left}}
 \newcommand{\branchright}{\text{right}}
+\renewcommand{\cite}{\parencite}
 
 % ASIDE BOX, stolen from https://github.com/jambonrose/latex-code-example/blob/master/0_preamble.tex
 % 
@@ -495,20 +496,6 @@ Here are my recommendations, in no particular order:
 Okay, I now have a pile of books on my desk so I can write down their
 information. The pile just collapsed and terrified my cat, so I think that's
 enough books for now.
-
-% Citations
-% \nocite{lyah}
-% \nocite{jobs-programming}
-% \nocite{w-functions}
-% \nocite{landau-analysis}
-% \nocite{expeditions}
-% \nocite{axler-linalg}
-% \nocite{taylor-analysis}
-% \nocite{hungerford}
-% \nocite{mathstats}
-% \nocite{lang-linalg}
-% \nocite{reid-commalg}
-% \nocite{jech-set-theory}
 
 \begin{appendices}
 
