@@ -1,0 +1,115 @@
+\ch{Sets}
+
+So, I lied to you a little bit. Mathematicians don't usually use types. Some do,
+but most don't. \term{Sets} are almost the same thing as types, and provide the
+same abstraction capabilities. People tend to confuse sets and lists, so I
+started with types, because the distinction is much clearer.
+
+Informally, a set is a bunch of objects, with no particular order or notion of
+duplication. That sounds like nonsense. In less nonsensical form:
+
+\begin{equation}
+    \mset{1,2,3} \text{ is a set.}
+\end{equation}
+
+Duplicate elements are not counted separately, so
+
+\begin{equation}
+    \mset{1,1,2,3}
+\end{equation}
+
+is the same set as $\mset{1,2,3}$. The order in which elements appear does not
+matter, so 
+
+\begin{equation}
+    \mset{3,1,2,1,2}
+\end{equation}
+
+is also the same set.
+
+Well, that's half true. Some sets are ordered, but every set does not have an
+ordering.
+
+Instead of the colon, the symbol $\in$ is used to indicate that some item is in
+a set.
+
+Remember the natural numbers, $\N$? If not,
+
+\begin{equation}
+    \N = \mset{0,1,2,3,4,5,\dots}
+\end{equation}
+
+All of arithmetic can be formalized with these 5 axioms. \cite{taylor-analysis, landau-analysis}
+
+\begin{enumerate}
+  \item $0$ is a natural number.
+  \item For every natural number $n \in \N$, there is an immediate successor
+    $\eva S n \in \N$.
+  \item If $\eva S n = \eva S m$, then $m = n$. (In our previous terms, $S$ is
+    an injection).
+  \item There is no number $n \in \N$ such that $\eva S n = 0$
+  \item This is a complicated expression:
+
+    \begin{itemize}
+      \item If there is a set $K$ such that
+      \item $0 \in K$,
+      \item the fact that $n \in K$ implies that $\eva S n \in K$,
+      \item then $K$ contains every natural number.
+    \end{itemize}
+\end{enumerate}
+
+The formalization of arithmetic from these axioms is incredibly boring, so I
+won't cover it. If you really want to know about it, I recommend this book:
+\fullcite{landau-analysis}.
+
+The fifth axiom in that list sounds like nonsense, but it is actually incredibly
+important. It sets up the basic idea of \term{mathematical induction}. The idea
+is this:
+
+\begin{itemize}
+  \item Say you have some proposition, and the proposition is dependent on a
+    number.
+  \item For instance, $0 \le x$ is dependent on whatever $x$ is.
+  \item If you know the proposition is true for $0$, and
+  \item The fact that the proposition is true for some natural number $n$,
+    implies that the proposition is true for $n$'s successor $\eva S n$. That is
+
+    \begin{equation}
+        \eva P n \implies \eva{P}{\eva S n}
+    \end{equation}
+  \item Then the proposition is true for every natural number.
+\end{itemize}
+
+It's an incredibly important proof technique.
+
+1. Null set
+2. Infinite sets
+3. Sets containing other sets.
+4. Comprehensions
+5. Set equality
+6. equivalence relations
+7. Unions, intersections, subtractions, complements
+8. Power sets
+9. Cardinality
+10. Russell's paradox
+11. ZF
+12. Axiom of choice and Zorn's lemma
+13. The notion of proper classes
+
+Next section
+
+Different things that sets can do
+
+1. Monoids, semigroups, groups, magmas
+2. Rings
+3. Fields
+
+Next section
+
+Vector spaces + linear algebra
+
+Next section
+
+Calculus
+
+\input{chapters/ch4/s1-formalization.tex}

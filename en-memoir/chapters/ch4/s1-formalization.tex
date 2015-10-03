@@ -1,0 +1,116 @@
+\s{Formalization of set theory}
+
+This section outlines, but does not dive into the formalization of set theory.
+
+\ss{Sets of sets}
+
+I should mention the empty set, called $\nil$. The set $\nil$ is a set with no
+elements. It's not all that interesting.
+
+We can also have sets containing other sets:
+
+\begin{equation}
+    \mset{\nil}
+\end{equation}
+
+As demonstrated by $\N$, we can have infinite sets. We can also have infinite
+sets that contain themselves:
+
+\begin{alignmath}{rl}
+    \{ & \nil \\
+    ,  & \mset{\nil} \\
+    ,  & \begin{tabu}{rl}
+             \{ & \nil \\
+             ,  & \mset{\nil} \\
+             \} & \\
+         \end{tabu} \\
+    ,  & \begin{tabu}{rl}
+             \{ & \nil \\
+             ,  & \mset{\nil} \\
+             ,  & \mset{\nil, \mset{\nil}} \\
+             \} & \\
+         \end{tabu} \\
+    ,  & \begin{tabu}{rl}
+             \{ & \nil \\
+             ,  & \mset{\nil} \\
+             ,  & \mset{\nil, \mset{\nil}} \\
+             ,  & \begin{tabu}{rl}
+                      \{ & \nil \\
+                      ,  & \mset{\nil} \\
+                      ,  & \mset{\nil, \mset{\nil}} \\
+                      \} & \\
+                  \end{tabu} \\
+             \} & \\
+         \end{tabu} \\
+    ,  & \dots \\
+    \} &  \\
+\end{alignmath}
+
+Take a minute to try to wrap your head around that set. Then, take an hour to
+try to realize that the set contains itself. It's not something I can really
+explain, you sort of have to realize it on your own.
+
+\ss{Set comprehensions}
+
+Remember the ``type bracket'' notation?
+
+\begin{equation}
+    \scomp{x \in N}{x \ge 4} = \mset{4,5,6,7,\dots}
+\end{equation}
+
+With sets, that notation is called \term{set comprehension} or \term{set
+  builder} notation.
+
+There's a slight little problem with that notation. Let's consider the set of
+all sets, and call it $S$.
+
+We can sort of do this wacky thing. Let's consider all the sets that contain
+themselves:
+
+\begin{equation}
+    \scomp{x \in S}{S \in S}
+\end{equation}
+
+That looks weird, but it isn't intrinsically problematic. Here is where the
+issue turns up:
+
+\begin{equation}
+    T = \scomp{x \in S}{S \notin S}
+\end{equation}
+
+So, $T$ the set of all sets that don't contain themselves. It is slightly wacky,
+but mostly straightforward.
+
+Is $T \in T$?
+
+Well, that's certainly a weird question. $T$ is the set of sets that don't
+contain themselves, so if $T$ contained itself, it would be a
+contradiction. Therefore, $T \notin T$.
+
+Now we have that $T \notin T$, and therefore that $T \in T$.
+
+This is a problem, where we can conclude two contradictory things.
+
+\pg{So, what's the solution?} Whoa, there kid, don't get ahead of yourself.
+
+This paradox was first proposed by a philosopher slash mathematician named
+Bertrand Russell. It's therefore called ``Russell's paradox''. It highlighted
+the need for a formal axiomization of set theory. Previously, mathematicians had
+just sort of haphazardly discussed the notion of sets without formally defining
+the concept.
+
+\begin{figure}[ht]
+    \centering
+    \inclgraph{images/russell.png}
+    \caption{Bertrand Russell. Source: \cite{russellpic}.}
+\end{figure}
+
+There are a number of axiomizations of set theory. The most popular is called
+Zermelo-Fraenkel, or simply ZF:
+
+\begin{description}
+  \item[1. Axiom of extensionality] If two sets have the same elements, they are
+    equal.
+  \item[2. Axiom of power set] For every set $X$, there is a ``power set'',
+    denoted $2^X$.
+\end{description}
