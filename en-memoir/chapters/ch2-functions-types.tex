@@ -1,6 +1,46 @@
-\chapter{Functions and types}
+\chapter{Sets, Relations, and Functions}
 \label{ch:functions}
 \answergraph{images/lambda-angry-gimped.png}
+
+The first question addressed in a math class is often ``what is math?''. There
+are a number of correct answers to this, but the most common is ``the study of
+patterns''. I personally like that definition. It's useful to distinguish purely
+mathematical notions of patterns from boring numerical calculations. That's what
+abstract algebra is all about, and what this book is about: showing the cool
+patterns that show up in math. It might be useful to show how said patterns
+apply to things in the real world, but said applications are usually far less
+interesting than the pattern itself.
+
+Before I can show you what the patterns are, the two of us have to develop some
+tools for expressing those patterns. Well, actually, the tools were developed a
+long time ago, I'm just showing you. You know what, never mind, let's just get
+started.
+
+The first tool is the \xti{set}. A set is a collection of things. The things in
+a set are called ``elements'' of the set. Sets do not have any intrinsic order,
+which means that if you write down every element of a set, the order in which
+you write the elements down doesn't matter. This means, for instance, that
+
+\begin{equation}
+  \mset{1,2,3,4} = \mset{2,4,3,1}
+\end{equation}
+
+Oh, yeah, I should probably mention that sets with only a few elements are often
+denoted by just listing the elements between curly braces, separated by
+commas. In addition, sets don't have any notion of multiplicity, meaning that
+the number of times an element appears is irrelevant. This means
+
+\begin{equation}
+  \mset{1,2,3,4} = \mset{2,4,3,1,2,1,3,3,4,1,2}
+\end{equation}
+
+This means, equivalence on sets is defined in a much simpler way. That is, two
+sets $A$ and $B$ are equal if
+
+\begin{alignmath}{c}
+  \forall x \in A, x \in B; \text{ and} \\
+  \forall x \in B, x \in A.
+\end{alignmath}
 
 There are two basic tools in abstract math. These tools are general enough to
 allow you to express almost any idea. Remember, the goal of this book is to
